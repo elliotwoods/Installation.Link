@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\plugins\VVVV.Nodes.KC.DK001.Recorder\test.v4p" filename="C:\jobs\kimchi and chips\plugins\VVVV.Nodes.KC.DK001.Recorder\test.v4p" systemname="test">
+   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Nodes.KC.DK001.Recorder\test.v4p" filename="C:\jobs\kimchi and chips\plugins\VVVV.Nodes.KC.DK001.Recorder\test.v4p" systemname="test">
    <BOUNDS height="9885" left="6270" top="1695" type="Window" width="12915">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="%VVVV%\plugins\VVVV.Nodes.CLEye.dll" id="0" nodename="ListDevices (CLEye)" systemname="ListDevices (CLEye)">
@@ -39,7 +39,7 @@
    </PIN>
    <PIN pinname="Path" visible="1">
    </PIN>
-   <PIN pinname="Count" slicecount="1" values="500">
+   <PIN pinname="Count" slicecount="1" values="120">
    </PIN>
    </NODE>
    <LINK dstnodeid="2" dstpinname="CameraGUID" srcnodeid="1" srcpinname="Output">

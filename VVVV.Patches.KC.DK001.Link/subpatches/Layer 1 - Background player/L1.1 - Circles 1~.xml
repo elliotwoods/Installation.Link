@@ -1,0 +1,255 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta24.1.dtd" >
+   <PATCH nodename="C:\vvvv\design korea\final patches\subpatches\Layer 1 - Background player\L1.1 - Circles 1.v4p">
+   <BOUNDS height="10695" left="855" top="2625" type="Window" width="13800">
+   </BOUNDS>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="1">
+   <BOUNDS type="Node" left="3855" top="7035" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3855" top="7035" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="8490" top="9615" width="215" height="160">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture out|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2">
+   <BOUNDS type="Node" left="3855" top="1110" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3855" top="1110" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7020" top="9705" width="215" height="160">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="iScene">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="3">
+   <BOUNDS type="Node" left="4770" top="2070" width="2295" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4770" top="2070" width="2295" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|//when should it be preloaded|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="EQ (Value)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="4605" top="2475" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4605" top="2475" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7575" top="9510" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="5.5">
+   </PIN>
+   <PIN pinname="Epsilon" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Input 1">
+   </LINK>
+   <NODE id="7" nodename="IOBox (String)" componentmode="InABox" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="6720" top="2925" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6720" top="2925" width="3735" height="240">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" pintype="Input" visible="1" values="..\media\bg_circle1\background_circle10001.png">
+   </PIN>
+   <BOUNDS type="Window" left="9405" top="9585" width="215" height="160">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="|First in sequence|">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="Size" pintype="Configuration" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Show Grid" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Character Encoding" pintype="Configuration" slicecount="1" values="ANSI">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE id="8" nodename="IOBox (String)" componentmode="InABox" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="5670" top="3735" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5670" top="3735" width="3735" height="240">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" pintype="Input" visible="1" values="..\media\bg_circle1\background_circle10030.png">
+   </PIN>
+   <BOUNDS type="Window" left="9405" top="9585" width="215" height="160">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="|Dummy load|">
+   </PIN>
+   <PIN pinname="SliceCount Mode" pintype="Configuration" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Columns" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Pages" pintype="Configuration" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show SliceIndex" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Font" pintype="Configuration" slicecount="1" values="|Lucida Sans Unicode|">
+   </PIN>
+   <PIN pinname="Size" pintype="Configuration" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Show Grid" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Character Encoding" pintype="Configuration" slicecount="1" values="ANSI">
+   </PIN>
+   <PIN pinname="Show Characters [#0..#32,#127]" pintype="Configuration" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="SliceOffset" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE nodename="Switch (String Input)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="4605" top="4380" width="2160" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4605" top="4380" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5295" top="11055" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="EQ (Value)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="5205" top="2475" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5205" top="2475" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7575" top="9510" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Epsilon" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Input 1" linkstyle="VHV">
+   <LINKPOINT x="4650" y="1913">
+   </LINKPOINT>
+   <LINKPOINT x="5205" y="1913">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="OR (Boolean)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="4590" top="2985" width="690" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4590" top="2985" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="9480" top="5970" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="12" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output" dstnodeid="12" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Output" dstnodeid="10" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output String" dstnodeid="10" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Output String" dstnodeid="10" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="..\..\modules\Image cache runner (EX9.Texture).v4p" componentmode="Hidden" id="14" path="C:\vvvv\design korea\final patches\modules\">
+   <BOUNDS type="Node" left="2610" top="5205" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Run" visible="1">
+   </PIN>
+   <PIN pinname="Current time" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output" dstnodeid="14" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output" dstnodeid="14" dstpinname="Run" linkstyle="Bezier">
+   <LINKPOINT x="5205" y="3975">
+   </LINKPOINT>
+   <LINKPOINT x="3975" y="3975">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="Timing (Debug)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="2025" top="4560" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2025" top="4560" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3885" top="7395" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Up Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Windows Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Timer Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Update View Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Prepare Graph Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Render Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Present Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Network Sync Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Debug Output Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Reset Cache Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Total Clock Filter Time" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Total Runnning Time" visible="1" pintype="Output">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" debug="1">
+   <BOUNDS type="Node" left="5385" top="6600" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5385" top="6600" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Window" left="6885" top="9705" width="215" height="160">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Total Runnning Time" dstnodeid="14" dstpinname="Current time">
+   </LINK>
+   </PATCH>

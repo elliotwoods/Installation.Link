@@ -368,12 +368,18 @@ namespace CLEyeMulticam
         #endregion
 
         #region [ Methods ]
-        public CLEyeCameraDevice()
+        public CLEyeCameraDevice(CLEyeCameraResolution resolution,
+            CLEyeCameraColorMode colorMode, int fps)
         {
             // set default values
             Framerate = 30;
-            ColorMode = CLEyeMulticam.CLEyeCameraColorMode.CLEYE_COLOR_PROCESSED;
-            Resolution = CLEyeMulticam.CLEyeCameraResolution.CLEYE_VGA;
+            ColorMode = colorMode;
+            Resolution = resolution;
+        }
+        public CLEyeCameraDevice() :
+            this(CLEyeMulticam.CLEyeCameraResolution.CLEYE_VGA, CLEyeMulticam.CLEyeCameraColorMode.CLEYE_COLOR_PROCESSED, 30)
+        {
+            
         }
 
         ~CLEyeCameraDevice()
@@ -415,6 +421,7 @@ namespace CLEyeMulticam
             {
                 CLEyeCameraStop(_camera);
                 CLEyeDestroyCamera(_camera);
+                _camera = IntPtr.Zero;
             }
         }
 
@@ -422,6 +429,11 @@ namespace CLEyeMulticam
         {
             if (_camera != IntPtr.Zero)
                 CLEyeCameraGetFrame(_camera, pixels, timeout);
+        }
+
+        public void setLED(bool isOn)
+        {
+            CLEyeCameraLED(_camera, isOn);
         }
         #endregion
     }

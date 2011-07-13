@@ -75,7 +75,8 @@ namespace VVVV.Nodes.CLEye
         private double           FRecordProgress = 0;
 
         //camera
-        CLEyeCameraDevice FCam = new CLEyeCameraDevice();
+        CLEyeCameraDevice FCam = new CLEyeCameraDevice(CLEyeCameraResolution.CLEYE_QVGA,
+            CLEyeCameraColorMode.CLEYE_COLOR_PROCESSED, 30);
         Guid        FGuid;
         bool        FCameraCreated = false;
         IntPtr      FCamData = new IntPtr();
@@ -84,6 +85,7 @@ namespace VVVV.Nodes.CLEye
         //threads
         Thread      FCaptureThread;
         Thread      FSaveThread;
+        bool        FIsClosing = false;
 
         //current values
         int iRecordFrame=0;
@@ -98,6 +100,8 @@ namespace VVVV.Nodes.CLEye
         double Ffps = 30.0;
         string FPath;
         string FPatchPath;
+        int FInputWidth = 320;
+        int FInputHeight = 240;
 
         enum DK_state { Preview, Recording, Playing };
         DK_state currentState = DK_state.Preview;
@@ -174,7 +178,15 @@ namespace VVVV.Nodes.CLEye
 
         ~DKRecorderNode()
         {
+            FIsClosing = true;
+            if (FCaptureThread != null)
+                FCaptureThread.Join(200);
+            
             closeCamera();
+
+            if (FSaveThread != null)
+                FSaveThread.Join(600);
+
         }
         #endregion
 
@@ -261,7 +273,7 @@ namespace VVVV.Nodes.CLEye
                     Directory.CreateDirectory(FPath);
             }
 
-            if (this.FPinInGUID.PinIsChanged)
+            if (this.FPinInGUID.PinIsChanged && this.FPinInGUID.SliceCount > 0)
             {
                 //
                 // CHANGE GUID
@@ -272,9 +284,10 @@ namespace VVVV.Nodes.CLEye
                 FPinInGUID.GetString(0, out strGUID);
 
                 if (strGUID != null && strGUID.Length > 5)
+                {
                     FGuid = new Guid(strGUID);
-
-                initCamera();
+                    initCamera();
+                }
             }
 
             if (this.FPinInRecord.PinIsChanged)
@@ -298,6 +311,8 @@ namespace VVVV.Nodes.CLEye
                         FPinOutRecorded.SetValue(0, 0);
                         FPinOutProgress.SetValue(0, 0);
                         FDebugString="";
+
+                        FCam.setLED(true);
                     }
                 }
             }
@@ -462,7 +477,7 @@ namespace VVVV.Nodes.CLEye
             FCam.Start(FGuid);
 
             //create memory for image
-            FCamData = Marshal.AllocCoTaskMem(640*480*4);
+            FCamData = Marshal.AllocCoTaskMem(FInputWidth * FInputHeight * 4);
             FCamDataResized = Marshal.AllocCoTaskMem(resolution * resolution * 4);
             FCameraCreated = true;
 
@@ -485,10 +500,10 @@ namespace VVVV.Nodes.CLEye
 
         private void getFrameThread()
         {
-            while (FCameraCreated)
+            while (FCameraCreated && !FIsClosing)
             {
                 FCam.getPixels(FCamData, 100);
-                resizeImage(FCamData, FCamDataResized, 640, 480, resolution, resolution);
+                resizeImage(FCamData, FCamDataResized, FInputWidth, FInputHeight, resolution, resolution);
 
                 if (currentState == DK_state.Recording)
                 {
@@ -512,6 +527,7 @@ namespace VVVV.Nodes.CLEye
                         isRecorded = true;
                         FRecordProgress = 1.0;
                         currentState = DK_state.Playing;
+                        FCam.setLED(false);
                         iPlayFrame = 0;
                     }
                 }
@@ -545,19 +561,36 @@ namespace VVVV.Nodes.CLEye
 
         private void fnSaveThread()
         {
-            //check if we haven't recorded
-            //should never need this
-            if (!isRecorded)
+            //check if we haven't recorded (then cant save!)
+            if (!isRecorded || FPath == null)
                 return;
+
+            String fullPath = FPatchPath + "\\" + FPath;
+
+            //check if folder exists
+            //if not create it
+            while (Directory.Exists(fullPath))
+                fullPath = fullPath + "0";
+
+            Directory.CreateDirectory(fullPath);
+            
 
             Bitmap bmpSaver;
             //loop images
+            string padString;
             for (int i = 0; i < countTarget; i++)
             {
+                padString = i.ToString();
+                while (padString.Length < 4)
+                    padString = "0" + padString;
+
                 bmpSaver = new Bitmap(resolution, resolution, resolution*4, PixelFormat.Format32bppRgb, FRecordedData[i]);
-                bmpSaver.Save(FPatchPath + "\\" + FPath + "\\" + i.ToString() + ".png");
+                bmpSaver.Save(fullPath + "\\" + padString + ".png");
                 bmpSaver.Dispose();
+                Thread.Sleep(10);
             }
+
+            GC.Collect();
 
             isSaved = true;
             

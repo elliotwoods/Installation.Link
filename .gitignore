@@ -1,3 +1,6 @@
 bin
 obj
 *.ncb
+VVVV.Patches.KC.DK001.Link/media/*
+VVVV.Patches.KC.DK001.Link/recordings/*
+Thumbs.db

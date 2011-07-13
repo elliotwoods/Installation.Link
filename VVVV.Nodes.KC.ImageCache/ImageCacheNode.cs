@@ -52,6 +52,7 @@ namespace VVVV.Nodes.ImageCache
 
 		private IValueIn FPinInIndex;
         private IStringIn FPinFilename;
+        private IValueIn FPinInLoad;
 
         private IValueOut FPinOutCount;
         private IValueOut FPinOutLoaded;
@@ -62,8 +63,9 @@ namespace VVVV.Nodes.ImageCache
 		private Dictionary<int, Texture> FTextures = new Dictionary<int, Texture>();
 
         //loaded images
+        private bool            allowLoad = false;
         private List<IntPtr>    FData = new List<IntPtr>();
-        private int FWidth, FHeight;
+        private int             FWidth, FHeight;
         private int             FWidthAllocated=0, FHeightAllocated=0;
         private bool            isValidIamge = false;
         private int             nSlots=200;
@@ -102,12 +104,17 @@ namespace VVVV.Nodes.ImageCache
             this.FHost.CreateValueConfig("Allocated", 1, null, TSliceMode.Single, TPinVisibility.True, out FConfigAllocated);
             FConfigAllocated.SetSubType(1, 1e4, 1, 200, false, false, true);
 
+
 			//inputs
 			this.FHost.CreateValueInput("Index", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinInIndex);
             this.FPinInIndex.SetSubType(0, double.MaxValue, 1, 0, false, false, true);
 
             this.FHost.CreateStringInput("Filename", TSliceMode.Single, TPinVisibility.True, out FPinFilename) ;
             this.FPinFilename.SetSubType("", true);
+
+            this.FHost.CreateValueInput("Load", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinInLoad);
+            this.FPinInLoad.SetSubType(0, 1, 1, 0, false, true, false);
+
 
             //outputs
             this.FHost.CreateTextureOutput("Texture", TSliceMode.Single, TPinVisibility.True, out this.FPinOutTexture);
@@ -139,7 +146,6 @@ namespace VVVV.Nodes.ImageCache
             double dblSlots;
             FConfigAllocated.GetValue(0, out dblSlots);
             nSlots = System.Convert.ToInt32(dblSlots);
-            Allocate();
         }
         
 		#endregion
@@ -184,6 +190,34 @@ namespace VVVV.Nodes.ImageCache
 		public void Evaluate(int SpreadMax)
 		{
 
+            if (this.FPinInLoad.PinIsChanged)
+            {
+                double dblAllowLoad;
+                FPinInLoad.GetValue(0, out dblAllowLoad);
+
+                allowLoad = dblAllowLoad > 0.5;
+
+                //if we've got a file waiting to be loaded
+                //then lets load it now
+                if (isImageFile(fnameFirst) && allowLoad)
+                {
+                    if (loadThread == null)
+                    {
+                        loadThread = new Thread(fnLoadThread);
+                        loadThread.Start();
+                    }
+                    else
+                    {
+                        if (loadThread.IsAlive)
+                            loadThread.Join();
+                        loadThread = new Thread(fnLoadThread);
+                        loadThread.Start();
+                    }
+
+                    FPinOutLoaded.SetValue(0, 0);
+                }
+            }
+
             if (this.FPinInIndex.PinIsChanged)
             {
                 double dblIndex;
@@ -203,7 +237,7 @@ namespace VVVV.Nodes.ImageCache
             }
 
 
-            if (this.FPinFilename.PinIsChanged)
+            if (this.FPinFilename.PinIsChanged && this.FPinFilename.SliceCount > 0)
             {
                 string fnamein;
                 FPinFilename.GetString(0, out fnamein);
@@ -211,7 +245,7 @@ namespace VVVV.Nodes.ImageCache
                 isLoading = true;
                 fnameFirst = fnamein;
 
-                if (isImageFile(fnameFirst))
+                if (isImageFile(fnameFirst) && allowLoad)
                 {
                     if (loadThread == null)
                     {
@@ -230,10 +264,11 @@ namespace VVVV.Nodes.ImageCache
                 }
             }
 
-            if (!isLoading && loadThread.IsAlive)
-            {
-                loadThread.Join();
-            }
+            if (loadThread != null)
+                if (!isLoading && loadThread.IsAlive)
+                {
+                    loadThread.Join();
+                }
 
             double dblCount = System.Convert.ToInt32(count);
             FPinOutCount.SetValue(0, dblCount);
@@ -383,7 +418,8 @@ namespace VVVV.Nodes.ImageCache
                                 paddedTrunk = "0" + paddedTrunk;
 
                             fnameCurrentFrame = pathName + "\\" + paddedTrunk.Substring(0, paddedTrunk.Length - sequenceNumber.Length) + sequenceNumber + extension;
-                            
+
+                            Thread.Sleep(5);
                         }
                     }
                 }

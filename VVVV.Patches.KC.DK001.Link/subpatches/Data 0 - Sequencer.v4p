@@ -1,0 +1,173 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
+   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Data 0 - Sequencer.v4p">
+   <BOUNDS height="11700" left="1470" top="375" type="Window" width="18180">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="1" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="1140" top="1740" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="9330" left="1140" top="1740" type="Box" width="975">
+   </BOUNDS>
+   <BOUNDS height="160" left="3435" top="7065" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="3" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="645" top="1740" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="9345" left="645" top="1740" type="Box" width="450">
+   </BOUNDS>
+   <BOUNDS height="160" left="2355" top="8940" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="2175" top="1740" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="9360" left="2175" top="1740" type="Box" width="975">
+   </BOUNDS>
+   <BOUNDS height="160" left="2580" top="2355" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Digits" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="28">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="6" values="20,20,30,20,20,20">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="12" nodename="Data 0 - Sequener\D0.1 - Current position.v4p" systemname="D0.1 - Current position" filename="Data 0 - Sequener\D0.1 - Current position.v4p" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Data 0 - Sequener\">
+   <BOUNDS height="270" left="3075" top="11520" type="Node" width="2130">
+   </BOUNDS>
+   <PIN pinname="Durations" visible="1">
+   </PIN>
+   <BOUNDS height="6570" left="4095" top="3360" type="Window" width="7290">
+   </BOUNDS>
+   <PIN pinname="Hit" visible="1">
+   </PIN>
+   <PIN pinname="1-Progress" visible="1">
+   </PIN>
+   <PIN pinname="Current position" visible="1">
+   </PIN>
+   <PIN pinname="Pause" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="12" dstpinname="Durations" srcnodeid="8" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="1" dstpinname="Y Input Value" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="12" srcpinname="Hit">
+   <LINKPOINT x="5160" y="6765">
+   </LINKPOINT>
+   <LINKPOINT x="2085" y="6765">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="3" dstpinname="Y Input Value" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="12" srcpinname="1-Progress">
+   <LINKPOINT x="4125" y="6765">
+   </LINKPOINT>
+   <LINKPOINT x="1065" y="6765">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="InABox" id="16" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="2355" top="12420" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="2355" top="12420" type="Box" width="795">
+   </BOUNDS>
+   <BOUNDS height="160" left="22605" top="12780" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Current position|">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="18" nodename="Cons (Spreads)" systemname="Cons (Spreads)" filename="%VVVV%\plugins\SpreadOperations.dll">
+   <BOUNDS height="270" left="3075" top="11895" type="Node" width="2130">
+   </BOUNDS>
+   <BOUNDS height="0" left="3075" top="11895" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="23370" top="12480" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="18" dstpinname="Input 1" srcnodeid="12" srcpinname="Current position">
+   </LINK>
+   <LINK dstnodeid="18" dstpinname="Input 2" srcnodeid="12" srcpinname="1-Progress">
+   </LINK>
+   <LINK dstnodeid="18" dstpinname="Input 3" srcnodeid="12" srcpinname="Hit">
+   </LINK>
+   <LINK dstnodeid="16" dstpinname="Y Input Value" srcnodeid="18" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="InABox" id="19" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="4725" top="10635" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="4725" top="10635" type="Box" width="480">
+   </BOUNDS>
+   <BOUNDS height="160" left="25800" top="10935" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Pause">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="12" dstpinname="Pause" srcnodeid="19" srcpinname="Y Output Value">
+   </LINK>
+   </PATCH>

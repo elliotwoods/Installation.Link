@@ -1,0 +1,165 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
+   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\loader.v4p">
+   <BOUNDS height="9795" left="3285" top="705" type="Window" width="11895">
+   </BOUNDS>
+   <NODE componentmode="Hidden" id="0" nodename="SetPatch (VVVV)" systemname="SetPatch (VVVV)">
+   <BOUNDS height="270" left="2910" top="6540" type="Node" width="4965">
+   </BOUNDS>
+   <BOUNDS height="0" left="2910" top="6540" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="10170" top="5460" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="XML Input" visible="1">
+   </PIN>
+   <PIN pinname="Patch" visible="1">
+   </PIN>
+   <PIN pinname="Force Update" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="5" nodename="PatchAlias (VVVV)" systemname="PatchAlias (VVVV)">
+   <BOUNDS height="100" left="2895" top="4545" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="0" left="2895" top="4545" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="5205" top="4125" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Patch" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="9" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="8130" top="2595" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="2175" left="8130" top="2595" type="Box" width="2730">
+   </BOUNDS>
+   <BOUNDS height="160" left="4680" top="6390" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="|&lt;PATCH&gt;&cr;&lf; &lt;NODE nodename=&quot;main.v4p&quot; componentmode=&quot;InAWindow&quot; id=&quot;2&quot; path=&quot;C:\vvvv\design korea\final patches\&quot;&gt;&cr;&lf;   &lt;BOUNDS type=&quot;Node&quot; left=&quot;0&quot; top=&quot;0&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;&cr;&lf;   &lt;/BOUNDS&gt;&cr;&lf;   &lt;/NODE&gt;&cr;&lf;&lt;/PATCH&gt;|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="0" dstpinname="Patch" srcnodeid="5" srcpinname="Patch">
+   </LINK>
+   <NODE componentmode="Hidden" id="10" nodename="Switch (String Input)" systemname="Switch (String Input)">
+   <BOUNDS height="270" left="5355" top="4905" type="Node" width="1155">
+   </BOUNDS>
+   <BOUNDS height="0" left="5355" top="4905" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="5295" top="4695" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="0" dstpinname="XML Input" srcnodeid="10" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="10" dstpinname="Input 2" linkstyle="VHV" srcnodeid="9" srcpinname="Output String">
+   <LINKPOINT x="8130" y="4823">
+   </LINKPOINT>
+   <LINKPOINT x="6510" y="4823">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" id="11" nodename="Group 0 - iPad clients (ME FIRST!).v4p" systemname="clients (ME FIRST!)" filename="Group 0 - iPad clients (ME FIRST!).v4p">
+   <BOUNDS height="270" left="2880" top="6960" type="Node" width="4995">
+   </BOUNDS>
+   <BOUNDS height="9330" left="5325" top="1095" type="Window" width="10860">
+   </BOUNDS>
+   </NODE>
+   <NODE componentmode="Hidden" id="12" nodename="OnOpen (VVVV)" systemname="OnOpen (VVVV)">
+   <BOUNDS height="100" left="5370" top="885" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="0" left="5370" top="885" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="9150" top="3825" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="13" nodename="MonoFlop (Animation)" systemname="MonoFlop (Animation)">
+   <BOUNDS height="270" left="5370" top="1530" type="Node" width="2520">
+   </BOUNDS>
+   <BOUNDS height="0" left="5370" top="1530" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="9015" top="4575" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   <PIN pinname="Inverse Output" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Time" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="13" dstpinname="Set" srcnodeid="12" srcpinname="Bang">
+   </LINK>
+   <NODE componentmode="Hidden" id="14" nodename="TogEdge (Animation)" systemname="TogEdge (Animation)">
+   <BOUNDS height="100" left="7830" top="2175" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="0" left="7830" top="2175" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="9645" top="4845" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Up Edge" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="14" dstpinname="Input" srcnodeid="13" srcpinname="Inverse Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="15" nodename="OR (Boolean)" systemname="OR (Boolean)">
+   <BOUNDS height="270" left="7815" top="5925" type="Node" width="900">
+   </BOUNDS>
+   <BOUNDS height="0" left="7815" top="5925" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="11250" top="6060" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="16" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="8235" top="5265" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="8235" top="5265" type="Box" width="480">
+   </BOUNDS>
+   <BOUNDS height="160" left="11415" top="6555" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="0" dstpinname="Force Update" srcnodeid="15" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="15" dstpinname="Input 1" srcnodeid="14" srcpinname="Up Edge">
+   </LINK>
+   <LINK dstnodeid="15" dstpinname="Input 2" srcnodeid="16" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="10" dstpinname="Switch" linkstyle="VHV" srcnodeid="13" srcpinname="Inverse Output">
+   <LINKPOINT x="7860" y="2040">
+   </LINKPOINT>
+   <LINKPOINT x="5385" y="2040">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>
