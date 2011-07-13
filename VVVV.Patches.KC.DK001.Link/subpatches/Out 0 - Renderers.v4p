@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="G:\Link - Athens\main installation\subpatches\Out 0 - Renderers.v4p" locked="0">
+   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Out 0 - Renderers.v4p" locked="0">
    <BOUNDS height="5970" left="5160" top="4650" type="Window" width="8910">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (Node)" systemname="IOBox (Node)">
@@ -50,12 +50,12 @@
    </NODE>
    <LINK dstnodeid="5" dstpinname="Set" srcnodeid="6" srcpinname="Bang">
    </LINK>
-   <NODE componentmode="FullScreen" id="7" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
+   <NODE componentmode="InAWindow" id="7" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
    <BOUNDS height="270" left="630" top="1845" type="Node" width="5475">
    </BOUNDS>
    <BOUNDS height="1800" left="630" top="1845" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="10575" left="22485" top="3420" type="Window" width="12915">
+   <BOUNDS height="10575" left="-17610" top="2025" type="Window" width="12915">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -63,7 +63,7 @@
    </PIN>
    <PIN pinname="Transformations Index" pintype="Input" visible="1">
    </PIN>
-   <PIN pinname="Fullscreen Dimensions" slicecount="1" values="|2400 x 600|">
+   <PIN pinname="Fullscreen Dimensions" slicecount="1" values="|1024 x 768|">
    </PIN>
    <PIN pinname="Actual Backbuffer Width" visible="1">
    </PIN>
@@ -77,7 +77,9 @@
    </PIN>
    <PIN pinname="Fullscreen" visible="1">
    </PIN>
-   <PIN pinname="View Transform" visible="1" slicecount="1" values="||">
+   <PIN pinname="View Transform" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="4">
    </PIN>
    </NODE>
    <LINK dstnodeid="7" dstpinname="Layers" srcnodeid="1" srcpinname="Output Node">

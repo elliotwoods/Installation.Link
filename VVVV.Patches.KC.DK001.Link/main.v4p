@@ -1,8 +1,8 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\main.v4p" bgcolor="6467306">
+   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
    <BOUNDS height="10605" left="2340" top="1005" type="Window" width="15495">
    </BOUNDS>
-   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="1380" top="4470" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="11700" left="5895" top="0" type="Window" width="12855">
@@ -36,8 +36,8 @@
    <PIN pinname="Input 3" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 1 - Background player.v4p" id="25" nodename="subpatches\Layer 1 - Background player.v4p" systemname="Layer 1 - Background player" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
-   <BOUNDS height="270" left="3720" top="4755" type="Node" width="2460">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 1 - Background player.v4p" id="25" nodename="subpatches\Layer 1 - Background player.v4p" systemname="Layer 1 - Background player" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <BOUNDS height="270" left="3750" top="4755" type="Node" width="2085">
    </BOUNDS>
    <BOUNDS height="11700" left="2715" top="555" type="Window" width="16920">
    </BOUNDS>
@@ -56,13 +56,13 @@
    <PIN pinname="is ipad players" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 0 - Small graphics loader.v4p" id="26" nodename="subpatches\Layer 0 - Small graphics loader.v4p" systemname="Layer 0 - Small graphics loader" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 0 - Small graphics loader.v4p" id="26" nodename="subpatches\Layer 0 - Small graphics loader.v4p" systemname="Layer 0 - Small graphics loader" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="7815" top="4455" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 2 - Big faces.v4p" id="27" nodename="subpatches\Layer 2 - Big faces.v4p" systemname="Layer 2 - Big faces" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 2 - Big faces.v4p" id="27" nodename="subpatches\Layer 2 - Big faces.v4p" systemname="Layer 2 - Big faces" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="2040" top="6075" type="Node" width="3450">
    </BOUNDS>
    <BOUNDS height="7380" left="3510" top="2970" type="Window" width="9990">
@@ -132,8 +132,8 @@
    </NODE>
    <LINK dstnodeid="27" dstpinname="Texture" srcnodeid="25" srcpinname="Textures out">
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Data 0 - Sequencer.v4p" id="30" nodename="subpatches\Data 0 - Sequencer.v4p" systemname="Data 0 - Sequencer" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
-   <BOUNDS height="100" left="3720" top="3405" type="Node" width="100">
+   <NODE componentmode="Hidden" filename="subpatches\Data 0 - Sequencer.v4p" id="30" nodename="subpatches\Data 0 - Sequencer.v4p" systemname="Data 0 - Sequencer" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <BOUNDS height="100" left="3750" top="3405" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Current position" visible="1">
    </PIN>
@@ -143,15 +143,15 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="25" dstpinname="Sequence position" hiddenwhenlocked="0" linkstyle="VHV" srcnodeid="30" srcpinname="Current position">
-   <LINKPOINT x="3880" y="4203">
+   <LINKPOINT x="3910" y="4203">
    </LINKPOINT>
-   <LINKPOINT x="3590" y="4228">
+   <LINKPOINT x="3620" y="4228">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="27" dstpinname="Color" linkstyle="VHV" srcnodeid="25" srcpinname="Colour out">
-   <LINKPOINT x="6230" y="5430">
+   <LINKPOINT x="6250" y="5430">
    </LINKPOINT>
-   <LINKPOINT x="4675" y="5340">
+   <LINKPOINT x="4685" y="5340">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="58" nodename="Kalle (VVVV)" systemname="Kalle (VVVV)">
@@ -222,7 +222,7 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="705" top="8820" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers in" visible="1">
@@ -230,7 +230,7 @@
    <BOUNDS height="5970" left="5160" top="4650" type="Window" width="8910">
    </BOUNDS>
    </NODE>
-   <NODE componentmode="Hidden" debug="0" filename="subpatches\Layer 4 - iPad players.v4p" id="65" nodename="subpatches\Layer 4 - iPad players.v4p" systemname="Layer 4 - iPad players" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" debug="0" filename="subpatches\Layer 4 - iPad players.v4p" id="65" nodename="subpatches\Layer 4 - iPad players.v4p" systemname="Layer 4 - iPad players" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="7185" top="5085" type="Node" width="2085">
    </BOUNDS>
    <BOUNDS height="7485" left="570" top="1230" type="Window" width="23730">
@@ -342,7 +342,7 @@
    <PIN pinname="Layer" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 5 - Tiny faces.v4p" id="77" nodename="subpatches\Layer 5 - Tiny faces.v4p" systemname="Layer 5 - Tiny faces" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 5 - Tiny faces.v4p" id="77" nodename="subpatches\Layer 5 - Tiny faces.v4p" systemname="Layer 5 - Tiny faces" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="9630" top="6075" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
@@ -382,7 +382,7 @@
    <LINKPOINT x="11835" y="5393">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 6 - Mask.v4p" id="79" nodename="subpatches\Layer 6 - Mask.v4p" systemname="Layer 6 - Mask" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 6 - Mask.v4p" id="79" nodename="subpatches\Layer 6 - Mask.v4p" systemname="Layer 6 - Mask" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="12525" top="6075" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
@@ -510,7 +510,7 @@
    </LINK>
    <LINK dstnodeid="83" dstpinname="Input" srcnodeid="85" srcpinname="Output">
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Test 0 - Grid.v4p" id="86" nodename="subpatches\Test 0 - Grid.v4p" systemname="Test 0 - Grid" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Test 0 - Grid.v4p" id="86" nodename="subpatches\Test 0 - Grid.v4p" systemname="Test 0 - Grid" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="2850" top="7530" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
@@ -721,26 +721,26 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="25" dstpinname="iPad videos" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="65" srcpinname="Texture out">
-   <LINKPOINT x="8275" y="5038">
+   <LINKPOINT x="8285" y="5038">
    </LINKPOINT>
-   <LINKPOINT x="4160" y="5043">
+   <LINKPOINT x="4180" y="5043">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="25" dstpinname="nFaces" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="27" srcpinname="nFaces">
-   <LINKPOINT x="4675" y="5498">
+   <LINKPOINT x="4685" y="5498">
    </LINKPOINT>
-   <LINKPOINT x="6215" y="5588">
+   <LINKPOINT x="6235" y="5588">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="27" dstpinname="On face" linkstyle="VHV" srcnodeid="25" srcpinname="is ipad players">
-   <LINKPOINT x="6100" y="5535">
+   <LINKPOINT x="6120" y="5535">
    </LINKPOINT>
-   <LINKPOINT x="4265" y="5535">
+   <LINKPOINT x="4275" y="5535">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="28" dstpinname="Layer 1" srcnodeid="27" srcpinname="Layers out">
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 3 - Small faces.v4p" id="100" nodename="subpatches\Layer 3 - Small faces.v4p" systemname="Layer 3 - Small faces" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 3 - Small faces.v4p" id="100" nodename="subpatches\Layer 3 - Small faces.v4p" systemname="Layer 3 - Small faces" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="5940" top="6075" type="Node" width="3330">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1">
@@ -783,9 +783,9 @@
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="Sequence position" linkstyle="Bezier" srcnodeid="30" srcpinname="Current position">
-   <LINKPOINT x="3780" y="4860">
+   <LINKPOINT x="3800" y="4860">
    </LINKPOINT>
-   <LINKPOINT x="6780" y="4860">
+   <LINKPOINT x="6790" y="4860">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="Graphics textures" srcnodeid="26" srcpinname="Texture Out">
