@@ -1,8 +1,8 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="G:\Link - Athens\main installation\subpatches\Layer 0 - Small graphics loader.v4p">
+   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0 - Small graphics loader.v4p">
    <BOUNDS height="12240" left="1365" top="285" type="Window" width="16410">
    </BOUNDS>
-   <NODE componentmode="Hidden" id="91" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="91" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="1710" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="8790" top="4770" type="Window" width="8460">
@@ -188,7 +188,7 @@
    </NODE>
    <LINK dstnodeid="84" dstpinname="Input 1" srcnodeid="85" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="Hidden" id="83" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="83" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="3960" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -212,7 +212,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="82" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="82" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="6210" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -236,7 +236,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="81" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="81" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="8460" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -260,7 +260,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="80" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="80" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="10710" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -284,7 +284,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="79" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="79" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="12960" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -308,7 +308,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="78" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="78" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="15210" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -332,7 +332,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="77" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="77" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="17460" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -356,7 +356,7 @@
    <PIN pinname="Progress in hold" pintype="Output" visible="-1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="76" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)" filename="..\modules\Image cache runner (EX9.Texture).v4p">
+   <NODE componentmode="Hidden" filename="..\modules\Image cache runner (EX9.Texture).v4p" id="76" nodename="..\modules\Image cache runner (EX9.Texture).v4p" systemname="runner (EX9.Texture)">
    <BOUNDS height="270" left="19710" top="6090" type="Node" width="2040">
    </BOUNDS>
    <BOUNDS height="8250" left="4980" top="5310" type="Window" width="8460">
@@ -566,7 +566,7 @@
    </LINK>
    <LINK dstnodeid="89" dstpinname="Texture In 8" srcnodeid="77" srcpinname="Texture">
    </LINK>
-   <NODE componentmode="Hidden" id="99" nodename="Layer 0\L0.1 - Texture preview.v4p" systemname="L0.1 - Texture preview" filename="Layer 0\L0.1 - Texture preview.v4p" path="G:\Link - Athens\main installation\subpatches\Layer 0\">
+   <NODE componentmode="Hidden" filename="Layer 0\L0.1 - Texture preview.v4p" id="99" nodename="Layer 0\L0.1 - Texture preview.v4p" systemname="L0.1 - Texture preview" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\">
    <BOUNDS height="100" left="5025" top="10305" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Textures in" visible="1">

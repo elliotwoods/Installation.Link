@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Layer 3 - Small faces.v4p">
+   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faces.v4p">
    <BOUNDS height="12840" left="885" top="0" type="Window" width="18015">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (Node)" systemname="IOBox (Node)">
@@ -546,7 +546,7 @@
    </NODE>
    <LINK dstnodeid="14" dstpinname="size source XY" srcnodeid="54" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\Rearrange.v4p" id="55" nodename="Layer 3 - Small faceas\Rearrange.v4p" systemname="Rearrange" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Layer 3 - Small faceas\">
+   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\Rearrange.v4p" id="55" nodename="Layer 3 - Small faceas\Rearrange.v4p" systemname="Rearrange" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
    <BOUNDS height="270" left="10530" top="11550" type="Node" width="7245">
    </BOUNDS>
    <PIN pinname="Select a new iPad box" visible="1">
@@ -590,6 +590,8 @@
    <PIN pinname="iPad record textures" visible="1">
    </PIN>
    <PIN pinname="Content Type" visible="1">
+   </PIN>
+   <PIN pinname="Recorder IDs" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="6" nodename="IOBox (Node)" systemname="IOBox (Node)">
@@ -924,7 +926,7 @@
    </LINK>
    <LINK dstnodeid="1" dstpinname="Input Node" srcnodeid="14" srcpinname="Layer">
    </LINK>
-   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" id="83" nodename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" systemname="L3.2 - Aspect ratio" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Layer 3 - Small faceas\">
+   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" id="83" nodename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" systemname="L3.2 - Aspect ratio" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
    <BOUNDS height="100" left="12720" top="13170" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="11085" left="5415" top="2430" type="Window" width="9000">
@@ -963,5 +965,51 @@
    </LINKPOINT>
    <LINKPOINT x="5325" y="10815">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="85">
+   <BOUNDS type="Node" left="16980" top="12210" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16980" top="12210" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Recorder IDs|">
+   </PIN>
+   <PIN pinname="Digits" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="55" srcpinname="Recorder IDs" dstnodeid="85" dstpinname="Y Input Value">
+   </LINK>
+   <NODE componentmode="InABox" id="87" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="18480" top="11400" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="825" left="18480" top="11400" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Select new face|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="64" srcpinname="Input Value" dstnodeid="87" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

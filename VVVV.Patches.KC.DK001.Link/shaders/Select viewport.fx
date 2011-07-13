@@ -27,6 +27,7 @@ sampler Samp = sampler_state    //sampler for doing the texture-lookup
     MipFilter = NONE;         //sampler states
     MinFilter = LINEAR;
     MagFilter = LINEAR;
+	
 };
 
 float4x4 tTex: TEXTUREMATRIX <string uiname="Texture Transform";>;
@@ -82,8 +83,10 @@ float4 PS(vs2ps In): COLOR
     
     col.a = 1;
     if (enableAlpha)
+	{
     	col = texCol;
-    else
+		col.a *= texcd.x > 0 && texcd.x < 1 && texcd.y > 0 && texcd.y < 1;
+    } else
     	col.rgb = texCol.rgb * texCol.a;
     
     if (cAmb.a != 0) //specific condition for colour add (e.g. indicate)

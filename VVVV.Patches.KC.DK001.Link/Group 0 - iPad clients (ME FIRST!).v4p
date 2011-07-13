@@ -248,7 +248,7 @@
    <PIN pinname="XY" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InAWindow" filename="subpatches\Net 1 - iPad client.v4p" id="20" nodename="subpatches\Net 1 - iPad client.v4p" systemname="Net 1 - iPad client" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Net 1 - iPad client.v4p" id="20" nodename="subpatches\Net 1 - iPad client.v4p" systemname="Net 1 - iPad client" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="600" top="4575" type="Node" width="4410">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
