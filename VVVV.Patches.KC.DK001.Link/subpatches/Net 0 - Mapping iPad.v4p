@@ -13,9 +13,9 @@
    </PIN>
    <PIN pinname="Database" slicecount="1" values="quadmap">
    </PIN>
-   <PIN pinname="UserName" slicecount="1" values="user">
+   <PIN pinname="UserName" visible="1">
    </PIN>
-   <PIN pinname="Password" slicecount="1" values="passDDDD">
+   <PIN pinname="Password" visible="1">
    </PIN>
    <PIN pinname="Connect" slicecount="1" values="1">
    </PIN>
@@ -952,22 +952,44 @@
    </NODE>
    <LINK dstnodeid="81" dstpinname="Input" srcnodeid="82" srcpinname="Arguments">
    </LINK>
-   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="82" dstpinname="Input" linkstyle="VHV">
+   <LINK dstnodeid="82" dstpinname="Input" linkstyle="VHV" srcnodeid="49" srcpinname="Output">
    <LINKPOINT x="7800" y="2048">
    </LINKPOINT>
    <LINKPOINT x="15105" y="2048">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="83">
-   <BOUNDS type="Node" left="14505" top="4335" width="100" height="100">
+   <NODE componentmode="InABox" id="83" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="14505" top="4335" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="14505" top="4335" width="795" height="240">
+   <BOUNDS height="240" left="14505" top="4335" type="Box" width="795">
    </BOUNDS>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|View Mode|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="81" srcpinname="Output" dstnodeid="83" dstpinname="Y Input Value">
+   <LINK dstnodeid="83" dstpinname="Y Input Value" srcnodeid="81" srcpinname="Output">
+   </LINK>
+   <NODE systemname="N0.2 - Credentials" filename="Net 0\N0.2 - Credentials.v4p" nodename="Net 0\N0.2 - Credentials.v4p" componentmode="Hidden" id="84">
+   <BOUNDS type="Node" left="2835" top="315" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="13245" top="8280" width="5280" height="3885">
+   </BOUNDS>
+   <PIN pinname="user" visible="1">
+   </PIN>
+   <PIN pinname="pass" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="84" srcpinname="user" dstnodeid="50" dstpinname="UserName" linkstyle="Bezier">
+   <LINKPOINT x="2895" y="795">
+   </LINKPOINT>
+   <LINKPOINT x="3420" y="795">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="84" srcpinname="pass" dstnodeid="50" dstpinname="Password" linkstyle="Bezier">
+   <LINKPOINT x="4290" y="795">
+   </LINKPOINT>
+   <LINKPOINT x="3660" y="795">
+   </LINKPOINT>
    </LINK>
    </PATCH>
