@@ -181,7 +181,7 @@ namespace VVVV.Nodes.ImageCache
             FHeightAllocated = FHeight;
 
             //do a collection if we deleted anything. necessary?
-            if (doGC)
+            if (doGC && false) //we disable regular GC's
                 GC.Collect();
         }
 

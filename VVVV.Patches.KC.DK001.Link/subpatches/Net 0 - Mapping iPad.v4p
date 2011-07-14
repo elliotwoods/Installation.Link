@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
    <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0 - Mapping iPad.v4p">
-   <BOUNDS height="11700" left="5895" top="0" type="Window" width="12855">
+   <BOUNDS height="11700" left="5895" top="0" type="Window" width="16995">
    </BOUNDS>
    <NODE componentmode="Hidden" id="50" nodename="Database (MySQL Network)" systemname="Database (MySQL Network)">
    <BOUNDS height="100" left="2925" top="1035" type="Node" width="100">
@@ -849,7 +849,7 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Time" slicecount="1" values="55">
+   <PIN pinname="Time" slicecount="1" values="5">
    </PIN>
    </NODE>
    <LINK dstnodeid="77" dstpinname="Set" srcnodeid="44" srcpinname="Bang">
@@ -871,9 +871,9 @@
    <LINK dstnodeid="46" dstpinname="Input 2" srcnodeid="78" srcpinname="Down Edge">
    </LINK>
    <NODE componentmode="Hidden" hiddenwhenlocked="1" id="79" nodename="Select (MySQL)" systemname="Select (MySQL)">
-   <BOUNDS height="100" left="5610" top="6855" type="Node" width="100">
+   <BOUNDS height="100" left="5280" top="6195" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="5610" top="6855" type="Box" width="0">
+   <BOUNDS height="0" left="5280" top="6195" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="13260" top="10290" type="Window" width="0">
    </BOUNDS>
@@ -970,26 +970,58 @@
    </NODE>
    <LINK dstnodeid="83" dstpinname="Y Input Value" srcnodeid="81" srcpinname="Output">
    </LINK>
-   <NODE systemname="N0.2 - Credentials" filename="Net 0\N0.2 - Credentials.v4p" nodename="Net 0\N0.2 - Credentials.v4p" componentmode="Hidden" id="84">
-   <BOUNDS type="Node" left="2835" top="315" width="100" height="100">
+   <NODE componentmode="Hidden" filename="Net 0\N0.2 - Credentials.v4p" id="84" nodename="Net 0\N0.2 - Credentials.v4p" systemname="N0.2 - Credentials" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\">
+   <BOUNDS height="100" left="2835" top="315" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS type="Window" left="13245" top="8280" width="5280" height="3885">
+   <BOUNDS height="3885" left="13245" top="8280" type="Window" width="5280">
    </BOUNDS>
    <PIN pinname="user" visible="1">
    </PIN>
    <PIN pinname="pass" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="84" srcpinname="user" dstnodeid="50" dstpinname="UserName" linkstyle="Bezier">
+   <LINK dstnodeid="50" dstpinname="UserName" linkstyle="Bezier" srcnodeid="84" srcpinname="user">
    <LINKPOINT x="2895" y="795">
    </LINKPOINT>
    <LINKPOINT x="3420" y="795">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="84" srcpinname="pass" dstnodeid="50" dstpinname="Password" linkstyle="Bezier">
+   <LINK dstnodeid="50" dstpinname="Password" linkstyle="Bezier" srcnodeid="84" srcpinname="pass">
    <LINKPOINT x="4290" y="795">
    </LINKPOINT>
    <LINKPOINT x="3660" y="795">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="N0.3 - Insert to MySQL" filename="Net 0\N0.3 - Insert to MySQL.v4p" nodename="Net 0\N0.3 - Insert to MySQL.v4p" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="1020" top="2670" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3630" top="0" width="16860" height="14925">
+   </BOUNDS>
+   <PIN pinname="MySQLDataBase" visible="1">
+   </PIN>
+   <PIN pinname="Paths" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="MySQLDataBase" dstnodeid="88" dstpinname="MySQLDataBase" linkstyle="VHV">
+   <LINKPOINT x="2925" y="1973">
+   </LINKPOINT>
+   <LINKPOINT x="1080" y="1973">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="89">
+   <BOUNDS type="Node" left="4950" top="10725" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4950" top="10725" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Recordings">
+   </PIN>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="88" srcpinname="Paths" dstnodeid="89" dstpinname="Input String" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="1050" y="10275">
+   </LINKPOINT>
+   <LINKPOINT x="5715" y="10275">
    </LINKPOINT>
    </LINK>
    </PATCH>

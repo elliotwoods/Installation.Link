@@ -55,7 +55,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="0" top="0" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|//actions &cr;&lf;0  = Indicate&cr;&lf;1 = Start preview&cr;&lf;2 = Begin record&cr;&lf;3 = Save&cr;&lf;4 = Clear record&cr;&lf;5 = Reselect|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|//actions &cr;&lf;0  = Indicate&cr;&lf;1 = re-record&cr;&lf;2 = Begin record&cr;&lf;3 = Save&cr;&lf;4 = Clear record&cr;&lf;5 = Reselect|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -345,9 +345,9 @@
    <LINK dstnodeid="0" dstpinname="Input 2" srcnodeid="4" srcpinname="Output 5">
    </LINK>
    <NODE componentmode="InABox" id="20" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="7215" top="8040" type="Node" width="100">
+   <BOUNDS height="100" left="6840" top="7920" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="7215" top="8040" type="Box" width="480">
+   <BOUNDS height="480" left="6840" top="7920" type="Box" width="480">
    </BOUNDS>
    <PIN pinname="Show Value" slicecount="1" values="0">
    </PIN>
@@ -364,16 +364,60 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Reselect">
    </PIN>
    </NODE>
-   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="23">
-   <BOUNDS type="Node" left="7275" top="7350" width="100" height="100">
+   <NODE componentmode="Hidden" id="23" nodename="OR (Boolean)" systemname="OR (Boolean)">
+   <BOUNDS height="100" left="7275" top="7350" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Input 2" visible="1">
    </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="23" srcpinname="Output" dstnodeid="20" dstpinname="Y Input Value">
+   <LINK dstnodeid="20" dstpinname="Y Input Value" srcnodeid="23" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="4" srcpinname="Output 6" dstnodeid="23" dstpinname="Input 2">
+   <LINK dstnodeid="23" dstpinname="Input 2" srcnodeid="4" srcpinname="Output 6">
+   </LINK>
+   <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="8805" top="1710" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="24" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Queue Count" dstnodeid="24" dstpinname="Set">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="25">
+   <BOUNDS type="Node" left="8400" top="2235" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8400" top="2235" width="450" height="1755">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Output" dstnodeid="25" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output 1" dstnodeid="23" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="1200" y="6173">
+   </LINKPOINT>
+   <LINKPOINT x="7275" y="6173">
+   </LINKPOINT>
    </LINK>
    </PATCH>

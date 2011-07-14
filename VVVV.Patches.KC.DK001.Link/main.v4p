@@ -5,7 +5,7 @@
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="1380" top="4470" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="11700" left="5895" top="0" type="Window" width="12855">
+   <BOUNDS height="11700" left="5895" top="0" type="Window" width="16995">
    </BOUNDS>
    <PIN pinname="Layers mapping" visible="1">
    </PIN>
@@ -16,6 +16,8 @@
    <PIN pinname="Projector XY" visible="1">
    </PIN>
    <PIN pinname="View Mode" visible="1">
+   </PIN>
+   <PIN pinname="Recordings" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="21" nodename="Switch (Node Input)" systemname="Switch (Node Input)">
@@ -245,6 +247,8 @@
    </PIN>
    <PIN pinname="Count" visible="1">
    </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="66" nodename="Memory (Debug ex9)" systemname="Memory (Debug ex9)">
    <BOUNDS height="100" left="11205" top="855" type="Node" width="100">
@@ -268,12 +272,12 @@
    </NODE>
    <LINK dstnodeid="67" dstpinname="Y Input Value" srcnodeid="66" srcpinname="Available Texture Memory on automatic Devices">
    </LINK>
-   <NODE componentmode="Hidden" id="69" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
+   <NODE componentmode="InAWindow" id="69" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
    <BOUNDS height="100" left="3300" top="9045" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="1800" left="3300" top="9045" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="6615" left="15945" top="3240" type="Window" width="12480">
+   <BOUNDS height="6615" left="-14730" top="1740" type="Window" width="12480">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -710,10 +714,10 @@
    </LINK>
    <LINK dstnodeid="72" dstpinname="Y Input Value" srcnodeid="101" srcpinname="Position Out">
    </LINK>
-   <NODE systemname="Layer 8 - Indicator" filename="subpatches\Layer 8 - Indicator.v4p" nodename="subpatches\Layer 8 - Indicator.v4p" componentmode="Hidden" id="102">
-   <BOUNDS type="Node" left="15210" top="6675" width="100" height="100">
+   <NODE componentmode="Hidden" filename="subpatches\Layer 8 - Indicator.v4p" id="102" nodename="subpatches\Layer 8 - Indicator.v4p" systemname="Layer 8 - Indicator" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <BOUNDS height="100" left="15210" top="6675" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS type="Window" left="5640" top="2355" width="14070" height="11115">
+   <BOUNDS height="11115" left="5640" top="2355" type="Window" width="14070">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -728,58 +732,64 @@
    <PIN pinname="Indicate bang" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="102" srcpinname="Layer" dstnodeid="28" dstpinname="Layer 5">
+   <LINK dstnodeid="28" dstpinname="Layer 5" srcnodeid="102" srcpinname="Layer">
    </LINK>
-   <LINK srcnodeid="100" srcpinname="Recorder IDs" dstnodeid="102" dstpinname="Recorder IDs" linkstyle="VHV">
+   <LINK dstnodeid="102" dstpinname="Recorder IDs" linkstyle="VHV" srcnodeid="100" srcpinname="Recorder IDs">
    <LINKPOINT x="9270" y="6395">
    </LINKPOINT>
    <LINKPOINT x="16650" y="6595">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="18" srcpinname="iProjector" dstnodeid="102" dstpinname="iProjector" linkstyle="VHV">
+   <LINK dstnodeid="102" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
    <LINKPOINT x="1965" y="5400">
    </LINKPOINT>
    <LINKPOINT x="15240" y="5400">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="102" dstpinname="iType" linkstyle="VHV">
+   <LINK dstnodeid="102" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
    <LINKPOINT x="2505" y="5400">
    </LINKPOINT>
    <LINKPOINT x="15600" y="5400">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Projector XY" dstnodeid="102" dstpinname="Projector XY" linkstyle="VHV">
+   <LINK dstnodeid="102" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
    <LINKPOINT x="3060" y="5400">
    </LINKPOINT>
    <LINKPOINT x="15960" y="5400">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="100" srcpinname="Select new face" dstnodeid="102" dstpinname="Indicate bang" linkstyle="VHV">
+   <LINK dstnodeid="102" dstpinname="Indicate bang" linkstyle="VHV" srcnodeid="100" srcpinname="Select new face">
    <LINKPOINT x="9270" y="6495">
    </LINKPOINT>
    <LINKPOINT x="16650" y="6495">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Keys 0 - Switch mode" filename="subpatches\Keys 0 - Switch mode.v4p" nodename="subpatches\Keys 0 - Switch mode.v4p" componentmode="Hidden" id="104">
-   <BOUNDS type="Node" left="720" top="7710" width="100" height="100">
+   <NODE componentmode="Hidden" filename="subpatches\Keys 0 - Switch mode.v4p" id="104" nodename="subpatches\Keys 0 - Switch mode.v4p" systemname="Keys 0 - Switch mode" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <BOUNDS height="100" left="720" top="7710" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="View Mode" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="18" srcpinname="View Mode" dstnodeid="104" dstpinname="View Mode" linkstyle="VHV">
+   <LINK dstnodeid="104" dstpinname="View Mode" linkstyle="VHV" srcnodeid="18" srcpinname="View Mode">
    <LINKPOINT x="3060" y="4860">
    </LINKPOINT>
    <LINKPOINT x="750" y="4860">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="28" srcpinname="Layer" dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier">
+   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
    <LINKPOINT x="2040" y="7838">
    </LINKPOINT>
    <LINKPOINT x="1440" y="7838">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
+   <LINK dstnodeid="64" dstpinname="Layers in" srcnodeid="21" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="104" srcpinname="View Mode" dstnodeid="21" dstpinname="Switch">
+   <LINK dstnodeid="21" dstpinname="Switch" srcnodeid="104" srcpinname="View Mode">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Recordings" dstnodeid="65" dstpinname="Input" linkstyle="VHV">
+   <LINKPOINT x="2760" y="4898">
+   </LINKPOINT>
+   <LINKPOINT x="7185" y="4898">
+   </LINKPOINT>
    </LINK>
    </PATCH>

@@ -50,12 +50,12 @@
    </NODE>
    <LINK dstnodeid="5" dstpinname="Set" srcnodeid="6" srcpinname="Bang">
    </LINK>
-   <NODE componentmode="InAWindow" id="7" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
+   <NODE componentmode="Hidden" id="7" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
    <BOUNDS height="270" left="630" top="1845" type="Node" width="5475">
    </BOUNDS>
    <BOUNDS height="1800" left="630" top="1845" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="10575" left="9720" top="3060" type="Window" width="12915">
+   <BOUNDS height="10575" left="2880" top="1455" type="Window" width="12915">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>

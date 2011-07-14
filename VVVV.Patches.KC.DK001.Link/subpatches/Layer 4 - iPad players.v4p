@@ -2,20 +2,6 @@
    <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 4 - iPad players.v4p">
    <BOUNDS height="7485" left="570" top="1230" type="Window" width="23730">
    </BOUNDS>
-   <NODE componentmode="Hidden" id="1" nodename="SubDir (File)" systemname="SubDir (File)">
-   <BOUNDS height="100" left="450" top="1305" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="450" top="1305" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9300" top="9720" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Directory" slicecount="1" values="..\recordings">
-   </PIN>
-   <PIN pinname="Subdirectories" visible="1">
-   </PIN>
-   <PIN pinname="Update" visible="1">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" id="3" nodename="Count (String)" systemname="Count (String)">
    <BOUNDS height="100" left="1155" top="2400" type="Node" width="100">
    </BOUNDS>
@@ -989,9 +975,9 @@
    <LINK dstnodeid="63" dstpinname="Input 9" srcnodeid="54" srcpinname="Colour">
    </LINK>
    <NODE componentmode="InABox" id="65" nodename="IOBox (Node)" systemname="IOBox (Node)">
-   <BOUNDS height="100" left="435" top="10575" type="Node" width="100">
+   <BOUNDS height="100" left="435" top="8325" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="435" top="10575" type="Box" width="795">
+   <BOUNDS height="240" left="435" top="8325" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="2445" top="11610" type="Window" width="215">
    </BOUNDS>
@@ -1001,9 +987,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="67" nodename="IOBox (Color)" systemname="IOBox (Color)">
-   <BOUNDS height="100" left="1455" top="10560" type="Node" width="100">
+   <BOUNDS height="100" left="1455" top="8310" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="1455" top="10560" type="Box" width="885">
+   <BOUNDS height="240" left="1455" top="8310" type="Box" width="885">
    </BOUNDS>
    <BOUNDS height="160" left="3900" top="12360" type="Window" width="215">
    </BOUNDS>
@@ -1094,52 +1080,16 @@
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="69" nodename="LFO (Animation)" systemname="LFO (Animation)">
-   <BOUNDS height="100" left="345" top="600" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="345" top="600" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="2490" top="5850" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Period" slicecount="1" values="5">
-   </PIN>
-   <PIN pinname="Cycles" visible="1">
-   </PIN>
-   </NODE>
-   <NODE componentmode="Hidden" id="70" nodename="Change (Animation)" systemname="Change (Animation)">
-   <BOUNDS height="100" left="1035" top="960" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="1035" top="960" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="3180" top="6375" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="OnChange" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="70" dstpinname="Input" srcnodeid="69" srcpinname="Cycles">
-   </LINK>
-   <LINK dstnodeid="1" dstpinname="Update" srcnodeid="70" srcpinname="OnChange">
-   </LINK>
    <NODE componentmode="Hidden" filename="Layer 4\L4.1 - Check has full count.v4p" id="71" nodename="Layer 4\L4.1 - Check has full count.v4p" systemname="L4.1 - Check has full count" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 4\">
-   <BOUNDS height="100" left="450" top="1815" type="Node" width="100">
+   <BOUNDS height="100" left="1980" top="1500" type="Node" width="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="4" values="|..\recordings\192.168.1.64\11-07-14 Thursday\12.00.46 192.168.1.79|,|..\recordings\192.168.1.64\11-07-14 Thursday\12.01.04 192.168.1.79|,|..\recordings\192.168.1.64\11-07-14 Thursday\12.01.04 192.168.1.79|,|..\recordings\192.168.1.64\11-07-14 Thursday\12.00.46 192.168.1.79|">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <BOUNDS type="Window" left="2640" top="6990" width="10245" height="4065">
+   </BOUNDS>
    </NODE>
-   <LINK dstnodeid="71" dstpinname="Input" srcnodeid="1" srcpinname="Subdirectories">
-   </LINK>
-   <LINK dstnodeid="3" dstpinname="Input" linkstyle="VHV" srcnodeid="71" srcpinname="Output">
-   <LINKPOINT x="510" y="2228">
-   </LINKPOINT>
-   <LINKPOINT x="1155" y="2228">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="8" dstpinname="Input" srcnodeid="71" srcpinname="Output">
-   </LINK>
    <NODE componentmode="InABox" id="72" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="15" top="2865" type="Node" width="100">
    </BOUNDS>
@@ -1224,96 +1174,12 @@
    </LINK>
    <LINK dstnodeid="151" dstpinname="Select" srcnodeid="149" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="Hidden" id="152" nodename="RandomSpread (Spreads)" systemname="RandomSpread (Spreads)">
-   <BOUNDS height="100" left="2955" top="8790" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="2955" top="8790" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="4395" top="4560" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Spread Count" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <NODE componentmode="Hidden" id="153" nodename="Count (Color)" systemname="Count (Color)">
-   <BOUNDS height="100" left="4080" top="8415" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="4080" top="8415" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="4320" top="5265" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Count" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="153" dstpinname="Input" srcnodeid="151" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="152" dstpinname="Spread Count" srcnodeid="153" srcpinname="Count">
-   </LINK>
-   <NODE componentmode="Hidden" id="154" nodename="Sort (Spreads)" systemname="Sort (Spreads)">
-   <BOUNDS height="100" left="2955" top="9240" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="2955" top="9240" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="3690" top="5835" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Former Index" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="154" dstpinname="Input" srcnodeid="152" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="155" nodename="GetSlice (Node)" systemname="GetSlice (Node)">
-   <BOUNDS height="270" left="435" top="9705" type="Node" width="2985">
-   </BOUNDS>
-   <BOUNDS height="0" left="435" top="9705" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="2520" top="7080" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Output Node" visible="1">
-   </PIN>
-   <PIN pinname="Index" visible="1">
-   </PIN>
-   <PIN pinname="Input Node" visible="1">
-   </PIN>
-   <PIN pinname="Output Bins" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="65" dstpinname="Input Node" srcnodeid="155" srcpinname="Output Node">
-   </LINK>
-   <LINK dstnodeid="155" dstpinname="Index" srcnodeid="154" srcpinname="Former Index">
-   </LINK>
-   <LINK dstnodeid="155" dstpinname="Input Node" srcnodeid="150" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="156" nodename="GetSlice (Color)" systemname="GetSlice (Color)">
-   <BOUNDS height="270" left="2265" top="10170" type="Node" width="1155">
-   </BOUNDS>
-   <BOUNDS height="0" left="2265" top="10170" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="4005" top="7275" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Index" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="67" dstpinname="Color Input" srcnodeid="156" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="156" dstpinname="Input" srcnodeid="151" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="156" dstpinname="Index" srcnodeid="155" srcpinname="Output Bins">
-   </LINK>
    <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\plugins\ValueUniqueRandom\ValueUniqueRandom.csproj" id="157" nodename="UniqueRandom (Value)" systemname="UniqueRandom (Value)">
    <BOUNDS height="270" left="1155" top="3210" type="Node" width="1725">
    </BOUNDS>
    <PIN pinname="Max" visible="1">
    </PIN>
-   <PIN pinname="Randomise" visible="1">
+   <PIN pinname="Randomise" visible="1" slicecount="10" values="0,0,0,0,0,0,0,0,0,0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -1322,6 +1188,34 @@
    </LINK>
    <LINK dstnodeid="8" dstpinname="Index" srcnodeid="157" srcpinname="Output">
    </LINK>
-   <LINK dstnodeid="157" dstpinname="Randomise" srcnodeid="60" srcpinname="Output">
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="158">
+   <BOUNDS type="Node" left="450" top="1155" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="450" top="1155" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="158" srcpinname="Output String" dstnodeid="3" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="158" srcpinname="Output String" dstnodeid="8" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="159" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="4005" top="1455" width="4740" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4005" top="1455" width="4740" height="270">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;--we&apos;ve removed this, since we only insert to DB when complete|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="150" srcpinname="Output" dstnodeid="65" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="151" srcpinname="Output" dstnodeid="67" dstpinname="Color Input">
    </LINK>
    </PATCH>

@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
    <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1 - iPad client.v4p">
-   <BOUNDS height="12585" left="9285" top="330" type="Window" width="10095">
+   <BOUNDS height="12570" left="10725" top="165" type="Window" width="10095">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="Net 1\N1.1 - Set remote network settings.v4p" id="27" nodename="Net 1\N1.1 - Set remote network settings.v4p" systemname="N1.1 - Set remote network settings" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
    <BOUNDS height="270" left="480" top="3465" type="Node" width="6060">
@@ -295,7 +295,7 @@
    </PIN>
    <BOUNDS height="11595" left="10755" top="735" type="Window" width="10365">
    </BOUNDS>
-   <PIN pinname="Reselect" visible="1" slicecount="1" values="0">
+   <PIN pinname="Reselect" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="11" dstpinname="Local Port" linkstyle="Bezier" srcnodeid="25" srcpinname="Y Output Value">
@@ -569,9 +569,9 @@
    </LINKPOINT>
    </LINK>
    <NODE componentmode="InABox" id="32" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="6120" top="7785" type="Node" width="100">
+   <BOUNDS height="100" left="6270" top="7785" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="6120" top="7785" type="Box" width="480">
+   <BOUNDS height="480" left="6270" top="7785" type="Box" width="480">
    </BOUNDS>
    <BOUNDS height="160" left="11250" top="9495" type="Window" width="215">
    </BOUNDS>
@@ -587,25 +587,15 @@
    </PIN>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Saved">
+   </PIN>
    </NODE>
    <LINK dstnodeid="32" dstpinname="Y Input Value" linkstyle="VHV" srcnodeid="9" srcpinname="Saved">
-   <LINKPOINT x="5795" y="7695">
+   <LINKPOINT x="5845" y="7695">
    </LINKPOINT>
-   <LINKPOINT x="6820" y="7695">
+   <LINKPOINT x="6920" y="7695">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="InABox" id="33" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="6135" top="8235" type="Node" width="540">
-   </BOUNDS>
-   <BOUNDS height="270" left="6135" top="8235" type="Box" width="540">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="saved">
-   </PIN>
-   <PIN pinname="Output String" visible="0">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   </NODE>
    <LINK dstnodeid="9" dstpinname="Record" linkstyle="Bezier" srcnodeid="11" srcpinname="Begin record">
    <LINKPOINT x="5700" y="6083">
    </LINKPOINT>
@@ -660,10 +650,22 @@
    <LINKPOINT x="1995" y="6083">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="Hidden" filename="plugins\DirectoryEnsureDirectoryExists\DirectoryEnsureDirectoryExists.csproj" id="41" nodename="EnsureDirectoryExists (Directory)" systemname="EnsureDirectoryExists (Directory)">
-   <BOUNDS height="100" left="2340" top="4665" type="Node" width="100">
+   <LINK dstnodeid="0" dstpinname="Input" srcnodeid="11" srcpinname="Reselect">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="42">
+   <BOUNDS type="Node" left="5445" top="7800" width="100" height="100">
    </BOUNDS>
+   <BOUNDS type="Box" left="5445" top="7800" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Path">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="11" srcpinname="Reselect" dstnodeid="0" dstpinname="Input">
+   <LINK srcnodeid="8" srcpinname="Path" dstnodeid="42" dstpinname="Input String" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="1170" y="6803">
+   </LINKPOINT>
+   <LINKPOINT x="6180" y="6803">
+   </LINKPOINT>
    </LINK>
    </PATCH>
