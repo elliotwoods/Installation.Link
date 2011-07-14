@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Layer 4 - iPad players.v4p">
+   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 4 - iPad players.v4p">
    <BOUNDS height="7485" left="570" top="1230" type="Window" width="23730">
    </BOUNDS>
    <NODE componentmode="Hidden" id="1" nodename="SubDir (File)" systemname="SubDir (File)">
@@ -1122,7 +1122,7 @@
    </LINK>
    <LINK dstnodeid="1" dstpinname="Update" srcnodeid="70" srcpinname="OnChange">
    </LINK>
-   <NODE componentmode="Hidden" filename="Layer 4\L4.1 - Check has full count.v4p" id="71" nodename="Layer 4\L4.1 - Check has full count.v4p" systemname="L4.1 - Check has full count" path="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Layer 4\">
+   <NODE componentmode="Hidden" filename="Layer 4\L4.1 - Check has full count.v4p" id="71" nodename="Layer 4\L4.1 - Check has full count.v4p" systemname="L4.1 - Check has full count" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 4\">
    <BOUNDS height="100" left="450" top="1815" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
@@ -1153,86 +1153,6 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="72" dstpinname="Y Input Value" srcnodeid="3" srcpinname="Count">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 20" srcnodeid="74" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 20" srcnodeid="74" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="74" dstpinname="Path" srcnodeid="59" srcpinname="Output 20">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 19" srcnodeid="76" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 19" srcnodeid="76" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 18" srcnodeid="78" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 18" srcnodeid="78" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 17" srcnodeid="80" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 17" srcnodeid="80" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 16" srcnodeid="82" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 16" srcnodeid="82" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 15" srcnodeid="84" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 15" srcnodeid="84" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 14" srcnodeid="86" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 13" srcnodeid="88" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 13" srcnodeid="88" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 12" srcnodeid="90" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 12" srcnodeid="90" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="Input 11" srcnodeid="92" srcpinname="Colour">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 11" srcnodeid="92" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="92" dstpinname="Path" srcnodeid="59" srcpinname="Output 11">
-   </LINK>
-   <LINK dstnodeid="90" dstpinname="Path" srcnodeid="59" srcpinname="Output 12">
-   </LINK>
-   <LINK dstnodeid="88" dstpinname="Path" srcnodeid="59" srcpinname="Output 13">
-   </LINK>
-   <LINK dstnodeid="86" dstpinname="Path" srcnodeid="59" srcpinname="Output 14">
-   </LINK>
-   <LINK dstnodeid="84" dstpinname="Path" srcnodeid="59" srcpinname="Output 15">
-   </LINK>
-   <LINK dstnodeid="61" dstpinname="Texture In 14" srcnodeid="86" srcpinname="Texture out">
-   </LINK>
-   <LINK dstnodeid="82" dstpinname="Path" srcnodeid="59" srcpinname="Output 16">
-   </LINK>
-   <LINK dstnodeid="80" dstpinname="Path" srcnodeid="59" srcpinname="Output 17">
-   </LINK>
-   <LINK dstnodeid="78" dstpinname="Path" srcnodeid="59" srcpinname="Output 18">
-   </LINK>
-   <LINK dstnodeid="76" dstpinname="Path" srcnodeid="59" srcpinname="Output 19">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 11" srcnodeid="92" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 12" srcnodeid="90" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 13" srcnodeid="88" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 14" srcnodeid="86" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 20" srcnodeid="74" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 19" srcnodeid="76" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 18" srcnodeid="78" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 17" srcnodeid="80" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 16" srcnodeid="82" srcpinname="End">
-   </LINK>
-   <LINK dstnodeid="60" dstpinname="Input 15" srcnodeid="84" srcpinname="End">
    </LINK>
    <NODE componentmode="Hidden" id="148" nodename="Select (Value)" systemname="Select (Value)">
    <BOUNDS height="100" left="3675" top="2850" type="Node" width="100">

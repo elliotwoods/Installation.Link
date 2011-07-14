@@ -623,9 +623,9 @@
    <LINK dstnodeid="56" dstpinname="Input 2" srcnodeid="57" srcpinname="Y Output Value">
    </LINK>
    <NODE componentmode="Hidden" id="58" nodename="UniformScale (Transform)" systemname="UniformScale (Transform)">
-   <BOUNDS height="100" left="9945" top="6765" type="Node" width="100">
+   <BOUNDS height="100" left="9900" top="6765" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="9945" top="6765" type="Box" width="0">
+   <BOUNDS height="0" left="9900" top="6765" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="11340" top="8760" type="Window" width="0">
    </BOUNDS>
@@ -637,9 +637,9 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="58" dstpinname="Transform In" linkstyle="VHV" srcnodeid="53" srcpinname="Transform Out">
-   <LINKPOINT x="11865" y="6405">
+   <LINKPOINT x="11850" y="6405">
    </LINKPOINT>
-   <LINKPOINT x="10095" y="6405">
+   <LINKPOINT x="10065" y="6405">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="62" nodename="HSL (Color Join)" systemname="HSL (Color Join)">
@@ -789,9 +789,9 @@
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="74" nodename="Divide (Value)" systemname="Divide (Value)">
-   <BOUNDS height="100" left="10935" top="5715" type="Node" width="100">
+   <BOUNDS height="270" left="10905" top="5715" type="Node" width="360">
    </BOUNDS>
-   <BOUNDS height="0" left="10935" top="5715" type="Box" width="0">
+   <BOUNDS height="0" left="10905" top="5715" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="15060" top="8445" type="Window" width="0">
    </BOUNDS>

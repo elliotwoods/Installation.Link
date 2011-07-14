@@ -43,7 +43,7 @@
    </PIN>
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
-   <PIN pinname="Input String" slicecount="2" values="192.168.1.79,192.168.1.67">
+   <PIN pinname="Input String" slicecount="2" values="192.168.1.80,192.168.1.79">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -271,7 +271,7 @@
    </PIN>
    <PIN pinname="Visible" visible="1">
    </PIN>
-   <BOUNDS height="12585" left="615" top="165" type="Window" width="10095">
+   <BOUNDS height="12585" left="9285" top="330" type="Window" width="10095">
    </BOUNDS>
    </NODE>
    <LINK dstnodeid="3" dstpinname="Texture In 1" srcnodeid="20" srcpinname="Texture">

@@ -345,9 +345,9 @@
    <LINK dstnodeid="0" dstpinname="Input 2" srcnodeid="4" srcpinname="Output 5">
    </LINK>
    <NODE componentmode="InABox" id="20" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="6750" top="5415" type="Node" width="100">
+   <BOUNDS height="100" left="7215" top="8040" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="6750" top="5415" type="Box" width="480">
+   <BOUNDS height="480" left="7215" top="8040" type="Box" width="480">
    </BOUNDS>
    <PIN pinname="Show Value" slicecount="1" values="0">
    </PIN>
@@ -364,6 +364,16 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Reselect">
    </PIN>
    </NODE>
-   <LINK dstnodeid="20" dstpinname="Y Input Value" srcnodeid="4" srcpinname="Output 6">
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="7275" top="7350" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Output" dstnodeid="20" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output 6" dstnodeid="23" dstpinname="Input 2">
    </LINK>
    </PATCH>

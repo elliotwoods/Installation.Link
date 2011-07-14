@@ -450,14 +450,6 @@
    <PIN pinname="Layer" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="64" dstpinname="Layers in" srcnodeid="21" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
-   <LINKPOINT x="2040" y="7838">
-   </LINKPOINT>
-   <LINKPOINT x="1440" y="7838">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="21" dstpinname="Input 2" linkstyle="Bezier" srcnodeid="18" srcpinname="Layers mapping">
    <LINKPOINT x="1410" y="6570">
    </LINKPOINT>
@@ -779,6 +771,14 @@
    </LINKPOINT>
    <LINKPOINT x="750" y="4860">
    </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Layer" dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="2040" y="7838">
+   </LINKPOINT>
+   <LINKPOINT x="1440" y="7838">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
    </LINK>
    <LINK srcnodeid="104" srcpinname="View Mode" dstnodeid="21" dstpinname="Switch">
    </LINK>
