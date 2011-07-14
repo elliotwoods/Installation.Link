@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
    <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\Group 0 - iPad clients (ME FIRST!).v4p" bgcolor="9474301">
-   <BOUNDS height="11430" left="5325" top="1095" type="Window" width="16635">
+   <BOUNDS height="11385" left="5325" top="1095" type="Window" width="16350">
    </BOUNDS>
    <NODE componentmode="InABox" id="17" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="585" top="3705" type="Node" width="100">
@@ -391,7 +391,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Lightness" slicecount="2" visible="1" values="1,1">
+   <PIN pinname="Lightness" visible="1">
    </PIN>
    <PIN pinname="Saturation" slicecount="1" values="0">
    </PIN>
@@ -570,8 +570,8 @@
    </LINK>
    <LINK dstnodeid="34" dstpinname="Input Value" srcnodeid="38" srcpinname="Output">
    </LINK>
-   <NODE systemname="Cons (String)" filename="%VVVV%\plugins\SpreadOperations.dll" nodename="Cons (String)" componentmode="Hidden" id="57">
-   <BOUNDS type="Node" left="4980" top="6690" width="8190" height="270">
+   <NODE componentmode="Hidden" filename="%VVVV%\plugins\SpreadOperations.dll" id="57" nodename="Cons (String)" systemname="Cons (String)">
+   <BOUNDS height="270" left="4980" top="6690" type="Node" width="8190">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -580,22 +580,22 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="20" srcpinname="Path" dstnodeid="57" dstpinname="Input 1">
+   <LINK dstnodeid="57" dstpinname="Input 1" srcnodeid="20" srcpinname="Path">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Path" dstnodeid="57" dstpinname="Input 2">
+   <LINK dstnodeid="57" dstpinname="Input 2" srcnodeid="21" srcpinname="Path">
    </LINK>
-   <NODE systemname="S (String)" nodename="S (String)" componentmode="Hidden" id="58">
-   <BOUNDS type="Node" left="4980" top="7200" width="100" height="100">
+   <NODE componentmode="Hidden" id="58" nodename="S (String)" systemname="S (String)">
+   <BOUNDS height="100" left="4980" top="7200" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Send String" slicecount="1" values="iPad-record.Save.Path">
    </PIN>
    <PIN pinname="Input Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="57" srcpinname="Output" dstnodeid="58" dstpinname="Input Value">
+   <LINK dstnodeid="58" dstpinname="Input Value" srcnodeid="57" srcpinname="Output">
    </LINK>
-   <NODE systemname="Cons (Spreads)" filename="%VVVV%\plugins\SpreadOperations.dll" nodename="Cons (Spreads)" componentmode="Hidden" id="59">
-   <BOUNDS type="Node" left="6450" top="7080" width="8160" height="270">
+   <NODE componentmode="Hidden" filename="%VVVV%\plugins\SpreadOperations.dll" id="59" nodename="Cons (Spreads)" systemname="Cons (Spreads)">
+   <BOUNDS height="270" left="6450" top="7080" type="Node" width="8160">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -604,18 +604,20 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="20" srcpinname="Saved" dstnodeid="59" dstpinname="Input 1">
+   <LINK dstnodeid="59" dstpinname="Input 1" srcnodeid="20" srcpinname="Saved">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Saved" dstnodeid="59" dstpinname="Input 2">
+   <LINK dstnodeid="59" dstpinname="Input 2" srcnodeid="21" srcpinname="Saved">
    </LINK>
-   <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="6450" top="7485" width="100" height="100">
+   <NODE componentmode="Hidden" id="60" nodename="S (Value)" systemname="S (Value)">
+   <BOUNDS height="100" left="6450" top="7485" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Send String" slicecount="1" values="iPad-record.Save.Do">
    </PIN>
    <PIN pinname="Input Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="59" srcpinname="Output" dstnodeid="60" dstpinname="Input Value">
+   <LINK dstnodeid="60" dstpinname="Input Value" srcnodeid="59" srcpinname="Output">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Output" dstnodeid="36" dstpinname="Lightness">
    </LINK>
    </PATCH>

@@ -1,11 +1,11 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
    <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faces.v4p">
-   <BOUNDS height="12840" left="885" top="0" type="Window" width="18015">
+   <BOUNDS height="15075" left="1875" top="0" type="Window" width="20085">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (Node)" systemname="IOBox (Node)">
-   <BOUNDS height="100" left="6960" top="14115" type="Node" width="100">
+   <BOUNDS height="100" left="6960" top="14415" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="6960" top="14115" type="Box" width="795">
+   <BOUNDS height="240" left="6960" top="14415" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="7305" top="8745" type="Window" width="215">
    </BOUNDS>
@@ -551,7 +551,7 @@
    </BOUNDS>
    <PIN pinname="Select a new iPad box" visible="1">
    </PIN>
-   <BOUNDS height="11700" left="1860" top="945" type="Window" width="16605">
+   <BOUNDS height="14145" left="1860" top="945" type="Window" width="18855">
    </BOUNDS>
    <PIN pinname="Active" visible="1">
    </PIN>
@@ -924,8 +924,6 @@
    </LINK>
    <LINK dstnodeid="55" dstpinname="iPad record textures" srcnodeid="6" srcpinname="Output Node">
    </LINK>
-   <LINK dstnodeid="1" dstpinname="Input Node" srcnodeid="14" srcpinname="Layer">
-   </LINK>
    <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" id="83" nodename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" systemname="L3.2 - Aspect ratio" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
    <BOUNDS height="100" left="12720" top="13170" type="Node" width="100">
    </BOUNDS>
@@ -966,10 +964,10 @@
    <LINKPOINT x="5325" y="10815">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="85">
-   <BOUNDS type="Node" left="16980" top="12210" width="100" height="100">
+   <NODE componentmode="InABox" id="85" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="16980" top="12210" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="16980" top="12210" width="795" height="480">
+   <BOUNDS height="480" left="16980" top="12210" type="Box" width="795">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
@@ -982,7 +980,7 @@
    <PIN pinname="Digits" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="55" srcpinname="Recorder IDs" dstnodeid="85" dstpinname="Y Input Value">
+   <LINK dstnodeid="85" dstpinname="Y Input Value" srcnodeid="55" srcpinname="Recorder IDs">
    </LINK>
    <NODE componentmode="InABox" id="87" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="18480" top="11400" type="Node" width="100">
@@ -1010,6 +1008,56 @@
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="64" srcpinname="Input Value" dstnodeid="87" dstpinname="Y Input Value">
+   <LINK dstnodeid="87" dstpinname="Y Input Value" srcnodeid="64" srcpinname="Input Value">
+   </LINK>
+   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.1 - overlay last 2.v4p" id="88" nodename="Layer 3 - Small faceas\L3.1 - overlay last 2.v4p" stayontop="0" systemname="L3.1 - overlay last 2" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
+   <BOUNDS height="270" left="15270" top="13680" type="Node" width="3315">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <BOUNDS height="6825" left="6885" top="3780" type="Window" width="14685">
+   </BOUNDS>
+   <PIN pinname="iViewPort" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Recorder IDs" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" id="89" nodename="Group (EX9)" systemname="Group (EX9)">
+   <BOUNDS height="270" left="6960" top="14070" type="Node" width="8370">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" pintype="Input" slicecount="1" visible="-1" values="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="1" dstpinname="Input Node" srcnodeid="89" srcpinname="Layer">
+   </LINK>
+   <LINK dstnodeid="89" dstpinname="Layer 1" srcnodeid="14" srcpinname="Layer">
+   </LINK>
+   <LINK dstnodeid="89" dstpinname="Layer 2" srcnodeid="88" srcpinname="Layer">
+   </LINK>
+   <LINK dstnodeid="88" dstpinname="iViewPort" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="10" srcpinname="iProjector">
+   <LINKPOINT x="2400" y="12023">
+   </LINKPOINT>
+   <LINKPOINT x="16770" y="12023">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="88" dstpinname="Transform" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="10" srcpinname="Transform">
+   <LINKPOINT x="1125" y="12023">
+   </LINKPOINT>
+   <LINKPOINT x="15270" y="12023">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="88" dstpinname="Recorder IDs" linkstyle="Bezier" srcnodeid="55" srcpinname="Recorder IDs">
+   <LINKPOINT x="17760" y="12750">
+   </LINKPOINT>
+   <LINKPOINT x="18540" y="12750">
+   </LINKPOINT>
    </LINK>
    </PATCH>

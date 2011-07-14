@@ -567,12 +567,19 @@ namespace VVVV.Nodes.CLEye
 
             String fullPath = FPatchPath + "\\" + FPath;
 
+            /*
+             * Let's overwrite existing stuff
+             * everything should have a unique path anyway
+             * 
             //check if folder exists
             //if not create it
             while (Directory.Exists(fullPath))
                 fullPath = fullPath + "0";
 
             Directory.CreateDirectory(fullPath);
+            */
+            if (!Directory.Exists(fullPath))
+                Directory.CreateDirectory(fullPath);
             
 
             Bitmap bmpSaver;

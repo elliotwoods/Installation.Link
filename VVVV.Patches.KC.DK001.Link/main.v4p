@@ -237,7 +237,7 @@
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Layer 4 - iPad players.v4p" id="65" nodename="subpatches\Layer 4 - iPad players.v4p" systemname="Layer 4 - iPad players" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="7185" top="5085" type="Node" width="2085">
    </BOUNDS>
-   <BOUNDS height="7485" left="570" top="1230" type="Window" width="23730">
+   <BOUNDS height="9360" left="570" top="1230" type="Window" width="23730">
    </BOUNDS>
    <PIN pinname="Texture out" visible="1">
    </PIN>
@@ -277,7 +277,7 @@
    </BOUNDS>
    <BOUNDS height="1800" left="3300" top="9045" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="6615" left="-14730" top="1740" type="Window" width="12480">
+   <BOUNDS height="7200" left="4260" top="4575" type="Window" width="18105">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -481,7 +481,7 @@
    </BOUNDS>
    <BOUNDS height="3990" left="11340" top="9825" type="Box" width="4335">
    </BOUNDS>
-   <BOUNDS height="5010" left="13425" top="375" type="Window" width="6240">
+   <BOUNDS height="10770" left="11085" top="2640" type="Window" width="12165">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -647,7 +647,7 @@
    </PIN>
    <PIN pinname="Layers out" visible="1">
    </PIN>
-   <BOUNDS height="12840" left="885" top="0" type="Window" width="18015">
+   <BOUNDS height="15075" left="1875" top="0" type="Window" width="20085">
    </BOUNDS>
    <PIN pinname="Recorder IDs" visible="1">
    </PIN>
@@ -786,7 +786,7 @@
    </LINK>
    <LINK dstnodeid="21" dstpinname="Switch" srcnodeid="104" srcpinname="View Mode">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Recordings" dstnodeid="65" dstpinname="Input" linkstyle="VHV">
+   <LINK dstnodeid="65" dstpinname="Input" linkstyle="VHV" srcnodeid="18" srcpinname="Recordings">
    <LINKPOINT x="2760" y="4898">
    </LINKPOINT>
    <LINKPOINT x="7185" y="4898">

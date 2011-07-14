@@ -242,7 +242,6 @@ namespace VVVV.Nodes.ImageCache
                 string fnamein;
                 FPinFilename.GetString(0, out fnamein);
 
-                isLoading = true;
                 fnameFirst = fnamein;
 
                 if (isImageFile(fnameFirst) && allowLoad)
@@ -254,6 +253,8 @@ namespace VVVV.Nodes.ImageCache
                     }
                     else
                     {
+                        isLoading = false;
+
                         if (loadThread.IsAlive)
                             loadThread.Join();
                         loadThread = new Thread(fnLoadThread);
@@ -263,13 +264,12 @@ namespace VVVV.Nodes.ImageCache
                     FPinOutLoaded.SetValue(0, 0);
                 }
             }
-
+            /*
             if (loadThread != null)
-                if (!isLoading && loadThread.IsAlive)
-                {
-                    loadThread.Join();
-                }
-
+                if (loadThread.IsAlive)
+                    if (!isLoading)
+                        loadThread.Join();
+            */
             double dblCount = System.Convert.ToInt32(count);
             FPinOutCount.SetValue(0, dblCount);
 
@@ -376,6 +376,8 @@ namespace VVVV.Nodes.ImageCache
 
                     if (isValidIamge && isImageFile(fnameFirst))
                     {
+                        isLoading = true;
+
                         FWidth = bmpCheck.Width;
                         FHeight = bmpCheck.Height;
                         bmpCheck.Dispose();
@@ -419,12 +421,12 @@ namespace VVVV.Nodes.ImageCache
 
                             fnameCurrentFrame = pathName + "\\" + paddedTrunk.Substring(0, paddedTrunk.Length - sequenceNumber.Length) + sequenceNumber + extension;
 
-                            Thread.Sleep(5);
+                            //Thread.Sleep(5);
                         }
+
+                        isLoading = false;
                     }
                 }
-
-            isLoading = false;
         }
 	}
         
