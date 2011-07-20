@@ -15,9 +15,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="5" nodename="MonoFlop (Animation)" systemname="MonoFlop (Animation)">
-   <BOUNDS height="100" left="2115" top="900" type="Node" width="100">
+   <BOUNDS height="100" left="2535" top="900" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="2115" top="900" type="Box" width="0">
+   <BOUNDS height="0" left="2535" top="900" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="9510" top="11505" type="Window" width="0">
    </BOUNDS>
@@ -27,9 +27,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="6" nodename="OnOpen (VVVV)" systemname="OnOpen (VVVV)">
-   <BOUNDS height="100" left="2115" top="360" type="Node" width="100">
+   <BOUNDS height="100" left="2535" top="360" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="2115" top="360" type="Box" width="0">
+   <BOUNDS height="0" left="2535" top="360" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="9510" top="10965" type="Window" width="0">
    </BOUNDS>
@@ -45,7 +45,7 @@
    </BOUNDS>
    <BOUNDS height="10575" left="20775" top="2190" type="Window" width="12915">
    </BOUNDS>
-   <PIN pinname="Layers" visible="1">
+   <PIN pinname="Layers" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Viewport Transform" pintype="Input" slicecount="1" visible="1" values="||">
    </PIN>
@@ -153,7 +153,7 @@
    </BOUNDS>
    <BOUNDS height="5010" left="33030" top="2625" type="Window" width="6240">
    </BOUNDS>
-   <PIN pinname="Layers" visible="1">
+   <PIN pinname="Layers" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Transformations Index" pintype="Input" visible="1">
    </PIN>
@@ -181,7 +181,7 @@
    </BOUNDS>
    <BOUNDS height="5010" left="54975" top="3675" type="Window" width="6240">
    </BOUNDS>
-   <PIN pinname="Layers" visible="1">
+   <PIN pinname="Layers" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Transformations Index" pintype="Input" visible="1">
    </PIN>
@@ -236,12 +236,12 @@
    </LINK>
    <LINK dstnodeid="23" dstpinname="Y Input Value" srcnodeid="19" srcpinname="Actual Backbuffer Width">
    </LINK>
-   <NODE componentmode="InAWindow" id="24" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
+   <NODE componentmode="Hidden" id="24" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
    <BOUNDS height="270" left="630" top="1830" type="Node" width="5475">
    </BOUNDS>
    <BOUNDS height="1800" left="630" top="1830" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="5010" left="10635" top="1905" type="Window" width="6240">
+   <BOUNDS height="5010" left="450" top="0" type="Window" width="6240">
    </BOUNDS>
    <PIN pinname="Transformations Index" pintype="Input" visible="1">
    </PIN>
@@ -249,11 +249,13 @@
    </PIN>
    <PIN pinname="Actual Backbuffer Width" visible="1">
    </PIN>
-   <PIN pinname="Layers" visible="1">
+   <PIN pinname="Layers" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="4">
    </PIN>
    <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Fullscreen" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="25" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
@@ -297,5 +299,7 @@
    <LINK dstnodeid="27" dstpinname="Y Input Value" srcnodeid="24" srcpinname="Actual Backbuffer Width">
    </LINK>
    <LINK dstnodeid="24" dstpinname="Layers" srcnodeid="1" srcpinname="Output Node">
+   </LINK>
+   <LINK dstnodeid="24" dstpinname="Fullscreen" srcnodeid="5" srcpinname="Inverse Output">
    </LINK>
    </PATCH>

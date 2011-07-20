@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\N1.2 - Receive actions.v4p">
-   <BOUNDS height="11595" left="10755" top="735" type="Window" width="10365">
+   <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\N1.2 - Receive actions.v4p">
+   <BOUNDS height="11595" left="1755" top="540" type="Window" width="10365">
    </BOUNDS>
    <NODE componentmode="Hidden" id="19" nodename="UDP (Network Server)" systemname="UDP (Network Server)">
    <BOUNDS height="270" left="1125" top="945" type="Node" width="3165">
@@ -55,7 +55,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="0" top="0" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|//actions &cr;&lf;0  = Indicate&cr;&lf;1 = Start preview&cr;&lf;2 = Begin record&cr;&lf;3 = Save&cr;&lf;4 = Clear record&cr;&lf;5 = Reselect|">
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|//actions &cr;&lf;0  = Indicate&cr;&lf;1 = re-record&cr;&lf;2 = Begin record&cr;&lf;3 = Save&cr;&lf;4 = Clear record&cr;&lf;5 = Reselect|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -282,8 +282,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="3" dstpinname="Set" srcnodeid="4" srcpinname="Output 1">
-   </LINK>
    <NODE componentmode="InABox" id="2" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="900" left="1410" top="9975" type="Node" width="1815">
    </BOUNDS>
@@ -378,8 +376,8 @@
    </LINK>
    <LINK dstnodeid="23" dstpinname="Input 2" srcnodeid="4" srcpinname="Output 6">
    </LINK>
-   <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="24">
-   <BOUNDS type="Node" left="8805" top="1710" width="100" height="100">
+   <NODE componentmode="Hidden" id="24" nodename="S+H (Animation)" systemname="S+H (Animation)">
+   <BOUNDS height="100" left="8805" top="1710" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -388,14 +386,14 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="24" dstpinname="Input">
+   <LINK dstnodeid="24" dstpinname="Input" srcnodeid="13" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="19" srcpinname="Queue Count" dstnodeid="24" dstpinname="Set">
+   <LINK dstnodeid="24" dstpinname="Set" srcnodeid="19" srcpinname="Queue Count">
    </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="25">
-   <BOUNDS type="Node" left="8400" top="2235" width="100" height="100">
+   <NODE componentmode="InABox" id="25" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="8400" top="2235" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="8400" top="2235" width="450" height="1755">
+   <BOUNDS height="1755" left="8400" top="2235" type="Box" width="450">
    </BOUNDS>
    <PIN pinname="Show Value" slicecount="1" values="0">
    </PIN>
@@ -412,24 +410,18 @@
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="24" srcpinname="Output" dstnodeid="25" dstpinname="Y Input Value">
+   <LINK dstnodeid="25" dstpinname="Y Input Value" srcnodeid="24" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="4" srcpinname="Output 1" dstnodeid="23" dstpinname="Input 1" linkstyle="Bezier">
+   <LINK dstnodeid="23" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="4" srcpinname="Output 1">
    <LINKPOINT x="1200" y="6173">
    </LINKPOINT>
    <LINKPOINT x="7275" y="6173">
    </LINKPOINT>
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="26" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="1740" top="5085" width="1470" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1740" top="5085" width="1470" height="270">
-   </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|//start countdown|">
-   </PIN>
-   <PIN pinname="Output String" visible="0">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="0">
-   </PIN>
-   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output" dstnodeid="3" dstpinname="Set" linkstyle="VHV">
+   <LINKPOINT x="1905" y="6870">
+   </LINKPOINT>
+   <LINKPOINT x="1185" y="6870">
+   </LINKPOINT>
+   </LINK>
    </PATCH>

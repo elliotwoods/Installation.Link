@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faces.v4p">
+   <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faces.v4p">
    <BOUNDS height="15075" left="1875" top="0" type="Window" width="20085">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (Node)" systemname="IOBox (Node)">
@@ -546,7 +546,7 @@
    </NODE>
    <LINK dstnodeid="14" dstpinname="size source XY" srcnodeid="54" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\Rearrange.v4p" id="55" nodename="Layer 3 - Small faceas\Rearrange.v4p" systemname="Rearrange" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
+   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\Rearrange.v4p" id="55" nodename="Layer 3 - Small faceas\Rearrange.v4p" systemname="Rearrange" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
    <BOUNDS height="270" left="10530" top="11550" type="Node" width="7245">
    </BOUNDS>
    <PIN pinname="Select a new iPad box" visible="1">
@@ -663,12 +663,6 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="55" dstpinname="Graphic textures" srcnodeid="19" srcpinname="Output Node">
-   </LINK>
-   <LINK dstnodeid="14" dstpinname="Texture" linkstyle="VHV" srcnodeid="55" srcpinname="Texture out">
-   <LINKPOINT x="10560" y="12070">
-   </LINKPOINT>
-   <LINKPOINT x="12045" y="12020">
-   </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="61" nodename="Count (Value)" systemname="Count (Value)">
    <BOUNDS height="100" left="3900" top="10500" type="Node" width="100">
@@ -924,7 +918,7 @@
    </LINK>
    <LINK dstnodeid="55" dstpinname="iPad record textures" srcnodeid="6" srcpinname="Output Node">
    </LINK>
-   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" id="83" nodename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" systemname="L3.2 - Aspect ratio" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
+   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" id="83" nodename="Layer 3 - Small faceas\L3.2 - Aspect ratio.v4p" systemname="L3.2 - Aspect ratio" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
    <BOUNDS height="100" left="12720" top="13170" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="11085" left="5415" top="2430" type="Window" width="9000">
@@ -1010,10 +1004,10 @@
    </NODE>
    <LINK dstnodeid="87" dstpinname="Y Input Value" srcnodeid="64" srcpinname="Input Value">
    </LINK>
-   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.1 - overlay last 2.v4p" id="88" nodename="Layer 3 - Small faceas\L3.1 - overlay last 2.v4p" stayontop="0" systemname="L3.1 - overlay last 2" path="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
+   <NODE componentmode="Hidden" filename="Layer 3 - Small faceas\L3.1 - overlay last 2.v4p" id="88" nodename="Layer 3 - Small faceas\L3.1 - overlay last 2.v4p" stayontop="0" systemname="L3.1 - overlay last 2" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 3 - Small faceas\">
    <BOUNDS height="270" left="15270" top="13680" type="Node" width="3315">
    </BOUNDS>
-   <PIN pinname="Layer" visible="1">
+   <PIN pinname="Layer" slicecount="1" visible="1" values="||">
    </PIN>
    <BOUNDS height="6825" left="6885" top="3780" type="Window" width="14685">
    </BOUNDS>
@@ -1031,7 +1025,7 @@
    </PIN>
    <PIN pinname="Layer 1" visible="1">
    </PIN>
-   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   <PIN pinname="Layer 2" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Enabled" pintype="Input" slicecount="1" visible="-1" values="1">
    </PIN>
@@ -1058,6 +1052,12 @@
    <LINKPOINT x="17760" y="12750">
    </LINKPOINT>
    <LINKPOINT x="18540" y="12750">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="14" dstpinname="Texture" linkstyle="VHV" srcnodeid="55" srcpinname="Texture out">
+   <LINKPOINT x="10560" y="12070">
+   </LINKPOINT>
+   <LINKPOINT x="12045" y="12020">
    </LINKPOINT>
    </LINK>
    </PATCH>

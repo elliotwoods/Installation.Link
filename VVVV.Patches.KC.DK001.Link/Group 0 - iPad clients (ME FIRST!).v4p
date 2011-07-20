@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
    <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\Group 0 - iPad clients (ME FIRST!).v4p" bgcolor="9474301">
-   <BOUNDS height="9330" left="4140" top="2235" type="Window" width="10860">
+   <BOUNDS height="9330" left="5325" top="1095" type="Window" width="10860">
    </BOUNDS>
    <NODE componentmode="InABox" id="17" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="585" top="3705" type="Node" width="100">
@@ -271,7 +271,7 @@
    </PIN>
    <PIN pinname="Visible" visible="1">
    </PIN>
-   <BOUNDS height="12585" left="9285" top="330" type="Window" width="10095">
+   <BOUNDS height="11700" left="4230" top="480" type="Window" width="10095">
    </BOUNDS>
    <PIN pinname="Path" visible="1">
    </PIN>

@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\loader.v4p">
+   <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\loader.v4p">
    <BOUNDS height="9795" left="3285" top="705" type="Window" width="11895">
    </BOUNDS>
    <NODE componentmode="Hidden" id="0" nodename="SetPatch (VVVV)" systemname="SetPatch (VVVV)">
@@ -64,7 +64,7 @@
    <LINKPOINT x="6510" y="4823">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="Hidden" id="11" nodename="Group 0 - iPad clients (ME FIRST!).v4p" systemname="clients (ME FIRST!)" filename="Group 0 - iPad clients (ME FIRST!).v4p">
+   <NODE componentmode="Hidden" filename="Group 0 - iPad clients (ME FIRST!).v4p" id="11" nodename="Group 0 - iPad clients (ME FIRST!).v4p" systemname="clients (ME FIRST!)">
    <BOUNDS height="270" left="2880" top="6960" type="Node" width="4995">
    </BOUNDS>
    <BOUNDS height="9330" left="5325" top="1095" type="Window" width="10860">
@@ -162,4 +162,8 @@
    <LINKPOINT x="5385" y="2040">
    </LINKPOINT>
    </LINK>
+   <NODE componentmode="InAWindow" id="2" nodename="main.v4p" systemname="main" filename="main.v4p">
+   <BOUNDS height="100" left="0" top="0" type="Node" width="100">
+   </BOUNDS>
+   </NODE>
    </PATCH>

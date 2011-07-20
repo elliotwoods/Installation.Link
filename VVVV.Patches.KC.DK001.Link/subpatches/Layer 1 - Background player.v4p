@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\jobs\kimchi and chips\Link - Athens\main installation\subpatches\Layer 1 - Background player.v4p" locked="0">
+   <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Background player.v4p" locked="0">
    <BOUNDS height="11700" left="2715" top="555" type="Window" width="16920">
    </BOUNDS>
    <NODE componentmode="InABox" id="13" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
@@ -139,7 +139,7 @@
    </PIN>
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
-   <PIN pinname="Input String" slicecount="12" visible="1" values="..\media\bg_circle1\background_circle10001.png,..\media\bg_circle1\background_circle10001.png,..\media\bg_circle2\background_circle20001.png,..\media\bg_circle2\background_circle20001.png,,,..\media\bg_line1\background_line10001.png,..\media\bg_line2\background_line20001.png,,,..\media\bg_colouredline\background_colouredline0001.png,..\media\bg_colouredline\background_colouredline0001.png">
+   <PIN pinname="Input String" slicecount="12" visible="1" values="..\media\bg_circle1\background_circle10001.png,,..\media\bg_circle2\background_circle20001.png,..\media\bg_circle2\background_circle20001.png,,,..\media\bg_line1\background_line10001.png,..\media\bg_line2\background_line20001.png,,,..\media\bg_colouredline\background_colouredline0001.png,..\media\bg_colouredline\background_colouredline0001.png">
    </PIN>
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
@@ -435,9 +435,9 @@
    <LINK dstnodeid="45" dstpinname="Filename" srcnodeid="89" srcpinname="Output">
    </LINK>
    <NODE componentmode="InABox" hiddenwhenlocked="0" id="96" managers="" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <PIN pinname="Y Input Value" pintype="Input" slicecount="6" visible="1" values="1,1,1,1,1,1">
+   <PIN pinname="Y Input Value" pintype="Input" slicecount="6" visible="1" values="1,1,1,0,1,1">
    </PIN>
-   <PIN pinname="X Input Value" pintype="Input" slicecount="6" visible="1" values="0,0.0413793103448278,0.248275862068966,0.693103448275862,0.952068965517242,1">
+   <PIN pinname="X Input Value" pintype="Input" slicecount="6" visible="1" values="0,0.0413793103448278,0.409952508775553,0.4954986578567,0.586799504439398,1">
    </PIN>
    <PIN pinname="Slider Behavior" pintype="Configuration" slicecount="1" values="Slider">
    </PIN>

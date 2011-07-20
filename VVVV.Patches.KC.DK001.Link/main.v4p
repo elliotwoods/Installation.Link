@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
    <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
-   <BOUNDS height="10605" left="2340" top="1005" type="Window" width="17430">
+   <BOUNDS height="10605" left="-495" top="0" type="Window" width="17430">
    </BOUNDS>
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="1380" top="4470" type="Node" width="100">
@@ -134,8 +134,6 @@
    <PIN pinname="Layer 5" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="27" dstpinname="Texture" srcnodeid="25" srcpinname="Textures out">
-   </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Data 0 - Sequencer.v4p" id="30" nodename="subpatches\Data 0 - Sequencer.v4p" systemname="Data 0 - Sequencer" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="3750" top="3405" type="Node" width="100">
    </BOUNDS>
@@ -226,7 +224,7 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InAWindow" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <NODE componentmode="Hidden" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers" path="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="705" top="8820" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers in" visible="1">
@@ -653,6 +651,8 @@
    </PIN>
    <PIN pinname="Select new face" visible="1">
    </PIN>
+   <PIN pinname="Texture out" visible="1">
+   </PIN>
    </NODE>
    <LINK dstnodeid="100" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
    <LINKPOINT x="2100" y="5393">
@@ -790,6 +790,22 @@
    <LINKPOINT x="2760" y="4898">
    </LINKPOINT>
    <LINKPOINT x="7185" y="4898">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" id="105" nodename="GetSlice (Node)" systemname="GetSlice (Node)">
+   <BOUNDS height="100" left="6705" top="7455" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Index" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="27" dstpinname="Texture" linkstyle="VHV" srcnodeid="25" srcpinname="Textures out">
+   <LINKPOINT x="3780" y="5550">
+   </LINKPOINT>
+   <LINKPOINT x="4095" y="5550">
    </LINKPOINT>
    </LINK>
    </PATCH>

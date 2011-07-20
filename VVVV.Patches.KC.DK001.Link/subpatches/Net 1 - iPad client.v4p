@@ -293,7 +293,7 @@
    </PIN>
    <PIN pinname="Clear recording" visible="1">
    </PIN>
-   <BOUNDS height="11595" left="10755" top="735" type="Window" width="10365">
+   <BOUNDS height="11595" left="1755" top="540" type="Window" width="10365">
    </BOUNDS>
    <PIN pinname="Reselect" slicecount="1" visible="1" values="0">
    </PIN>
@@ -343,9 +343,9 @@
    </PIN>
    <PIN pinname="Resolution" slicecount="1" values="128">
    </PIN>
-   <PIN pinname="Exposure" slicecount="1" values="96">
+   <PIN pinname="Exposure" slicecount="1" values="90">
    </PIN>
-   <PIN pinname="Gain" slicecount="1" values="44">
+   <PIN pinname="Gain" slicecount="1" values="79">
    </PIN>
    </NODE>
    <LINK dstnodeid="9" dstpinname="CameraGUID" linkstyle="VHV" srcnodeid="10" srcpinname="Output String">
