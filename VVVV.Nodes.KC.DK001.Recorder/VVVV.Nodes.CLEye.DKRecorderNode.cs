@@ -500,7 +500,7 @@ namespace VVVV.Nodes
                     byteDestination[idxdest + 0] = byteSource[idxsource + 0];
                     byteDestination[idxdest + 1] = byteSource[idxsource + 1];
                     byteDestination[idxdest + 2] = byteSource[idxsource + 2];
-                    byteDestination[idxdest + 3] = byteSource[idxsource + 3];
+                    byteDestination[idxdest + 3] = 255; // alpha
                 }
         }
 
