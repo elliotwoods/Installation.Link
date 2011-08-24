@@ -425,10 +425,11 @@ namespace CLEyeMulticam
             }
         }
 
-        public void getPixels(IntPtr pixels, int timeout)
+        public bool getPixels(IntPtr pixels, int timeout)
         {
             if (_camera != IntPtr.Zero)
-                CLEyeCameraGetFrame(_camera, pixels, timeout);
+                return CLEyeCameraGetFrame(_camera, pixels, timeout);
+            return false;
         }
 
         public void setLED(bool isOn)

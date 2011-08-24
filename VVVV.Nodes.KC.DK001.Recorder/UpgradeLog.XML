@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="VVVV.Nodes.KC.DK001.Recorder">
+</Property><Property Name="Solution File" Value="C:\kimchiandchips\Link\VVVV.Nodes.KC.DK001.Recorder\VVVV.Nodes.KC.DK001.Recorder.sln">
+</Property><Property Name="Date" Value="24 August 2011">
+</Property><Property Name="Time" Value="22:30">
+</Property></Properties><Event ErrorLevel="0" Project="VVVV.Nodes.KC.DK001.Recorder" Source="VVVV.Nodes.KC.DK001.Recorder.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="VVVV.Nodes.KC.DK001.Recorder" Source="VVVV.Nodes.KC.DK001.Recorder.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="VVVV.Nodes.KC.DK001.Recorder.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="VVVV.Nodes.KC.DK001.Recorder.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="VVVV.Nodes.KC.DK001.Recorder" Source="VVVV.Nodes.KC.DK001.Recorder.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

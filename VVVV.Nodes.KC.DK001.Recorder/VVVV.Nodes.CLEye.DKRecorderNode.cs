@@ -1,9 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.Runtime.InteropServices;
 using System.Linq;
 using System.Text;
 using VVVV.PluginInterfaces.V1;
+using VVVV.PluginInterfaces.V2;
+using VVVV.PluginInterfaces.V2.EX9;
+using VVVV.Utils.SlimDX;
 using SlimDX.Direct3D9;
 using System.Runtime.InteropServices;
 using SlimDX;
@@ -12,61 +17,58 @@ using System.Drawing.Imaging;
 using System.Threading;
 using CLEyeMulticam;
 
-namespace VVVV.Nodes.CLEye
+namespace VVVV.Nodes
 {
-	
-	public unsafe class DKRecorderNode : IPlugin, IDisposable, IPluginDXTexture
-	{
-
-		#region Plugin Info
-		public static IPluginInfo PluginInfo
-		{
-			get
-			{
-				IPluginInfo Info = new PluginInfo();
-				Info.Name = "DK-Recorder";							//use CamelCaps and no spaces
-                Info.Category = "CLEye";						//try to use an existing one
-				Info.Version = "";						//versions are optional. leave blank if not needed
-				Info.Help = "Save and play images from camera devices.";
-				Info.Bugs = "";
-				Info.Credits = "vux, Eric D. Burdo";								//give credits to thirdparty code used
-				Info.Warnings = "";
-                Info.Author = "sugokuGENKI";
-				Info.Credits = "";
-
-				//leave below as is
-				System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace(true);
-				System.Diagnostics.StackFrame sf = st.GetFrame(0);
-				System.Reflection.MethodBase method = sf.GetMethod();
-				Info.Namespace = method.DeclaringType.Namespace;
-				Info.Class = method.DeclaringType.Name;
-				return Info;
-				//leave above as is
-			}
-		}
-		#endregion
-
+    [PluginInfo(Name = "DK-Recorder",
+                Category = "CLEye",
+                Author = "sugokuGENKI",
+                Version = "",
+                Help = "Save and play images from camera devices.",
+                Credits = "vux, Eric D. Burdo",
+                Tags = "")]
+	public unsafe class DKRecorderNode : DXTextureOutPluginBase, IPluginEvaluate
+    {
 		#region Fields
-		private IPluginHost FHost;
 
         //inputs
-		private IValueIn FPinInRecord;
-        private IValueIn FPinInPreview;
-        private IValueIn FPinInSave;
-        private IValueIn FPinInFPS;
-        private IValueIn FPinInCount;
-        //
-        private IStringIn FPinInPath;
-        private IStringIn FPinInGUID;
-        private IValueIn FPinInResolution;
+        [Input("Record", IsSingle=true)]
+        IDiffSpread<bool> FPinInRecord;
+
+        [Input("Preview", IsSingle=true)]
+        IDiffSpread<bool> FPinInPreview;
+
+        [Input("Save", IsSingle=true, IsBang=true)]
+        IDiffSpread<bool> FPinInSave;
+
+        [Input("fps", IsSingle=true, MinValue=1, MaxValue=120, DefaultValue=30)]
+        IDiffSpread<int> FPinInFPS;
+
+        [Input("Count", IsSingle = true, MinValue = 0, MaxValue = 9999, DefaultValue = 120)]
+        IDiffSpread<int> FPinInCount;
+
+        [Input("Path")]
+        IDiffSpread<string> FPinInPath;
+
+        [Input("CameraGUID")]
+        IDiffSpread<string> FPinInGUID;
+
+        [Input("Resolution", MinValue=0, MaxValue=2048, DefaultValue=256)]
+        IDiffSpread<int> FPinInResolution;
 
         //outputs
-        private IDXTextureOut FPinOutTexture;
-        //
-        private IValueOut FPinOutProgress;
-        private IValueOut FPinOutRecorded;
-        private IValueOut FPinOutSaved;
+        // texture output is automatic
+        [Output("Progress", DefaultValue=0)]
+        ISpread<double> FPinOutProgress;
 
+        [Output("Recorded", DefaultValue=0)]
+        ISpread<bool> FPinOutRecorded;
+
+        [Output("Saved", DefaultValue=0)]
+        ISpread<bool> FPinOutSaved;
+
+        IPluginHost FHost;
+
+        bool firstRun = true;
 		private Dictionary<int, Texture> FTextures = new Dictionary<int, Texture>();
 
         //recorded images
@@ -97,7 +99,7 @@ namespace VVVV.Nodes.CLEye
 
         // settings
         int countTarget;
-        double Ffps = 30.0;
+        float Ffps = 30.0f;
         string FPath;
         string FPatchPath;
         int FInputWidth = 320;
@@ -121,59 +123,17 @@ namespace VVVV.Nodes.CLEye
 		}
 		#endregion
 
-		#region Set Plugin Host
-		public void SetPluginHost(IPluginHost Host)
-		{
-			//assign host
-			this.FHost = Host;
-
-            //inputs
-            this.FHost.CreateValueInput("Record", 1, null, TSliceMode.Single, TPinVisibility.True, out FPinInRecord);
-            FPinInRecord.SetSubType(0, 1, 1, 0, true, false, false);
-
-            this.FHost.CreateValueInput("Preview", 1, null, TSliceMode.Single, TPinVisibility.True, out FPinInPreview);
-            FPinInPreview.SetSubType(0, 1, 1, 0, true, false, false);
-
-            this.FHost.CreateValueInput("Save", 1, null, TSliceMode.Single, TPinVisibility.True, out FPinInSave);
-            FPinInSave.SetSubType(0, 1, 1, 0, true, false, false);
-
-            this.FHost.CreateValueInput("fps", 1, null, TSliceMode.Single, TPinVisibility.True, out FPinInFPS);
-            FPinInFPS.SetSubType(0, 120, 1, 30, false, false, true);
-
-            this.FHost.CreateValueInput("Count", 1, null, TSliceMode.Single, TPinVisibility.True, out FPinInCount);
-            FPinInCount.SetSubType(0, double.MaxValue, 1, 120, false, false, true);
-
-            this.FHost.CreateStringInput("Path", TSliceMode.Single, TPinVisibility.True, out FPinInPath);
-            FPinInPath.SetSubType(".", false);
-
-            this.FHost.CreateStringInput("CameraGUID", TSliceMode.Single, TPinVisibility.True, out FPinInGUID);
-
-            this.FHost.CreateValueInput("Resolution", 1, null, TSliceMode.Single, TPinVisibility.True, out FPinInResolution);
-            FPinInResolution.SetSubType(0, 2048, 1, 256, false, false, true);
-
-            //outputs
-            this.FHost.CreateTextureOutput("Texture", TSliceMode.Single, TPinVisibility.True, out this.FPinOutTexture);
-
-            this.FHost.CreateValueOutput("Progress", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinOutProgress);
-            FPinOutProgress.SetSubType(0, 1 , 0.001, 0, false, false, false);
-
-            this.FHost.CreateValueOutput("Recorded", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinOutRecorded);
-            FPinOutRecorded.SetSubType(0, 1, 1, 0, false, true, false);
-
-            this.FHost.CreateValueOutput("Saved", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinOutSaved);
-            FPinOutSaved.SetSubType(0, 1, 1, 0, false, true, false);
+        #region Constructor
+        [ImportingConstructor()]
+        public DKRecorderNode(IPluginHost host)
+            : base(host)
+        {
+            resolution = 256;
+            //assign host
+            this.FHost = host;
 
             FHost.GetHostPath(out FPatchPath);
             FPatchPath = Path.GetDirectoryName(FPatchPath);
-            
-
-		}
-		#endregion
-
-        #region Constructor
-        public DKRecorderNode()
-        {
-            resolution = 256;
         }
 
         ~DKRecorderNode()
@@ -200,16 +160,14 @@ namespace VVVV.Nodes.CLEye
 		#region Evaluate
 		public void Evaluate(int SpreadMax)
 		{
-            if (this.FPinInResolution.PinIsChanged)
+            if (this.FPinInResolution.IsChanged || firstRun)
             {
                 //
                 //CHANGE RESOLUTION
                 //
 
                 //read in the resolution
-                double dblResolution;
-                FPinInResolution.GetValue(0, out dblResolution);
-                resolution = System.Convert.ToInt32(dblResolution);
+                resolution = FPinInResolution[0];
 
                 //clear all existing images
                 clearImages();
@@ -220,18 +178,17 @@ namespace VVVV.Nodes.CLEye
                     FRecordedData.Add(new IntPtr());
                     FRecordedData[FRecordedData.Count - 1] = Marshal.AllocCoTaskMem(resolution * resolution * 4);
                 }
+                Reinitialize();
             }
 
-            if (this.FPinInCount.PinIsChanged)
+            if (this.FPinInCount.IsChanged || firstRun)
             {
                 //
                 //CHANGE COUNT
                 //
 
                 //read in the count
-                double dblCount;
-                FPinInCount.GetValue(0, out dblCount);
-                countTarget = System.Convert.ToInt32(dblCount);
+                countTarget = FPinInCount[0];
                 
                 //change the amount of data that we have stored
                 //
@@ -250,38 +207,37 @@ namespace VVVV.Nodes.CLEye
                 }
             }
 
-            if (this.FPinInFPS.PinIsChanged)
+            if (this.FPinInFPS.IsChanged || firstRun)
             {
                 //
                 // SET FPS
                 //
-                FPinInFPS.GetValue(0, out Ffps);
+                Ffps = (float)FPinInFPS[0];
             }
 
-            if (this.FPinInPath.PinIsChanged)
+            if (this.FPinInPath.IsChanged || firstRun)
             {
                 //
                 // CHANGE PATH
                 //
 
                 //read in path
-                FPinInPath.GetString(0, out FPath);
+                FPath = FPinInPath[0];
 
                 //check if folder exists
                 //if not create it
-                if (!Directory.Exists(FPath) && FPath != null)
-                    Directory.CreateDirectory(FPath);
+                if (!Directory.Exists(getFullPath()) && FPath != null)
+                    Directory.CreateDirectory(getFullPath());
             }
 
-            if (this.FPinInGUID.PinIsChanged && this.FPinInGUID.SliceCount > 0)
+            if (this.FPinInGUID.IsChanged && this.FPinInGUID.SliceCount > 0 || firstRun)
             {
                 //
                 // CHANGE GUID
                 //
 
                 //read in the GUID
-                string strGUID;
-                FPinInGUID.GetString(0, out strGUID);
+                string strGUID = FPinInGUID[0];
 
                 if (strGUID != null && strGUID.Length > 5)
                 {
@@ -290,16 +246,14 @@ namespace VVVV.Nodes.CLEye
                 }
             }
 
-            if (this.FPinInRecord.PinIsChanged)
+            if (this.FPinInRecord.IsChanged || firstRun)
             {
                 //
                 // DO RECORD
                 //
+                bool doRecord = FPinInRecord[0];
 
-                double dblRecord;
-                FPinInRecord.GetValue(0, out dblRecord);
-
-                if (dblRecord > 0.5)
+                if (doRecord)
                 {
                     if (currentState != DK_state.Recording)
                     {
@@ -308,20 +262,22 @@ namespace VVVV.Nodes.CLEye
                         isSaved = false;
                         currentState = DK_state.Recording;
                         timeStartRecord = DateTime.Now;
-                        FPinOutRecorded.SetValue(0, 0);
-                        FPinOutProgress.SetValue(0, 0);
-                        FDebugString="";
+                        FPinOutRecorded[0] = false;
+                        FPinOutProgress[0] = 0;
+                        FDebugString = "";
 
                         FCam.setLED(true);
                     }
+                    else
+                        FDebugString = "Can't start recording, already recording";
                 }
             }
 
-            if (FPinInPreview.PinIsChanged)
+            if (FPinInPreview.IsChanged || firstRun)
             {
-                double dblPreview;
-                FPinInPreview.GetValue(0, out dblPreview);
-                if (dblPreview > 0.5)
+                bool doPreview = FPinInPreview[0];
+
+                if (doPreview)
                 {
                     currentState = DK_state.Preview;
                     isRecorded = false;
@@ -329,11 +285,10 @@ namespace VVVV.Nodes.CLEye
                 }
             }
 
-            if (FPinInSave.PinIsChanged)
+            if (FPinInSave.IsChanged || firstRun)
             {
-                double dblSave;
-                FPinInSave.GetValue(0, out dblSave);
-                if (dblSave > 0.5 && isRecorded && currentState == DK_state.Playing && FSaveThread==null)
+                bool doSave = FPinInSave[0];
+                if (doSave && isRecorded && currentState == DK_state.Playing && FSaveThread == null)
                 {
                     isSaved = false; //change here
                     FSaveThread = new Thread(fnSaveThread);
@@ -353,9 +308,9 @@ namespace VVVV.Nodes.CLEye
             }
 
             //output currents
-            FPinOutProgress.SetValue(0, FRecordProgress);
-            FPinOutRecorded.SetValue(0, (isRecorded ? 1 : 0));
-            FPinOutSaved.SetValue(0, (isSaved ? 1 : 0));
+            FPinOutProgress[0] = FRecordProgress;
+            FPinOutRecorded[0] = isRecorded;
+            FPinOutSaved[0] = isSaved;
 
             //output debug
             if (FDebugString.Length > 0)
@@ -372,6 +327,9 @@ namespace VVVV.Nodes.CLEye
             } else
                 iPlayFrame = 0;
 
+            Update();
+
+            firstRun = false;
 		}
         #endregion
 
@@ -382,43 +340,25 @@ namespace VVVV.Nodes.CLEye
 		}
 		#endregion
 
-		public void GetTexture(IDXTextureOut ForPin, int OnDevice, out int tex)
+        #region Texture
+		//this method gets called, when Reinitialize() was called in evaluate,
+		//or a graphics device asks for its data
+		protected override Texture CreateTexture(int Slice, Device device)
 		{
-			tex = 0;
-			if (ForPin == this.FPinOutTexture)
-			{	
-				if (this.FTextures.ContainsKey(OnDevice))
-				{
-					tex = this.FTextures[OnDevice].ComPointer.ToInt32();
-				}
-			}
-
+			//FLogger.Log(LogType.Debug, "Creating new texture at slice: " + Slice);
+            return TextureUtils.CreateTexture(device, resolution, resolution);
 		}
 
-		public void DestroyResource(IPluginOut ForPin, int OnDevice, bool OnlyUnManaged)
+        //this method gets called, when Update() was called in evaluate,
+		//or a graphics device asks for its texture, here you fill the texture with the actual data
+		//this is called for each renderer, careful here with multiscreen setups, in that case
+		//calculate the pixels in evaluate and just copy the data to the device texture here
+		protected unsafe override void UpdateTexture(int Slice, Texture texture)
 		{
-			if (this.FTextures.ContainsKey(OnDevice))
-			{
-				this.FTextures[OnDevice].Dispose();
-				this.FTextures.Remove(OnDevice);
-			}
-		}
-
-		public void UpdateResource(IPluginOut ForPin, int OnDevice)
-		{
-			Device dev = Device.FromPointer(new IntPtr(OnDevice));
-			if (FCameraCreated)
-			{
-				if (!this.FTextures.ContainsKey(OnDevice))
-				{
-					Texture txt = new Texture(dev, resolution, resolution, 1, Usage.None, Format.X8R8G8B8, Pool.Managed);
-					this.FTextures.Add(OnDevice, txt);
-				}
-
-				Texture tx = this.FTextures[OnDevice];
-				
-				Surface srf = tx.GetSurfaceLevel(0);
-				DataRectangle rect = srf.LockRectangle(LockFlags.Discard);
+            if (FCameraCreated)
+            {
+                Surface srf = texture.GetSurfaceLevel(0);
+                DataRectangle rect = srf.LockRectangle(LockFlags.Discard);
 
                 //make sure we're not going over
                 //should never reach this anyway
@@ -429,10 +369,12 @@ namespace VVVV.Nodes.CLEye
                     rect.Data.WriteRange(FRecordedData[System.Convert.ToInt32(iPlayFrame)], resolution * resolution * 4);
                 else
                     rect.Data.WriteRange(this.FCamDataResized, resolution * resolution * 4);
-				srf.UnlockRectangle();
-            }
 
+                srf.UnlockRectangle();
+            }
 		}
+
+        #endregion
 
         private bool isImageFile(string filename)
         {
@@ -468,6 +410,7 @@ namespace VVVV.Nodes.CLEye
             GC.Collect();
         }
 
+        #region camera
         private void initCamera()
         {
             //close camera if it's already created
@@ -497,12 +440,14 @@ namespace VVVV.Nodes.CLEye
                 FCam.Stop();
             }
         }
+        #endregion
 
         private void getFrameThread()
         {
             while (FCameraCreated && !FIsClosing)
             {
-                FCam.getPixels(FCamData, 100);
+                if (!FCam.getPixels(FCamData, 100))
+                    FDebugString = "Can't pull frame from camera";
                 resizeImage(FCamData, FCamDataResized, FInputWidth, FInputHeight, resolution, resolution);
 
                 if (currentState == DK_state.Recording)
@@ -534,7 +479,7 @@ namespace VVVV.Nodes.CLEye
             }
         }
 
-        private void resizeImage(IntPtr source, IntPtr destination, int sw, int sh, int destw, int desth)
+        private unsafe void resizeImage(IntPtr source, IntPtr destination, int sw, int sh, int destw, int desth)
         {
             //crappy nearest neighbour resizing
             int sourcex, sourcey;
@@ -548,8 +493,8 @@ namespace VVVV.Nodes.CLEye
                 {
                     sourcex = System.Convert.ToInt32(System.Convert.ToSingle(x * sw) / System.Convert.ToSingle(destw));
                     sourcey = System.Convert.ToInt32(System.Convert.ToSingle(y * sh) / System.Convert.ToSingle(desth));
-                    idxsource = sourcex*4 + sourcey*4*sw;
 
+                    idxsource = sourcex*4 + sourcey*4*sw;
                     idxdest = x * 4 + y * 4 * destw;
 
                     byteDestination[idxdest + 0] = byteSource[idxsource + 0];
@@ -559,13 +504,18 @@ namespace VVVV.Nodes.CLEye
                 }
         }
 
+        string getFullPath()
+        {
+            return FPatchPath + "\\" + FPath; 
+        }
+
         private void fnSaveThread()
         {
             //check if we haven't recorded (then cant save!)
             if (!isRecorded || FPath == null)
                 return;
 
-            String fullPath = FPatchPath + "\\" + FPath;
+            String fullPath = getFullPath();
 
             /*
              * Let's overwrite existing stuff
