@@ -1,0 +1,183 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.Tests\VideosOnFaces.v4p" systemname="VideosOnFaces" filename="C:\kimchiandchips\Link\VVVV.Patches.Tests\VideosOnFaces.v4p">
+   <BOUNDS type="Window" left="9900" top="5100" width="9000" height="6000">
+   </BOUNDS>
+   <NODE systemname="Net 0 - Mapping iPad" filename="..\VVVV.Patches.KC.DK001.Link\subpatches\Net 0 - Mapping iPad.v4p" nodename="..\VVVV.Patches.KC.DK001.Link\subpatches\Net 0 - Mapping iPad.v4p" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="3510" top="1230" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="11655" top="2175" width="16995" height="11700">
+   </BOUNDS>
+   <PIN pinname="Layers mapping" visible="1">
+   </PIN>
+   <PIN pinname="View Mode" visible="1">
+   </PIN>
+   <PIN pinname="Projector XY" visible="1">
+   </PIN>
+   <PIN pinname="iProjector" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="FullScreen" id="2">
+   <BOUNDS type="Node" left="3135" top="4680" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3135" top="4680" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="31950" top="4935" width="6240" height="5010">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <NODE systemname="Test 0 - Grid" filename="..\VVVV.Patches.KC.DK001.Link\subpatches\Test 0 - Grid.v4p" nodename="..\VVVV.Patches.KC.DK001.Link\subpatches\Test 0 - Grid.v4p" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="3720" top="1590" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="3045" top="5220" width="9000" height="6000">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Keys 0 - Switch mode" filename="..\VVVV.Patches.KC.DK001.Link\subpatches\Keys 0 - Switch mode.v4p" nodename="..\VVVV.Patches.KC.DK001.Link\subpatches\Keys 0 - Switch mode.v4p" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="3150" top="3645" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View Mode" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="View Mode" dstnodeid="6" dstpinname="View Mode">
+   </LINK>
+   <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="3150" top="4290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="2" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="View Mode" dstnodeid="7" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Layers mapping" dstnodeid="7" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Layer" dstnodeid="7" dstpinname="Input 3">
+   </LINK>
+   <NODE systemname="R (Node)" nodename="R (Node)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="2250" top="2295" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Receive String" slicecount="1" values="videos">
+   </PIN>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="projector (Transform)" filename="..\VVVV.Patches.KC.DK001.Link\modules\Quad in projector (Transform).v4p" nodename="projector (Transform)" componentmode="InAWindow" id="10">
+   <BOUNDS type="Node" left="1260" top="2595" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Projector XY" visible="1">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Projector XY" dstnodeid="10" dstpinname="Projector XY">
+   </LINK>
+   <NODE systemname="Select viewport (EX9.Effect)" filename="..\VVVV.Patches.KC.DK001.Link\shaders\Select viewport.fx" nodename="Select viewport (EX9.Effect)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="975" top="3180" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Filter Texture" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="size source XY" visible="1">
+   </PIN>
+   <PIN pinname="iViewPort" visible="1">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="945" top="1860" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Mesh" dstnodeid="12" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Input Value" dstnodeid="12" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="FileTexture (EX9.Texture)" nodename="FileTexture (EX9.Texture)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="1605" top="1875" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Filename" slicecount="1" values="..\VVVV.Patches.KC.DK001.Link\shaders\BicubicFilterKernel.hdr" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Texture Out" dstnodeid="12" dstpinname="Filter Texture">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Layer" dstnodeid="7" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="1035" y="3855">
+   </LINKPOINT>
+   <LINKPOINT x="3330" y="3855">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Transform Out" dstnodeid="12" dstpinname="Transform">
+   </LINK>
+   <NODE systemname="Info (EX9.Texture)" nodename="Info (EX9.Texture)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="15" top="2580" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Width" visible="1">
+   </PIN>
+   <PIN pinname="Height" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="60" top="3150" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Width" dstnodeid="17" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Height" dstnodeid="17" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Input Value" dstnodeid="16" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="XY" dstnodeid="12" dstpinname="size source XY">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="iProjector" dstnodeid="12" dstpinname="iViewPort">
+   </LINK>
+   <NODE systemname="Scale (Transform)" nodename="Scale (Transform)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="5970" top="1710" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.68">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.64">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Transform Out" dstnodeid="12" dstpinname="Texture Transform">
+   </LINK>
+   </PATCH>

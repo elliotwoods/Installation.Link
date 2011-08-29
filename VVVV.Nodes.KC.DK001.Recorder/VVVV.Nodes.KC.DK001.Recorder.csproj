@@ -36,12 +36,13 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\vvvv\vvvv_45beta26\</OutputPath>
+    <OutputPath>..\Prerequisites\plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,11 +55,16 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SlimDX">
+    <Reference Include="NAudio">
+      <HintPath>..\..\..\vvvv\vvvv_45beta26\plugins\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX, Version=2.0.11.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\SlimDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition">
+    <Reference Include="System.ComponentModel.Composition, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\System.ComponentModel.Composition.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
@@ -74,20 +80,24 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="VVVV.PluginInterfaces">
+    <Reference Include="VVVV.PluginInterfaces, Version=2.0.4245.31395, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.PluginInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="VVVV.Utils">
+    <Reference Include="VVVV.Utils, Version=1.0.4233.9559, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="VVVV.Utils3rdParty">
+    <Reference Include="VVVV.Utils3rdParty, Version=1.0.4233.9574, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.Utils3rdParty.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="VVVV.Nodes.CLEye.ListDevices.cs" />
+    <Compile Include="Recorder\AudioRecord.cs" />
+    <Compile Include="ListDevicesNode.cs" />
     <Compile Include="RecorderCLEyeCameraDevice.cs" />
-    <Compile Include="VVVV.Nodes.CLEye.DKRecorderNode.cs" />
+    <Compile Include="DKRecorderNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

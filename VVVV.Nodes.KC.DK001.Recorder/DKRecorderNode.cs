@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define MONO_WRITE
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -10,14 +11,18 @@ using VVVV.PluginInterfaces.V2;
 using VVVV.PluginInterfaces.V2.EX9;
 using VVVV.Utils.SlimDX;
 using SlimDX.Direct3D9;
-using System.Runtime.InteropServices;
+
 using SlimDX;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Threading;
+
 using CLEyeMulticam;
 
-namespace VVVV.Nodes
+using NAudio;
+using NAudio.CoreAudioApi;
+
+namespace VVVV.Nodes.CLEye
 {
     [PluginInfo(Name = "DK-Recorder",
                 Category = "CLEye",
@@ -43,8 +48,8 @@ namespace VVVV.Nodes
         [Input("fps", IsSingle=true, MinValue=1, MaxValue=120, DefaultValue=30)]
         IDiffSpread<int> FPinInFPS;
 
-        [Input("Count", IsSingle = true, MinValue = 0, MaxValue = 9999, DefaultValue = 120)]
-        IDiffSpread<int> FPinInCount;
+        [Input("Duration", IsSingle = true, MinValue = 0, MaxValue = 360, DefaultValue = 4)]
+        IDiffSpread<double> FPinInDuration;
 
         [Input("Path")]
         IDiffSpread<string> FPinInPath;
@@ -55,10 +60,20 @@ namespace VVVV.Nodes
         [Input("Resolution", MinValue=0, MaxValue=2048, DefaultValue=256)]
         IDiffSpread<int> FPinInResolution;
 
+#if MONO_WRITE
+        [Input("Audio Device", IsSingle = true)]
+        ISpread<int> FPinInAudioDevice;
+#else
+        [Input("Audio Device", IsSingle = true)]
+        ISpread<MMDevice> FPinInAudioDevice;
+#endif
         //outputs
         // texture output is automatic
         [Output("Progress", DefaultValue=0)]
         ISpread<double> FPinOutProgress;
+
+        [Output("Audio Level", DefaultValue = 0, IsSingle = true)]
+        ISpread<float> FPinOutAudioLevel;
 
         [Output("Recorded", DefaultValue=0)]
         ISpread<bool> FPinOutRecorded;
@@ -67,6 +82,9 @@ namespace VVVV.Nodes
         ISpread<bool> FPinOutSaved;
 
         IPluginHost FHost;
+
+        //audio
+        AudioRecord FAudio;
 
         bool firstRun = true;
 		private Dictionary<int, Texture> FTextures = new Dictionary<int, Texture>();
@@ -85,6 +103,7 @@ namespace VVVV.Nodes
         IntPtr      FCamDataResized = new IntPtr();
 
         //threads
+        Object      FLockPixels = new Object();
         Thread      FCaptureThread;
         Thread      FSaveThread;
         bool        FIsClosing = false;
@@ -99,7 +118,7 @@ namespace VVVV.Nodes
 
         // settings
         int countTarget;
-        float Ffps = 30.0f;
+        double Ffps = 30;
         string FPath;
         string FPatchPath;
         int FInputWidth = 320;
@@ -134,6 +153,8 @@ namespace VVVV.Nodes
 
             FHost.GetHostPath(out FPatchPath);
             FPatchPath = Path.GetDirectoryName(FPatchPath);
+
+            FAudio = new AudioRecord();
         }
 
         ~DKRecorderNode()
@@ -160,35 +181,47 @@ namespace VVVV.Nodes
 		#region Evaluate
 		public void Evaluate(int SpreadMax)
 		{
+            if (FPinInAudioDevice[0] >= 0 && FPinInAudioDevice.SliceCount == 1)
+            {
+				if (FPinInAudioDevice[0] != FAudio.getDeviceID())
+				{
+					FAudio.setDevice(FPinInAudioDevice[0]);
+					FAudio.setTempPath(FPatchPath + "\\" + FPinInAudioDevice[0].ToString() + ".wav");
+				}
+            }
+
             if (this.FPinInResolution.IsChanged || firstRun)
             {
                 //
                 //CHANGE RESOLUTION
                 //
 
-                //read in the resolution
-                resolution = FPinInResolution[0];
-
-                //clear all existing images
-                clearImages();
-
-                //grow array with new resolution
-                while (countTarget > FRecordedData.Count)
+                lock (FLockPixels)
                 {
-                    FRecordedData.Add(new IntPtr());
-                    FRecordedData[FRecordedData.Count - 1] = Marshal.AllocCoTaskMem(resolution * resolution * 4);
+                    //read in the resolution
+                    resolution = FPinInResolution[0];
+
+                    //clear all existing images
+                    clearImages();
+
+                    //grow array with new resolution
+                    while (countTarget > FRecordedData.Count)
+                    {
+                        FRecordedData.Add(new IntPtr());
+                        FRecordedData[FRecordedData.Count - 1] = Marshal.AllocCoTaskMem(resolution * resolution * 4);
+                    }
+                    Reinitialize();
                 }
-                Reinitialize();
             }
 
-            if (this.FPinInCount.IsChanged || firstRun)
+            if (this.FPinInDuration.IsChanged || firstRun)
             {
                 //
                 //CHANGE COUNT
                 //
 
                 //read in the count
-                countTarget = FPinInCount[0];
+                countTarget = (int)(FPinInDuration[0] * FPinInFPS[0]);
                 
                 //change the amount of data that we have stored
                 //
@@ -212,7 +245,8 @@ namespace VVVV.Nodes
                 //
                 // SET FPS
                 //
-                Ffps = (float)FPinInFPS[0];
+                Ffps = FPinInFPS[0];
+                countTarget = (int)(FPinInDuration[0] * FPinInFPS[0]);
             }
 
             if (this.FPinInPath.IsChanged || firstRun)
@@ -228,6 +262,8 @@ namespace VVVV.Nodes
                 //if not create it
                 if (!Directory.Exists(getFullPath()) && FPath != null)
                     Directory.CreateDirectory(getFullPath());
+
+                FAudio.setFilename(getFullPath() + "\\audio.wav");
             }
 
             if (this.FPinInGUID.IsChanged && this.FPinInGUID.SliceCount > 0 || firstRun)
@@ -257,6 +293,7 @@ namespace VVVV.Nodes
                 {
                     if (currentState != DK_state.Recording)
                     {
+                        FAudio.StartRecording();
                         iRecordFrame = 0;
                         isRecorded = false;
                         isSaved = false;
@@ -311,6 +348,7 @@ namespace VVVV.Nodes
             FPinOutProgress[0] = FRecordProgress;
             FPinOutRecorded[0] = isRecorded;
             FPinOutSaved[0] = isSaved;
+            FPinOutAudioLevel[0] = FAudio.GetLevel();
 
             //output debug
             if (FDebugString.Length > 0)
@@ -448,32 +486,37 @@ namespace VVVV.Nodes
             {
                 if (!FCam.getPixels(FCamData, 100))
                     FDebugString = "Can't pull frame from camera";
-                resizeImage(FCamData, FCamDataResized, FInputWidth, FInputHeight, resolution, resolution);
 
-                if (currentState == DK_state.Recording)
+                lock (FLockPixels)
                 {
-                    int calcTimeFrame = System.Convert.ToInt32((DateTime.Now - timeStartRecord).TotalSeconds * Ffps);
+                    resizeImage(FCamData, FCamDataResized, FInputWidth, FInputHeight, resolution, resolution);
 
-                    while (iRecordFrame < calcTimeFrame && iRecordFrame < countTarget)
+                    if (currentState == DK_state.Recording)
                     {
-                        
-                        CopyMemory(FRecordedData[iRecordFrame], FCamDataResized, System.Convert.ToUInt32(resolution*resolution*4));
-                        FDebugString += iRecordFrame.ToString() + "\n";
-                        iRecordFrame++;
-                    }
+                        int calcTimeFrame = System.Convert.ToInt32((DateTime.Now - timeStartRecord).TotalSeconds * Ffps);
 
-                    //update progress
-                    FRecordProgress = System.Convert.ToDouble(iRecordFrame) / System.Convert.ToDouble(countTarget);
-                    
+                        while (iRecordFrame < calcTimeFrame && iRecordFrame < countTarget)
+                        {
 
-                    if (iRecordFrame == countTarget)
-                    {
-                        //we've got to the end of recording
-                        isRecorded = true;
-                        FRecordProgress = 1.0;
-                        currentState = DK_state.Playing;
-                        FCam.setLED(false);
-                        iPlayFrame = 0;
+                            CopyMemory(FRecordedData[iRecordFrame], FCamDataResized, System.Convert.ToUInt32(resolution * resolution * 4));
+                            FDebugString += iRecordFrame.ToString() + "\n";
+                            iRecordFrame++;
+                        }
+
+                        //update progress
+                        FRecordProgress = System.Convert.ToDouble(iRecordFrame) / System.Convert.ToDouble(countTarget);
+
+
+                        if (iRecordFrame == countTarget)
+                        {
+                            //we've got to the end of recording
+                            isRecorded = true;
+                            FAudio.StopRecording();
+                            FRecordProgress = 1.0;
+                            currentState = DK_state.Playing;
+                            FCam.setLED(false);
+                            iPlayFrame = 0;
+                        }
                     }
                 }
             }
@@ -546,6 +589,8 @@ namespace VVVV.Nodes
                 bmpSaver.Dispose();
                 Thread.Sleep(10);
             }
+
+            FAudio.SaveRecording();
 
             GC.Collect();
 

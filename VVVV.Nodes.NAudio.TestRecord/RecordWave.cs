@@ -17,19 +17,19 @@ using NAudio.CoreAudioApi;
 namespace VVVV.Nodes
 {
     #region PluginInfo
-    [PluginInfo(Name = "Recorder", Category = "NAudio", Version="WASAPI", Help = "Record wav files from WASAPI devices", Tags = "")]
+    [PluginInfo(Name = "Recorder", Category = "NAudio", Version="Wave", Help = "Record mono wav files from WAVE devices", Tags = "")]
     #endregion PluginInfo
-    public class NAudioRecorderNode : IPluginEvaluate
+    public class RecordWaveNode : IPluginEvaluate
     {
         #region fields & pins
-        [Input("Device", IsSingle = true)]
-        ISpread<MMDevice> FPinInDevice;
+        [Input("Device ID")]
+        ISpread<int> FPinInDeviceID;
 
         [Input("Filename", StringType = StringType.Filename)]
         ISpread<string> FPinInFilename;
 
-        [Input("Record", IsSingle = true)]
-        ISpread<bool> FPinInRecord;
+		[Input("Record", IsSingle = true)]
+		ISpread<bool> FPinInRecord;
 
         [Output("Recording")]
         ISpread<bool> FPinOutRecording;
@@ -37,7 +37,7 @@ namespace VVVV.Nodes
         [Output("Audio Level")]
         ISpread<float> FPinOutLevel;
 
-        [Output("Position", DimensionNames = new string[] { "s" })]
+        [Output("Position")]
         ISpread<float> FPinOutPosition;
 
         [Output("Status")]
@@ -46,40 +46,38 @@ namespace VVVV.Nodes
         [Import()]
         ILogger FLogger;
 
+        int FDeviceID = -1;
         float FPosition = 0;
         bool FIsRecording = false;
         string FFilename = "";
         string FPatchPath;
 
-        MMDevice FDevice = null;
-        WasapiCapture FWaveIn;
+        WaveIn FWaveIn;
         WaveFileWriter writer;
         EventHandler<WaveInEventArgs> handleData;
-
         #endregion fields & pins
 
         void Dispose()
         {
-            closeDevice(); 
+            closeDevice();
             closeRecorder();
         }
 
         //called when data for any output pin is requested
         public void Evaluate(int SpreadMax)
         {
-            if (FPinInDevice[0] != FDevice)
-                setDevice(FPinInDevice[0]);
+            if (FPinInDeviceID[0] != FDeviceID)
+                setDevice(FPinInDeviceID[0]);
 
             if (FPinInFilename[0] != FFilename)
                 setFilename(FPinInFilename[0]);
 
             if (FPinInRecord[0] != FIsRecording)
             {
-                if (FDevice !=null)
-                    if (FPinInRecord[0])
-                        StartRecording();
-                    else
-                        StopRecording();
+                if (FPinInRecord[0])
+                    StartRecording();
+                else
+                    StopRecording();
             }
 
             FPinOutRecording[0] = FIsRecording;
@@ -91,28 +89,22 @@ namespace VVVV.Nodes
             FFilename = filename;
         }
 
-
-        private void setDevice(MMDevice dev)
+        private void setDevice(int deviceID)
         {
             if (FIsRecording)
                 return;
 
-            FDevice = dev;
             closeDevice();
+            FDeviceID = deviceID;
 
-            if (FPinInDevice[0] == null)
+            FWaveIn = new WaveIn(WaveCallbackInfo.FunctionCallback());
+            FWaveIn.DeviceNumber = deviceID;
+
+            if (FWaveIn.WaveFormat.Channels > 2)
             {
-                FPinOutStatus[0] = "No device selected";
-                return;
+                WaveFormat stereoFormat = new WaveFormat(FWaveIn.WaveFormat.SampleRate, FWaveIn.WaveFormat.BitsPerSample, 2);
+                FWaveIn.WaveFormat = stereoFormat;
             }
-
-            FWaveIn = new WasapiCapture(FPinInDevice[0]);
-
-            //if (FWaveIn.WaveFormat.Channels > 2)
-            //{
-            //    FWaveQuadToStereo = new QuadToStereoStream32(FWaveIn);
-            //    FDownsampleQuad = true;
-            //}
 
             FWaveIn.StartRecording();
             handleData = new EventHandler<WaveInEventArgs>(waveInStream_DataAvailable);
@@ -133,8 +125,12 @@ namespace VVVV.Nodes
                 }
                 System.IO.File.Delete(FFilename);
                 FPinOutStatus[0] = "Replacing existing file.";
-            } else
+            }
+            else
                 FPinOutStatus[0] = "Creating new file";
+
+            if (System.IO.File.Exists(FFilename))
+                System.IO.File.Delete(FFilename);
 
             writer = new WaveFileWriter(FFilename, FWaveIn.WaveFormat);
 
@@ -182,19 +178,40 @@ namespace VVVV.Nodes
             if (FIsRecording)
             {
                 writer.Write(e.Buffer, 0, e.BytesRecorded);
-
                 FPosition = (float)writer.Length / (float)FWaveIn.WaveFormat.AverageBytesPerSecond;
             }
         }
 
+        bool validFilename(string filename)
+        {
+            bool bOk = false;
+            try
+            {
+                new System.IO.FileInfo(filename);
+                bOk = true;
+            }
+            catch (ArgumentException)
+            {
+            }
+            catch (System.IO.PathTooLongException)
+            {
+            }
+            catch (NotSupportedException)
+            {
+            }
+
+            return bOk;
+        }
 
         bool isFileLocked(string path)
         {
             System.IO.FileStream file;
-            try {
+            try
+            {
                 file = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite);
             }
-            catch {
+            catch
+            {
                 return true;
             }
             file.Close();

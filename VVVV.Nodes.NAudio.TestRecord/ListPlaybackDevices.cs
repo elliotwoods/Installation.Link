@@ -17,13 +17,13 @@ using NAudio.CoreAudioApi;
 namespace VVVV.Nodes
 {
     #region PluginInfo
-    [PluginInfo(Name = "ListRecordDevices", Category = "NAudio", Version="WASAPI", Help = "List WASAPI recording devices", Tags = "")]
+    [PluginInfo(Name = "ListPlaybackDevices", Category = "NAudio", Version = "WASAPI", Help = "List WASAPI playback devices", Tags = "")]
     #endregion PluginInfo
-    public class NAudioListRecordDevicesNode : IListDevicesBase
+    public class NAudioListPlaybackDevicesNode : IListDevicesBase
     {
-        public override DataFlow getEndType()
+       public override DataFlow getEndType()
         {
-            return DataFlow.Capture;
+            return DataFlow.Render;
         }
     }
 }
