@@ -254,6 +254,22 @@
             <param name="OnDevice">Pointer to the device for which the texture is accessed.</param>
             <param name="Texture">The retrieved texture</param>
         </member>
+        <member name="T:VVVV.PluginInterfaces.V1.IPluginDXTexture2">
+            <summary>
+            Same as IPluginDXTexture but with additional parameter to allow for spreadable outputs
+            </summary>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V1.IPluginDXTexture2.GetTexture(VVVV.PluginInterfaces.V1.IDXTextureOut,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Called by the PluginHost everytime a texture is accessed via a pin on the plugin.
+            This is called from the PluginHost from within DirectX BeginScene/EndScene,
+            therefore the plugin shouldn't be doing much here other than handing back the right texture.
+            </summary>
+            <param name="ForPin">Interface to the pin via which the texture is accessed.</param>
+            <param name="OnDevice">Pointer to the device for which the texture is accessed.</param>
+            /// <param name="Slice">Slice Index of the texture to be accessed.</param>
+            <param name="Texture">The retrieved texture</param>
+        </member>
         <member name="T:VVVV.PluginInterfaces.V1.IPluginDXLayer">
             <summary>
             Optional interface to be implemented on a plugin that deals with DirectX Layers
@@ -1193,7 +1209,7 @@
             Alternative version to <see cref="M:VVVV.PluginInterfaces.V1.IStringConfig.SetSubType(System.String,System.Boolean)">IStringConfig.SetSubType()</see> with more options.
             </summary>
             <param name="Default">The String the pin is initialized with and can be reset to at any time</param>
-            <param name="MaxCharacters">Constrains the string to a given number of characters</param>
+            <param name="MaxCharacters">Constrains the string to a given number of characters. Use -1 for unlimited characters</param>
             <param name="FileMask">Filemask in the form of: Audio File (*.wav, *.mp3)|*.wav;*.mp3</param>
             <param name="StringType">Enum specifying the type of string more precisely.</param>
         </member>
@@ -1601,7 +1617,7 @@
             Interface to an InputPin of type DirectX RenderState.
             </summary>
         </member>
-        <member name="M:VVVV.PluginInterfaces.V1.IDXRenderStateIn.SetRenderState``1(SlimDX.Direct3D9.RenderState,``0)">
+        <member name="M:VVVV.PluginInterfaces.V1.IDXRenderStateIn.SetRenderState(SlimDX.Direct3D9.RenderState,System.Int32)">
             <summary>
             Used to set RenderStates from within <see cref="M:VVVV.PluginInterfaces.V1.IPluginDXLayer.SetStates">IPluginDXLayer.SetStates</see>.
             </summary>
@@ -1613,7 +1629,7 @@
             Interface to an InputPin of type DirectX SamplerState.
             </summary>
         </member>
-        <member name="M:VVVV.PluginInterfaces.V1.IDXSamplerStateIn.SetSamplerState``1(System.Int32,SlimDX.Direct3D9.SamplerState,``0)">
+        <member name="M:VVVV.PluginInterfaces.V1.IDXSamplerStateIn.SetSamplerState(System.Int32,SlimDX.Direct3D9.SamplerState,System.Int32)">
             <summary>
              Used to set SamplerStates from within <see cref="M:VVVV.PluginInterfaces.V1.IPluginDXLayer.SetStates">IPluginDXLayer.SetStates</see>.
             </summary>
@@ -1621,7 +1637,7 @@
             <param name="State">The SamplerState</param>
             <param name="Value">The SamplerStates value</param>
         </member>
-        <member name="M:VVVV.PluginInterfaces.V1.IDXSamplerStateIn.SetTextureStageState``1(System.Int32,SlimDX.Direct3D9.TextureStage,``0)">
+        <member name="M:VVVV.PluginInterfaces.V1.IDXSamplerStateIn.SetTextureStageState(System.Int32,SlimDX.Direct3D9.TextureStage,System.Int32)">
             <summary>
             Used to set TextureStageStates from within <see cref="M:VVVV.PluginInterfaces.V1.IPluginDXLayer.SetStates">IPluginDXLayer.SetStates</see>.
             </summary>
@@ -1895,16 +1911,122 @@
             String representation of the default enum entry for this pin.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:VVVV.PluginInterfaces.V2.PinAttribute.IsPinGroup" -->
+        <member name="P:VVVV.PluginInterfaces.V2.PinAttribute.IsPinGroup">
+            <summary>
+            Converts an ISpread&lt;ISpread&lt;T&gt;&gt; from a bin sized spread to a dynamic pin group.
+            </summary>
+        </member>
         <member name="P:VVVV.PluginInterfaces.V2.PinAttribute.Order">
             <summary>
             The order property helps the node to arrange its pins visually. The higher the order, the more right the pin appears on the node.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.PinAttribute.Lazy">
+            <summary>
+            Whether to do lazy loading. The user is responsible to call Load(). This is not
+            supported by all classes, so you might get a NotImplementedException.
+            Note: Classes of type ISpread&lt;ISpread&lt;T&gt;&gt; do the lazy loading automatically if enabled.
+            </summary>
+        </member>
+        <member name="T:VVVV.PluginInterfaces.V2.Spread`1">
+            <summary>
+            The spread data type
+            </summary>
+        </member>
+        <member name="T:VVVV.PluginInterfaces.V2.ISpread`1">
+            <summary>
+            Common interface to the underlying input/output/config pins.
+            Set/Get, Read/Write methods are only implemented when it makes sense.
+            </summary>
+        </member>
+        <member name="T:VVVV.PluginInterfaces.V2.ISpread">
+            <summary>
+            Common non-generic interface to the underlying input/output/config pins.
+            Set/Get, Read/Write methods are only implemented when it makes sense.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.ISpread.Item(System.Int32)">
+            <summary>
+            Provides read/write access to the actual data.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.ISpread.SliceCount">
+            <summary>
+            Get/Set the size of this spread.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.ISpread`1.Item(System.Int32)">
+            <summary>
+            Provides read/write access to the actual data.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.ISpread`1.SliceCount">
+            <summary>
+            Get/Set the size of this spread.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Spread`1.Buffer">
+            <summary>
+            Gives direct access to the internal data buffer.
+            Use with caution. Size of internal buffer != SliceCount.
+            </summary>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.Pin`1.InitializeInternalPin(VVVV.PluginInterfaces.V1.IPluginIO)">
+            <summary>
+            Must be called by subclass at end of constructor.
+            </summary>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.Pin`1.Load(System.Int32,System.Int32)">
+            <summary>
+            Used by some subclasses which allow to load values from internal pin lazily.
+            The user is responsible to call this function.
+            </summary>
+            <param name="index">The starting index.</param>
+            <param name="length">The number of values to load.</param>
+        </member>
+        <member name="T:VVVV.PluginInterfaces.V2.IDiffSpread`1">
+            <summary>
+            Extension to the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> interface, to check if the data changes from frame to frame.
+            </summary>
+        </member>
+        <member name="T:VVVV.PluginInterfaces.V2.IDiffSpread">
+            <summary>
+            Extension to the non-generic <see cref="T:VVVV.PluginInterfaces.V2.ISpread"/> interface, to check if the data changes from frame to frame.
+            </summary>
+        </member>
+        <member name="E:VVVV.PluginInterfaces.V2.IDiffSpread.Changed">
+            <summary>
+            Subscribe to this event to get noticed when the data changes.
+            </summary>
+            <remarks>
+            Only data from this spread is valid in an event handler.
+            If you access data from another spread, don't expect it to be valid.
+            </remarks>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IDiffSpread.IsChanged">
+            <summary>
+            Is true if the spread data has changed in this frame.
+            </summary>
+        </member>
+        <member name="E:VVVV.PluginInterfaces.V2.IDiffSpread`1.Changed">
+            <summary>
+            Subscribe to this event to get noticed when the data changes.
+            </summary>
+            <remarks>
+            Only data from this spread is valid in an event handler.
+            If you access data from another spread, don't expect it to be valid.
+            </remarks>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IDiffSpread`1.IsChanged">
+            <summary>
+            Is true if the spread data has changed in this frame.
             </summary>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.NodeType">
             <summary>
             Used in <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">INodeInfo</see> to specify the type of the provided node.
             </summary>
+            
         </member>
         <member name="F:VVVV.PluginInterfaces.V2.NodeType.Native">
             <summary>
@@ -1946,6 +2068,16 @@
             Specifies a dynamic plugin node.
             </summary>
         </member>
+        <member name="F:VVVV.PluginInterfaces.V2.NodeType.Text">
+            <summary>
+            Specifies a node with some text in it (like source code for example).
+            </summary>
+        </member>
+        <member name="F:VVVV.PluginInterfaces.V2.NodeType.Unknown">
+            <summary>
+            Specifies a node with an unknown type.
+            </summary>
+        </member>
         <member name="T:VVVV.PluginInterfaces.V2.WindowType">
             <summary>
             Used in the pin creating functions of <see cref="T:VVVV.PluginInterfaces.V1.IPluginHost">IPluginHost</see> to specifiy possible SliceCounts.
@@ -1976,9 +2108,31 @@
             A plugins window.
             </summary>
         </member>
-        <member name="F:VVVV.PluginInterfaces.V2.WindowType.HDE">
+        <member name="T:VVVV.PluginInterfaces.V2.ComponentMode">
             <summary>
-            A HDE window.
+            Used to set the <see cref="P:VVVV.PluginInterfaces.V1.PluginInfo.InitialComponentMode">InitialComponentMode</see>
+            in <see cref="T:VVVV.PluginInterfaces.V1.PluginInfo">IPluginInfo</see> which specifies the ComponentMode
+            for a plugin when it is being created.
+            </summary>
+        </member>
+        <member name="F:VVVV.PluginInterfaces.V2.ComponentMode.Hidden">
+            <summary>
+            The plugins GUI will be hidden, only its node is visible.
+            </summary>
+        </member>
+        <member name="F:VVVV.PluginInterfaces.V2.ComponentMode.InABox">
+            <summary>
+            The plugins GUI will be showing in a box in the patch.
+            </summary>
+        </member>
+        <member name="F:VVVV.PluginInterfaces.V2.ComponentMode.InAWindow">
+            <summary>
+            The plugins GUI will be showing in its own window.
+            </summary>
+        </member>
+        <member name="F:VVVV.PluginInterfaces.V2.ComponentMode.Fullscreen">
+            <summary>
+            The plugins GUI will be showing fullscreen.
             </summary>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.StringType">
@@ -2229,58 +2383,127 @@
             <param name="createRenderState">Create a render state pin?</param>
             <param name="createSamplerState">Create a sampler state pin?</param>
         </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.INode2.InternalCOMInterf">
+            <summary>
+            Reference to the internal COM interface. Use with caution.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.INode2.Window">
+            <summary>
+            Gets the <see cref="T:VVVV.PluginInterfaces.V2.Graph.IWindow2">window</see> of this node. Or null if
+            this node doesn't have a window.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.INode2.LastRuntimeError">
+            <summary>
+            Gets or sets the last runtime error that occured or null if there were no errors.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.INode2.Parent">
+            <summary>
+            Provides access to the parent node.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IPin2.Item(System.Int32)">
+            <summary>
+            Gets the value at specified slice in a string representation.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IPin2.Status">
+            <summary>
+            Gets the status of the pin.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="E:VVVV.PluginInterfaces.V2.Graph.IPin2.Changed">
+            <summary>
+            The changed event occurs when the pin's data changed.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IWindow2.Caption">
+            <summary>
+            Gets/sets the window's caption.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IWindow2.WindowType">
+            <summary>
+            Get the window's type.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IWindow2.Node">
+            <summary>
+            Get the window's associated INode2.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IWindow2.IsVisible">
+            <summary>
+            Gets the window's visible state. 
+            Returns true if this window is visible, false if not.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.Graph.IWindow2.Bounds">
+            <summary>
+            Gets the window's bounds.
+            </summary>
+        </member>
         <member name="T:VVVV.PluginInterfaces.V2.IAddonFactory">
             <summary>
             General addon factory
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IDiffSpread`1">
+        <member name="T:VVVV.PluginInterfaces.V2.INode">
             <summary>
-            Extension to the ISpread interface, to check if the data changes from frame to frame.
+            Gives access to vvvv nodes
+            </summary>
+            <remarks>Deprecated: Use <see cref="T:VVVV.PluginInterfaces.V2.Graph.INode2"/> instead.</remarks>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INode.GetID">
+            <summary>
+            Get the node ID.
+            </summary>
+            <returns>Returns this nodes ID.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INode.GetNodeInfo">
+            <summary>
+            Get the nodes info.
+            </summary>
+            <returns>Returns this nodes INodeInfo.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INode.AddListener(VVVV.PluginInterfaces.V2.INodeListener)">
+            <summary>
+            Allows a plugin to register an INodeListener on a specific vvvv node.
+            </summary>
+            <param name="listener">The listener to register.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INode.RemoveListener(VVVV.PluginInterfaces.V2.INodeListener)">
+            <summary>
+            Allows a plugin to unregister an INodeListener from a specific vvvv node.
+            </summary>
+            <param name="listener">The listener to unregister.</param>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INode.HasGUI">
+            <summary>
+            Check if the node can offer a GUI window
+            </summary>
+            <returns>Returns true if this node can offer a GUI window.</returns>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INode.LastRuntimeError">
+            <summary>
+            Gets the last runtime error that occured or null if there were no errors.
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.ISpread`1">
+        <member name="P:VVVV.PluginInterfaces.V2.INode.Window">
             <summary>
-            Common interface to the underlying input/output/config pins.
-            Set/Get, Read/Write methods are only implemented when it makes sense.
-            </summary>
-        </member>
-        <member name="P:VVVV.PluginInterfaces.V2.ISpread`1.Item(System.Int32)">
-            <summary>
-            Provides read/write access to the actual data.
-            </summary>
-        </member>
-        <member name="P:VVVV.PluginInterfaces.V2.ISpread`1.SliceCount">
-            <summary>
-            Get/Set the size of this spread.
-            </summary>
-        </member>
-        <member name="E:VVVV.PluginInterfaces.V2.IDiffSpread`1.Changed">
-            <summary>
-            Subscribe to this event to get noticed when the data changes.
-            </summary>
-        </member>
-        <member name="P:VVVV.PluginInterfaces.V2.IDiffSpread`1.IsChanged">
-            <summary>
-            Is true if the spread data has changed in this frame.
+            Gets the <see cref="T:VVVV.PluginInterfaces.V2.IWindow">window</see> of this node. Or null if
+            this node doesn't have a window.
             </summary>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.IHDEHost">
             <summary>
             The interface to be implemented by a program to host IHDEPlugins.
             </summary>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.AddListener(VVVV.PluginInterfaces.V2.IListener)">
-            <summary>
-            Allows a plugin to register IListeners on the host
-            </summary>
-            <param name="listener">The listener to register. Most likely the plugin itself, implementing an IListener.</param>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.RemoveListener(VVVV.PluginInterfaces.V2.IListener)">
-            <summary>
-            Allows a plugin to unregister ILiseners from the host
-            </summary>
-            <param name="listener">The listener to unregister. Most likely the plugin itself, implementing an IListener.</param>
         </member>
         <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.UpdateEnum(System.String,System.String,System.String[])">
             <summary>
@@ -2311,26 +2534,82 @@
             </summary>
             <returns>The hosts current time.</returns>
         </member>
-        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.GetNodeInfo(System.String)">
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.Open(System.String,System.Boolean,VVVV.PluginInterfaces.V2.IWindow)">
             <summary>
-            Returns the INodeInfo for given systemname or null if not found.
+            Opens the given file.
             </summary>
-            <param name="systemname">The unique systemname of the INodeInfo to look for.</param>
-            <returns>The INodeInfo with given systemname or null if not found.</returns>
+            <param name="file">The file to open by vvvv.</param>
+            <param name="inActivePatch">Whether it should be openend in the active patch or in the root patch.</param>
+            <param name="window">If the created node has a GUI it will tabbed with this window.</param>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.IHDEHost.NodeInfos">
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.SetComponentMode(VVVV.PluginInterfaces.V2.Graph.INode2,VVVV.PluginInterfaces.V2.ComponentMode)">
             <summary>
-            Returns all registered node infos.
+            Sets the component mode of the given nodes associated GUI.
+            </summary>
+            <param name="node">The node whose GUIs ComponentMode is to be changed.</param>
+            <param name="componentMode">The new ComponentMode.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.SelectNodes(VVVV.PluginInterfaces.V2.Graph.INode2[])">
+            <summary>
+            Selects the given nodes in their patch.
+            </summary>
+            <param name="nodes">The nodes to be selected.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.ShowEditor(VVVV.PluginInterfaces.V2.Graph.INode2)">
+            <summary>
+            Opens the editor of the given node.
+            </summary>
+            <param name="node">The node whose editor to open.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.ShowGUI(VVVV.PluginInterfaces.V2.Graph.INode2)">
+            <summary>
+            Opens the GUI of the given node.
+            </summary>
+            <param name="node">The node whose GUI to open.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.ShowHelpPatch(VVVV.PluginInterfaces.V2.INodeInfo)">
+            <summary>
+            Opens the help-patch of the given nodeinfo.
+            </summary>
+            <param name="nodeInfo">The nodeinfo to open the help-patch for.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IHDEHost.ShowNodeReference(VVVV.PluginInterfaces.V2.INodeInfo)">
+            <summary>
+            Opens the online-reference page on vvvv.org for the given nodeinfo.
+            </summary>
+            <param name="nodeInfo">The nodeinfo to show the online-reference for.</param>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IHDEHost.Root">
+            <summary>
+            Returns an interface to the graphs root node
+            </summary>
+            <remarks>Deprecated: Use RootNode instead.</remarks>
+            <returns>The graphs root node.</returns>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IHDEHost.RootNode">
+            <summary>
+            Returns an interface to the graphs root node
+            </summary>
+            <returns>The graphs root node.</returns>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IHDEHost.ActivePatchWindow">
+            <summary>
+            The currently selected patch window.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IHDEHost.AddonFactories">
+            <summary>
+            The addon factories used to collect node infos and create nodes.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IHDEHost.ExePath">
+            <summary>
+            Get the full path to the vvvv.exe
             </summary>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.INodeBrowser">
             <summary>
             Allows the NodeBrower to be contacted by the host
-            </summary>
-        </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IPluginHDE">
-            <summary>
-            Interface that identifies HDE plugins. 
             </summary>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.INodeBrowserHost">
@@ -2358,65 +2637,28 @@
             Allows the Kommunikator to communicate back to its host
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IGraphViewer">
-            <summary>
-            Allows the GraphViewer to be contacted by the host
-            </summary>
-        </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IGraphViewerHost">
-            <summary>
-            Allows the GraphViewer to communicate back to the host
-            </summary>
-        </member>
-        <member name="T:VVVV.PluginInterfaces.V2.INode">
-            <summary>
-            Gives access to vvvv nodes
-            </summary>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.INode.GetID">
-            <summary>
-            Get the node ID.
-            </summary>
-            <returns>Returns this nodes ID.</returns>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.INode.GetNodeInfo">
-            <summary>
-            Get the nodes info.
-            </summary>
-            <returns>Returns this nodes INodeInfo.</returns>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.INode.AddListener(VVVV.PluginInterfaces.V2.IListener)">
-            <summary>
-            Allows a plugin to register an IListener on a specific vvvv node.
-            </summary>
-            <param name="listener">The listener to register.</param>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.INode.RemoveListener(VVVV.PluginInterfaces.V2.IListener)">
-            <summary>
-            Allows a plugin to unregister an IListener from a specific vvvv node.
-            </summary>
-            <param name="listener">The listener to unregister.</param>
-        </member>
         <member name="T:VVVV.PluginInterfaces.V2.IPin">
             <summary>
             Gives access to a vvvv nodes pins
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IListener">
+        <member name="M:VVVV.PluginInterfaces.V2.IPin.AddListener(VVVV.PluginInterfaces.V2.IPinListener)">
             <summary>
-            Base interface for all listeners.
+            Allows a plugin to register an IPinListener on a specific pin.
             </summary>
+            <param name="listener">The listener to register.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IPin.RemoveListener(VVVV.PluginInterfaces.V2.IPinListener)">
+            <summary>
+            Allows a plugin to unregister an IPinListener from a specific pin.
+            </summary>
+            <param name="listener">The listener to unregister.</param>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.IWindow">
             <summary>
             Gives access to vvvv windows
             </summary>
-        </member>
-        <member name="M:VVVV.PluginInterfaces.V2.IWindow.GetCaption">
-            <summary>
-            Get the windows caption.
-            </summary>
-            <returns>Returns this windows caption.</returns>
+            /// <remarks>Deprecated: Use <see cref="T:VVVV.PluginInterfaces.V2.Graph.IWindow2"/> instead.</remarks>
         </member>
         <member name="M:VVVV.PluginInterfaces.V2.IWindow.GetWindowType">
             <summary>
@@ -2436,29 +2678,113 @@
             </summary>
             <returns>Returns true if this window is visible, false if not.</returns>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.INodeInfoListener">
+        <member name="P:VVVV.PluginInterfaces.V2.IWindow.Caption">
             <summary>
-            Listener interface to be informed of added/removed NodeInfos.
+            Get/set the windows caption.
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.INodeSelectionListener">
+        <member name="T:VVVV.PluginInterfaces.V2.IEditor">
             <summary>
-            Listener interface to be informed of a changed node-selection.
+            Interface for all document editors. Use in combination with the
+            <see cref="T:VVVV.PluginInterfaces.V2.EditorInfoAttribute">EditorInfoAttribute</see> 
+            to define with which file extensions this editor works with.
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IMouseClickListener">
+        <member name="M:VVVV.PluginInterfaces.V2.IEditor.Open(System.String)">
             <summary>
-            Listener interface to be informed of a mouseclicks in a patch.
+            Informs the editor to open a file located at filename.
+            </summary>
+            <param name="filename">The path to the file to open.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IEditor.MoveTo(System.Int32,System.Int32)">
+            <summary>
+            Informs the editor to move to the line number lineNumber.
+            <param name="lineNumber">The line number to move to.</param>
+            <param name="column">The column number to move to.</param>
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IWindowListener">
+        <member name="M:VVVV.PluginInterfaces.V2.IEditor.Close">
             <summary>
-            Listener interface to be informed of added/removed windows.
+            Informs the editor to close the currently opened file.
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.IWindowSelectionListener">
+        <member name="M:VVVV.PluginInterfaces.V2.IEditor.Save">
             <summary>
-            Listener interface to be informed of the active window.
+            Tells the editor to save the currently opened file.
+            </summary>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.IEditor.SaveAs(System.String)">
+            <summary>
+            Tells the editor to save the currently opened file under 
+            the new filename.
+            </summary>
+            <param name="filename">The new path to save the currently opened file to.</param>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IEditor.AttachedNode">
+            <summary>
+            The node this editor is attached to. Shows runtime errors of this node.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.IEditor.OpenedFile">
+            <summary>
+            The absolute path to file currently opened.
+            </summary>
+        </member>
+        <member name="T:VVVV.PluginInterfaces.V2.INodeInfoFactory">
+            <summary>
+            Factory to create a <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">nodeInfo</see>.
+            </summary>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INodeInfoFactory.CreateNodeInfo(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">node info</see>.
+            </summary>
+            <param name="name">The name of the node.</param>
+            <param name="category">The category of the node.</param>
+            <param name="version">The version of the node.</param>
+            <param name="filename">The absolute path to source file which contains this <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">node info</see>.</param>
+            <param name="beginUpdate">Whether the NodeInfoAdded event should be supressed till CommitUpdate on node info is called.</param>
+            <returns>The newly created <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">node info</see>.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INodeInfoFactory.UpdateNodeInfo(VVVV.PluginInterfaces.V2.INodeInfo,System.String,System.String,System.String,System.String)">
+            <summary>
+            Updates the key of an existing <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">node info</see>.
+            </summary>
+            <param name="nodeInfo">The node info to update.</param>
+            <param name="name">The new name.</param>
+            <param name="category">The new category.</param>
+            <param name="version">The new version.</param>
+            <param name="filename">The new absolute path to source file which contains this <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">node info</see>.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INodeInfoFactory.DestroyNodeInfo(VVVV.PluginInterfaces.V2.INodeInfo)">
+            <summary>
+            Destroy given node info.
+            </summary>
+            <param name="nodeInfo">The node info to destroy.</param>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INodeInfoFactory.ContainsKey(System.String,System.String,System.String,System.String)">
+            <summary>
+            Determines whether a node info with given key already exists.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="category">The category.</param>
+            <param name="version">The version.</param>
+            <param name="filename">The filename.</param>
+            <returns>True if node info with given key already exists, otherwise false.</returns>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfoFactory.NodeInfos">
+            <summary>
+            Array of all registered <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">node infos</see>.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfoFactory.Timestamp">
+            <summary>
+            Gets the current timestamp. The timestamp increases everytime a nodeinfo gets added, removed or updated.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.InputAttribute.BinSize">
+            <summary>
+            The bin size used in ISpread&lt;ISpread&lt;T&gt;&gt; implementations.
             </summary>
         </member>
         <member name="T:VVVV.PluginInterfaces.V2.IPluginEvaluate">
@@ -2484,19 +2810,99 @@
             Called by the PluginHost when the plugin is about to be deleted. The plugin can return FALSE to prohibit the deletion. 
             </summary>
         </member>
+        <member name="T:VVVV.PluginInterfaces.V2.NodeCollection">
+            <summary>
+            Description of NodeCollection.
+            </summary>
+        </member>
         <member name="T:VVVV.PluginInterfaces.V2.INodeInfo">
             <summary>
             Interface for the <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">INodeInfo</see>. Also see <a href="http://www.vvvv.org/tiki-index.php?page=Conventions.NodeAndPinNaming" target="_blank">VVVV Naming Conventions</a>.
             </summary>
         </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INodeInfo.BeginUpdate">
+            <summary>
+            Disables events. Call this function if bunch of properties will get changed.
+            </summary>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.INodeInfo.CommitUpdate">
+            <summary>
+            Enables events. Call this function after a BeginUpdate(). Will trigger a NodeInfoUpdated event.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Name">
+            <summary>
+            The nodes main visible name. Use CamelCaps and no spaces.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Category">
+            <summary>
+            The category in which the plugin can be found. Try to use an existing one.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Version">
+            <summary>
+            Optional. Leave blank if not needed to distinguish two nodes of the same name and category.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Shortcut">
+            <summary>
+            Optional. Shortcut to create an instance of this node.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Help">
+            <summary>
+            Describe the nodes function in a few words.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Tags">
+            <summary>
+            Specify a comma separated list of tags that describe the node. Name, category and Version don't need to be duplicated here.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Author">
+            <summary>
+            Specify the plugins author.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Credits">
+            <summary>
+            Give credits to thirdparty code used.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Bugs">
+            <summary>
+            Specify known problems.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Warnings">
+            <summary>
+            Specify any usage of the node that may cause troubles.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.InitialWindowSize">
+            <summary>
+            Only for GUI plugins. Defines the nodes initial size in window-mode.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.InitialBoxSize">
+            <summary>
+            Only for GUI plugins. Defines the nodes initial size in box-mode.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.InitialComponentMode">
+            <summary>
+            Only for GUI plugins. Defines the nodes initial component mode.
+            </summary>
+        </member>
         <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Arguments">
             <summary>
-            Arguments used by the PluginFactory to create this node.
+            Arguments used by the IAddonFactory to create this node.
             </summary>
         </member>
         <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Filename">
             <summary>
-            Name of the file used by the PluginFactory to create this node.
+            Name of the file used by the IAddonFactory to create this node.
             </summary>
         </member>
         <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Username">
@@ -2514,9 +2920,14 @@
             The node type. Set by the PluginFactory.
             </summary>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Executable">
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.UserData">
             <summary>
-            Reference to the <see cref="T:VVVV.Core.Runtime.IExecutable">IExecutable</see> which was used to create this node. Set by the AddonFactory.
+            Arbritary user data. Can be used by factories to store additional data.
+            </summary>
+        </member>
+        <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.Factory">
+            <summary>
+            The factory which created this node info.
             </summary>
         </member>
         <member name="P:VVVV.PluginInterfaces.V2.INodeInfo.AutoEvaluate">
@@ -2529,70 +2940,162 @@
             Define if this node should be ignored in a NodeBrowser or not.
             </summary>
         </member>
-        <member name="T:VVVV.PluginInterfaces.V2.NodeInfo">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.ToString``1(VVVV.PluginInterfaces.V2.ISpread{``0})">
             <summary>
-            Helper Class that implements the <see cref="T:VVVV.PluginInterfaces.V2.INodeInfo">INodeInfo</see> interface.
+            Converts a <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to a <see cref="T:System.String"/> of comma seperated values.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to convert to a <see cref="T:System.String"/>.</param>
+            <returns>A comma seperated <see cref="T:System.String"/> of <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.AsString``1(VVVV.PluginInterfaces.V2.ISpread{``0})">
+            <summary>
+            Converts a <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to a <see cref="T:System.String"/> of comma seperated values.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to convert to a <see cref="T:System.String"/>.</param>
+            <returns>A comma seperated <see cref="T:System.String"/> of <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.CombineSpreads(System.Int32,System.Int32)">
+            <summary>
+            Used to calculate the slice count if two spreads need to be
+            iterated.
+            </summary>
+            <param name="c1">Slice count 1.</param>
+            <param name="c2">Slice count 2.</param>
+            <returns>
+            Maximum of c1 and c2 if c1 greater 0 and c2 greater 0;
+            otherwise, 0.
+            </returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.CombineWith``1(System.Int32,VVVV.PluginInterfaces.V2.ISpread{``0})">
+            <summary>
+            <see cref="M:VVVV.PluginInterfaces.V2.SpreadExtensions.CombineSpreads(System.Int32,System.Int32)"/>
             </summary>
         </member>
-        <member name="M:VVVV.PluginInterfaces.V2.NodeInfo.#ctor">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.CombineWith``2(VVVV.PluginInterfaces.V2.ISpread{``0},VVVV.PluginInterfaces.V2.ISpread{``1})">
             <summary>
-            Default constructor.
+            <see cref="M:VVVV.PluginInterfaces.V2.SpreadExtensions.CombineSpreads(System.Int32,System.Int32)"/>
             </summary>
         </member>
-        <member name="M:VVVV.PluginInterfaces.V2.NodeInfo.#ctor(VVVV.PluginInterfaces.V1.IPluginInfo)">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.AssignFrom``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            Creates a new NodeInfo from an existing <see cref="T:VVVV.PluginInterfaces.V1.IPluginInfo">IPluginInfo</see>.
+            Copy all values from <see cref="T:System.Collections.Generic.IEnumerable`1"/> to this <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
-            <param name="Info">The existing plugin <see cref="T:VVVV.PluginInterfaces.V1.IPluginInfo">IPluginInfo</see>.</param>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to copy to.</param>
+            <param name="enumerable">The IEnumerable{T} to copy from.</param>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Arguments">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.AssignFrom``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Collections.Generic.IList{``0})">
             <summary>
-            Arguments used by the PluginFactory to create this node.
+            Copy all values from <see cref="T:System.Collections.Generic.IList`1"/> to this <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to copy to.</param>
+            <param name="list">The IList{T} to copy from.</param>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Filename">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.Clone``1(VVVV.PluginInterfaces.V2.ISpread{``0})">
             <summary>
-            Name of the file used by the PluginFactory to create this node.
+            Create a copy of the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to copy.</param>
+            <returns>A new copy of <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</returns>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Username">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.Add``1(VVVV.PluginInterfaces.V2.ISpread{``0},``0)">
             <summary>
-            The nodes unique username in the form of: Name (Category Version) where the Name can be a symbol
+            Adds an item to the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to add the object to.</param>
+            <param name="item">The object to add.</param>
+            <remarks>This is operation has a runtime of O(1).</remarks>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Systemname">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.AddRange``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            The nodes unique username in the form of: Name (Category Version)
+            Adds the elements of the specified enumerable to the end of the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to add the elements to.</param>
+            <param name="enumerable">The elements to be added.</param>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Type">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.AddRange``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Collections.Generic.IList{``0})">
             <summary>
-            The node type. Set by the PluginFactory.
+            Adds the elements of the specified list to the end of the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to add the elements to.</param>
+            <param name="list">The elements to be added.</param>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Executable">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.Remove``1(VVVV.PluginInterfaces.V2.ISpread{``0},``0)">
             <summary>
-            Reference to the <see cref="T:VVVV.Core.Runtime.IExecutable">IExecutable</see> which was used to create this node. Set by the PluginFactory.
+            Removes the first occurrence of a specific object from the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to remove the object from.</param>
+            <param name="item">The object to remove.</param>
+            <returns>
+            true if item was successfully removed from the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>; otherwise, false.
+            This method also returns false if item is not found in the original <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
+            </returns>
+            <remarks>This is operation has a runtime of O(n).</remarks>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.AutoEvaluate">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.RemoveAt``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Int32)">
             <summary>
-            Define if this node should be evaluated every frame, even if no outpur is read.
+            Removes the element at the specified index of the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to remove the element from.</param>
+            <param name="index">The zero-based index of the element to remove.</param>
+            <remarks><paramref name="index"/> can be negative or greater SliceCount.</remarks>
         </member>
-        <member name="P:VVVV.PluginInterfaces.V2.NodeInfo.Ignore">
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.RemoveAll``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Predicate{``0})">
             <summary>
-            Define if this node should be ignored in a NodeBrowser or not.
+            Removes all the elements that match the conditions defined by the specified predicate.
             </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to remove the objects from.</param>
+            <param name="match">The <see cref="T:System.Predicate`1"/> delegate that defines the conditions of the elements to remove.</param>
+            <returns>The number of elements removed from the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.RemoveRange``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Int32,System.Int32)">
+            <summary>
+            Removes a range of elements from the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to remove the elements from.</param>
+            <param name="index">The zero-based starting index of the range of elements to remove.</param>
+            <param name="count">The number of elements to remove.</param>
+            <remarks>The items are removed and all the elements following them in the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> have their indexes reduced by count.</remarks>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.GetRange``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Int32,System.Int32)">
+            <summary>
+            Creates a shallow copy of a range of elements in the source <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to get the elements from.</param>
+            <param name="index">The zero-based <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> index at which the range starts.</param>
+            <param name="count">The number of elements in the range.</param>
+            <returns>A shallow copy of a range of elements in the source <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</returns>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.IndexOf``1(VVVV.PluginInterfaces.V2.ISpread{``0},``0)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to use to locate the item.</param>
+            <param name="item">The object to locate in the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</param>
+            <returns>The index of item if found in the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>; otherwise, -1.</returns>
+            <remarks>If an object occurs multiple times in the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>, the IndexOf method always returns the first instance found.</remarks>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.Insert``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Int32,``0)">
+            <summary>
+            Inserts an item to the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> at the specified index.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to insert the item into.</param>
+            <param name="index">The zero-based index at which item should be inserted.</param>
+            <param name="item">The object to insert into the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</param>
+            <remarks>
+            If index equals the number of items in the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>, then item is appended to the spread.
+            </remarks>
+        </member>
+        <member name="M:VVVV.PluginInterfaces.V2.SpreadExtensions.InsertRange``1(VVVV.PluginInterfaces.V2.ISpread{``0},System.Int32,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Inserts the elements of a collection into the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> at the specified index.
+            </summary>
+            <param name="spread">The <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/> to insert the items into.</param>
+            <param name="index">The zero-based index at which the new elements should be inserted.</param>
+            <param name="collection">The collection whose elements should be inserted into the <see cref="T:VVVV.PluginInterfaces.V2.ISpread`1"/>.</param>
         </member>
         <member name="P:VVVV.PluginInterfaces.V2.PluginInfoAttribute.Systemname">
             <summary>
             The nodes unique username in the form of: Name (Category Version)
-            </summary>
-        </member>
-        <member name="T:VVVV.PluginInterfaces.V2.Spread`1">
-            <summary>
-            The spread data type
             </summary>
         </member>
     </members>

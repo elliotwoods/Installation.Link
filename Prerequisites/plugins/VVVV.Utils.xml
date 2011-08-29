@@ -35,6 +35,14 @@
             provides information about the entry assembly
             </summary>
         </member>
+        <member name="M:VVVV.Utils.Collections.DictionaryExtensions.ValueOrDefault``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
+            <summary>
+            From http://www.haiders.net/post/Dictionary-Lookup-avoiding-KeyNotFound-Exception.aspx
+            </summary>
+            <param name="dictionary"></param>
+            <param name="key">The key to look up.</param>
+            <returns>The value associated with the key or default(TValue) of key not found.</returns>
+        </member>
         <member name="T:VVVV.Utils.VColor.RGBAColor">
             <summary>
             256-bit color struct, compatible with vvvv colors.
@@ -369,7 +377,7 @@
         </member>
         <member name="T:VVVV.Utils.Crypto.StringHasher">
             <summary>
-            Description of StringHasher.
+            StringHasher.
             </summary>
         </member>
         <member name="T:VVVV.Utils.Disposable">
@@ -1252,6 +1260,27 @@
             <param name="a"></param>
             <returns>true, if all components of v are smaller or equal to a</returns>
         </member>
+        <member name="M:VVVV.Utils.VMath.Vector2D.op_Equality(VVVV.Utils.VMath.Vector2D,VVVV.Utils.VMath.Vector2D)">
+            <summary>
+            vector == vector, checks if the two vectors are equal
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns>true, if all components of v1 equal the components of v2</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.Vector2D.op_Inequality(VVVV.Utils.VMath.Vector2D,VVVV.Utils.VMath.Vector2D)">
+            <summary>
+            vector != vector, checks if the two vectors are not equal
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns>true, if any component of v1 is different from the components of v2</returns>
+        </member>
+        <member name="P:VVVV.Utils.VMath.Vector2D.Length">
+            <summary>
+            Get or Set the Length of this vector
+            </summary>
+        </member>
         <member name="P:VVVV.Utils.VMath.Vector2D.Item(System.Int32)">
             <summary>
             Unsafe but very fast indexer for 2d-vector, [0..1]
@@ -1512,6 +1541,27 @@
             <param name="v"></param>
             <param name="a"></param>
             <returns>true, if all components of v are smaller or equal to a</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.Vector3D.op_Equality(VVVV.Utils.VMath.Vector3D,VVVV.Utils.VMath.Vector3D)">
+            <summary>
+            vector == vector, checks if the two vectors are equal
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns>true, if all components of v1 equal the components of v2</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.Vector3D.op_Inequality(VVVV.Utils.VMath.Vector3D,VVVV.Utils.VMath.Vector3D)">
+            <summary>
+            vector != vector, checks if the two vectors are not equal
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns>true, if any component of v1 is different from the components of v2</returns>
+        </member>
+        <member name="P:VVVV.Utils.VMath.Vector3D.Length">
+            <summary>
+            Get or Set the Length of this vector
+            </summary>
         </member>
         <member name="P:VVVV.Utils.VMath.Vector3D.xy">
             <summary>
@@ -1821,6 +1871,27 @@
             <param name="a"></param>
             <returns>true, if all components of v are smaller or equal to a</returns>
         </member>
+        <member name="M:VVVV.Utils.VMath.Vector4D.op_Equality(VVVV.Utils.VMath.Vector4D,VVVV.Utils.VMath.Vector4D)">
+            <summary>
+            vector == vector, checks if the two vectors are equal
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns>true, if all components of v1 equal the components of v2</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.Vector4D.op_Inequality(VVVV.Utils.VMath.Vector4D,VVVV.Utils.VMath.Vector4D)">
+            <summary>
+            vector != vector, checks if the two vectors are not equal
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <returns>true, if any component of v1 is different from the components of v2</returns>
+        </member>
+        <member name="P:VVVV.Utils.VMath.Vector4D.Length">
+            <summary>
+            Get or Set the Length of this vector
+            </summary>
+        </member>
         <member name="P:VVVV.Utils.VMath.Vector4D.xy">
             <summary>
             Get/set x and y components as 2d-vector
@@ -1859,6 +1930,26 @@
         <member name="T:VVVV.Utils.VMath.VMath">
             <summary>
             The vvvv c# math routines library
+            </summary>
+        </member>
+        <member name="F:VVVV.Utils.VMath.VMath.Pi">
+            <summary>
+            Pi, as you know it
+            </summary>
+        </member>
+        <member name="F:VVVV.Utils.VMath.VMath.TwoPi">
+            <summary>
+            Pi * 2
+            </summary>
+        </member>
+        <member name="F:VVVV.Utils.VMath.VMath.PiRez">
+            <summary>
+            1 / Pi, multiply by this if you have to divide by Pi
+            </summary>
+        </member>
+        <member name="F:VVVV.Utils.VMath.VMath.TwoPiRez">
+            <summary>
+            2 / Pi, multiply by this if you have to divide by 2*Pi
             </summary>
         </member>
         <member name="F:VVVV.Utils.VMath.VMath.CycToRad">
@@ -1992,7 +2083,7 @@
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Clamp(VVVV.Utils.VMath.Vector3D,System.Double,System.Double)">
             <summary>
-            Clamp function, clamps a 2d-vector into the range [min..max]
+            Clamp function, clamps a 3d-vector into the range [min..max]
             </summary>
             <param name="v"></param>
             <param name="min"></param>
@@ -2001,7 +2092,7 @@
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Clamp(VVVV.Utils.VMath.Vector4D,System.Double,System.Double)">
             <summary>
-            Clamp function, clamps a 2d-vector into the range [min..max]
+            Clamp function, clamps a 4d-vector into the range [min..max]
             </summary>
             <param name="v"></param>
             <param name="min"></param>
@@ -2019,7 +2110,7 @@
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Clamp(VVVV.Utils.VMath.Vector3D,VVVV.Utils.VMath.Vector3D,VVVV.Utils.VMath.Vector3D)">
             <summary>
-            Clamp function, clamps a 2d-vector into the range [min..max]
+            Clamp function, clamps a 3d-vector into the range [min..max]
             </summary>
             <param name="v"></param>
             <param name="min"></param>
@@ -2028,7 +2119,7 @@
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Clamp(VVVV.Utils.VMath.Vector4D,VVVV.Utils.VMath.Vector4D,VVVV.Utils.VMath.Vector4D)">
             <summary>
-            Clamp function, clamps a 2d-vector into the range [min..max]
+            Clamp function, clamps a 4d-vector into the range [min..max]
             </summary>
             <param name="v"></param>
             <param name="min"></param>
@@ -2359,25 +2450,44 @@
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Cartesian(System.Double,System.Double,System.Double)">
             <summary>
-            Convert polar coordinates (pitch, yaw, lenght) to cartesian coordinates (x, y, z)
+            Convert polar coordinates (pitch, yaw, lenght) in radian to cartesian coordinates (x, y, z).
+            To convert angles from cycles to radian, multiply them with VMath.CycToDec.
             </summary>
             <param name="pitch"></param>
             <param name="yaw"></param>
             <param name="length"></param>
             <returns>3d-point in cartesian coordinates</returns>
         </member>
+        <member name="M:VVVV.Utils.VMath.VMath.Cartesian(VVVV.Utils.VMath.Vector3D)">
+            <summary>
+            Convert polar coordinates (pitch, yaw, lenght) in radian to cartesian coordinates (x, y, z).
+            To convert angles from cycles to radian, multiply them with VMath.CycToDec.
+            </summary>
+            <param name="polar">3d-vector containing the polar coordinates as (pitch, yaw, length)</param>
+            <returns></returns>
+        </member>
         <member name="M:VVVV.Utils.VMath.VMath.CartesianVVVV(System.Double,System.Double,System.Double)">
             <summary>
-            Convert polar coordinates (pitch, yaw, lenght) to cartesian coordinates (x, y, z) exacly like the vvvv node Cartesian
+            Convert polar coordinates (pitch, yaw, lenght) in radian to cartesian coordinates (x, y, z) exacly like the vvvv node Cartesian.
+            To convert angles from cycles to radian, multiply them with VMath.CycToDec.
             </summary>
             <param name="pitch"></param>
             <param name="yaw"></param>
             <param name="length"></param>
             <returns>3d-point in cartesian coordinates like the vvvv node does it</returns>
         </member>
+        <member name="M:VVVV.Utils.VMath.VMath.CartesianVVVV(VVVV.Utils.VMath.Vector3D)">
+            <summary>
+            Convert polar coordinates (pitch, yaw, lenght) in radian to cartesian coordinates (x, y, z) exacly like the vvvv node Cartesian.
+            To convert angles from cycles to radian, multiply them with VMath.CycToDec.
+            </summary>
+            <param name="polar">3d-vector containing the polar coordinates as (pitch, yaw, length)</param>
+            <returns></returns>
+        </member>
         <member name="M:VVVV.Utils.VMath.VMath.Polar(System.Double,System.Double,System.Double)">
             <summary>
-            Convert cartesian coordinates (x, y, z) to polar coordinates (pitch, yaw, lenght)
+            Convert cartesian coordinates (x, y, z) to polar coordinates (pitch, yaw, lenght) in radian.
+            To convert the angles to cycles, multiply them with VMath.DegToCyc.
             </summary>
             <param name="x"></param>
             <param name="y"></param>
@@ -2386,10 +2496,47 @@
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Polar(VVVV.Utils.VMath.Vector3D)">
             <summary>
-            Convert cartesian coordinates (x, y, z) to polar coordinates (pitch, yaw, lenght)
+            Convert cartesian coordinates (x, y, z) to polar coordinates (pitch, yaw, lenght) in radian.
+            To convert the angles to cycles, multiply them with VMath.DegToCyc.
             </summary>
             <param name="a"></param>
             <returns>Point in polar coordinates</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.VMath.PolarVVVV(System.Double,System.Double,System.Double)">
+            <summary>
+            Convert cartesian coordinates (x, y, z) to VVVV style polar coordinates (pitch, yaw, lenght) in radian.
+            To convert the angles to cycles, multiply them with VMath.DegToCyc.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns>3d-point in polar coordinates</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.VMath.PolarVVVV(VVVV.Utils.VMath.Vector3D)">
+            <summary>
+            Convert cartesian coordinates (x, y, z) to polar VVVV style coordinates (pitch, yaw, lenght) in radian.
+            To convert the angles to cycles, multiply them with VMath.DegToCyc.
+            </summary>
+            <param name="a"></param>
+            <returns>Point in polar coordinates</returns>
+        </member>
+        <member name="M:VVVV.Utils.VMath.VMath.QuaternionToEulerYawPitchRoll(VVVV.Utils.VMath.Vector4D,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Converts a quaternion into euler angles, assuming that the euler angle multiplication to create the quaternion was yaw*pitch*roll.
+            All angles in radian.
+            </summary>
+            <param name="q">A quaternion, can be non normalized</param>
+            <param name="pitch"></param>
+            <param name="yaw"></param>
+            <param name="roll"></param>
+        </member>
+        <member name="M:VVVV.Utils.VMath.VMath.QuaternionToEulerYawPitchRoll(VVVV.Utils.VMath.Vector4D)">
+            <summary>
+            Converts a quaternion into euler angles, assuming that the euler angle multiplication to create the quaternion was yaw*pitch*roll.
+            All angles in radian.
+            </summary>
+            <param name="q">A quaternion, can be non normalized</param>
+            <returns>3d-vector with x=pitch, y=yaw, z=roll</returns>
         </member>
         <member name="M:VVVV.Utils.VMath.VMath.Translate(System.Double,System.Double,System.Double)">
             <summary>
@@ -2579,6 +2726,21 @@
             <summary>
             Returns the relative path to reach toPath from fromPath.
             </summary>
+        </member>
+        <member name="M:VVVV.Utils.Reflection.TypeExtensions.GetCSharpName(System.Type)">
+            <summary>
+            Generates a CSharp like type name string.
+            </summary>
+            <param name="type">A .Net Type</param>
+            <returns>Type name as one would write it in CSharp</returns>
+        </member>
+        <member name="M:VVVV.Utils.Reflection.TypeExtensions.GetCSharpName(System.Type,System.Boolean)">
+            <summary>
+            Generates a CSharp like type name string.
+            </summary>
+            <param name="type">A .Net Type</param>
+            <param name="includeNamespace">If true, the return string comes with namespace prefix.</param>
+            <returns>Type name as one would write it in CSharp</returns>
         </member>
         <member name="T:VVVV.Utils.SharedMemory.SharedMemoryCreationFlag">
             <summary>
