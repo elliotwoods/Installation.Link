@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.Runtime.InteropServices;
 using System.Linq;
 using System.Text;
 using VVVV.PluginInterfaces.V1;
+using VVVV.PluginInterfaces.V2;
+using VVVV.PluginInterfaces.V2.EX9;
+using VVVV.Utils.SlimDX;
 using SlimDX.Direct3D9;
-using System.Runtime.InteropServices;
+
 using SlimDX;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -13,267 +18,365 @@ using System.Threading;
 
 namespace VVVV.Nodes.ImageCache
 {
-	
-	public unsafe class ImageCacheNode : IPlugin, IDisposable, IPluginDXTexture
+	class ImageCacheInstance : IDisposable
 	{
+		[DllImport("kernel32.dll", EntryPoint = "RtlMoveMemory")]
+		static extern void CopyMemory(IntPtr Destination, IntPtr Source, uint Length);
 
-		#region Plugin Info
-		public static IPluginInfo PluginInfo
+		#region fields
+
+		//image data
+		public List<IntPtr> Data = new List<IntPtr>();
+		public int Width, Height;
+		public string Status;
+
+		//preallocation
+		bool FPreallocated = false;
+
+		//load thread
+		string FFilenameFirst = "";
+		string FFilenameTrunk = "";
+		Thread FThreadLoad = null;
+		bool FIsLoading = false;
+		bool FStopLoading = false;
+		#endregion
+
+		public bool isLoaded
 		{
-			get
-			{
-				IPluginInfo Info = new PluginInfo();
-				Info.Name = "ImageCache";							//use CamelCaps and no spaces
-				Info.Category = "EX9.Texture";						//try to use an existing one
-				Info.Version = "";						//versions are optional. leave blank if not needed
-				Info.Help = "Cache images into RAM for quick GPU access.";
-				Info.Bugs = "";
-				Info.Credits = "";								//give credits to thirdparty code used
-				Info.Warnings = "";
-                Info.Author = "sugokuGENKI";
-				Info.Credits = "";
-
-				//leave below as is
-				System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace(true);
-				System.Diagnostics.StackFrame sf = st.GetFrame(0);
-				System.Reflection.MethodBase method = sf.GetMethod();
-				Info.Namespace = method.DeclaringType.Namespace;
-				Info.Class = method.DeclaringType.Name;
-				return Info;
-				//leave above as is
+			get {
+				return !FIsLoading && Data.Count > 0;
 			}
 		}
-		#endregion
+
+		public int Count
+		{
+			get{
+				return Data.Count;
+			}
+		}
+
+		public void preAllocate(int count)
+		{
+			FPreallocated = true;
+			Allocate(1, 1, count);
+		}
+
+		public bool isDifferentFilename(string f)
+		{
+			return f != FFilenameFirst;
+		}
+
+		public void load(string filenameFirst)
+		{
+			if (!System.IO.File.Exists(filenameFirst))
+			{
+				Status = "File doesn't exist";
+				deAllocate();
+			}
+			else
+			{
+				closeThread();
+				FFilenameFirst = filenameFirst;
+				FThreadLoad = new Thread(fnLoadThread);
+				Status = "Loading sequence";
+				FThreadLoad.Start();
+			}
+		}
+
+		private void closeThread()
+		{
+			if (FThreadLoad != null)
+			{
+				if (FThreadLoad.ThreadState == ThreadState.Running)
+				{
+					FStopLoading = true;
+					FThreadLoad.Join(10);
+					FThreadLoad = null;
+				}
+			}
+		}
+
+		private void fnLoadThread()
+		{
+			FIsLoading = true;
+			FStopLoading = false;
+
+
+			//build trunk name
+			FFilenameTrunk = Path.GetFileNameWithoutExtension(FFilenameFirst);
+			int iSequenceFilename = System.Convert.ToInt32(FFilenameTrunk.Substring(FFilenameTrunk.Length - 1, 1));
+
+			string sequenceNumber;
+
+			string fnameCurrentFrame = FFilenameFirst;
+			string extension = Path.GetExtension(FFilenameFirst);
+			string pathName = Path.GetDirectoryName(FFilenameFirst);
+
+			int iImage = 0;
+
+			Bitmap currentImage;
+
+			while (System.IO.File.Exists(fnameCurrentFrame) && !FStopLoading && !(FPreallocated && iImage+1 > Data.Count))
+			{
+
+				try
+				{
+					currentImage = new Bitmap(fnameCurrentFrame);
+
+					//reallocation
+					if (iImage == 0)
+					{
+						
+						if (FPreallocated)
+						{
+							Allocate(currentImage.Width, currentImage.Height, Data.Count);
+						}
+						else
+						{
+							Width = currentImage.Width;
+							Height = currentImage.Height;
+						}
+					}
+
+					if (FPreallocated)
+					{
+						setBitmap(iImage, currentImage);
+					}
+					else
+					{
+						addBitmap(currentImage);
+					}
+				}
+				catch
+				{
+					Status = "Image load failed on " + fnameCurrentFrame;
+					break;
+				}
+
+
+				//increase sequence number
+				iSequenceFilename++;
+				sequenceNumber = System.Convert.ToString(iSequenceFilename);
+				string paddedTrunk;
+
+				//perhaps files are like 8,9,10.
+				//i.e. higher numbers have longer names
+				paddedTrunk = FFilenameTrunk;
+				while (FFilenameTrunk.Length < sequenceNumber.Length)
+					paddedTrunk = "0" + paddedTrunk;
+
+
+				iImage++;
+				fnameCurrentFrame = pathName + "\\" + paddedTrunk.Substring(0, paddedTrunk.Length - sequenceNumber.Length) + sequenceNumber + extension;
+			}
+
+			Status = "Image loading complete";
+			FIsLoading = false;
+		}
+
+		private void addBitmap(Bitmap b)
+		{
+			//check if same format as trunk image
+			if (b.Height != Height || b.Width != Width)
+				throw (new Exception("Image dimensions dont match"));
+
+			BitmapData ImageData = b.LockBits(new Rectangle(0, 0, Width, Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+			IntPtr add = Marshal.AllocCoTaskMem(Width * Height * 4);
+			CopyMemory(add, ImageData.Scan0, System.Convert.ToUInt32(Width * Height * 4));
+			Data.Add(add);
+		}
+
+		private void setBitmap(int index, Bitmap b)
+		{
+			//check if same format as trunk image
+			if (b.Height != Height || b.Width != Width)
+				throw (new Exception("Image dimensions dont match"));
+
+			BitmapData ImageData = b.LockBits(new Rectangle(0, 0, Width, Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+			IntPtr add = Marshal.AllocCoTaskMem(Width * Height * 4);
+			CopyMemory(add, ImageData.Scan0, System.Convert.ToUInt32(Width * Height * 4));
+			Data[index] = add;
+		}
+
+		private void Allocate(int w, int h, int count)
+		{
+			//preallocation
+
+			//check if we've alreadt got right size allocated
+			if (w == Width && h == Height && count == Data.Count)
+				return;
+
+			deAllocate();
+
+			//grow list
+			IntPtr newDataArea;
+			for (int i = 0; i < count; i++)
+			{
+				newDataArea = Marshal.AllocCoTaskMem(w * h * 4);
+				Data.Add(newDataArea);
+			}
+
+			Width = w;
+			Height = h;
+		}
+
+		private void deAllocate()
+		{
+			//otherwise, delete if already allocated
+			foreach (IntPtr p in Data)
+				Marshal.FreeCoTaskMem(p);
+
+			Data.Clear();
+
+			Width = 0;
+			Height = 0;
+		}
+
+		public IntPtr getData(int i)
+		{
+			return Data[i % Data.Count];
+		}
+
+		public void Dispose()
+		{
+			closeThread();
+			deAllocate();
+		}
+
+	}
+
+    [PluginInfo(Name = "ImageCache",
+                Category = "EX9.Texture",
+                Author = "sugokuGENKI",
+                Version = "",
+                Help = "Cache images into RAM for quick GPU access.",
+                Credits = "",
+                Tags = "")]
+	public class ImageCacheNode : DXTextureOutPluginBase, IPluginEvaluate
+	{
 
 		#region Fields
 		private IPluginHost FHost;
 
-        private IValueConfig FConfigAllocated;
+		[Config("Preallocate slots (0=dont preallocate)", DefaultValue=0, MinValue=0)]
+		ISpread<int> FConfigAllocated;
 
-		private IValueIn FPinInIndex;
-        private IStringIn FPinFilename;
-        private IValueIn FPinInLoad;
+		[Input("Index")]
+		IDiffSpread<int> FPinInIndex;
 
-        private IValueOut FPinOutCount;
-        private IValueOut FPinOutLoaded;
+		[Input("Path", StringType=StringType.Filename)]
+		IDiffSpread<string> FPinInPath;
+
+		[Input("Load", IsSingle=true)]
+		IDiffSpread<bool> FPinInLoad;
 
 
-		private IDXTextureOut FPinOutTexture;
+		[Output("Count")]
+		ISpread<int> FPinOutCount;
 
-		private Dictionary<int, Texture> FTextures = new Dictionary<int, Texture>();
+		[Output("Loaded")]
+		ISpread<bool> FPinOutLoaded;
+
+		[Output("Status")]
+		ISpread<string> FPinOutStatus;
 
         //loaded images
-        private bool            allowLoad = false;
-        private List<IntPtr>    FData = new List<IntPtr>();
-        private int             FWidth, FHeight;
-        private int             FWidthAllocated=0, FHeightAllocated=0;
-        private bool            isValidIamge = false;
-        private int             nSlots=200;
+		private Dictionary<int, ImageCacheInstance> FImageCaches = new Dictionary<int, ImageCacheInstance>();
 
-        //filename properties
-        private string  fnameTrunk;
-
-        //load thread
-        private Thread  loadThread;
-        bool            isLoading = false;
-        string          fnameFirst ="";
-
-        //current values
-        int idx=0;
-        int count=0;
-
-        [DllImport("kernel32.dll", EntryPoint = "RtlMoveMemory")]
-        static extern void CopyMemory(IntPtr Destination, IntPtr Source, uint Length);
-
-		#endregion
-
-		#region Auto Evaluate
-		public bool AutoEvaluate
-		{
-			get { return true; }
-		}
-		#endregion
-
-		#region Set Plugin Host
-		public void SetPluginHost(IPluginHost Host)
-		{
-			//assign host
-			this.FHost = Host;
-
-            //config
-            this.FHost.CreateValueConfig("Allocated", 1, null, TSliceMode.Single, TPinVisibility.True, out FConfigAllocated);
-            FConfigAllocated.SetSubType(1, 1e4, 1, 200, false, false, true);
-
-
-			//inputs
-			this.FHost.CreateValueInput("Index", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinInIndex);
-            this.FPinInIndex.SetSubType(0, double.MaxValue, 1, 0, false, false, true);
-
-            this.FHost.CreateStringInput("Filename", TSliceMode.Single, TPinVisibility.True, out FPinFilename) ;
-            this.FPinFilename.SetSubType("", true);
-
-            this.FHost.CreateValueInput("Load", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinInLoad);
-            this.FPinInLoad.SetSubType(0, 1, 1, 0, false, true, false);
-
-
-            //outputs
-            this.FHost.CreateTextureOutput("Texture", TSliceMode.Single, TPinVisibility.True, out this.FPinOutTexture);
-            
-            this.FHost.CreateValueOutput("Count", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinOutCount);
-            FPinOutCount.SetSubType(0, double.MaxValue, 1, 0, false, false, true);
-
-            this.FHost.CreateValueOutput("Loaded", 1, null, TSliceMode.Single, TPinVisibility.True, out this.FPinOutLoaded);
-            FPinOutLoaded.SetSubType(0, 1, 1, 0, false, true, false);
-		}
+		bool FPreallocate = false;
+		int FPreallocateSlots = 0;
 		#endregion
 
         #region Constructor
-        public ImageCacheNode()
+        [ImportingConstructor()]
+        public ImageCacheNode(IPluginHost host)
+            : base(host)
         {
-            FWidth = 0;
-            FHeight = 0;
+            this.FHost = host;
         }
-        ~ImageCacheNode()
+
+		~ImageCacheNode()
         {
-            nSlots = 0;
-            Allocate();
+			foreach(KeyValuePair<int, ImageCacheInstance> c in FImageCaches)
+			{
+				c.Value.Dispose();
+				FImageCaches.Remove(c.Key);
+			}
         }
         #endregion
+
 
         #region Configurate
         public void Configurate(IPluginConfig Input)
 		{
-            double dblSlots;
-            FConfigAllocated.GetValue(0, out dblSlots);
-            nSlots = System.Convert.ToInt32(dblSlots);
+			FPreallocate = FConfigAllocated[0] > 0;
+			FPreallocateSlots = FConfigAllocated[0];
         }
         
 		#endregion
-
-        private void Allocate()
-        {
-            bool doGC = false;
-            //check we've got right size allocated
-            if (FWidth != FWidthAllocated || FHeight != FHeightAllocated)
-                while (FData.Count > 0)
-                {
-                    Marshal.FreeCoTaskMem(FData[FData.Count - 1]);
-                    FData.RemoveAt(FData.Count - 1);
-                    doGC = true;
-                }
-
-            //shrink array
-            while (FData.Count > nSlots)
-            {
-                Marshal.FreeCoTaskMem(FData[FData.Count - 1]);
-                FData.RemoveAt(FData.Count - 1);
-                doGC = true;
-            }
-
-            //grow array
-            while (FData.Count < nSlots)
-            {
-                FData.Add(new IntPtr());
-                FData[FData.Count - 1] = Marshal.AllocCoTaskMem(FWidth * FHeight * 4);
-            }
-
-            FWidthAllocated = FWidth;
-            FHeightAllocated = FHeight;
-
-            //do a collection if we deleted anything. necessary?
-            if (doGC && false) //we disable regular GC's
-                GC.Collect();
-        }
 
         
 		#region Evaluate
 		public void Evaluate(int SpreadMax)
 		{
+			bool needsUpdate = false;
 
-            if (this.FPinInLoad.PinIsChanged)
+			if (FPinInPath.IsChanged)
+			{
+				for (int i=0; i<FPinInPath.SliceCount; i++)
+				{
+					if (i > FImageCaches.Count - 1)
+					{
+						ImageCacheInstance cache = new ImageCacheInstance();
+						if (FPreallocate)
+						{
+							cache.preAllocate(FPreallocateSlots);
+						}
+						cache.load(FPinInPath[i]);
+						FImageCaches.Add(i, cache);
+					}
+
+					if (FImageCaches[i].isDifferentFilename(FPinInPath[i]))
+						FImageCaches[i].load(FPinInPath[i]);
+				}
+
+				//remove any excess caches
+				for (int i=FPinInPath.SliceCount; i<FImageCaches.Count; i++)
+				{
+					FImageCaches[i].Dispose();
+					FImageCaches.Remove(i);
+				}
+
+				Reinitialize();
+
+				needsUpdate = true;
+			}
+
+
+            if (FPinInIndex.IsChanged)
             {
-                double dblAllowLoad;
-                FPinInLoad.GetValue(0, out dblAllowLoad);
-
-                allowLoad = dblAllowLoad > 0.5;
-
-                //if we've got a file waiting to be loaded
-                //then lets load it now
-                if (isImageFile(fnameFirst) && allowLoad)
-                {
-                    if (loadThread == null)
-                    {
-                        loadThread = new Thread(fnLoadThread);
-                        loadThread.Start();
-                    }
-                    else
-                    {
-                        if (loadThread.IsAlive)
-                            loadThread.Join();
-                        loadThread = new Thread(fnLoadThread);
-                        loadThread.Start();
-                    }
-
-                    FPinOutLoaded.SetValue(0, 0);
-                }
+				needsUpdate = true;
             }
 
-            if (this.FPinInIndex.PinIsChanged)
-            {
-                double dblIndex;
-                FPinInIndex.GetValue(0, out dblIndex);
-                if (dblIndex >= 0 && dblIndex < 1e6)
-                {
-                    idx = System.Convert.ToInt32(dblIndex);
-
-                    while (idx < 0)
-                        idx += count;
-
-                    if (count == 0)
-                        idx = 0;
-                    else
-                        idx %= count;
-                }
-            }
+			if (needsUpdate)
+				Update();
 
 
-            if (this.FPinFilename.PinIsChanged && this.FPinFilename.SliceCount > 0)
-            {
-                string fnamein;
-                FPinFilename.GetString(0, out fnamein);
+			//outputs
+			FPinOutCount.SliceCount = FImageCaches.Count;
+			FPinOutLoaded.SliceCount = FImageCaches.Count;
+			FPinOutStatus.SliceCount = FImageCaches.Count;
 
-                fnameFirst = fnamein;
+			for (int i=0; i<FImageCaches.Count; i++)
+			{
+				FPinOutCount[i] = FImageCaches[i].Count;
+				FPinOutLoaded[i] = FImageCaches[i].isLoaded;
+				FPinOutStatus[i] = FImageCaches[i].Status;
+			}
 
-                if (isImageFile(fnameFirst) && allowLoad)
-                {
-                    if (loadThread == null)
-                    {
-                        loadThread = new Thread(fnLoadThread);
-                        loadThread.Start();
-                    }
-                    else
-                    {
-                        isLoading = false;
 
-                        if (loadThread.IsAlive)
-                            loadThread.Join();
-                        loadThread = new Thread(fnLoadThread);
-                        loadThread.Start();
-                    }
-                    
-                    FPinOutLoaded.SetValue(0, 0);
-                }
-            }
-            /*
-            if (loadThread != null)
-                if (loadThread.IsAlive)
-                    if (!isLoading)
-                        loadThread.Join();
-            */
-            double dblCount = System.Convert.ToInt32(count);
-            FPinOutCount.SetValue(0, dblCount);
-
-            FPinOutLoaded.SetValue(0, (isLoading ? 0 : 1));
 		}
         #endregion
 
@@ -283,151 +386,39 @@ namespace VVVV.Nodes.ImageCache
 		}
 		#endregion
 
-		public void GetTexture(IDXTextureOut ForPin, int OnDevice, out int tex)
+		#region Texture
+		//this method gets called, when Reinitialize() was called in evaluate,
+		//or a graphics device asks for its data
+		protected override Texture CreateTexture(int Slice, Device device)
 		{
-			tex = 0;
-			if (ForPin == this.FPinOutTexture)
-			{	
-				if (this.FTextures.ContainsKey(OnDevice))
+			//FLogger.Log(LogType.Debug, "Creating new texture at slice: " + Slice);
+			return TextureUtils.CreateTexture(device, FImageCaches[Slice % FImageCaches.Count].Width, FImageCaches[Slice % FImageCaches.Count].Height);
+		}
+
+		//this method gets called, when Update() was called in evaluate,
+		//or a graphics device asks for its texture, here you fill the texture with the actual data
+		//this is called for each renderer, careful here with multiscreen setups, in that case
+		//calculate the pixels in evaluate and just copy the data to the device texture here
+		protected unsafe override void UpdateTexture(int Slice, Texture texture)
+		{
+			if (FImageCaches.Count > 0)
+			{
+				ImageCacheInstance cache = FImageCaches[Slice % FImageCaches.Count];
+				if (cache.isLoaded)
 				{
-					tex = this.FTextures[OnDevice].ComPointer.ToInt32();
+					
+					Surface srf = texture.GetSurfaceLevel(0);
+					DataRectangle rect = srf.LockRectangle(LockFlags.Discard);
+
+					rect.Data.WriteRange(cache.getData(FPinInIndex[Slice]), cache.Width * cache.Height * 4);
+
+					srf.UnlockRectangle();
 				}
 			}
-
 		}
 
-		public void DestroyResource(IPluginOut ForPin, int OnDevice, bool OnlyUnManaged)
-		{
-			if (this.FTextures.ContainsKey(OnDevice))
-			{
-				this.FTextures[OnDevice].Dispose();
-				this.FTextures.Remove(OnDevice);
-			}
-		}
+		#endregion
 
-		public void UpdateResource(IPluginOut ForPin, int OnDevice)
-		{
-			Device dev = Device.FromPointer(new IntPtr(OnDevice));
-			if (isValidIamge && idx < count-1)
-			{
-				if (!this.FTextures.ContainsKey(OnDevice))
-				{
-					Texture txt = new Texture(dev, FWidth, FHeight, 1, Usage.None, Format.A8R8G8B8, Pool.Managed);
-					this.FTextures.Add(OnDevice, txt);
-				}
-
-				Texture tx = this.FTextures[OnDevice];
-				
-				Surface srf = tx.GetSurfaceLevel(0);
-				DataRectangle rect = srf.LockRectangle(LockFlags.Discard);
-				rect.Data.WriteRange(this.FData[idx], FWidth*FHeight*4);
-				srf.UnlockRectangle();
-            }
-
-		}
-
-        private bool isImageFile(string filename)
-        {
-            if (filename == null)
-                return false;
-            bool hasRightExtension = Path.GetExtension(filename).Equals(".jpg", StringComparison.InvariantCultureIgnoreCase)
-                 || Path.GetExtension(filename).Equals(".jpeg", StringComparison.InvariantCultureIgnoreCase)
-                 || Path.GetExtension(filename).Equals(".png", StringComparison.InvariantCultureIgnoreCase)
-                 || Path.GetExtension(filename).Equals(".bmp", StringComparison.InvariantCultureIgnoreCase)
-                 || Path.GetExtension(filename).Equals(".gif", StringComparison.InvariantCultureIgnoreCase);
-
-            //we've definitely got a dud, so let's quit before we annoy TryParse
-            if (!hasRightExtension)
-                return false;
-
-            string trunkname = Path.GetFileNameWithoutExtension(filename);
-            int testIsNum;
-            bool isSequence = int.TryParse(trunkname.Substring(trunkname.Length - 1, 1), out testIsNum);
-
-            return hasRightExtension && File.Exists(filename) && isSequence;
-        }
-
-        private bool loadImage(int iFrame, string filename)
-        {
-            //check we've allocated enough. if not let's end here
-            if (iFrame > FData.Count - 1)
-                return false;
-
-            Bitmap ImageLoader = new Bitmap(filename);
-            
-            //check if same format as trunk image
-            if (ImageLoader.Height != FHeight || ImageLoader.Width != FWidth)
-                return false;
-
-            BitmapData ImageData = ImageLoader.LockBits(new Rectangle(0, 0, FWidth, FHeight), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-
-            CopyMemory(FData[iFrame], ImageData.Scan0, System.Convert.ToUInt32(FWidth * FHeight * 4));
-            ImageLoader.Dispose();
-
-            return true;
-        }
-
-        private void fnLoadThread(object input)
-        {
-            if (isImageFile(fnameFirst))
-                {
-                    Bitmap bmpCheck = new Bitmap(fnameFirst);
-                    isValidIamge = (bmpCheck.Height > 0);
-
-                    if (isValidIamge && isImageFile(fnameFirst))
-                    {
-                        isLoading = true;
-
-                        FWidth = bmpCheck.Width;
-                        FHeight = bmpCheck.Height;
-                        bmpCheck.Dispose();
-
-                        Allocate();
-
-                        //build trunk name
-                        fnameTrunk = Path.GetFileNameWithoutExtension(fnameFirst);
-                        int iSequenceFilename = System.Convert.ToInt32(fnameTrunk.Substring(fnameTrunk.Length - 1, 1));
-                        fnameTrunk.Substring(0,fnameTrunk.Length - 1);
-
-                        int iImage = 0;
-                        
-                        count = 0;
-                        bool hasntFailed = true;
-                        string sequenceNumber;
-                        
-                        string fnameCurrentFrame = fnameFirst;
-                        string extension = Path.GetExtension(fnameFirst);
-                        string pathName = Path.GetDirectoryName(fnameFirst);
-
-                        while (isImageFile(fnameCurrentFrame) && hasntFailed)
-                        {
-
-                            //load image
-                            hasntFailed = loadImage(iImage, fnameCurrentFrame);
-                            if (hasntFailed)
-                                count++;
-
-                            //increase sequence number
-                            iImage++;
-                            iSequenceFilename++;
-                            sequenceNumber = System.Convert.ToString(iSequenceFilename);
-                            string paddedTrunk;
-                            
-                            //perhaps files are like 8,9,10.
-                            //i.e. higher numbers have longer names
-                            paddedTrunk = fnameTrunk;
-                            while (fnameTrunk.Length < sequenceNumber.Length)
-                                paddedTrunk = "0" + paddedTrunk;
-
-                            fnameCurrentFrame = pathName + "\\" + paddedTrunk.Substring(0, paddedTrunk.Length - sequenceNumber.Length) + sequenceNumber + extension;
-
-                            //Thread.Sleep(5);
-                        }
-
-                        isLoading = false;
-                    }
-                }
-        }
 	}
         
 

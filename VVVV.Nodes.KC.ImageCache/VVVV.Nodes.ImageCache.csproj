@@ -44,6 +44,10 @@
       <HintPath>..\..\..\..\vvvv\vvvv_40beta23\plugins\SlimDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -60,9 +64,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\vvvv\vvvv_45beta24.1\bin\managed\VVVV.PluginInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="_Utils, Version=1.0.3733.28800, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="VVVV.Utils, Version=1.0.4233.9559, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\vvvv\beta23_kaz\plugins\_Utils.dll</HintPath>
+      <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="VVVV.Utils3rdParty, Version=1.0.4233.9574, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.Utils3rdParty.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
