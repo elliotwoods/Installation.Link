@@ -20,7 +20,7 @@ namespace VVVV.Nodes
     #region PluginInfo
     [PluginInfo(Name = "PlayWaveFile", Category = "NAudio", Help = "Play wav files through WASAPI devices", Tags = "")]
     #endregion PluginInfo
-    public class NAudioPlayWaveFileNode : IPluginEvaluate
+    public class NAudioPlayWaveFileNode : IPluginEvaluate, IDisposable
     {
         #region fields
 
@@ -36,7 +36,7 @@ namespace VVVV.Nodes
         [Input("Loop", IsSingle = true)]
         ISpread<bool> FPinInLoop;
 
-        [Input("Filename", IsSingle=true, StringType = StringType.Filename, FileMask="*.wav")]
+        [Input("Filename", IsSingle=true, StringType = StringType.Filename)]
         IDiffSpread<String> FPinInFilename;
 
         //
@@ -80,6 +80,11 @@ namespace VVVV.Nodes
             FPatchPath = Path.GetDirectoryName(FPatchPath);
         }
         #endregion
+
+		public void Dispose()
+		{
+			closeDevice();
+		}
 
         public void Evaluate(int SpreadMax)
         {
@@ -167,6 +172,11 @@ namespace VVVV.Nodes
 
             FWaveStream = readerStream;
         }
+
+		void CloseInputStream()
+		{
+			FWaveStream.Dispose();
+		}
 
         private bool OpenFile(string filename)
         {

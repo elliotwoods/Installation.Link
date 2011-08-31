@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\N1.3 - Render foldername.v4p" locked="0">
-   <BOUNDS height="8205" left="4680" top="5220" type="Window" width="8565">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\N1.3 - Render foldername.v4p" locked="0">
+   <BOUNDS height="9990" left="4680" top="5220" type="Window" width="11205">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="525" top="7590" type="Node" width="100">
@@ -9,7 +9,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="6405" top="7545" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Path">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Path" encoded="0">
    </PIN>
    <PIN pinname="Input String" visible="1">
    </PIN>
@@ -23,15 +23,15 @@
    </BOUNDS>
    <BOUNDS height="160" left="6975" top="6600" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Local IP|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Local IP|" encoded="0">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InABox" id="8" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="9930" top="405" type="Node" width="100">
+   <NODE componentmode="InABox" id="8" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
+   <BOUNDS height="100" left="10350" top="405" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="9930" top="405" type="Box" width="480">
+   <BOUNDS height="480" left="10350" top="405" type="Box" width="480">
    </BOUNDS>
    <BOUNDS height="160" left="8460" top="7110" type="Window" width="215">
    </BOUNDS>
@@ -45,7 +45,7 @@
    </PIN>
    <PIN pinname="Slider Behavior" slicecount="1" values="Bang">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Generate">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Generate" encoded="0">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -69,7 +69,7 @@
    </PIN>
    <PIN pinname="Input 2" visible="1">
    </PIN>
-   <PIN pinname="Intersperse String" pintype="Input" slicecount="1" visible="-1" values="||">
+   <PIN pinname="Intersperse String" pintype="Input" slicecount="1" visible="-1" values="||" encoded="0">
    </PIN>
    <PIN pinname="Input Count" slicecount="1" values="4">
    </PIN>
@@ -171,7 +171,7 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 1" slicecount="1" values="..\recordings\">
+   <PIN pinname="Input 1" slicecount="1" values="..\recordings\" encoded="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="27" dstpinname="Input 2" linkstyle="VHV" srcnodeid="11" srcpinname="Output">
@@ -180,7 +180,11 @@
    <LINKPOINT x="7165" y="7043">
    </LINKPOINT>
    </LINK>
-   <LINK dstnodeid="1" dstpinname="Input String" srcnodeid="27" srcpinname="Output">
+   <LINK dstnodeid="1" dstpinname="Input String" srcnodeid="27" srcpinname="Output" linkstyle="VHV">
+   <LINKPOINT x="6885" y="7500">
+   </LINKPOINT>
+   <LINKPOINT x="585" y="7500">
+   </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="28" nodename="GetSlice (String)" systemname="GetSlice (String)">
    <BOUNDS height="100" left="3705" top="4935" type="Node" width="100">
@@ -189,7 +193,7 @@
    </BOUNDS>
    <BOUNDS height="0" left="9585" top="8610" type="Window" width="0">
    </BOUNDS>
-   <PIN pinname="Input" slicecount="7" values="Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday">
+   <PIN pinname="Input" slicecount="7" values="Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday" encoded="0">
    </PIN>
    <PIN pinname="Index" visible="1">
    </PIN>
@@ -203,7 +207,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="8565" top="6780" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Remote IP|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Remote IP|" encoded="0">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -219,7 +223,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 2" slicecount="1" visible="1" values="\">
+   <PIN pinname="Input 2" slicecount="1" visible="1" values="\" encoded="0">
    </PIN>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -327,7 +331,7 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
-   <PIN pinname="Intersperse String" slicecount="1" values="-">
+   <PIN pinname="Intersperse String" slicecount="1" values="-" encoded="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -361,7 +365,7 @@
    </BOUNDS>
    <BOUNDS height="0" left="9900" top="6630" type="Window" width="0">
    </BOUNDS>
-   <PIN pinname="Padding" slicecount="1" values="0">
+   <PIN pinname="Padding" slicecount="1" values="0" encoded="0">
    </PIN>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -449,7 +453,7 @@
    </BOUNDS>
    <BOUNDS height="0" left="9900" top="6630" type="Window" width="0">
    </BOUNDS>
-   <PIN pinname="Padding" slicecount="1" values="0">
+   <PIN pinname="Padding" slicecount="1" values="0" encoded="0">
    </PIN>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -471,7 +475,7 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
-   <PIN pinname="Intersperse String" slicecount="1" values=".">
+   <PIN pinname="Intersperse String" slicecount="1" values="." encoded="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -491,7 +495,7 @@
    </PIN>
    <PIN pinname="Input 1" visible="1">
    </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="\">
+   <PIN pinname="Input 2" slicecount="1" values="\" encoded="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="11" dstpinname="Input 1" srcnodeid="48" srcpinname="Output">
@@ -507,7 +511,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 2" slicecount="1" visible="1" values="| |">
+   <PIN pinname="Input 2" slicecount="1" visible="1" values="| |" encoded="0">
    </PIN>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -520,6 +524,6 @@
    </LINK>
    <LINK dstnodeid="49" dstpinname="Input 1" srcnodeid="47" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Set">
+   <LINK dstnodeid="17" dstpinname="Set" srcnodeid="8" srcpinname="Y Output Value">
    </LINK>
    </PATCH>

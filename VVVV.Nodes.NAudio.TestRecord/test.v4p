@@ -121,11 +121,11 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="20" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="0" left="11220" top="3465" type="Node" width="0">
+   <BOUNDS height="0" left="11550" top="3825" type="Node" width="0">
    </BOUNDS>
-   <BOUNDS height="255" left="11220" top="3465" type="Box" width="1665">
+   <BOUNDS height="255" left="11550" top="3825" type="Box" width="1665">
    </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" values="mono.wav">
+   <PIN encoded="0" pinname="Input String" visible="1">
    </PIN>
    <PIN encoded="0" pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -357,6 +357,8 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN encoded="0" pinname="Input 3" slicecount="1" values=".wav">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="34" nodename="FormatValue (String)" systemname="FormatValue (String)">
    <BOUNDS height="100" left="9720" top="3150" type="Node" width="100">
@@ -389,7 +391,7 @@
    </BOUNDS>
    <PIN pinname="Output String" visible="1">
    </PIN>
-   <PIN encoded="0" pinname="Input String" slicecount="1" values="mono-dev0.wav">
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="37" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
@@ -556,6 +558,8 @@
    </LINK>
    <LINK dstnodeid="46" dstpinname="Go To Position" srcnodeid="24" srcpinname="Position">
    </LINK>
-   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Record">
+   <LINK dstnodeid="15" dstpinname="Record" srcnodeid="22" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="20" dstpinname="Input String" srcnodeid="33" srcpinname="Output">
    </LINK>
    </PATCH>

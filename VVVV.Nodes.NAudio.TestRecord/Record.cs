@@ -173,7 +173,7 @@ namespace VVVV.Nodes
         {
             float level = 0;
 
-            for (int i = 1; i < e.BytesRecorded; i += 4)
+            for (int i = 0; i < e.BytesRecorded; i += 4)
                 level += Math.Abs((float)e.Buffer[i]);
             level /= (float)e.BytesRecorded * 255.0f;
 

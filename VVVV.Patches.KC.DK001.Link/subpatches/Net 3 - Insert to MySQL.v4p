@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta25.1.dtd" >
-   <PATCH nodename="C:\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\N0.3 - Insert to MySQL.v4p" filename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\N0.3 - Insert to MySQL.v4p" systemname="N0.3 - Insert to MySQL">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 3 - Insert to MySQL.v4p" filename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\N0.3 - Insert to MySQL.v4p" systemname="N0.3 - Insert to MySQL">
    <BOUNDS height="14925" left="3630" top="0" type="Window" width="16860">
    </BOUNDS>
    <NODE componentmode="Hidden" id="2" nodename="R (String)" systemname="R (String)">
@@ -37,7 +37,7 @@
    </BOUNDS>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="MySQLDataBase">
+   <PIN pinname="Descriptive Name" slicecount="1" values="MySQLDataBase" encoded="0">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="10" nodename="Count (String)" systemname="Count (String)">
@@ -105,17 +105,21 @@
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="23" nodename="Add (String)" systemname="Add (String)">
-   <BOUNDS height="100" left="4290" top="3765" type="Node" width="100">
+   <BOUNDS height="270" left="4290" top="3765" type="Node" width="2940">
    </BOUNDS>
-   <PIN pinname="Input 1" slicecount="1" values="|insert into recordings values(null, &apos;|">
+   <PIN pinname="Input 1" slicecount="1" values="|insert into recordings values(null, &apos;|" encoded="0">
    </PIN>
-   <PIN pinname="Input Count" slicecount="1" values="3">
+   <PIN pinname="Input Count" slicecount="1" values="5">
    </PIN>
-   <PIN pinname="Input 3" slicecount="1" values="|&apos;, null, null, null);|">
+   <PIN pinname="Input 3" slicecount="1" values="|&apos;, null, null, null,|" encoded="0">
    </PIN>
    <PIN pinname="Input 2" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 5" slicecount="1" values=");" encoded="0">
+   </PIN>
+   <PIN pinname="Input 4" visible="1">
    </PIN>
    </NODE>
    <LINK dstnodeid="10" dstpinname="Input" linkstyle="VHV" srcnodeid="4" srcpinname="Output">
@@ -145,7 +149,7 @@
    <NODE componentmode="Hidden" id="25" nodename="Add (String Spectral)" systemname="Add (String Spectral)">
    <BOUNDS height="100" left="4290" top="4290" type="Node" width="100">
    </BOUNDS>
-   <PIN pinname="Intersperse String" slicecount="1" values="||">
+   <PIN pinname="Intersperse String" slicecount="1" values="||" encoded="0">
    </PIN>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -171,7 +175,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\String\Escape (String MySQL).v4p" id="27" nodename="Escape (String MySQL)" systemname="Escape (String MySQL)">
-   <BOUNDS height="100" left="4440" top="3300" type="Node" width="100">
+   <BOUNDS height="100" left="4770" top="3300" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -186,10 +190,10 @@
    <LINKPOINT x="4200" y="3145">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="InABox" id="28" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="7560" top="4665" type="Node" width="100">
+   <NODE componentmode="InABox" id="28" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
+   <BOUNDS height="100" left="7980" top="4665" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="7560" top="4665" type="Box" width="480">
+   <BOUNDS height="480" left="7980" top="4665" type="Box" width="480">
    </BOUNDS>
    <PIN pinname="Show Value" slicecount="1" values="0">
    </PIN>
@@ -213,9 +217,9 @@
    <LINK dstnodeid="18" dstpinname="Input" srcnodeid="4" srcpinname="Output">
    </LINK>
    <LINK dstnodeid="27" dstpinname="Input" linkstyle="VHV" srcnodeid="18" srcpinname="Output">
-   <LINKPOINT x="4335" y="3150">
+   <LINKPOINT x="4445" y="3150">
    </LINKPOINT>
-   <LINKPOINT x="4455" y="3150">
+   <LINKPOINT x="4675" y="3150">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="23" dstpinname="Input 2" srcnodeid="27" srcpinname="Output">
@@ -231,23 +235,23 @@
    </BOUNDS>
    <PIN pinname="MySQLDataBase" visible="1">
    </PIN>
-   <PIN pinname="Fields" slicecount="1" values="path">
+   <PIN pinname="Fields" slicecount="1" values="path" encoded="0">
    </PIN>
-   <PIN pinname="Tables" slicecount="1" values="recordings">
+   <PIN pinname="Tables" slicecount="1" values="recordings" encoded="0">
    </PIN>
-   <PIN pinname="Order By" slicecount="1" values="|date DESC|">
+   <PIN pinname="Order By" slicecount="1" values="|date DESC|" encoded="0">
    </PIN>
    <PIN pinname="SendQuery" visible="1">
    </PIN>
-   <PIN pinname="SetOutputPins (FieldName0, Fieldname1)" slicecount="1" values="path">
+   <PIN pinname="SetOutputPins (FieldName0, Fieldname1)" slicecount="1" values="path" encoded="0">
    </PIN>
    <PIN pinname="MySQLStatement" visible="1">
    </PIN>
    <PIN pinname="path" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="recent">
+   <PIN pinname="Descriptive Name" slicecount="1" values="recent" encoded="0">
    </PIN>
-   <PIN pinname="Limit" slicecount="1" values="10">
+   <PIN pinname="Limit" slicecount="1" values="10" encoded="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="29" dstpinname="MySQLDataBase" linkstyle="VHV" srcnodeid="5" srcpinname="Output Node">
@@ -308,30 +312,34 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="33" dstpinname="Input String" srcnodeid="29" srcpinname="path">
+   <LINK dstnodeid="33" dstpinname="Input String" srcnodeid="29" srcpinname="path" linkstyle="VHV">
+   <LINKPOINT x="8385" y="9983">
+   </LINKPOINT>
+   <LINKPOINT x="600" y="9983">
+   </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="34" nodename="Select (MySQL)" systemname="Select (MySQL)">
    <BOUNDS height="270" left="8670" top="9465" type="Node" width="7875">
    </BOUNDS>
    <PIN pinname="MySQLDataBase" visible="1">
    </PIN>
-   <PIN pinname="Fields" slicecount="1" values="path">
+   <PIN pinname="Fields" slicecount="1" values="path" encoded="0">
    </PIN>
-   <PIN pinname="Tables" slicecount="1" values="recordings">
+   <PIN pinname="Tables" slicecount="1" values="recordings" encoded="0">
    </PIN>
-   <PIN pinname="Order By" slicecount="1" values="rand()">
+   <PIN pinname="Order By" slicecount="1" values="rand()" encoded="0">
    </PIN>
    <PIN pinname="SendQuery" visible="1">
    </PIN>
-   <PIN pinname="SetOutputPins (FieldName0, Fieldname1)" slicecount="1" values="path">
+   <PIN pinname="SetOutputPins (FieldName0, Fieldname1)" slicecount="1" values="path" encoded="0">
    </PIN>
    <PIN pinname="MySQLStatement" visible="1">
    </PIN>
    <PIN pinname="path" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="random">
+   <PIN pinname="Descriptive Name" slicecount="1" values="random" encoded="0">
    </PIN>
-   <PIN pinname="Limit" slicecount="1" values="10">
+   <PIN pinname="Limit" slicecount="1" values="10" encoded="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="34" dstpinname="MySQLDataBase" linkstyle="VHV" srcnodeid="5" srcpinname="Output Node">
@@ -356,7 +364,11 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="35" dstpinname="Input String" srcnodeid="34" srcpinname="path">
+   <LINK dstnodeid="35" dstpinname="Input String" srcnodeid="34" srcpinname="path" linkstyle="VHV">
+   <LINKPOINT x="16485" y="9983">
+   </LINKPOINT>
+   <LINKPOINT x="8700" y="9983">
+   </LINKPOINT>
    </LINK>
    <LINK dstnodeid="34" dstpinname="SendQuery" linkstyle="VHV" srcnodeid="32" srcpinname="OnChange">
    <LINKPOINT x="8415" y="8670">
@@ -385,7 +397,7 @@
    </BOUNDS>
    <PIN pinname="Input String" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Paths">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Paths" encoded="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="37" dstpinname="Input String" linkstyle="VHV" srcnodeid="36" srcpinname="Output">
@@ -394,7 +406,7 @@
    <LINKPOINT x="8670" y="13590">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="InABox" id="39" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <NODE componentmode="InABox" id="39" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
    <BOUNDS height="100" left="10710" top="7935" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="480" left="10710" top="7935" type="Box" width="480">
@@ -429,9 +441,33 @@
    <LINK dstnodeid="30" dstpinname="Input 2" srcnodeid="40" srcpinname="Output 1">
    </LINK>
    <LINK dstnodeid="40" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Y Output Value">
-   <LINKPOINT x="8040" y="6383">
+   <LINKPOINT x="8320" y="6383">
    </LINKPOINT>
-   <LINKPOINT x="9750" y="6383">
+   <LINKPOINT x="9890" y="6383">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="R (Value)" nodename="R (Value)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="5760" top="60" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Receive String" slicecount="1" values="iPad-record.Priority">
+   </PIN>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Switch (String Input)" nodename="Switch (String Input)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="5745" top="3315" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" slicecount="1" values="false" encoded="0">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="true" encoded="0">
+   </PIN>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="23" dstpinname="Input 4">
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Input Value" dstnodeid="42" dstpinname="Switch">
    </LINK>
    </PATCH>

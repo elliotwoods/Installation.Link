@@ -1,0 +1,105 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 2 - MySQL connection.v4p" filename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 2 - MySQL connection.v4p" systemname="Net 2 - MySQL connection">
+   <BOUNDS height="3765" left="9390" top="5595" type="Window" width="3540">
+   </BOUNDS>
+   <NODE componentmode="Hidden" id="3" nodename="Database (MySQL Network)" systemname="Database (MySQL Network)">
+   <BOUNDS height="100" left="1065" top="930" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="0" left="1065" top="930" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="6105" top="7005" type="Window" width="0">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Host" slicecount="1" values="localhost">
+   </PIN>
+   <PIN encoded="0" pinname="Database" slicecount="1" values="quadmap">
+   </PIN>
+   <PIN pinname="UserName" visible="1">
+   </PIN>
+   <PIN pinname="Password" visible="1">
+   </PIN>
+   <PIN pinname="Connect" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="MySQLDataBase" visible="1">
+   </PIN>
+   <PIN pinname="Connected" visible="1">
+   </PIN>
+   <PIN pinname="MySQLStatus" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="2" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="1920" top="1350" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="1920" top="1350" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Connected">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="2" dstpinname="Y Input Value" srcnodeid="3" srcpinname="Connected">
+   </LINK>
+   <NODE componentmode="Hidden" filename="Net 0\N0.2 - Credentials.v4p" id="1" nodename="Net 0\N0.2 - Credentials.v4p" systemname="N0.2 - Credentials" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\">
+   <BOUNDS height="100" left="975" top="210" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="3885" left="13245" top="8280" type="Window" width="5280">
+   </BOUNDS>
+   <PIN pinname="user" visible="1">
+   </PIN>
+   <PIN pinname="pass" visible="1">
+   </PIN>
+   <PIN pinname="Password" visible="1">
+   </PIN>
+   <PIN pinname="User" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="3" dstpinname="Password" linkstyle="Bezier" srcnodeid="1" srcpinname="Password">
+   <LINKPOINT x="2430" y="690">
+   </LINKPOINT>
+   <LINKPOINT x="1800" y="690">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="3" dstpinname="UserName" linkstyle="Bezier" srcnodeid="1" srcpinname="User">
+   <LINKPOINT x="1035" y="690">
+   </LINKPOINT>
+   <LINKPOINT x="1560" y="690">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="InABox" id="0" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="405" top="1365" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="405" top="1365" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="MySQLStatus">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="0" dstpinname="Input String" linkstyle="VHV" srcnodeid="3" srcpinname="MySQLStatus">
+   <LINKPOINT x="1485" y="1268">
+   </LINKPOINT>
+   <LINKPOINT x="465" y="1268">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="InABox" id="4" nodename="IOBox (Node)" systemname="IOBox (Node)">
+   <BOUNDS height="100" left="1080" top="2385" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="1080" top="2385" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="MySQLDataBase">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="4" dstpinname="Input Node" srcnodeid="3" srcpinname="MySQLDataBase">
+   </LINK>
+   </PATCH>

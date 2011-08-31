@@ -1,15 +1,15 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta24.1.dtd" >
-   <PATCH nodename="C:\vvvv\design korea\final patches\subpatches\Layer 6 - Mask.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 6 - Mask.v4p">
    <BOUNDS height="10260" left="9825" top="3060" type="Window" width="9000">
    </BOUNDS>
-   <NODE componentmode="InABox" id="2" nodename="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="2805" top="210" type="Node" width="100">
+   <NODE componentmode="InABox" id="2" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="2580" top="1005" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="2805" top="210" type="Box" width="795">
+   <BOUNDS height="240" left="2580" top="1005" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="8220" top="6690" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Projector XY|">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Projector XY|">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -18,38 +18,42 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InABox" id="1" nodename="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="855" top="225" type="Node" width="100">
+   <NODE componentmode="InABox" id="1" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="1350" top="225" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="855" top="225" type="Box" width="795">
+   <BOUNDS height="240" left="1350" top="225" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="6780" top="6210" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iProjector">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="iProjector">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
    </NODE>
-   <NODE componentmode="InABox" id="0" nodename="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="1830" top="225" type="Node" width="100">
+   <NODE componentmode="InABox" id="0" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="2325" top="225" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="1830" top="225" type="Box" width="795">
+   <BOUNDS height="240" left="2325" top="225" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="6780" top="6210" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iType">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="iType">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="4" nodename="..\modules\Select quad (DKO).v4p" path="C:\vvvv\design korea\final patches\modules\">
-   <BOUNDS height="270" left="1590" top="1920" type="Node" width="2985">
+   <NODE componentmode="Hidden" filename="..\modules\Select quad (DKO).v4p" id="4" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)">
+   <BOUNDS height="270" left="1365" top="1920" type="Node" width="2985">
    </BOUNDS>
-   <BOUNDS height="3600" left="1590" top="1920" type="Box" width="4800">
+   <BOUNDS height="3600" left="1365" top="1920" type="Box" width="4800">
    </BOUNDS>
    <BOUNDS height="5985" left="6435" top="5220" type="Window" width="6690">
    </BOUNDS>
@@ -64,10 +68,10 @@
    <PIN pinname="Select types" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InABox" id="3" nodename="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="4110" top="1185" type="Node" width="100">
+   <NODE componentmode="InABox" id="3" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="4275" top="1185" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="405" left="4110" top="1185" type="Box" width="480">
+   <BOUNDS height="405" left="4275" top="1185" type="Box" width="480">
    </BOUNDS>
    <BOUNDS height="160" left="8700" top="6300" type="Window" width="215">
    </BOUNDS>
@@ -75,11 +79,13 @@
    </PIN>
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
-   <PIN pinname="Digits" slicecount="1" values="0">
+   <PIN pinname="Precision" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="8">
+   <PIN pinname="Y Input Value" slicecount="1" values="5">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
    <LINK dstnodeid="4" dstpinname="Select types" srcnodeid="3" srcpinname="Y Output Value">
@@ -90,19 +96,19 @@
    </LINK>
    <LINK dstnodeid="4" dstpinname="Projector XY" srcnodeid="2" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="InABox" id="6" nodename="IOBox (Node)">
+   <NODE componentmode="InABox" id="6" nodename="IOBox (Node)" systemname="IOBox (Node)">
    <BOUNDS height="100" left="90" top="3750" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="240" left="90" top="3750" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="12210" top="11655" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Layers out|">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Layers out|">
    </PIN>
    <PIN pinname="Input Node" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InAWindow" id="8" nodename="..\shaders\Select viewport.fx">
+   <NODE componentmode="InAWindow" filename="..\shaders\Select viewport.fx" id="8" nodename="..\shaders\Select viewport.fx" systemname="Select viewport (EX9.Effect)">
    <BOUNDS height="270" left="105" top="3210" type="Node" width="8145">
    </BOUNDS>
    <BOUNDS height="12000" left="9750" top="7470" type="Window" width="12000">
@@ -118,10 +124,10 @@
    <PIN pinname="Color" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="9" nodename="Grid (EX9.Geometry)">
-   <BOUNDS height="100" left="855" top="2760" type="Node" width="100">
+   <NODE componentmode="Hidden" id="9" nodename="Grid (EX9.Geometry)" systemname="Grid (EX9.Geometry)">
+   <BOUNDS height="100" left="720" top="2700" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="855" top="2760" type="Box" width="0">
+   <BOUNDS height="0" left="720" top="2700" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="11325" top="10320" type="Window" width="0">
    </BOUNDS>
@@ -136,7 +142,7 @@
    </LINK>
    <LINK dstnodeid="6" dstpinname="Input Node" srcnodeid="8" srcpinname="Layer">
    </LINK>
-   <NODE componentmode="Hidden" id="11" nodename="HSL (Color Join)">
+   <NODE componentmode="Hidden" id="11" nodename="HSL (Color Join)" systemname="HSL (Color Join)">
    <BOUNDS height="100" left="3780" top="2640" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="0" left="3780" top="2640" type="Box" width="0">
@@ -152,16 +158,16 @@
    </NODE>
    <LINK dstnodeid="8" dstpinname="Color" srcnodeid="11" srcpinname="Output">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23">
-   <BOUNDS type="Node" left="3420" top="2235" width="100" height="100">
+   <NODE componentmode="InABox" id="23" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="3420" top="2235" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3420" top="2235" width="795" height="240">
+   <BOUNDS height="240" left="3420" top="2235" type="Box" width="795">
    </BOUNDS>
-   <BOUNDS type="Window" left="13920" top="5625" width="215" height="160">
+   <BOUNDS height="160" left="13920" top="5625" type="Window" width="215">
    </BOUNDS>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="11" dstpinname="Lightness">
+   <LINK dstnodeid="11" dstpinname="Lightness" srcnodeid="23" srcpinname="Y Output Value">
    </LINK>
    </PATCH>

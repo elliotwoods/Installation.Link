@@ -42,6 +42,9 @@ namespace VVVV.Nodes.CLEye
         [Input("Preview", IsSingle=true)]
         IDiffSpread<bool> FPinInPreview;
 
+		[Input("Stop", IsSingle = true, IsBang = true)]
+		IDiffSpread<bool> FPinInStop;
+
         [Input("Save", IsSingle=true, IsBang=true)]
         IDiffSpread<bool> FPinInSave;
 
@@ -51,7 +54,7 @@ namespace VVVV.Nodes.CLEye
         [Input("Duration", IsSingle = true, MinValue = 0, MaxValue = 360, DefaultValue = 4)]
         IDiffSpread<double> FPinInDuration;
 
-        [Input("Path")]
+        [Input("Path", StringType=StringType.Directory)]
         IDiffSpread<string> FPinInPath;
 
         [Input("CameraGUID")]
@@ -101,6 +104,9 @@ namespace VVVV.Nodes.CLEye
         bool        FCameraCreated = false;
         IntPtr      FCamData = new IntPtr();
         IntPtr      FCamDataResized = new IntPtr();
+
+		bool		FDoStopEarly=false;
+		int			FRecordedFrameCount;
 
         //threads
         Object      FLockPixels = new Object();
@@ -295,6 +301,8 @@ namespace VVVV.Nodes.CLEye
                     {
                         FAudio.StartRecording();
                         iRecordFrame = 0;
+						FRecordedFrameCount = 0;
+						FDoStopEarly = false;
                         isRecorded = false;
                         isSaved = false;
                         currentState = DK_state.Recording;
@@ -321,6 +329,14 @@ namespace VVVV.Nodes.CLEye
                     isSaved = false;
                 }
             }
+
+			if (FPinInStop.IsChanged)
+			{
+				if (FPinInStop[0])
+				{
+					FDoStopEarly = true;
+				}
+			}
 
             if (FPinInSave.IsChanged || firstRun)
             {
@@ -360,7 +376,7 @@ namespace VVVV.Nodes.CLEye
             timeLastFrame = DateTime.Now;
             if (countTarget > 0)
             {
-                if (iPlayFrame > countTarget - 1)
+                if (iPlayFrame > FRecordedFrameCount - 1)
                     iPlayFrame = 0;
             } else
                 iPlayFrame = 0;
@@ -506,8 +522,7 @@ namespace VVVV.Nodes.CLEye
                         //update progress
                         FRecordProgress = System.Convert.ToDouble(iRecordFrame) / System.Convert.ToDouble(countTarget);
 
-
-                        if (iRecordFrame == countTarget)
+                        if (iRecordFrame == countTarget || FDoStopEarly)
                         {
                             //we've got to the end of recording
                             isRecorded = true;
@@ -516,6 +531,7 @@ namespace VVVV.Nodes.CLEye
                             currentState = DK_state.Playing;
                             FCam.setLED(false);
                             iPlayFrame = 0;
+							FRecordedFrameCount = iRecordFrame;
                         }
                     }
                 }
@@ -549,7 +565,9 @@ namespace VVVV.Nodes.CLEye
 
         string getFullPath()
         {
-            return FPatchPath + "\\" + FPath; 
+			return FPath;
+
+            //return FPatchPath + "\\" + FPath; 
         }
 
         private void fnSaveThread()
@@ -578,7 +596,7 @@ namespace VVVV.Nodes.CLEye
             Bitmap bmpSaver;
             //loop images
             string padString;
-            for (int i = 0; i < countTarget; i++)
+            for (int i = 0; i < FRecordedFrameCount; i++)
             {
                 padString = i.ToString();
                 while (padString.Length < 4)
@@ -595,6 +613,7 @@ namespace VVVV.Nodes.CLEye
             GC.Collect();
 
             isSaved = true;
+			isRecorded = false; // since we moved the audio file
             
             
         }

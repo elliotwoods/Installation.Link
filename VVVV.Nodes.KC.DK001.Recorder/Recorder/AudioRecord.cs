@@ -39,7 +39,7 @@ namespace VVVV.Nodes.CLEye
 
         public void setTempPath(string temporaryFile)
         {
-            FTempFilename = temporaryFile;
+			FTempFilename = temporaryFile;
         }
 
         void Dispose()
@@ -79,28 +79,43 @@ namespace VVVV.Nodes.CLEye
 
             FDeviceID = deviceID;
 
-            FWaveIn = new WaveIn(WaveCallbackInfo.FunctionCallback());
-            FWaveIn.DeviceNumber = deviceID;
+			try
+			{
 
-            if (FWaveIn.WaveFormat.Channels > 2)
-            {
-                WaveFormat stereoFormat = new WaveFormat(FWaveIn.WaveFormat.SampleRate, FWaveIn.WaveFormat.BitsPerSample, 2);
-                FWaveIn.WaveFormat = stereoFormat;
-            }
+				FWaveIn = new WaveIn(WaveCallbackInfo.FunctionCallback());
+				FWaveIn.DeviceNumber = deviceID;
 
-            FWaveIn.StartRecording();
-            handleData = new EventHandler<WaveInEventArgs>(waveInStream_DataAvailable);
-            FWaveIn.DataAvailable += handleData;
+				if (FWaveIn.WaveFormat.Channels > 2)
+				{
+					WaveFormat stereoFormat = new WaveFormat(FWaveIn.WaveFormat.SampleRate, FWaveIn.WaveFormat.BitsPerSample, 2);
+					FWaveIn.WaveFormat = stereoFormat;
+				}
 
-			UsedDevices.Add(deviceID);
-            FStatus = "Device opened";
+				FWaveIn.StartRecording();
+				handleData = new EventHandler<WaveInEventArgs>(waveInStream_DataAvailable);
+				FWaveIn.DataAvailable += handleData;
+
+				UsedDevices.Add(deviceID);
+				FStatus = "Device opened";
+			}
+			catch
+			{
+				FWaveIn = null;
+				FStatus = "Audio open failed";
+			}
         }
 
 		private void closeDevice()
 		{
 			if (FWaveIn != null)
 			{
-				FWaveIn.StopRecording();
+				try
+				{
+					FWaveIn.StopRecording();
+				}
+				catch
+				{
+				}
 				FWaveIn.Dispose();
 				FWaveIn = null;
 				UsedDevices.Remove(FDeviceID);
@@ -168,7 +183,11 @@ namespace VVVV.Nodes.CLEye
 
         public void SaveRecording()
         {
+			if (System.IO.File.Exists(FFilename))
+				System.IO.File.Delete(FFilename);
+
             System.IO.File.Move(FTempFilename, FFilename);
+
         }
 
         public float GetLevel()
