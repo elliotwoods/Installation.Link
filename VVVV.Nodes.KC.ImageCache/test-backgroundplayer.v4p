@@ -1,0 +1,75 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Nodes.KC.ImageCache\test-backgroundplayer.v4p" systemname="test-backgroundplayer" filename="C:\kimchiandchips\Link\VVVV.Nodes.KC.ImageCache\test-backgroundplayer.v4p">
+   <BOUNDS type="Window" left="9900" top="5100" width="9000" height="6000">
+   </BOUNDS>
+   <NODE systemname="Layer 1 - Background player" filename="..\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Background player.v4p" nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Background player.v4p" componentmode="InAWindow" id="0">
+   <BOUNDS type="Node" left="2760" top="1635" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12735" top="1530" width="16920" height="11700">
+   </BOUNDS>
+   <PIN pinname="Textures out" visible="1">
+   </PIN>
+   <PIN pinname="Sequence position" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Quad (DX9)" nodename="Quad (DX9)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="2415" top="2625" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Textures out" dstnodeid="1" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InABox" id="2">
+   <BOUNDS type="Node" left="2415" top="3345" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2415" top="3345" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="12855" top="8895" width="6240" height="5010">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Layer" dstnodeid="2" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2775" top="765" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Cycles" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="2760" top="1200" width="750" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="0" dstpinname="Sequence position">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="4" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Cycles" dstnodeid="4" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="2565" top="2160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Transform Out" dstnodeid="1" dstpinname="Transform">
+   </LINK>
+   </PATCH>

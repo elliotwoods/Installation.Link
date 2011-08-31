@@ -11,6 +11,8 @@
    </PIN>
    <PIN pinname="Queue Count" visible="1">
    </PIN>
+   <PIN pinname="Queue Mode" slicecount="1" values="Spread">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="18" nodename="OSCDecoder (Network)" systemname="OSCDecoder (Network)">
    <BOUNDS height="270" left="1140" top="1560" type="Node" width="1755">
@@ -400,12 +402,12 @@
    </LINK>
    <LINK dstnodeid="27" dstpinname="Y Input Value" srcnodeid="29" srcpinname="Output">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="33" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="4635" top="10275" width="6870" height="270">
+   <NODE componentmode="InABox" id="33" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="4635" top="10275" type="Node" width="6870">
    </BOUNDS>
-   <BOUNDS type="Box" left="4635" top="10275" width="6870" height="270">
+   <BOUNDS height="270" left="4635" top="10275" type="Box" width="6870">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|We&apos;ve removed a lot of this patch as we&apos;ve reduced the modes of interaction for user simplicity.|" encoded="0">
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|We&apos;ve removed a lot of this patch as we&apos;ve reduced the modes of interaction for user simplicity.|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -414,12 +416,66 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <LINK srcnodeid="4" srcpinname="Output 6" dstnodeid="20" dstpinname="Y Input Value">
+   <LINK dstnodeid="20" dstpinname="Y Input Value" srcnodeid="4" srcpinname="Output 6">
    </LINK>
-   <LINK srcnodeid="4" srcpinname="Output 6" dstnodeid="1" dstpinname="Input 3" linkstyle="Bezier">
+   <LINK dstnodeid="1" dstpinname="Input 3" linkstyle="Bezier" srcnodeid="4" srcpinname="Output 6">
    <LINKPOINT x="7635" y="5693">
    </LINKPOINT>
    <LINKPOINT x="2325" y="5693">
    </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" id="34" nodename="S+H (String)" systemname="S+H (String)">
+   <BOUNDS height="100" left="10005" top="1890" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Queue Count" dstnodeid="34" dstpinname="Set">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Arguments" dstnodeid="34" dstpinname="Input">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="35">
+   <BOUNDS type="Node" left="10380" top="2655" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10380" top="2655" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="34" srcpinname="Output" dstnodeid="35" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="36">
+   <BOUNDS type="Node" left="9555" top="3585" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9555" top="3585" width="720" height="1305">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Queue (String)" filename="%VVVV%\plugins\SpreadOperations.dll" nodename="Queue (String)" componentmode="Hidden" id="37">
+   <BOUNDS type="Node" left="9570" top="3240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Insert" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Frame Count" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Reset" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="Output" dstnodeid="36" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Queue Count" dstnodeid="37" dstpinname="Insert">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Arguments" dstnodeid="37" dstpinname="Input">
    </LINK>
    </PATCH>

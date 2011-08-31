@@ -77,10 +77,25 @@ namespace VVVV.Nodes.ImageCache
 			{
 				closeThread();
 				FFilenameFirst = filenameFirst;
+
+				try
+				{
+					Bitmap dimensions = new Bitmap(filenameFirst);
+					Width = dimensions.Width;
+					Height = dimensions.Height;
+					dimensions.Dispose();
+				}
+				catch
+				{
+					Status = "Failed to load first image";
+					return;
+				}
+
 				FThreadLoad = new Thread(fnLoadThread);
 				Status = "Loading sequence";
 				FThreadLoad.Start();
 			}
+
 		}
 
 		private void closeThread()
@@ -133,6 +148,7 @@ namespace VVVV.Nodes.ImageCache
 						}
 						else
 						{
+							Clear();
 							Width = currentImage.Width;
 							Height = currentImage.Height;
 						}
@@ -146,6 +162,8 @@ namespace VVVV.Nodes.ImageCache
 					{
 						addBitmap(currentImage);
 					}
+
+					currentImage.Dispose();
 				}
 				catch
 				{
@@ -222,20 +240,29 @@ namespace VVVV.Nodes.ImageCache
 			Height = h;
 		}
 
-		private void deAllocate()
+		public void Clear()
 		{
 			//otherwise, delete if already allocated
 			foreach (IntPtr p in Data)
 				Marshal.FreeCoTaskMem(p);
 
 			Data.Clear();
+		}
 
+		private void deAllocate()
+		{
 			Width = 0;
 			Height = 0;
 		}
 
 		public IntPtr getData(int i)
 		{
+			if (Data.Count == 0)
+				throw (new Exception("No data available"));
+
+			while (i < 0)
+				i += Data.Count;
+
 			return Data[i % Data.Count];
 		}
 
@@ -263,7 +290,7 @@ namespace VVVV.Nodes.ImageCache
 		[Config("Preallocate slots (0=dont preallocate)", DefaultValue=0, MinValue=0)]
 		ISpread<int> FConfigAllocated;
 
-		[Input("Index")]
+		[Input("Index", MinValue=0)]
 		IDiffSpread<int> FPinInIndex;
 
 		[Input("Path", StringType=StringType.Filename)]
@@ -302,8 +329,8 @@ namespace VVVV.Nodes.ImageCache
 			foreach(KeyValuePair<int, ImageCacheInstance> c in FImageCaches)
 			{
 				c.Value.Dispose();
-				FImageCaches.Remove(c.Key);
 			}
+			FImageCaches.Clear();
         }
         #endregion
 
@@ -349,8 +376,12 @@ namespace VVVV.Nodes.ImageCache
 					FImageCaches.Remove(i);
 				}
 
-				Reinitialize();
-
+				if (FImageCaches.Count > 0)
+				{
+					SetSliceCount(FImageCaches.Count);
+					Reinitialize();
+				}
+				
 				needsUpdate = true;
 			}
 
@@ -391,8 +422,19 @@ namespace VVVV.Nodes.ImageCache
 		//or a graphics device asks for its data
 		protected override Texture CreateTexture(int Slice, Device device)
 		{
+			int w, h;
 			//FLogger.Log(LogType.Debug, "Creating new texture at slice: " + Slice);
-			return TextureUtils.CreateTexture(device, FImageCaches[Slice % FImageCaches.Count].Width, FImageCaches[Slice % FImageCaches.Count].Height);
+			if (FImageCaches.Count > 0)
+			{
+				w = Math.Max(FImageCaches[Slice % Math.Max(FImageCaches.Count, 1)].Width, 1);
+				h = Math.Max(FImageCaches[Slice % Math.Max(FImageCaches.Count, 1)].Height, 1);
+			}
+			else
+			{
+				w = 1;
+				h = 1;
+			}
+			return TextureUtils.CreateTexture(device, w, h);
 		}
 
 		//this method gets called, when Update() was called in evaluate,

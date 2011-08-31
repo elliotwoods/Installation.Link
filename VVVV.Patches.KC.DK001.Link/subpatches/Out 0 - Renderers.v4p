@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Out 0 - Renderers.v4p" locked="0">
-   <BOUNDS height="9075" left="3810" top="5025" type="Window" width="11235">
+   <BOUNDS height="9075" left="510" top="7935" type="Window" width="11235">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (Node)" systemname="IOBox (Node)">
    <BOUNDS height="100" left="630" top="360" type="Node" width="100">
@@ -38,36 +38,10 @@
    </NODE>
    <LINK dstnodeid="5" dstpinname="Set" srcnodeid="6" srcpinname="Bang">
    </LINK>
-   <NODE componentmode="FullScreen" id="24" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
-   <BOUNDS height="270" left="630" top="3480" type="Node" width="5475">
-   </BOUNDS>
-   <BOUNDS height="1800" left="630" top="3480" type="Box" width="2400">
-   </BOUNDS>
-   <BOUNDS height="5010" left="37740" top="1935" type="Window" width="6240">
-   </BOUNDS>
-   <PIN pinname="Transformations Index" pintype="Input" visible="1">
-   </PIN>
-   <PIN pinname="Actual Backbuffer Height" visible="1">
-   </PIN>
-   <PIN pinname="Actual Backbuffer Width" visible="1">
-   </PIN>
-   <PIN pinname="Layers" slicecount="1" visible="1" values="||">
-   </PIN>
-   <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="NONE">
-   </PIN>
-   <PIN pinname="Fullscreen" visible="1">
-   </PIN>
-   <PIN pinname="Fullscreen Dimensions" slicecount="1" values="|5120 x 1024|">
-   </PIN>
-   <PIN pinname="Viewport" visible="1" pintype="Input">
-   </PIN>
-   </NODE>
    <NODE componentmode="InABox" id="27" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="4695" top="3960" type="Node" width="100">
+   <BOUNDS height="100" left="4710" top="3960" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="4695" top="3960" type="Box" width="450">
+   <BOUNDS height="240" left="4710" top="3960" type="Box" width="450">
    </BOUNDS>
    <BOUNDS height="160" left="10365" top="11145" type="Window" width="215">
    </BOUNDS>
@@ -79,9 +53,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="26" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="5370" top="3960" type="Node" width="100">
+   <BOUNDS height="100" left="5400" top="3960" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="5370" top="3960" type="Box" width="450">
+   <BOUNDS height="240" left="5400" top="3960" type="Box" width="450">
    </BOUNDS>
    <BOUNDS height="160" left="10365" top="11145" type="Window" width="215">
    </BOUNDS>
@@ -92,12 +66,6 @@
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
-   <LINK dstnodeid="26" dstpinname="Y Input Value" srcnodeid="24" srcpinname="Actual Backbuffer Height">
-   </LINK>
-   <LINK dstnodeid="27" dstpinname="Y Input Value" srcnodeid="24" srcpinname="Actual Backbuffer Width">
-   </LINK>
-   <LINK dstnodeid="24" dstpinname="Layers" srcnodeid="1" srcpinname="Output Node">
-   </LINK>
    <NODE componentmode="Hidden" filename="plugins\SystemScreens\SystemScreens.csproj" id="29" nodename="Screens (System)" systemname="Screens (System)">
    <BOUNDS height="100" left="2985" top="45" type="Node" width="100">
    </BOUNDS>
@@ -212,30 +180,56 @@
    <LINKPOINT x="8820" y="473">
    </LINKPOINT>
    </LINK>
-   <LINK dstnodeid="24" dstpinname="Fullscreen" srcnodeid="30" srcpinname="Output">
+   <LINK dstnodeid="32" dstpinname="Input 1" srcnodeid="31" srcpinname="Count">
    </LINK>
-   <LINK srcnodeid="31" srcpinname="Count" dstnodeid="32" dstpinname="Input 1">
+   <LINK dstnodeid="31" dstpinname="Input" srcnodeid="29" srcpinname="BPP">
    </LINK>
-   <LINK srcnodeid="29" srcpinname="BPP" dstnodeid="31" dstpinname="Input">
-   </LINK>
-   <NODE systemname="MultiViewport (EX9)" filename="%VVVV%\modules\vvvv group\EX9\MultiViewport (EX9).v4p" nodename="MultiViewport (EX9)" componentmode="Hidden" id="37">
-   <BOUNDS type="Node" left="5565" top="2520" width="100" height="100">
+   <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\EX9\MultiViewport (EX9).v4p" id="37" nodename="MultiViewport (EX9)" systemname="MultiViewport (EX9)">
+   <BOUNDS height="100" left="5565" top="2520" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Viewports" visible="1">
    </PIN>
    <PIN pinname="Screen Count X" slicecount="1" values="4">
    </PIN>
    </NODE>
-   <LINK srcnodeid="37" srcpinname="Viewports" dstnodeid="24" dstpinname="Viewport">
-   </LINK>
-   <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="38">
-   <BOUNDS type="Node" left="6045" top="2985" width="100" height="100">
+   <NODE componentmode="Hidden" id="38" nodename="I (Spreads)" systemname="I (Spreads)">
+   <BOUNDS height="100" left="6075" top="2985" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname=".. To [" slicecount="1" values="4">
    </PIN>
    </NODE>
-   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="24" dstpinname="Transformations Index">
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="FullScreen" id="39">
+   <BOUNDS type="Node" left="615" top="3510" width="5520" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="615" top="3510" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="39525" top="1725" width="6240" height="5010">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Transformations Index" visible="1" pintype="Input">
+   </PIN>
+   <PIN pinname="Viewport" visible="1" pintype="Input">
+   </PIN>
+   <PIN pinname="Fullscreen Dimensions" slicecount="1" values="|5120 x 1024|">
+   </PIN>
+   <PIN pinname="Actual Backbuffer Width" visible="1">
+   </PIN>
+   <PIN pinname="Actual Backbuffer Height" visible="1">
+   </PIN>
+   <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="39" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="39" dstpinname="Transformations Index">
+   </LINK>
+   <LINK srcnodeid="37" srcpinname="Viewports" dstnodeid="39" dstpinname="Viewport">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Actual Backbuffer Width" dstnodeid="27" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Actual Backbuffer Height" dstnodeid="26" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

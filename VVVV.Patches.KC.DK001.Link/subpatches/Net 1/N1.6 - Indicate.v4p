@@ -144,16 +144,36 @@
    </LINK>
    <LINK dstnodeid="13" dstpinname="Input 2" srcnodeid="12" srcpinname="Up Edge">
    </LINK>
-   <NODE systemname="MonoFlop (Animation)" nodename="MonoFlop (Animation)" componentmode="Hidden" id="14">
-   <BOUNDS type="Node" left="4095" top="2100" width="100" height="100">
+   <NODE componentmode="Hidden" id="14" nodename="MonoFlop (Animation)" systemname="MonoFlop (Animation)">
+   <BOUNDS height="100" left="4095" top="2100" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Set" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="14" srcpinname="Output" dstnodeid="9" dstpinname="Input 2">
+   <LINK dstnodeid="9" dstpinname="Input 2" srcnodeid="14" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="6" srcpinname="Up Edge" dstnodeid="14" dstpinname="Set">
+   <LINK dstnodeid="14" dstpinname="Set" srcnodeid="6" srcpinname="Up Edge">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="15">
+   <BOUNDS type="Node" left="4395" top="4380" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4395" top="4380" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Mute" encoded="0">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="OnChange" dstnodeid="15" dstpinname="Y Input Value" linkstyle="Bezier">
+   <LINKPOINT x="3090" y="3173">
+   </LINKPOINT>
+   <LINKPOINT x="4395" y="3173">
+   </LINKPOINT>
    </LINK>
    </PATCH>

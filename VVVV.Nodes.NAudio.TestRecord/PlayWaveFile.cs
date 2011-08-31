@@ -47,6 +47,9 @@ namespace VVVV.Nodes
         [Output("Position", DimensionNames=new string[] {"s"})]
         ISpread<double> FPinOutPosition;
 
+		[Output("Duration")]
+		ISpread<float> FPinOutDuration;
+
         [Output("Status")]
         ISpread<string> FPinOutStatus;
 
@@ -196,6 +199,7 @@ namespace VVVV.Nodes
             }
             catch
             {
+				FPinOutDuration[0] = 0.0f;
                 FPinOutStatus[0] = "Cannot open file";
                 return false;
             }
@@ -217,6 +221,7 @@ namespace VVVV.Nodes
             FWaveOut = new WasapiOut(FPinInDevice[0], AudioClientShareMode.Shared, false, 100);
             FWaveOut.Init(FWaveStream);
 
+			FPinOutDuration[0] = (float)FWaveStream.TotalTime.TotalSeconds;
             FIsInitialised = true;
         }
 

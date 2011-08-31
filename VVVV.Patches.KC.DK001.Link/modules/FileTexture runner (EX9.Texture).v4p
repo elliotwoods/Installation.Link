@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\modules\FileTexture runner (EX9.Texture).v4p">
-   <BOUNDS height="9960" left="10560" top="1425" type="Window" width="9150">
+   <BOUNDS height="8025" left="8520" top="3495" type="Window" width="7155">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="660" top="405" type="Node" width="100">
@@ -9,7 +9,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="10170" top="10095" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Path" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Path">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -33,7 +33,7 @@
    </PIN>
    <PIN pinname="Slider Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Run" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Run">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -55,7 +55,7 @@
    </PIN>
    <PIN pinname="Slider Behavior" slicecount="1" values="Bang">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="End" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="End">
    </PIN>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
@@ -67,7 +67,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="13575" top="9000" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="nRuns" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="nRuns">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -105,15 +105,13 @@
    </BOUNDS>
    <PIN pinname="Directory" visible="1">
    </PIN>
-   <PIN pinname="Mask" slicecount="1" values="*.png" encoded="0">
+   <PIN encoded="0" pinname="Mask" slicecount="1" values="*.png">
    </PIN>
    <PIN pinname="Filenames" visible="1">
    </PIN>
-   <PIN pinname="Update" visible="1">
+   <PIN pinname="Update" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
-   <LINK dstnodeid="7" dstpinname="Directory" srcnodeid="1" srcpinname="Output String">
-   </LINK>
    <NODE componentmode="Hidden" id="10" nodename="LFO (Animation)" systemname="LFO (Animation)">
    <BOUNDS height="270" left="1875" top="3195" type="Node" width="2580">
    </BOUNDS>
@@ -137,7 +135,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="9195" top="8760" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="fps" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="fps">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" values="30">
    </PIN>
@@ -235,7 +233,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture out|" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Texture out|">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="20" nodename="NOT (Boolean)" systemname="NOT (Boolean)">
@@ -270,8 +268,6 @@
    <PIN pinname="Input" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="7" dstpinname="Update" srcnodeid="23" srcpinname="OnChange">
-   </LINK>
    <LINK dstnodeid="23" dstpinname="Input" linkstyle="VHV" srcnodeid="1" srcpinname="Output String">
    <LINKPOINT x="720" y="900">
    </LINKPOINT>
@@ -319,7 +315,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="10590" top="10020" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Colour" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Colour">
    </PIN>
    <PIN pinname="Color Input" visible="1">
    </PIN>
@@ -497,6 +493,10 @@
    </PIN>
    <PIN pinname="Texture" visible="1">
    </PIN>
+   <PIN pinname="Path" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="45" nodename="CAR (String)" systemname="CAR (String)">
    <BOUNDS height="100" left="510" top="2580" type="Node" width="100">
@@ -512,24 +512,16 @@
    </NODE>
    <LINK dstnodeid="45" dstpinname="Input" srcnodeid="7" srcpinname="Filenames">
    </LINK>
-   <LINK dstnodeid="44" dstpinname="Filename" linkstyle="Bezier" srcnodeid="45" srcpinname="First Slice">
-   <LINKPOINT x="540" y="4020">
-   </LINKPOINT>
-   <LINKPOINT x="975" y="4020">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="44" dstpinname="Index" linkstyle="VHV" srcnodeid="14" srcpinname="Output">
    <LINKPOINT x="1875" y="4770">
    </LINKPOINT>
    <LINKPOINT x="555" y="4770">
    </LINKPOINT>
    </LINK>
-   <LINK dstnodeid="18" dstpinname="Input Node" srcnodeid="44" srcpinname="Texture">
-   </LINK>
    <NODE componentmode="InABox" id="46" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="990" top="3735" type="Node" width="100">
+   <BOUNDS height="100" left="1425" top="3660" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="990" top="3735" type="Box" width="480">
+   <BOUNDS height="480" left="1425" top="3660" type="Box" width="480">
    </BOUNDS>
    <BOUNDS height="160" left="5655" top="7440" type="Window" width="215">
    </BOUNDS>
@@ -551,5 +543,15 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="44" dstpinname="Load" srcnodeid="46" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="44" dstpinname="Path" srcnodeid="45" srcpinname="First Slice">
+   </LINK>
+   <LINK dstnodeid="7" dstpinname="Directory" srcnodeid="1" srcpinname="Output String">
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Texture Out" dstnodeid="18" dstpinname="Input Node" linkstyle="VHV">
+   <LINKPOINT x="1425" y="6743">
+   </LINKPOINT>
+   <LINKPOINT x="540" y="6743">
+   </LINKPOINT>
    </LINK>
    </PATCH>

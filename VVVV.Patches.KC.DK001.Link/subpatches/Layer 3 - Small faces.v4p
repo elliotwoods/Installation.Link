@@ -82,26 +82,6 @@
    </LINK>
    <LINK dstnodeid="10" dstpinname="Projector XY" srcnodeid="4" srcpinname="Y Output Value">
    </LINK>
-   <NODE componentmode="InABox" id="11" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="3225" top="9090" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="885" left="3225" top="9090" type="Box" width="450">
-   </BOUNDS>
-   <BOUNDS height="160" left="8700" top="6300" type="Window" width="215">
-   </BOUNDS>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="1,2,3">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="10" dstpinname="Select types" srcnodeid="11" srcpinname="Y Output Value">
-   </LINK>
    <NODE componentmode="InAWindow" filename="..\shaders\Select viewport.fx" id="14" nodename="..\shaders\Select viewport.fx" systemname="Select viewport (EX9.Effect)">
    <BOUNDS height="270" left="6960" top="13680" type="Node" width="7995">
    </BOUNDS>
@@ -527,9 +507,9 @@
    <LINK dstnodeid="14" dstpinname="Filter Texture" srcnodeid="53" srcpinname="Texture Out">
    </LINK>
    <NODE componentmode="InABox" id="54" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="8400" top="13095" type="Node" width="100">
+   <BOUNDS height="100" left="8805" top="12885" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="465" left="8400" top="13095" type="Box" width="450">
+   <BOUNDS height="465" left="8805" top="12885" type="Box" width="450">
    </BOUNDS>
    <BOUNDS height="160" left="8280" top="10995" type="Window" width="215">
    </BOUNDS>
@@ -587,7 +567,7 @@
    </PIN>
    <PIN pinname="iPad player colour" visible="1">
    </PIN>
-   <PIN pinname="iPad record textures" visible="1">
+   <PIN pinname="iPad record textures" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="Content Type" visible="1">
    </PIN>
@@ -605,7 +585,7 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="58" nodename="R (NODE)" systemname="R (Node)">
@@ -1059,5 +1039,17 @@
    </LINKPOINT>
    <LINKPOINT x="12045" y="12020">
    </LINKPOINT>
+   </LINK>
+   <NODE componentmode="InABox" id="90" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="3630" top="9435" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="3630" top="9435" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="10" dstpinname="Select types" srcnodeid="90" srcpinname="Y Output Value">
    </LINK>
    </PATCH>

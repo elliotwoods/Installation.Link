@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1 - iPad client.v4p">
-   <BOUNDS height="12570" left="15150" top="1305" type="Window" width="10095">
+   <BOUNDS height="12570" left="19005" top="1380" type="Window" width="10095">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="Net 1\N1.1 - Set remote network settings.v4p" id="27" nodename="Net 1\N1.1 - Set remote network settings.v4p" systemname="N1.1 - Set remote network settings" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
    <BOUNDS height="270" left="480" top="3465" type="Node" width="6060">
@@ -349,9 +349,9 @@
    </PIN>
    <PIN pinname="Resolution" slicecount="1" values="128">
    </PIN>
-   <PIN pinname="Exposure" slicecount="1" values="90">
+   <PIN pinname="Exposure" visible="1">
    </PIN>
-   <PIN pinname="Gain" slicecount="1" values="79">
+   <PIN pinname="Gain" visible="1">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
@@ -670,7 +670,7 @@
    <LINKPOINT x="1590" y="9795">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="InAWindow" filename="Net 1\N1.6 - Indicate.v4p" id="49" nodename="Net 1\N1.6 - Indicate.v4p" systemname="N1.6 - Indicate" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
+   <NODE componentmode="Hidden" filename="Net 1\N1.6 - Indicate.v4p" id="49" nodename="Net 1\N1.6 - Indicate.v4p" systemname="N1.6 - Indicate" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
    <BOUNDS height="100" left="4365" top="13020" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="6450" left="17850" top="8730" type="Window" width="9000">
@@ -686,6 +686,8 @@
    <PIN pinname="Recording" visible="1">
    </PIN>
    <PIN pinname="Recorded">
+   </PIN>
+   <PIN pinname="Mute" visible="1">
    </PIN>
    </NODE>
    <LINK dstnodeid="49" dstpinname="Saved" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="9" srcpinname="Saved">
@@ -728,12 +730,52 @@
    <LINKPOINT x="4785" y="10328">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="49" srcpinname="Indicate" dstnodeid="47" dstpinname="Indicate">
+   <LINK dstnodeid="47" dstpinname="Indicate" srcnodeid="49" srcpinname="Indicate">
    </LINK>
-   <LINK srcnodeid="11" srcpinname="Priority save" dstnodeid="47" dstpinname="Priority" linkstyle="Bezier">
+   <LINK dstnodeid="47" dstpinname="Priority" linkstyle="Bezier" srcnodeid="11" srcpinname="Priority save">
    <LINKPOINT x="9225" y="8400">
    </LINKPOINT>
    <LINKPOINT x="3780" y="8400">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="51">
+   <BOUNDS type="Node" left="4965" top="6660" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4965" top="6660" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Exposure" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Exposure">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="52">
+   <BOUNDS type="Node" left="5490" top="6105" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5490" top="6105" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Gain" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Gain">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="53">
+   <BOUNDS type="Node" left="5565" top="13650" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5565" top="13650" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Mute" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Mute" dstnodeid="53" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

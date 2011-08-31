@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
-   <BOUNDS height="10965" left="8295" top="2295" type="Window" width="18600">
+   <BOUNDS height="10965" left="7020" top="3570" type="Window" width="18600">
    </BOUNDS>
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="2580" top="4755" type="Node" width="100">
@@ -47,7 +47,7 @@
    <NODE componentmode="Hidden" filename="subpatches\Layer 1 - Background player.v4p" id="25" nodename="subpatches\Layer 1 - Background player.v4p" systemname="Layer 1 - Background player" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="4950" top="4755" type="Node" width="2085">
    </BOUNDS>
-   <BOUNDS height="11700" left="2715" top="555" type="Window" width="16920">
+   <BOUNDS height="11700" left="12945" top="1305" type="Window" width="16920">
    </BOUNDS>
    <PIN pinname="Textures out" visible="1">
    </PIN>
@@ -67,7 +67,7 @@
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" filename="subpatches\Layer 0 - Small graphics loader.v4p" id="26" nodename="subpatches\Layer 0 - Small graphics loader.v4p" systemname="Layer 0 - Small graphics loader" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
-   <BOUNDS height="100" left="9015" top="4005" type="Node" width="100">
+   <BOUNDS height="100" left="8715" top="4005" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
@@ -75,7 +75,7 @@
    <NODE componentmode="Hidden" filename="subpatches\Layer 2 - Big faces.v4p" id="27" nodename="subpatches\Layer 2 - Big faces.v4p" systemname="Layer 2 - Big faces" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="3240" top="6075" type="Node" width="3450">
    </BOUNDS>
-   <BOUNDS height="7380" left="3510" top="2970" type="Window" width="9990">
+   <BOUNDS height="7380" left="3675" top="3210" type="Window" width="9990">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1">
    </PIN>
@@ -125,7 +125,7 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Layer Template Count" slicecount="1" values="5">
+   <PIN pinname="Layer Template Count" slicecount="1" values="6">
    </PIN>
    <PIN pinname="Enabled" pintype="Input" slicecount="1" visible="-1" values="1">
    </PIN>
@@ -138,6 +138,8 @@
    <PIN pinname="Layer 4" visible="1">
    </PIN>
    <PIN pinname="Layer 5" visible="1">
+   </PIN>
+   <PIN pinname="Layer 6" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="subpatches\Data 0 - Sequencer.v4p" id="30" nodename="subpatches\Data 0 - Sequencer.v4p" systemname="Data 0 - Sequencer" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
@@ -237,13 +239,13 @@
    </BOUNDS>
    <PIN pinname="Layers in" visible="1">
    </PIN>
-   <BOUNDS height="9075" left="3810" top="5025" type="Window" width="11235">
+   <BOUNDS height="9075" left="510" top="7935" type="Window" width="11235">
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Layer 4 - iPad players.v4p" id="65" nodename="subpatches\Layer 4 - iPad players.v4p" systemname="Layer 4 - iPad players" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
-   <BOUNDS height="270" left="8385" top="4755" type="Node" width="2085">
+   <BOUNDS height="270" left="8085" top="4755" type="Node" width="2085">
    </BOUNDS>
-   <BOUNDS height="9900" left="2745" top="2010" type="Window" width="23730">
+   <BOUNDS height="9900" left="5070" top="3585" type="Window" width="23730">
    </BOUNDS>
    <PIN pinname="Texture out" visible="1">
    </PIN>
@@ -253,9 +255,9 @@
    </PIN>
    <PIN pinname="Count" visible="1">
    </PIN>
-   <PIN encoded="0" pinname="Input" slicecount="1" visible="1" values="||">
+   <PIN encoded="0" pinname="Input" visible="1">
    </PIN>
-   <BOUNDS left="8385" top="4755" type="Box">
+   <BOUNDS left="8085" top="4755" type="Box">
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" id="66" nodename="Memory (Debug ex9)" systemname="Memory (Debug ex9)">
@@ -282,12 +284,12 @@
    </NODE>
    <LINK dstnodeid="67" dstpinname="Y Input Value" srcnodeid="66" srcpinname="Available Texture Memory on automatic Devices">
    </LINK>
-   <NODE componentmode="Hidden" id="69" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
+   <NODE componentmode="InAWindow" id="69" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
    <BOUNDS height="100" left="4500" top="9045" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="1800" left="4500" top="9045" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="7200" left="10695" top="3330" type="Window" width="18105">
+   <BOUNDS height="7200" left="7680" top="2325" type="Window" width="18105">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -361,7 +363,7 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="subpatches\Layer 5 - Tiny faces.v4p" id="77" nodename="subpatches\Layer 5 - Tiny faces.v4p" systemname="Layer 5 - Tiny faces" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
-   <BOUNDS height="100" left="10830" top="6075" type="Node" width="100">
+   <BOUNDS height="100" left="10530" top="6075" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
    </PIN>
@@ -371,41 +373,35 @@
    </PIN>
    <PIN pinname="Projector XY" visible="1">
    </PIN>
-   <BOUNDS left="10830" top="6075" type="Box">
+   <BOUNDS left="10530" top="6075" type="Box">
    </BOUNDS>
    <BOUNDS height="10260" left="3405" top="660" type="Window" width="9000">
    </BOUNDS>
    </NODE>
-   <LINK dstnodeid="28" dstpinname="Layer 3" linkstyle="VHV" srcnodeid="77" srcpinname="Layers out">
-   <LINKPOINT x="11130" y="6638">
-   </LINKPOINT>
-   <LINKPOINT x="10575" y="6638">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="77" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3000" y="5393">
+   <LINKPOINT x="2900" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="11130" y="5393">
+   <LINKPOINT x="10930" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="77" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3675" y="5393">
+   <LINKPOINT x="3575" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="12075" y="5393">
+   <LINKPOINT x="11875" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="77" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4335" y="5393">
+   <LINKPOINT x="4235" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="13035" y="5393">
+   <LINKPOINT x="12835" y="5393">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Layer 6 - Mask.v4p" id="79" nodename="subpatches\Layer 6 - Mask.v4p" systemname="Layer 6 - Mask" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
-   <BOUNDS height="100" left="13725" top="6075" type="Node" width="100">
+   <BOUNDS height="100" left="13785" top="6075" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
    </PIN>
-   <BOUNDS left="13725" top="6075" type="Box">
+   <BOUNDS left="13785" top="6075" type="Box">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1">
    </PIN>
@@ -414,28 +410,22 @@
    <PIN pinname="Projector XY" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="28" dstpinname="Layer 4" linkstyle="VHV" srcnodeid="79" srcpinname="Layers out">
-   <LINKPOINT x="14025" y="6660">
-   </LINKPOINT>
-   <LINKPOINT x="12885" y="6660">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="79" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3000" y="5393">
+   <LINKPOINT x="3020" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="14025" y="5393">
+   <LINKPOINT x="14065" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="79" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3675" y="5393">
+   <LINKPOINT x="3695" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="14850" y="5393">
+   <LINKPOINT x="14890" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="79" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4335" y="5393">
+   <LINKPOINT x="4355" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="15660" y="5393">
+   <LINKPOINT x="15700" y="5393">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="80" nodename="Group (EX9)" systemname="Group (EX9)">
@@ -603,9 +593,9 @@
    <LINK dstnodeid="94" dstpinname="Y In" srcnodeid="96" srcpinname="Output">
    </LINK>
    <LINK dstnodeid="91" dstpinname="Texture" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="65" srcpinname="Texture out">
-   <LINKPOINT x="9120" y="7355">
+   <LINKPOINT x="8920" y="7355">
    </LINKPOINT>
-   <LINKPOINT x="12870" y="7405">
+   <LINKPOINT x="12770" y="7405">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="InABox" id="97" nodename="IOBox (String)" systemname="IOBox (String)">
@@ -621,9 +611,9 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="25" dstpinname="iPad videos" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="65" srcpinname="Texture out">
-   <LINKPOINT x="9485" y="5038">
+   <LINKPOINT x="9285" y="5038">
    </LINKPOINT>
-   <LINKPOINT x="5380" y="5043">
+   <LINKPOINT x="5280" y="5043">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="25" dstpinname="nFaces" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="27" srcpinname="nFaces">
@@ -641,7 +631,7 @@
    <LINK dstnodeid="28" dstpinname="Layer 1" srcnodeid="27" srcpinname="Layers out">
    </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Layer 3 - Small faces.v4p" id="100" nodename="subpatches\Layer 3 - Small faces.v4p" systemname="Layer 3 - Small faces" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
-   <BOUNDS height="270" left="7140" top="6075" type="Node" width="3330">
+   <BOUNDS height="270" left="6840" top="6075" type="Node" width="3330">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1">
    </PIN>
@@ -671,50 +661,44 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="100" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3300" y="5393">
+   <LINKPOINT x="3200" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="7140" y="5393">
+   <LINKPOINT x="6940" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3975" y="5393">
+   <LINKPOINT x="3875" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="7425" y="5393">
+   <LINKPOINT x="7225" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4635" y="5393">
+   <LINKPOINT x="4535" y="5393">
    </LINKPOINT>
-   <LINKPOINT x="7710" y="5393">
+   <LINKPOINT x="7510" y="5393">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="Sequence position" linkstyle="Bezier" srcnodeid="30" srcpinname="Current position">
-   <LINKPOINT x="5000" y="4860">
+   <LINKPOINT x="4900" y="4860">
    </LINKPOINT>
-   <LINKPOINT x="7990" y="4860">
+   <LINKPOINT x="7790" y="4860">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="Graphics textures" srcnodeid="26" srcpinname="Texture Out">
    </LINK>
    <LINK dstnodeid="100" dstpinname="iPad player textures" linkstyle="Bezier" srcnodeid="65" srcpinname="Texture out">
-   <LINKPOINT x="9120" y="5715">
+   <LINKPOINT x="8820" y="5715">
    </LINKPOINT>
-   <LINKPOINT x="9480" y="5715">
+   <LINKPOINT x="9180" y="5715">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="iPad player colour" linkstyle="Bezier" srcnodeid="65" srcpinname="Colour out">
-   <LINKPOINT x="9765" y="5715">
+   <LINKPOINT x="9465" y="5715">
    </LINKPOINT>
-   <LINKPOINT x="9960" y="5715">
+   <LINKPOINT x="9660" y="5715">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="100" dstpinname="iPad player select face" srcnodeid="65" srcpinname="Select position">
-   </LINK>
-   <LINK dstnodeid="28" dstpinname="Layer 2" linkstyle="VHV" srcnodeid="100" srcpinname="Layers out">
-   <LINKPOINT x="7125" y="6668">
-   </LINKPOINT>
-   <LINKPOINT x="6600" y="6668">
-   </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="101" nodename="Damper (Animation)" systemname="Damper (Animation)">
    <BOUNDS height="100" left="10980" top="2010" type="Node" width="100">
@@ -748,12 +732,10 @@
    <PIN pinname="Indicate bang" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="28" dstpinname="Layer 5" srcnodeid="102" srcpinname="Layer">
-   </LINK>
    <LINK dstnodeid="102" dstpinname="Recorder IDs" linkstyle="VHV" srcnodeid="100" srcpinname="Recorder IDs">
-   <LINKPOINT x="10470" y="6395">
+   <LINKPOINT x="10270" y="6395">
    </LINKPOINT>
-   <LINKPOINT x="17850" y="6595">
+   <LINKPOINT x="17750" y="6595">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="102" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
@@ -775,9 +757,9 @@
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="102" dstpinname="Indicate bang" linkstyle="VHV" srcnodeid="100" srcpinname="Select new face">
-   <LINKPOINT x="10470" y="6495">
+   <LINKPOINT x="10270" y="6495">
    </LINKPOINT>
-   <LINKPOINT x="17850" y="6495">
+   <LINKPOINT x="17750" y="6495">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Keys 0 - Switch mode.v4p" id="104" nodename="subpatches\Keys 0 - Switch mode.v4p" systemname="Keys 0 - Switch mode" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
@@ -791,14 +773,6 @@
    </LINKPOINT>
    <LINKPOINT x="1980" y="6360">
    </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
-   <LINKPOINT x="3240" y="7838">
-   </LINKPOINT>
-   <LINKPOINT x="2640" y="7838">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="64" dstpinname="Layers in" srcnodeid="21" srcpinname="Output">
    </LINK>
    <LINK dstnodeid="21" dstpinname="Switch" srcnodeid="104" srcpinname="View Mode">
    </LINK>
@@ -825,6 +799,10 @@
    </PIN>
    <BOUNDS left="405" top="4755" type="Box">
    </BOUNDS>
+   <PIN pinname="Paths" visible="1">
+   </PIN>
+   <BOUNDS height="14925" left="5730" top="675" type="Window" width="16860">
+   </BOUNDS>
    </NODE>
    <LINK dstnodeid="18" dstpinname="MySQLDataBase" srcnodeid="106" srcpinname="MySQLDataBase">
    </LINK>
@@ -833,5 +811,65 @@
    </LINKPOINT>
    <LINKPOINT x="465" y="3938">
    </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="28" dstpinname="Layer 2" linkstyle="VHV" srcnodeid="100" srcpinname="Layers out">
+   <LINKPOINT x="6925" y="6668">
+   </LINKPOINT>
+   <LINKPOINT x="6500" y="6668">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="28" dstpinname="Layer 3" linkstyle="Bezier" srcnodeid="77" srcpinname="Layers out">
+   <LINKPOINT x="10630" y="6660">
+   </LINKPOINT>
+   <LINKPOINT x="8480" y="6660">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="65" dstpinname="Input" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="107" srcpinname="Paths">
+   <LINKPOINT x="365" y="4875">
+   </LINKPOINT>
+   <LINKPOINT x="8185" y="4875">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" filename="subpatches\Layer 9 - Sound players.v4p" id="108" nodename="subpatches\Layer 9 - Sound players.v4p" stayontop="0" systemname="Layer 9 - Sound players" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <BOUNDS height="100" left="11130" top="4755" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="14025" left="6435" top="480" type="Window" width="21360">
+   </BOUNDS>
+   <PIN pinname="Layers out" visible="1">
+   </PIN>
+   <PIN pinname="iProjector" visible="1">
+   </PIN>
+   <PIN pinname="iType" visible="1">
+   </PIN>
+   <PIN pinname="Projector XY" visible="1">
+   </PIN>
+   <PIN pinname="MySQLDataBase" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="28" dstpinname="Layer 6" srcnodeid="102" srcpinname="Layer">
+   </LINK>
+   <LINK dstnodeid="28" dstpinname="Layer 4" srcnodeid="108" srcpinname="Layers out">
+   </LINK>
+   <LINK dstnodeid="28" dstpinname="Layer 5" srcnodeid="79" srcpinname="Layers out">
+   </LINK>
+   <LINK dstnodeid="108" dstpinname="iProjector" srcnodeid="18" srcpinname="iProjector">
+   </LINK>
+   <LINK dstnodeid="108" dstpinname="iType" srcnodeid="18" srcpinname="iType">
+   </LINK>
+   <LINK dstnodeid="108" dstpinname="Projector XY" srcnodeid="18" srcpinname="Projector XY">
+   </LINK>
+   <LINK dstnodeid="108" dstpinname="MySQLDataBase" linkstyle="VHV" srcnodeid="106" srcpinname="MySQLDataBase">
+   <LINKPOINT x="2610" y="3945">
+   </LINKPOINT>
+   <LINKPOINT x="12930" y="3945">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Layer" dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="3240" y="7838">
+   </LINKPOINT>
+   <LINKPOINT x="2670" y="7838">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
    </LINK>
    </PATCH>

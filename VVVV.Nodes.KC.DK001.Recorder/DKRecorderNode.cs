@@ -62,6 +62,13 @@ namespace VVVV.Nodes.CLEye
 
         [Input("Resolution", MinValue=0, MaxValue=2048, DefaultValue=256)]
         IDiffSpread<int> FPinInResolution;
+		
+		[Input("Exposure", MinValue=0, MaxValue=255)]
+		IDiffSpread<int> FPinInExposure;
+
+		[Input("Gain", MinValue = 0, MaxValue = 255)]
+		IDiffSpread<int> FPinInGain;
+
 
 #if MONO_WRITE
         [Input("Audio Device", IsSingle = true)]
@@ -360,6 +367,17 @@ namespace VVVV.Nodes.CLEye
                     FSaveThread = null;
             }
 
+			//set exposure
+			if (FPinInExposure.IsChanged)
+			{
+				setExposure();
+			}
+
+			if (FPinInGain.IsChanged)
+			{
+				setGain();
+			}
+
             //output currents
             FPinOutProgress[0] = FRecordProgress;
             FPinOutRecorded[0] = isRecorded;
@@ -473,6 +491,9 @@ namespace VVVV.Nodes.CLEye
             //start camera
             FCam.Start(FGuid);
 
+			setGain();
+			setExposure();
+
             //create memory for image
             FCamData = Marshal.AllocCoTaskMem(FInputWidth * FInputHeight * 4);
             FCamDataResized = Marshal.AllocCoTaskMem(resolution * resolution * 4);
@@ -494,6 +515,27 @@ namespace VVVV.Nodes.CLEye
                 FCam.Stop();
             }
         }
+
+		private void setExposure()
+		{
+			if (FPinInExposure[0] > 0)
+			{
+				FCam.AutoExposure = false;
+				FCam.Exposure = FPinInExposure[0];
+			}
+			else
+				FCam.AutoExposure = true;
+		}
+		private void setGain()
+		{
+			if (FPinInGain[0] > 0)
+			{
+				FCam.AutoGain = false;
+				FCam.Gain= FPinInGain[0];
+			}
+			else
+				FCam.AutoGain = true;
+		}
         #endregion
 
         private void getFrameThread()
