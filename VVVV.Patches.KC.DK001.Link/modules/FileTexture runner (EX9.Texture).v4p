@@ -544,14 +544,14 @@
    </NODE>
    <LINK dstnodeid="44" dstpinname="Load" srcnodeid="46" srcpinname="Y Output Value">
    </LINK>
-   <LINK dstnodeid="44" dstpinname="Path" srcnodeid="45" srcpinname="First Slice">
-   </LINK>
    <LINK dstnodeid="7" dstpinname="Directory" srcnodeid="1" srcpinname="Output String">
    </LINK>
-   <LINK srcnodeid="44" srcpinname="Texture Out" dstnodeid="18" dstpinname="Input Node" linkstyle="VHV">
-   <LINKPOINT x="1425" y="6743">
+   <LINK srcnodeid="44" srcpinname="Texture" dstnodeid="18" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="First Slice" dstnodeid="44" dstpinname="Filename" linkstyle="Bezier">
+   <LINKPOINT x="540" y="4020">
    </LINKPOINT>
-   <LINKPOINT x="540" y="6743">
+   <LINKPOINT x="975" y="4020">
    </LINKPOINT>
    </LINK>
    </PATCH>

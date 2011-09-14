@@ -284,12 +284,12 @@
    </NODE>
    <LINK dstnodeid="67" dstpinname="Y Input Value" srcnodeid="66" srcpinname="Available Texture Memory on automatic Devices">
    </LINK>
-   <NODE componentmode="InAWindow" id="69" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
+   <NODE componentmode="Hidden" id="69" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
    <BOUNDS height="100" left="4500" top="9045" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="1800" left="4500" top="9045" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="7200" left="7680" top="2325" type="Window" width="18105">
+   <BOUNDS height="7200" left="2610" top="990" type="Window" width="18105">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -833,7 +833,7 @@
    <NODE componentmode="Hidden" filename="subpatches\Layer 9 - Sound players.v4p" id="108" nodename="subpatches\Layer 9 - Sound players.v4p" stayontop="0" systemname="Layer 9 - Sound players" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="11130" top="4755" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="14025" left="6435" top="480" type="Window" width="21360">
+   <BOUNDS height="14025" left="2130" top="900" type="Window" width="21360">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
    </PIN>
@@ -864,12 +864,72 @@
    <LINKPOINT x="12930" y="3945">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="28" srcpinname="Layer" dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier">
+   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
    <LINKPOINT x="3240" y="7838">
    </LINKPOINT>
    <LINKPOINT x="2670" y="7838">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
+   <LINK dstnodeid="64" dstpinname="Layers in" srcnodeid="21" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="Hidden" id="109" nodename="FileStream (DShow9)" systemname="FileStream (DShow9)">
+   <BOUNDS height="100" left="15900" top="8625" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Play" visible="1">
+   </PIN>
+   <PIN pinname="Loop" visible="1">
+   </PIN>
+   <PIN pinname="Duration" visible="1">
+   </PIN>
+   <PIN pinname="End Time" visible="1">
+   </PIN>
+   <PIN pinname="Audio" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Filename" slicecount="1" values="|Z:\amore media\bgm_1.mp3|">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="110" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="15915" top="7725" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="15915" top="7725" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="BGM">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="109" dstpinname="Play" srcnodeid="110" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="109" dstpinname="Loop" srcnodeid="110" srcpinname="Y Output Value">
+   </LINK>
+   <NODE componentmode="Hidden" id="111" nodename="FrameDelay (Animation)" systemname="FrameDelay (Animation)">
+   <BOUNDS height="100" left="16470" top="9135" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="111" dstpinname="Input 1" srcnodeid="109" srcpinname="Duration">
+   </LINK>
+   <LINK dstnodeid="109" dstpinname="End Time" srcnodeid="111" srcpinname="Output 1">
+   </LINK>
+   <NODE componentmode="Hidden" id="112" nodename="AudioOut (DShow9)" systemname="AudioOut (DShow9)">
+   <BOUNDS height="100" left="15885" top="9540" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Audio" visible="1">
+   </PIN>
+   <PIN pinname="Volume" slicecount="1" values="-30">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="112" dstpinname="Audio" srcnodeid="109" srcpinname="Audio">
    </LINK>
    </PATCH>

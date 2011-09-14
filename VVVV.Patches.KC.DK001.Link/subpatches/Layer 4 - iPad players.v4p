@@ -1244,18 +1244,6 @@
    </LINK>
    <LINK dstnodeid="8" dstpinname="Input" srcnodeid="158" srcpinname="Output String">
    </LINK>
-   <NODE systemname="runner2 (EX9.Texture)" filename="..\modules\FileTexture runner2 (EX9.Texture).v4p" nodename="runner2 (EX9.Texture)" componentmode="InAWindow" id="162">
-   <BOUNDS type="Node" left="13215" top="1545" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Path" visible="1">
-   </PIN>
-   <PIN pinname="Texture out" visible="1">
-   </PIN>
-   <PIN pinname="Run" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="158" srcpinname="Output String" dstnodeid="162" dstpinname="Path">
-   </LINK>
-   <LINK srcnodeid="162" srcpinname="Texture out" dstnodeid="65" dstpinname="Input Node">
+   <LINK dstnodeid="65" dstpinname="Input Node" srcnodeid="150" srcpinname="Output">
    </LINK>
    </PATCH>

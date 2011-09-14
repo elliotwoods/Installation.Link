@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\Group 0 - iPad clients (ME FIRST!).v4p" bgcolor="9474301">
-   <BOUNDS height="11865" left="5085" top="1785" type="Window" width="17235">
+   <BOUNDS height="11865" left="11460" top="1785" type="Window" width="10860">
    </BOUNDS>
    <NODE componentmode="InABox" id="17" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="585" top="3705" type="Node" width="100">
@@ -230,7 +230,7 @@
    <PIN pinname="XY" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Net 1 - iPad client.v4p" id="20" nodename="subpatches\Net 1 - iPad client.v4p" systemname="Net 1 - iPad client" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <NODE componentmode="InAWindow" filename="subpatches\Net 1 - iPad client.v4p" id="20" nodename="subpatches\Net 1 - iPad client.v4p" systemname="Net 1 - iPad client" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="600" top="4575" type="Node" width="7380">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
@@ -282,7 +282,7 @@
    </LINK>
    <LINK dstnodeid="20" dstpinname="Camera GUID" srcnodeid="4" srcpinname="First Slice">
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Net 1 - iPad client.v4p" id="21" nodename="subpatches\Net 1 - iPad client.v4p" systemname="Net 1 - iPad client" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <NODE componentmode="InAWindow" filename="subpatches\Net 1 - iPad client.v4p" id="21" nodename="subpatches\Net 1 - iPad client.v4p" systemname="Net 1 - iPad client" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="270" left="8700" top="4575" type="Node" width="7380">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
@@ -303,7 +303,7 @@
    </PIN>
    <PIN pinname="Select a new box" visible="1">
    </PIN>
-   <BOUNDS height="12570" left="19005" top="1380" type="Window" width="10095">
+   <BOUNDS height="12570" left="17790" top="360" type="Window" width="10095">
    </BOUNDS>
    <PIN pinname="Visible" visible="1">
    </PIN>
@@ -712,8 +712,8 @@
    </NODE>
    <LINK dstnodeid="67" dstpinname="Input Value" srcnodeid="66" srcpinname="XY">
    </LINK>
-   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="68">
-   <BOUNDS type="Node" left="5160" top="8820" width="8190" height="270">
+   <NODE componentmode="Hidden" id="68" nodename="OR (Boolean)" systemname="OR (Boolean)">
+   <BOUNDS height="270" left="5160" top="8820" type="Node" width="8190">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -722,40 +722,60 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="38" srcpinname="Output" dstnodeid="34" dstpinname="Input Value">
+   <LINK dstnodeid="34" dstpinname="Input Value" srcnodeid="38" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="20" srcpinname="Mute" dstnodeid="68" dstpinname="Input 1">
+   <LINK dstnodeid="68" dstpinname="Input 1" srcnodeid="20" srcpinname="Mute">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Mute" dstnodeid="68" dstpinname="Input 2">
+   <LINK dstnodeid="68" dstpinname="Input 2" srcnodeid="21" srcpinname="Mute">
    </LINK>
-   <NODE systemname="AudioMixer (System)" nodename="AudioMixer (System)" componentmode="Hidden" id="69">
-   <BOUNDS type="Node" left="5160" top="10410" width="100" height="100">
+   <NODE componentmode="Hidden" id="69" nodename="AudioMixer (System)" systemname="AudioMixer (System)">
+   <BOUNDS height="100" left="5160" top="10410" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Volume" visible="1">
    </PIN>
    <PIN pinname="Device" slicecount="1" values="|Master Volume|">
    </PIN>
    </NODE>
-   <NODE systemname="NOT (Boolean)" nodename="NOT (Boolean)" componentmode="Hidden" id="70">
-   <BOUNDS type="Node" left="5160" top="9465" width="100" height="100">
+   <NODE componentmode="Hidden" id="70" nodename="NOT (Boolean)" systemname="NOT (Boolean)">
+   <BOUNDS height="100" left="5160" top="9465" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="68" srcpinname="Output" dstnodeid="70" dstpinname="Input">
+   <LINK dstnodeid="70" dstpinname="Input" srcnodeid="68" srcpinname="Output">
    </LINK>
-   <NODE systemname="Damper (Animation)" nodename="Damper (Animation)" componentmode="Hidden" id="71">
-   <BOUNDS type="Node" left="5160" top="9930" width="100" height="100">
+   <NODE componentmode="Hidden" id="71" nodename="Damper (Animation)" systemname="Damper (Animation)">
+   <BOUNDS height="100" left="5160" top="9930" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Go To Position" visible="1">
    </PIN>
    <PIN pinname="Position Out" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="70" srcpinname="Output" dstnodeid="71" dstpinname="Go To Position">
+   <LINK dstnodeid="71" dstpinname="Go To Position" srcnodeid="70" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="71" srcpinname="Position Out" dstnodeid="69" dstpinname="Volume">
+   <LINK dstnodeid="69" dstpinname="Volume" srcnodeid="71" srcpinname="Position Out">
+   </LINK>
+   <NODE componentmode="InABox" id="72" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="6375" top="9525" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="1125" left="6375" top="9525" type="Box" width="345">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="72" dstpinname="Y Input Value" linkstyle="Bezier" srcnodeid="71" srcpinname="Position Out">
+   <LINKPOINT x="5220" y="9848">
+   </LINKPOINT>
+   <LINKPOINT x="6375" y="9848">
+   </LINKPOINT>
    </LINK>
    </PATCH>

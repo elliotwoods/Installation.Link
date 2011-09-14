@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\modules\FileTexture runner (EX9.Texture).v4p">
-   <BOUNDS height="9330" left="12915" top="3825" type="Window" width="7155">
+   <BOUNDS height="8025" left="8520" top="3495" type="Window" width="7155">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="660" top="405" type="Node" width="100">
@@ -109,7 +109,7 @@
    </PIN>
    <PIN pinname="Filenames" visible="1">
    </PIN>
-   <PIN pinname="Update" visible="1" slicecount="1" values="0">
+   <PIN pinname="Update" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="10" nodename="LFO (Animation)" systemname="LFO (Animation)">
@@ -231,7 +231,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="9750" top="11550" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   <PIN pinname="Input Node" visible="1">
    </PIN>
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Texture out|">
    </PIN>
@@ -495,6 +495,8 @@
    </PIN>
    <PIN pinname="Path" visible="1">
    </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="45" nodename="CAR (String)" systemname="CAR (String)">
    <BOUNDS height="100" left="510" top="2580" type="Node" width="100">
@@ -542,8 +544,14 @@
    </NODE>
    <LINK dstnodeid="44" dstpinname="Load" srcnodeid="46" srcpinname="Y Output Value">
    </LINK>
-   <LINK srcnodeid="45" srcpinname="First Slice" dstnodeid="44" dstpinname="Path">
+   <LINK dstnodeid="44" dstpinname="Path" srcnodeid="45" srcpinname="First Slice">
    </LINK>
-   <LINK srcnodeid="1" srcpinname="Output String" dstnodeid="7" dstpinname="Directory">
+   <LINK dstnodeid="7" dstpinname="Directory" srcnodeid="1" srcpinname="Output String">
+   </LINK>
+   <LINK srcnodeid="44" srcpinname="Texture Out" dstnodeid="18" dstpinname="Input Node" linkstyle="VHV">
+   <LINKPOINT x="1425" y="6743">
+   </LINKPOINT>
+   <LINKPOINT x="540" y="6743">
+   </LINKPOINT>
    </LINK>
    </PATCH>
