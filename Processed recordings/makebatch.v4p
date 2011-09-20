@@ -131,7 +131,7 @@
    </BOUNDS>
    <PIN pinname="Output String" visible="1">
    </PIN>
-   <PIN encoded="0" pinname="Input String" slicecount="1" values="proess-test1.vcf">
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="process-default.vcfs">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="11" nodename="Change (String)" systemname="Change (String)">
@@ -662,12 +662,12 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="46" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="825" top="18525" width="1290" height="270">
+   <NODE componentmode="InABox" id="46" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="825" top="18525" type="Node" width="1290">
    </BOUNDS>
-   <BOUNDS type="Box" left="825" top="18525" width="1290" height="270">
+   <BOUNDS height="270" left="825" top="18525" type="Box" width="1290">
    </BOUNDS>
-   <PIN pinname="Input String" visible="0" slicecount="1" values="|3. Run batch file|" encoded="0">
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|3. Run batch file|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -686,6 +686,6 @@
    <PIN encoded="0" pinname="Input String" slicecount="1" values="|del *.vcf|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="47" srcpinname="Output String" dstnodeid="38" dstpinname="Input 4">
+   <LINK dstnodeid="38" dstpinname="Input 4" srcnodeid="47" srcpinname="Output String">
    </LINK>
    </PATCH>
