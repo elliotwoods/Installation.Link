@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Nodes.NAudio.TestRecord\test.v4p" filename="C:\kimchiandchips\Link\VVVV.Nodes.NAudio.TestRecord\test.v4p" systemname="test">
-   <BOUNDS height="8820" left="8025" top="4320" type="Window" width="17655">
+   <BOUNDS height="8820" left="-570" top="2100" type="Window" width="17655">
    </BOUNDS>
    <NODE componentmode="Hidden" id="6" nodename="GetSlice (Node)" systemname="GetSlice (Node)">
    <BOUNDS height="270" left="405" top="2160" type="Node" width="2910">
@@ -93,9 +93,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="22" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="14340" top="3270" type="Node" width="100">
+   <BOUNDS height="100" left="15600" top="3285" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="14340" top="3270" type="Box" width="480">
+   <BOUNDS height="480" left="15600" top="3285" type="Box" width="480">
    </BOUNDS>
    <PIN pinname="Value Type" slicecount="1" values="Boolean">
    </PIN>
@@ -111,9 +111,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="21" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="100" left="14325" top="4980" type="Node" width="100">
+   <BOUNDS height="100" left="15570" top="4980" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="270" left="14325" top="4980" type="Box" width="1560">
+   <BOUNDS height="270" left="15570" top="4980" type="Box" width="1560">
    </BOUNDS>
    <PIN pinname="Input String" visible="1">
    </PIN>
@@ -141,9 +141,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="19" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="12255" top="4980" type="Node" width="100">
+   <BOUNDS height="100" left="13710" top="4980" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="12255" top="4980" type="Box" width="795">
+   <BOUNDS height="240" left="13710" top="4980" type="Box" width="795">
    </BOUNDS>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
@@ -151,9 +151,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="18" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="10200" top="4980" type="Node" width="100">
+   <BOUNDS height="100" left="9660" top="4980" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="10200" top="4980" type="Box" width="795">
+   <BOUNDS height="240" left="9660" top="4980" type="Box" width="795">
    </BOUNDS>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
@@ -269,7 +269,7 @@
    <LINK dstnodeid="14" dstpinname="Y Input Value" srcnodeid="3" srcpinname="Recording">
    </LINK>
    <NODE componentmode="Hidden" filename="..\Prerequisites\plugins\VVVV.Nodes.NAudio.dll" id="15" nodename="Recorder (NAudio Wave)" systemname="Recorder (NAudio Wave)">
-   <BOUNDS height="270" left="8100" top="4305" type="Node" width="6300">
+   <BOUNDS height="270" left="8100" top="4305" type="Node" width="7545">
    </BOUNDS>
    <PIN pinname="Device ID" visible="1">
    </PIN>
@@ -284,6 +284,16 @@
    <PIN pinname="Filename" visible="1">
    </PIN>
    <PIN pinname="Record" visible="1">
+   </PIN>
+   <PIN pinname="Amplification" visible="1">
+   </PIN>
+   <PIN pinname="Compression" visible="1">
+   </PIN>
+   <PIN pinname="Compression attack" visible="1">
+   </PIN>
+   <PIN pinname="Gate" visible="1">
+   </PIN>
+   <PIN pinname="Gate Decay" visible="1">
    </PIN>
    </NODE>
    <LINK dstnodeid="15" dstpinname="Device ID" srcnodeid="28" srcpinname="Y Output Value">
@@ -561,5 +571,73 @@
    <LINK dstnodeid="15" dstpinname="Record" srcnodeid="22" srcpinname="Y Output Value">
    </LINK>
    <LINK dstnodeid="20" dstpinname="Input String" srcnodeid="33" srcpinname="Output">
+   </LINK>
+   <NODE componentmode="InABox" id="47" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="11850" top="4980" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="11850" top="4980" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Compression">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="47" dstpinname="Y Input Value" srcnodeid="15" srcpinname="Compression">
+   </LINK>
+   <NODE componentmode="InABox" id="48" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="13110" top="3135" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="13110" top="3135" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Gate">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.02">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="15" dstpinname="Gate" srcnodeid="48" srcpinname="Y Output Value">
+   </LINK>
+   <NODE componentmode="InABox" id="49" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="11805" top="3090" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="11805" top="3090" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Compression attack|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="15" dstpinname="Compression attack" srcnodeid="49" srcpinname="Y Output Value">
+   </LINK>
+   <NODE componentmode="InABox" id="50" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="10575" top="3555" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="10575" top="3555" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Amplification">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="5">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="15" dstpinname="Amplification" srcnodeid="50" srcpinname="Y Output Value">
+   </LINK>
+   <NODE componentmode="InABox" id="51" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="14340" top="3555" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="14340" top="3555" type="Box" width="795">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Gate Decay|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.5">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="15" dstpinname="Gate Decay" srcnodeid="51" srcpinname="Y Output Value">
    </LINK>
    </PATCH>

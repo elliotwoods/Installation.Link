@@ -91,9 +91,9 @@
    <LINK dstnodeid="6" dstpinname="iViewPort" srcnodeid="0" srcpinname="Y Output Value">
    </LINK>
    <NODE componentmode="Hidden" id="11" nodename="EQ (Value)" systemname="EQ (Value)">
-   <BOUNDS height="100" left="5745" top="3825" type="Node" width="100">
+   <BOUNDS height="100" left="5370" top="3900" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="5745" top="3825" type="Box" width="0">
+   <BOUNDS height="0" left="5370" top="3900" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="9600" top="8325" type="Window" width="0">
    </BOUNDS>
@@ -107,9 +107,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="12" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="5190" top="525" type="Node" width="100">
+   <BOUNDS height="100" left="5610" top="525" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="5190" top="525" type="Box" width="795">
+   <BOUNDS height="240" left="5610" top="525" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="7440" top="5535" type="Window" width="215">
    </BOUNDS>
@@ -121,9 +121,9 @@
    <LINK dstnodeid="11" dstpinname="Input 2" srcnodeid="12" srcpinname="Y Output Value">
    </LINK>
    <LINK dstnodeid="11" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="0" srcpinname="Y Output Value">
-   <LINKPOINT x="2160" y="2258">
+   <LINKPOINT x="2035" y="2283">
    </LINKPOINT>
-   <LINKPOINT x="5805" y="2258">
+   <LINKPOINT x="5555" y="2308">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="InAWindow" filename="..\..\shaders\Select viewport.fx" id="18" nodename="..\..\shaders\Select viewport.fx" systemname="Select viewport (EX9.Effect)">
@@ -219,9 +219,9 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="18" dstpinname="iViewPort" linkstyle="Bezier" srcnodeid="12" srcpinname="Y Output Value">
-   <LINKPOINT x="5940" y="3660">
+   <LINKPOINT x="5625" y="3660">
    </LINKPOINT>
-   <LINKPOINT x="5280" y="3660">
+   <LINKPOINT x="6810" y="4695">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" filename="..\..\modules\Quad in projector (Transform).v4p" id="24" nodename="..\..\modules\Quad in projector (Transform).v4p" systemname="projector (Transform)">

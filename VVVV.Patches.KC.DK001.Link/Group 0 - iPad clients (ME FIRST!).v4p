@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\Group 0 - iPad clients (ME FIRST!).v4p" bgcolor="9474301">
-   <BOUNDS height="11865" left="11460" top="1785" type="Window" width="10860">
+   <BOUNDS height="11865" left="3195" top="1860" type="Window" width="10860">
    </BOUNDS>
    <NODE componentmode="InABox" id="17" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="585" top="3705" type="Node" width="100">
@@ -43,7 +43,7 @@
    </PIN>
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
-   <PIN encoded="0" pinname="Input String" slicecount="2" values="192.168.0.21,192.168.0.22">
+   <PIN encoded="0" pinname="Input String" slicecount="2" values="192.168.1.20,192.168.1.21">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -135,6 +135,8 @@
    </BOUNDS>
    <PIN pinname="GUID" visible="1">
    </PIN>
+   <PIN pinname="Update" slicecount="1" values="0">
+   </PIN>
    </NODE>
    <NODE componentmode="InABox" id="5" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="7965" top="765" type="Node" width="100">
@@ -149,7 +151,7 @@
    </PIN>
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
    </PIN>
    <PIN pinname="Input String" visible="1">
    </PIN>
@@ -253,7 +255,7 @@
    </PIN>
    <PIN pinname="Visible" visible="1">
    </PIN>
-   <BOUNDS height="15600" left="6585" top="0" type="Window" width="11010">
+   <BOUNDS height="11955" left="0" top="165" type="Window" width="11010">
    </BOUNDS>
    <PIN pinname="Path" visible="1">
    </PIN>
@@ -267,7 +269,7 @@
    </PIN>
    <PIN pinname="Exposure" slicecount="1" values="255">
    </PIN>
-   <PIN pinname="Gain" slicecount="1" values="50">
+   <PIN pinname="Gain" slicecount="1" values="43">
    </PIN>
    <PIN pinname="Mute" visible="1">
    </PIN>
@@ -303,7 +305,7 @@
    </PIN>
    <PIN pinname="Select a new box" visible="1">
    </PIN>
-   <BOUNDS height="12570" left="17790" top="360" type="Window" width="10095">
+   <BOUNDS height="11955" left="3210" top="1065" type="Window" width="10095">
    </BOUNDS>
    <PIN pinname="Visible" visible="1">
    </PIN>
@@ -317,9 +319,9 @@
    </PIN>
    <PIN pinname="Priority save" visible="1">
    </PIN>
-   <PIN pinname="Exposure" slicecount="1" values="200">
+   <PIN pinname="Exposure" slicecount="1" values="255">
    </PIN>
-   <PIN pinname="Gain" slicecount="1" values="30">
+   <PIN pinname="Gain" slicecount="1" values="43">
    </PIN>
    <PIN pinname="Mute" visible="1">
    </PIN>
@@ -363,9 +365,9 @@
    <LINK dstnodeid="30" dstpinname="Input Value" srcnodeid="3" srcpinname="Texture Out">
    </LINK>
    <NODE componentmode="Hidden" id="34" nodename="S (COLOR)" systemname="S (Color)">
-   <BOUNDS height="100" left="2400" top="10395" type="Node" width="100">
+   <BOUNDS height="100" left="2385" top="10410" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="2400" top="10335" type="Box" width="0">
+   <BOUNDS height="0" left="2385" top="10350" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="3885" top="11655" type="Window" width="0">
    </BOUNDS>
@@ -563,7 +565,7 @@
    </BOUNDS>
    <BOUNDS height="240" left="585" top="2685" type="Box" width="1035">
    </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" values="192.168.0">
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="192.168.1">
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
@@ -639,6 +641,8 @@
    </PIN>
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Audio Device|">
    </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE componentmode="InABox" id="62" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="1500" top="7290" type="Node" width="100">
@@ -675,7 +679,7 @@
    </PIN>
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Audio Device|">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK dstnodeid="21" dstpinname="Audio Device" srcnodeid="64" srcpinname="Y Output Value">
@@ -733,7 +737,7 @@
    </BOUNDS>
    <PIN pinname="Volume" visible="1">
    </PIN>
-   <PIN pinname="Device" slicecount="1" values="|Master Volume|">
+   <PIN pinname="Device" slicecount="1" values="Hoofdvolume">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="70" nodename="NOT (Boolean)" systemname="NOT (Boolean)">
@@ -778,4 +782,18 @@
    <LINKPOINT x="6375" y="9848">
    </LINKPOINT>
    </LINK>
+   <NODE componentmode="InABox" id="73" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="5190" top="10710" type="Node" width="9225">
+   </BOUNDS>
+   <BOUNDS height="270" left="5190" top="10710" type="Box" width="9225">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|NB: The enumeration strings generally change for different languages. Make sure the master volume is selected in your language|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>

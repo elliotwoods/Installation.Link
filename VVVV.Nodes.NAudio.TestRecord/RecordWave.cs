@@ -25,8 +25,20 @@ namespace VVVV.Nodes
         [Input("Device ID")]
         ISpread<int> FPinInDeviceID;
 
-        [Input("Filename", StringType = StringType.Filename)]
+        [Input("Filename", StringType = StringType.Filename, IsSingle = true)]
         ISpread<string> FPinInFilename;
+
+        [Input("Amplification", DefaultValue = 1.0, IsSingle = true)]
+        ISpread<float> FPinInAmplification;
+
+        [Input("Compression attack", DefaultValue = 0.5, IsSingle = true)]
+        ISpread<float> FPinInCompressionAttack;
+
+        [Input("Gate", DefaultValue = 0.0, MinValue=0.0,  IsSingle = true)]
+        ISpread<float> FPinInGate;
+
+        [Input("Gate Decay", DefaultValue = 0.0, MinValue = 0.0, IsSingle = true)]
+        ISpread<float> FPinInGateDecay;
 
 		[Input("Record", IsSingle = true)]
 		ISpread<bool> FPinInRecord;
@@ -36,6 +48,9 @@ namespace VVVV.Nodes
 
         [Output("Audio Level")]
         ISpread<float> FPinOutLevel;
+
+        [Output("Compression")]
+        ISpread<float> FPinOutCompression;
 
         [Output("Position")]
         ISpread<float> FPinOutPosition;
@@ -51,6 +66,12 @@ namespace VVVV.Nodes
         bool FIsRecording = false;
         string FFilename = "";
         string FPatchPath;
+        float FAmplification = 1.0f;
+        float FClipCompression = 1.0f;
+        float FGateCompression = 1.0f;
+        float FCompressionAttack = 0.5f;
+        float FGate = 0.0f;
+        float FGateDecay = 0.0f;
 
         WaveIn FWaveIn;
         WaveFileWriter writer;
@@ -80,8 +101,21 @@ namespace VVVV.Nodes
                     StopRecording();
             }
 
+            if (FPinInAmplification[0] != FAmplification)
+                FAmplification = FPinInAmplification[0];
+
+            if (FPinInCompressionAttack[0] != FCompressionAttack)
+                FCompressionAttack = FPinInCompressionAttack[0];
+
+            if (FPinInGate[0] != FGate)
+                FGate = FPinInGate[0];
+
+            if (FPinInGateDecay[0] != FGateDecay)
+                FGateDecay = FPinInGateDecay[0]; 
+
             FPinOutRecording[0] = FIsRecording;
             FPinOutPosition[0] = FPosition;
+            FPinOutCompression[0] = FClipCompression * FGateCompression;
         }
 
         private void setFilename(string filename)
@@ -106,11 +140,20 @@ namespace VVVV.Nodes
                 FWaveIn.WaveFormat = stereoFormat;
             }
 
-            FWaveIn.StartRecording();
-            handleData = new EventHandler<WaveInEventArgs>(waveInStream_DataAvailable);
-            FWaveIn.DataAvailable += handleData;
 
-            FPinOutStatus[0] = "Device opened";
+            try
+            {
+                FWaveIn.StartRecording();
+                handleData = new EventHandler<WaveInEventArgs>(waveInStream_DataAvailable);
+                FWaveIn.DataAvailable += handleData;
+                FPinOutStatus[0] = "Device opened";
+            }
+            catch
+            {
+                FWaveIn = null;
+                FPinOutStatus[0] = "Failed to open device";
+            }
+            
         }
 
         private void StartRecording()
@@ -165,15 +208,72 @@ namespace VVVV.Nodes
             }
         }
 
+        private float lerp(float v1, float v2, float position)
+        {
+            return v1 * (1.0f - position) + v2 * position;
+        }
+        
         void waveInStream_DataAvailable(object sender, WaveInEventArgs e)
         {
             float level = 0;
+            float levelUncompressed = 0;
+            Int16 current;
+            float amplified;
+            float absAmplified;
+            byte[] amplifiedBytes;
 
-            for (int i = 1; i < e.BytesRecorded; i += 4)
-                level += Math.Abs((float)e.Buffer[i]);
-            level /= (float)e.BytesRecorded * 255.0f;
+            float compression = FClipCompression * FGateCompression;
+            float maxval = 0;
 
+            //damp compression back to 0
+            FClipCompression = lerp(FClipCompression, 1.0f, FCompressionAttack);
+            if (FGate > 0.0f)
+                FGateCompression = lerp(FGateCompression, 0.0f, FGateDecay);
+            else
+                FGateCompression = 1.0f;
+
+            for (int i = 0; i < e.BytesRecorded/2; i ++)
+            {
+
+                current = BitConverter.ToInt16(e.Buffer, i*2);
+                amplified = (float)current * FAmplification;
+                absAmplified = Math.Abs(amplified);
+
+                //check if apply compression from over volume
+                if (absAmplified > Int16.MaxValue)
+                    maxval = Math.Max(maxval, (float)absAmplified);
+
+                levelUncompressed += Math.Abs(amplified);
+
+                amplified *= compression;
+
+                //if still over volume, let's clip
+                if (Math.Abs(amplified) > Int16.MaxValue)
+                    amplified = amplified > 0 ? Int16.MinValue : Int16.MaxValue;
+
+                amplifiedBytes = BitConverter.GetBytes((Int16)amplified);
+                Buffer.BlockCopy(amplifiedBytes, 0, e.Buffer, i*2, 2);
+
+                level += Math.Abs(amplified);
+            }
+
+            // calc levels
+            levelUncompressed /= (float)e.BytesRecorded * Int16.MaxValue;
+            level /= (float)e.BytesRecorded * Int16.MaxValue;
             FPinOutLevel[0] = level;
+
+
+            //if high level, open gate
+            if (FGate != 0)
+            {
+                if (levelUncompressed > FGate)
+                    FGateCompression= 1.0f;
+            }
+
+            //if high level, clip
+            if (maxval > 0.0f)
+                FClipCompression = lerp(FClipCompression, (float)(maxval / Int16.MaxValue), FCompressionAttack);
+            
 
             if (FIsRecording)
             {

@@ -51,7 +51,7 @@
    <NODE componentmode="Hidden" filename="Net 0\N0.2 - Credentials.v4p" id="1" nodename="Net 0\N0.2 - Credentials.v4p" systemname="N0.2 - Credentials" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\">
    <BOUNDS height="100" left="975" top="210" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="3885" left="13245" top="8280" type="Window" width="5280">
+   <BOUNDS height="3885" left="13530" top="8280" type="Window" width="4995">
    </BOUNDS>
    <PIN pinname="user" visible="1">
    </PIN>

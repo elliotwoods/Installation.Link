@@ -1034,12 +1034,6 @@
    <LINKPOINT x="18540" y="12750">
    </LINKPOINT>
    </LINK>
-   <LINK dstnodeid="14" dstpinname="Texture" linkstyle="VHV" srcnodeid="55" srcpinname="Texture out">
-   <LINKPOINT x="10560" y="12070">
-   </LINKPOINT>
-   <LINKPOINT x="12045" y="12020">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="InABox" id="90" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="3630" top="9435" type="Node" width="100">
    </BOUNDS>
@@ -1051,5 +1045,11 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="10" dstpinname="Select types" srcnodeid="90" srcpinname="Y Output Value">
+   </LINK>
+   <LINK srcnodeid="55" srcpinname="Texture out" dstnodeid="14" dstpinname="Texture" linkstyle="Bezier">
+   <LINKPOINT x="12930" y="12750">
+   </LINKPOINT>
+   <LINKPOINT x="11895" y="12750">
+   </LINKPOINT>
    </LINK>
    </PATCH>

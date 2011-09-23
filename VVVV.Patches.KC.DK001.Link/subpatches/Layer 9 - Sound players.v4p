@@ -321,7 +321,7 @@
    <NODE componentmode="Hidden" filename="Layer 9\L9 - player.v4p" id="34" nodename="Layer 9\L9 - player.v4p" systemname="L9 - player" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 9\">
    <BOUNDS height="100" left="4965" top="10605" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="9225" left="14085" top="4875" type="Window" width="9435">
+   <BOUNDS height="9225" left="5430" top="5070" type="Window" width="9435">
    </BOUNDS>
    <PIN pinname="Path" visible="1">
    </PIN>

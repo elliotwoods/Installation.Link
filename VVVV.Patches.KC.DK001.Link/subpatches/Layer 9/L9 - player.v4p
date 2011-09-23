@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 9\L9 - player.v4p" filename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 9\L9 - player.v4p" systemname="L9 - player">
-   <BOUNDS height="8535" left="19140" top="6000" type="Window" width="9000">
+   <BOUNDS height="9225" left="4005" top="4365" type="Window" width="9435">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="1110" top="225" type="Node" width="100">
@@ -48,6 +48,8 @@
    <PIN pinname="Filename" visible="1">
    </PIN>
    <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Allocated" slicecount="1" values="300">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="11" nodename="Dir (File)" systemname="Dir (File)">
@@ -224,6 +226,8 @@
    <PIN pinname="Pan" visible="1">
    </PIN>
    <PIN pinname="Volume" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Driver" slicecount="1" values="|DirectSound: Luidsprekers (Realtek High Definition Audio)|">
    </PIN>
    </NODE>
    <LINK dstnodeid="29" dstpinname="Audio" srcnodeid="28" srcpinname="Audio">

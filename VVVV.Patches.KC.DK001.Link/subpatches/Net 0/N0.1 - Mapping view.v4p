@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\N0.1 - Mapping view.v4p">
-   <BOUNDS height="9135" left="7245" top="5595" type="Window" width="12495">
+   <BOUNDS height="9135" left="3615" top="5055" type="Window" width="12495">
    </BOUNDS>
    <NODE componentmode="InABox" id="0" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
    <BOUNDS height="100" left="1440" top="480" type="Node" width="100">
@@ -275,9 +275,9 @@
    </PIN>
    <PIN pinname="Layers" visible="1">
    </PIN>
-   <PIN pinname="Backbuffer Width" slicecount="1" values="1024">
+   <PIN pinname="Backbuffer Width" slicecount="1" values="512">
    </PIN>
-   <PIN pinname="Backbuffer Height" slicecount="1" values="2048">
+   <PIN pinname="Backbuffer Height" slicecount="1" values="1024">
    </PIN>
    </NODE>
    <LINK dstnodeid="26" dstpinname="Source" srcnodeid="27" srcpinname="GDI Out">
@@ -307,7 +307,7 @@
    </PIN>
    <PIN pinname="Y" visible="1">
    </PIN>
-   <PIN pinname="Size" slicecount="1" values="250">
+   <PIN pinname="Size" slicecount="1" values="133">
    </PIN>
    </NODE>
    <LINK dstnodeid="27" dstpinname="Layers" srcnodeid="30" srcpinname="Layer">

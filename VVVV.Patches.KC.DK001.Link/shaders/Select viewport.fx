@@ -53,7 +53,7 @@ vs2ps VS(
     vs2ps Out = (vs2ps)0;
 
     //transform position
-    Out.Pos = mul(Pos, tW);
+    Out.Pos = mul(Pos, tWVP);
     
     //set size of object to 0 if not on this screen
     // we also set alpha to 0 later on
@@ -78,8 +78,10 @@ float4 PS(vs2ps In): COLOR
 	texcd /= texcd.w;
 	texcd = mul(texcd, tTex2);
 	
-	float4 texCol = tex2Dbicubic(Samp, texcd);
-    float4 col;
+	//float4 texCol = tex2Dbicubic(Samp, texcd);
+	float4 texCol = tex2D(Samp, texcd);
+	
+	float4 col;
     
     col.a = 1;
     if (enableAlpha)

@@ -35,6 +35,19 @@ namespace VVVV.Nodes.CLEye
     {
 		#region Fields
 
+        //configs
+        [Input("Amplification", DefaultValue = 1.0, IsSingle = true, Visibility=PinVisibility.OnlyInspector)]
+        IDiffSpread<float> FPinInAmplification;
+
+        [Input("Compression attack", DefaultValue = 0.5, IsSingle = true, Visibility = PinVisibility.OnlyInspector)]
+        IDiffSpread<float> FPinInCompressionAttack;
+
+        [Input("Gate", DefaultValue = 0.0, MinValue = 0.0, IsSingle = true, Visibility = PinVisibility.OnlyInspector)]
+        IDiffSpread<float> FPinInGate;
+
+        [Input("Gate Decay", DefaultValue = 0.0, MinValue = 0.0, IsSingle = true, Visibility = PinVisibility.OnlyInspector)]
+        IDiffSpread<float> FPinInGateDecay;
+
         //inputs
         [Input("Record", IsSingle=true)]
         IDiffSpread<bool> FPinInRecord;
@@ -194,6 +207,8 @@ namespace VVVV.Nodes.CLEye
 		#region Evaluate
 		public void Evaluate(int SpreadMax)
 		{
+            checkAudioConfig();
+
             if (FPinInAudioDevice[0] >= 0 && FPinInAudioDevice.SliceCount == 1)
             {
 				if (FPinInAudioDevice[0] != FAudio.getDeviceID())
@@ -403,6 +418,21 @@ namespace VVVV.Nodes.CLEye
 
             firstRun = false;
 		}
+
+        void checkAudioConfig()
+        {
+            if(FPinInAmplification.IsChanged)
+                FAudio.Amplification = FPinInAmplification[0];
+
+            if(FPinInCompressionAttack.IsChanged)
+                FAudio.CompressionAttack = FPinInCompressionAttack[0];
+
+            if(FPinInGate.IsChanged)
+                FAudio.Gate = FPinInGate[0];
+
+            if(FPinInGateDecay.IsChanged)
+                FAudio.GateDecay = FPinInGate[0];
+        }
         #endregion
 
         #region Dispose

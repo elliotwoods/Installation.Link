@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1 - iPad client.v4p">
-   <BOUNDS height="12570" left="19005" top="1380" type="Window" width="10095">
+   <BOUNDS height="11955" left="3210" top="1065" type="Window" width="10095">
    </BOUNDS>
    <NODE componentmode="Hidden" filename="Net 1\N1.1 - Set remote network settings.v4p" id="27" nodename="Net 1\N1.1 - Set remote network settings.v4p" systemname="N1.1 - Set remote network settings" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
    <BOUNDS height="270" left="480" top="3465" type="Node" width="6060">
@@ -280,7 +280,7 @@
    <PIN pinname="Show Grid" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE componentmode="InAWindow" filename="Net 1\N1.2 - Receive actions.v4p" id="11" nodename="Net 1\N1.2 - Receive actions.v4p" systemname="N1.2 - Receive actions" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
+   <NODE componentmode="Hidden" filename="Net 1\N1.2 - Receive actions.v4p" id="11" nodename="Net 1\N1.2 - Receive actions.v4p" systemname="N1.2 - Receive actions" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\">
    <BOUNDS height="270" left="4350" top="4560" type="Node" width="4950">
    </BOUNDS>
    <PIN pinname="Local Port" visible="1">
@@ -295,7 +295,7 @@
    </PIN>
    <PIN pinname="Clear recording" visible="1">
    </PIN>
-   <BOUNDS height="11595" left="10050" top="2595" type="Window" width="12315">
+   <BOUNDS height="11595" left="4845" top="2490" type="Window" width="12315">
    </BOUNDS>
    <PIN pinname="Reselect" slicecount="1" visible="1" values="0">
    </PIN>
@@ -362,6 +362,12 @@
    <PIN pinname="Stop" visible="1">
    </PIN>
    <PIN pinname="Duration" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Gate" slicecount="1" values="0.02">
+   </PIN>
+   <PIN pinname="Gate Decay" slicecount="1" values="0.5">
+   </PIN>
+   <PIN pinname="Amplification" slicecount="1" values="3">
    </PIN>
    </NODE>
    <LINK dstnodeid="9" dstpinname="CameraGUID" linkstyle="VHV" srcnodeid="10" srcpinname="Output String">

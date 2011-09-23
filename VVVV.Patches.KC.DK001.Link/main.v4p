@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
    <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
-   <BOUNDS height="10965" left="7020" top="3570" type="Window" width="18600">
+   <BOUNDS height="13350" left="0" top="3030" type="Window" width="18600">
    </BOUNDS>
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="2580" top="4755" type="Node" width="100">
@@ -181,7 +181,7 @@
    </BOUNDS>
    <BOUNDS height="1320" left="210" top="720" type="Box" width="9465">
    </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|Amore 2011|">
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|TETEM 2011|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -234,12 +234,12 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
+   <NODE componentmode="InAWindow" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
    <BOUNDS height="100" left="1905" top="8820" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers in" visible="1">
    </PIN>
-   <BOUNDS height="9075" left="510" top="7935" type="Window" width="11235">
+   <BOUNDS height="9075" left="2580" top="3045" type="Window" width="11235">
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Layer 4 - iPad players.v4p" id="65" nodename="subpatches\Layer 4 - iPad players.v4p" systemname="Layer 4 - iPad players" path="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\">
@@ -864,12 +864,6 @@
    <LINKPOINT x="12930" y="3945">
    </LINKPOINT>
    </LINK>
-   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
-   <LINKPOINT x="3240" y="7838">
-   </LINKPOINT>
-   <LINKPOINT x="2670" y="7838">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="64" dstpinname="Layers in" srcnodeid="21" srcpinname="Output">
    </LINK>
    <NODE componentmode="Hidden" id="109" nodename="FileStream (DShow9)" systemname="FileStream (DShow9)">
@@ -932,4 +926,18 @@
    </NODE>
    <LINK dstnodeid="112" dstpinname="Audio" srcnodeid="109" srcpinname="Audio">
    </LINK>
+   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
+   <LINKPOINT x="3240" y="7838">
+   </LINKPOINT>
+   <LINKPOINT x="2670" y="7838">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="InABox" id="113" nodename="Renderer (TTY)" systemname="Renderer (TTY)">
+   <BOUNDS height="100" left="105" top="10200" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="2460" left="105" top="10200" type="Box" width="18195">
+   </BOUNDS>
+   <BOUNDS height="5010" left="3270" top="10785" type="Window" width="6240">
+   </BOUNDS>
+   </NODE>
    </PATCH>

@@ -25,6 +25,14 @@ namespace VVVV.Nodes.CLEye
         bool FIsRecording = false;
         private string FFilename = "";
 
+        public float Amplification = 1.0f;
+        public float CompressionAttack = 0.5f;
+        public float Gate = 0.0f;
+        public float GateDecay = 0.0f;
+
+        float FClipCompression = 1.0f;
+        float FGateCompression = 1.0f;
+
         string FTempFilename = "";
 #if WRITE_MONO
         int FDeviceID = -1;
@@ -205,21 +213,73 @@ namespace VVVV.Nodes.CLEye
             }
         }
 
+        private float lerp(float v1, float v2, float position)
+        {
+            return v1 * (1.0f - position) + v2 * position;
+        }
+        
         void waveInStream_DataAvailable(object sender, WaveInEventArgs e)
         {
-			float level = 0;
+            float level = 0;
+            float levelUncompressed = 0;
+            Int16 current;
+            float amplified;
+            float absAmplified;
+            byte[] amplifiedBytes;
 
-            float levelInner;
-            for (int i = 1; i < e.BytesRecorded; i += 4)
+            float compression = FClipCompression * FGateCompression;
+            float maxval = 0;
+
+            //damp compression back to 0
+            FClipCompression = lerp(FClipCompression, 1.0f, CompressionAttack);
+            if (Gate > 0.0f)
+                FGateCompression = lerp(FGateCompression, 0.0f, GateDecay);
+            else
+                FGateCompression = 1.0f;
+
+            for (int i = 0; i < e.BytesRecorded / 2; i++)
             {
-                levelInner = Math.Abs((float)e.Buffer[i]);
-				level += levelInner * levelInner;
-            }
-			level /= (float)e.BytesRecorded;
-			level = (float)Math.Sqrt(FLevel) / 255.0f;
 
-			if (level < 100) // i.e. not NaN
-				FLevel = level;
+                current = BitConverter.ToInt16(e.Buffer, i * 2);
+                amplified = (float)current * Amplification;
+                absAmplified = Math.Abs(amplified);
+
+                //check if apply compression from over volume
+                if (absAmplified > Int16.MaxValue)
+                    maxval = Math.Max(maxval, (float)absAmplified);
+
+                levelUncompressed += Math.Abs(amplified);
+
+                amplified *= compression;
+
+                //if still over volume, let's clip
+                if (Math.Abs(amplified) > Int16.MaxValue)
+                    amplified = amplified > 0 ? Int16.MinValue : Int16.MaxValue;
+
+                amplifiedBytes = BitConverter.GetBytes((Int16)amplified);
+                Buffer.BlockCopy(amplifiedBytes, 0, e.Buffer, i * 2, 2);
+
+                level += Math.Abs(amplified);
+            }
+
+            // calc levels
+            levelUncompressed /= (float)e.BytesRecorded * Int16.MaxValue;
+            level /= (float)e.BytesRecorded * Int16.MaxValue;
+            FLevel = level;
+
+
+            //if high level, open gate
+            if (Gate != 0)
+            {
+                if (levelUncompressed > Gate)
+                    FGateCompression = 1.0f;
+            }
+
+            //if high level, clip
+            if (maxval > 0.0f)
+                FClipCompression = lerp(FClipCompression, (float)(maxval / Int16.MaxValue), CompressionAttack);
+
+
             if (FIsRecording)
             {
                 writer.Write(e.Buffer, 0, e.BytesRecorded);
