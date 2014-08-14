@@ -6,8 +6,6 @@
 // PARAMETERS:
 // --------------------------------------------------------------------------------------------------
 
-#include "Bicubic.fxh"
-
 //transforms
 float4x4 tW: WORLD;        //the models world matrix
 float4x4 tV: VIEW;         //view matrix as set via Renderer (EX9)

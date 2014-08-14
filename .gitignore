@@ -7,3 +7,6 @@ Thumbs.db
 VVVV.Nodes.KC.DK001.Recorder/testrecordings
 *~.xml
 *Credentials.v4p
+
+packages/*
+!packages/repositories.config
