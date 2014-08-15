@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\Installation.Link\VVVV.Patches.Tests\Recorder.v4p" systemname="Recorder" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Tests\Recorder.v4p" locked="0">
-   <BOUNDS type="Window" left="1590" top="10545" width="12960" height="10440">
+   <BOUNDS type="Window" left="1590" top="7125" width="12960" height="13860">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
    </PACK>
@@ -25,7 +25,7 @@
    </PIN>
    </NODE>
    <NODE systemname="VideoIn (EX9.Texture)" filename="%VVVV%\lib\nodes\modules\EX9.Texture\VideoIn (EX9.Texture).v4p" nodename="VideoIn (EX9.Texture)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="1670" top="2210" width="100" height="100">
+   <BOUNDS type="Node" left="1760" top="860" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
@@ -61,9 +61,9 @@
    <LINK srcnodeid="2" srcpinname="Height" dstnodeid="0" dstpinname="Height">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2670" top="2640" width="800" height="240">
+   <BOUNDS type="Box" left="2760" top="1290" width="800" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2670" top="2640" width="0" height="0">
+   <BOUNDS type="Node" left="2760" top="1290" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -111,11 +111,11 @@
    <LINK srcnodeid="2" srcpinname="Width" dstnodeid="6" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="7">
-   <BOUNDS type="Node" left="1660" top="3670" width="100" height="100">
+   <BOUNDS type="Node" left="1750" top="2320" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1660" top="3670" width="2400" height="1800">
+   <BOUNDS type="Box" left="1750" top="2320" width="2400" height="1800">
    </BOUNDS>
-   <BOUNDS type="Window" left="9345" top="7155" width="6210" height="5055">
+   <BOUNDS type="Window" left="10815" top="21525" width="6210" height="5055">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -137,7 +137,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Info (EX9.Texture)" nodename="Info (EX9.Texture)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="3480" top="3200" width="100" height="100">
+   <BOUNDS type="Node" left="3570" top="1850" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
    </PIN>
@@ -171,9 +171,9 @@
    <LINK srcnodeid="0" srcpinname="Status" dstnodeid="11" dstpinname="Input String">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="2330" top="1770" width="800" height="240">
+   <BOUNDS type="Box" left="2420" top="420" width="800" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2330" top="1770" width="0" height="0">
+   <BOUNDS type="Node" left="2420" top="420" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="240">
    </PIN>
@@ -187,9 +187,9 @@
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Height">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1430" top="1780" width="800" height="240">
+   <BOUNDS type="Box" left="1520" top="430" width="800" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1430" top="1780" width="0" height="0">
+   <BOUNDS type="Node" left="1520" top="430" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="320">
    </PIN>
@@ -251,7 +251,7 @@
    <LINK srcnodeid="18" srcpinname="Height" dstnodeid="20" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="Quad (DX9)" filename="" nodename="Quad (DX9)" componentmode="Hidden" id="8">
-   <BOUNDS type="Node" left="1660" top="3190" width="100" height="100">
+   <BOUNDS type="Node" left="1660" top="1855" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
@@ -263,7 +263,7 @@
    <LINK srcnodeid="8" srcpinname="Layer" dstnodeid="7" dstpinname="Layers">
    </LINK>
    <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="23">
-   <BOUNDS type="Node" left="465" top="2550" width="100" height="100">
+   <BOUNDS type="Node" left="555" top="1200" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -391,6 +391,8 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="28" srcpinname="Output" dstnodeid="33" dstpinname="Input String">
    </LINK>
@@ -440,10 +442,122 @@
    </NODE>
    <LINK srcnodeid="27" srcpinname="Output String" dstnodeid="36" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="36" dstpinname="Input 2">
-   </LINK>
    <LINK srcnodeid="36" srcpinname="Output" dstnodeid="28" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="8" dstpinname="Texture">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="37" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3795" top="4320" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3795" top="4320" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Minimum Savers">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Output String" dstnodeid="17" dstpinname="Filename">
+   </LINK>
+   <NODE systemname="FrameDelay (String)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (String)" componentmode="Hidden" id="40">
+   <BOUNDS type="Node" left="8445" top="4740" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Quad (DX9)" nodename="Quad (DX9)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="3150" top="9390" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Transform Out" dstnodeid="41" dstpinname="Transform">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InABox" id="42">
+   <BOUNDS type="Node" left="3165" top="9915" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3165" top="9915" width="7290" height="6060">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4500" top="17445" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Layer" dstnodeid="42" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Pad (String)" nodename="Pad (String)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="5550" top="2715" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Padding" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Align" slicecount="1" values="Right">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="47" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Output" dstnodeid="36" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="Player (EX9.Texture Timebased)" filename="%VVVV%\lib\nodes\modules\EX9.Texture\Player (EX9.Texture Timebased).v4p" nodename="Player (EX9.Texture Timebased)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="1530" top="8250" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Play" slicecount="1" values="1" visible="1">
+   </PIN>
+   <PIN pinname="Loop" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Directory" visible="1">
+   </PIN>
+   <PIN pinname="Filemask" slicecount="1" values="*.png">
+   </PIN>
+   <PIN pinname="Number of previous frames to preload " slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Number of frames to preload" slicecount="1" values="60">
+   </PIN>
+   <PIN pinname="Reload" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Up Edge" dstnodeid="48" dstpinname="Reload">
+   </LINK>
+   <LINK srcnodeid="48" srcpinname="Texture" dstnodeid="41" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="BarSpread (Spreads)" nodename="BarSpread (Spreads)" componentmode="Hidden" id="49">
+   <BOUNDS type="Node" left="4365" top="7560" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Spread Count" slicecount="1" values="100">
+   </PIN>
+   <PIN pinname="Input" slicecount="1" values="100">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Output" dstnodeid="48" dstpinname="Play">
+   </LINK>
+   <NODE systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" id="50">
+   <BOUNDS type="Node" left="2625" top="7230" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" slicecount="1" values="100">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Output" dstnodeid="48" dstpinname="Directory">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Output" dstnodeid="50" dstpinname="Input">
    </LINK>
    </PATCH>

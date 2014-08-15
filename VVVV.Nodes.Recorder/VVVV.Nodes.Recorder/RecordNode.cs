@@ -73,33 +73,27 @@ namespace VVVV.Nodes.Recorder
 
                 public void Save(Surface surface, string filename)
                 {
-                    try
+                    CurrentState = State.Saving;
+
+                    var device = surface.Device as DeviceEx;
+                    var format = surface.Description.Format;
+
+                    FWidth = surface.Description.Width;
+                    FHeight = surface.Description.Height;
+                    FLength = FWidth * FHeight * 4;
+
+                    if (FBitmap == null || FBitmap.Width != FWidth || FBitmap.Height != FHeight)
                     {
-                        CurrentState = State.Saving;
-
-                        var device = surface.Device as DeviceEx;
-
-                        FWidth = surface.Description.Width;
-                        FHeight = surface.Description.Height;
-                        FLength = FWidth * FHeight * 4;
-
-                        if (FBitmap == null || FBitmap.Width != FWidth || FBitmap.Height != FHeight)
-                        {
-                            FBackGPUSurface = Surface.CreateOffscreenPlainEx(device, FWidth, FHeight, Format.A8R8G8B8, Pool.Default, Usage.None);
-                            FOffscreenSurface = Surface.CreateOffscreenPlainEx(device, FWidth, FHeight, Format.A8R8G8B8, Pool.SystemMemory, Usage.None);
-                            FBitmap = new Bitmap(FWidth, FHeight);
-                        }
-
-                        device.StretchRectangle(surface, FBackGPUSurface, TextureFilter.None);
-
-                        FFilename = filename;
-                        FThread = new Thread(ThreadedFunction);
-                        FThread.Start();
+                        FBackGPUSurface = Surface.CreateOffscreenPlainEx(device, FWidth, FHeight, format, Pool.Default, Usage.None);
+                        FOffscreenSurface = Surface.CreateOffscreenPlainEx(device, FWidth, FHeight, format, Pool.SystemMemory, Usage.None);
+                        FBitmap = new Bitmap(FWidth, FHeight);
                     }
-                    catch(Exception e)
-                    {
-                        Debug.Print(e.Message);
-                    }
+
+                    device.StretchRectangle(surface, FBackGPUSurface, TextureFilter.None);
+
+                    FFilename = filename;
+                    FThread = new Thread(ThreadedFunction);
+                    FThread.Start();
                 }
 
                 void ThreadedFunction()
