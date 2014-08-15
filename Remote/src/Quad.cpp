@@ -52,14 +52,22 @@ void Quad::draw(bool selected) {
 	this->meshOutline.draw();
 	
 	ofFill();
-	ofSetColor(selected ? 100 : 40);
+	ofSetColor(selected ? 200 : 20);
 	this->meshFill.draw();
 	ofPopStyle();
-	
+
 	ofPushMatrix();
 	ofMultMatrix(this->homography);
-	ofScale(2.0f / 140.0f, -2.0f / 140.0f);
-	ofxAssets::font("swisop3", 80).drawStringAsShapes("A", -60, 30);
+	ofScale(2.0f / 500.0f, -2.0f / 500.0f);
+	ofPushStyle();
+	ofSetColor(selected ? 0 : 255);
+	ofxAssets::font("swisop3", 100).drawStringAsShapes(TypeSelection::X().getCaptionForIndex(this->iType), -250, 200);
+	ofPopStyle();
+	
+	if (selected) {
+		ofLine(-0.05f, 0.0f, 0.05f, 0.0f);
+		ofLine(0.0f, -0.05f, 0.0f, 0.05f);
+	}
 	ofPopMatrix();
 }
 

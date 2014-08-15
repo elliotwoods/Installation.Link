@@ -3,6 +3,7 @@
 //----------
 Canvas::Canvas() {
 	this->selectedCorner = 0;
+	this->enableUpdateQuad = true;
 	
 	this->setWorkspaceAspect(1280.0f / 800.0f);
 	ofAddListener(this->onDraw, this, &Canvas::draw);
@@ -17,18 +18,75 @@ void Canvas::setConnection(shared_ptr<Connection> connection) {
 }
 
 //----------
+void Canvas::setProjectorSelection(shared_ptr<ProjectorSelection> projectorSelection) {
+	if (this->projectorSelection) {
+		ofRemoveListener(this->projectorSelection->onSelectIndex, this, &Canvas::callbackProjectorSelect);
+	}
+	this->projectorSelection = projectorSelection;
+	ofAddListener(projectorSelection->onSelectIndex, this, &Canvas::callbackProjectorSelect);
+}
+
+//----------
+void Canvas::setTypeSelection(shared_ptr<TypeSelection> typeSelection) {
+	if (this->typeSelection) {
+		ofRemoveListener(this->typeSelection->onTypeIndexSelection, this, &Canvas::callbackTypeSelect);
+	}
+	this->typeSelection = typeSelection;
+	ofAddListener(typeSelection->onTypeIndexSelection, this, &Canvas::callbackTypeSelect);
+	this->refresh();
+}
+
+//----------
+void Canvas::refresh() {
+	if (this->connection) {
+		auto & database = this->connection->getConnection();
+		if (database.isConnected()) {
+			auto quadTableResult = database.select("quads", "*", "ORDER BY id ASC");
+			
+			QuadMap resultQuads;
+			
+			for(auto & quadRowResult : quadTableResult) {
+				shared_ptr<Quad> resultQuad(new Quad(quadRowResult));
+				resultQuads[resultQuad->index] = resultQuad;
+			}
+			
+			int cacheSelection = -1;
+			if (this->selection) {
+				cacheSelection = selection->index;
+			}
+			this->quads = resultQuads;
+			if (cacheSelection != -1) {
+				this->setSelection(cacheSelection);
+			}
+		}
+		
+		if (this->typeSelection) {
+			this->enableUpdateQuad = false;
+			this->typeSelection->refresh();
+			this->enableUpdateQuad = true;
+		}
+	}
+}
+
+//----------
 void Canvas::addNew() {
 	if (this->connection) {
-		shared_ptr<Quad> newQuad(new Quad(this->getNextFreeIndex(), 0, 0));
+		shared_ptr<Quad> newQuad(new Quad(this->getNextFreeIndex(), this->projectorSelection->getSelectionIndex(), this->typeSelection->getSelectionDatabaseIndex()));
 		
-		newQuad->corners[0] = ofVec3f(10, 10, 0) * this->transform.getInverse();
-		newQuad->corners[1] = ofVec3f(this->getBounds().getWidth() - 10, 10, 0) * this->transform.getInverse();
-		newQuad->corners[2] = ofVec3f(this->getBounds().getWidth() - 10, this->getBounds().getHeight() -10, 0) * this->transform.getInverse();
-		newQuad->corners[3] = ofVec3f(10, this->getBounds().getHeight() -10, 0) * this->transform.getInverse();
+		float scaleOfNewInView = 0.5f;
+		const float left = this->getBounds().getWidth() / 2.0f - this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
+		const float right = this->getBounds().getWidth() / 2.0f + this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
+		const float top = this->getBounds().getHeight() / 2.0f - this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
+		const float bottom = this->getBounds().getHeight() / 2.0f + this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
+		newQuad->corners[0] = ofVec3f(left, top, 0) * this->transform.getInverse();
+		newQuad->corners[1] = ofVec3f(right, top, 0) * this->transform.getInverse();
+		newQuad->corners[2] = ofVec3f(right, bottom, 0) * this->transform.getInverse();
+		newQuad->corners[3] = ofVec3f(left, bottom, 0) * this->transform.getInverse();
 		
 		newQuad->update();
 		
 		this->quads.insert(pair<int, shared_ptr<Quad> >(newQuad->index, newQuad));
+		this->setSelection(newQuad);
 		
 		auto & database = this->connection->getConnection();
 		database.insert("quads", newQuad->getDatabaseRow());
@@ -48,8 +106,64 @@ void Canvas::deleteSelection() {
 }
 
 //----------
+void Canvas::bringSelectionToFront() {
+	if (this->selection && this->connection) {
+		auto cacheSelection = this->selection;
+		this->deleteSelection();
+		cacheSelection->index = this->getNextFreeIndex();
+		this->quads.insert(pair<int, shared_ptr<Quad> >(cacheSelection->index, cacheSelection));
+		this->setSelection(cacheSelection);
+		this->connection->getConnection().insert("quads", cacheSelection->getDatabaseRow());
+	}
+}
+
+//----------
 shared_ptr<Quad> Canvas::getSelection() {
 	return this->selection;
+}
+
+//----------
+void Canvas::setSelection(int index) {
+	auto findQuad = this->quads.find(index);
+	if (findQuad != this->quads.end()) {
+		this->setSelection(findQuad->second);
+	} else {
+		this->clearSelection();
+	}
+}
+
+//----------
+void Canvas::clearSelection() {
+	this->selection.reset();
+}
+
+//----------
+void Canvas::setSelection(shared_ptr<Quad> quad) {
+	this->selection = quad;
+	this->enableUpdateQuad = false;
+	this->typeSelection->setSelectionByDatabaseIndex(quad->iType);
+	this->enableUpdateQuad = true;
+}
+
+//----------
+ofVec2f Canvas::getSelectedCornerLocation() const {
+	if (this->selection) {
+		return this->selection->corners[this->selectedCorner];
+	} else {
+		return ofVec2f();
+	}
+}
+
+//----------
+ofMatrix4x4 Canvas::getViewTransform() const {
+	auto transform = this->transform;
+	
+	ofMatrix4x4 lastTransformPart;
+	lastTransformPart.translate(1.0f, 1.0f, 0.0f);
+	lastTransformPart.scale(this->getBounds().getWidth() / 2.0f, this->getBounds().getHeight() / 2.0f, 1.0f);
+	lastTransformPart.scale(this->getBounds().getHeight() / this->getBounds().getWidth(), 1.0f, 1.0f);
+	
+	return transform * lastTransformPart.getInverse();
 }
 
 //----------
@@ -57,7 +171,7 @@ int Canvas::getNextFreeIndex() const {
 	int nextFreeIndex = 0;
 	for(auto quad : this->quads) {
 		if (quad.first >= nextFreeIndex) {
-			nextFreeIndex++;
+			nextFreeIndex = quad.first + 1;
 		}
 	}
 	return nextFreeIndex;
@@ -70,29 +184,30 @@ void Canvas::draw() {
 			auto cornerPosition = (ofVec3f) this->selection->corners[i] * this->transform;
 
 			ofPushStyle();
+			ofFill();
+			ofSetLineWidth(0.0f);
 			if (this->selectedCorner == i) {
-				ofSetLineWidth(0.0f);
-				ofFill();
+				ofSetColor(255);
 			} else {
-				ofSetLineWidth(1.0f);
-				ofNoFill();
+				ofSetColor(0);
+				
 			}
-			ofCircle(cornerPosition, 10.0f);
+			ofCircle(cornerPosition, 30.0f);
+			ofNoFill();
+			ofSetLineWidth(2.0f);
+			ofSetColor(255);
+			ofCircle(cornerPosition, 30.0f);
 			ofPopStyle();
 		}
 	}
-	
-	stringstream status;
-	for(auto quad : this->quads) {
-		status << * quad.second << endl;
-	}
-	ofDrawBitmapString(status.str(), 10, 10);
 }
 
 //----------
 void Canvas::drawWorkspace() {
 	for(auto quad : this->quads) {
-		quad.second->draw(quad.second == this->selection);
+		if (quad.second->iProjector == projectorSelection->getSelectionIndex()) {
+			quad.second->draw(quad.second == this->selection);
+		}
 	}
 }
 
@@ -103,10 +218,15 @@ void Canvas::touchHit(ofxKCTouchGui::Touch & touch) {
 	
 	for(auto it = this->quads.rbegin(); it != this->quads.rend(); it++) {
 		auto quad = it->second;
+		if (quad->iProjector != this->projectorSelection->getSelectionIndex()) {
+			continue;
+		}
 		auto touchInQuadSpace = touchLocation * this->transform.getInverse() * quad->getTransform().getInverse();
 		
-		if (ofRectangle(-1, -1, 2, 2).inside(touchInQuadSpace)) {
-			this->selection = quad;
+		auto rectangle = quad == this->selection ? ofRectangle(-1.5, -1.5, 3, 3) : ofRectangle(-1, -1, 2, 2);
+		
+		if (rectangle.inside(touchInQuadSpace)) {
+			this->setSelection(quad);
 			
 			int closestCornerIndex = -1;
 			float closestCornerDistance = std::numeric_limits<float>::max();
@@ -128,27 +248,8 @@ void Canvas::touchHit(ofxKCTouchGui::Touch & touch) {
 }
 
 //----------
-void Canvas::refresh() {
-	if (this->connection) {
-		auto & database = this->connection->getConnection();
-		if (database.isConnected()) {
-			auto quadTableResult = database.select("quads", "*", "ORDER BY id ASC");
-			
-			QuadMap resultQuads;
-			
-			for(auto & quadRowResult : quadTableResult) {
-				shared_ptr<Quad> resultQuad(new Quad(quadRowResult));
-				resultQuads[resultQuad->index] = resultQuad;
-			}
-			
-			this->quads = resultQuads;
-		}
-	}
-}
-
-//----------
 void Canvas::updateSelectionOnServer() const {
-	if (this->selection) {
+	if (this->selection && this->enableUpdateQuad) {
 		auto row = this->selection->getDatabaseRow();
 		auto & database = this->connection->getConnection();
 		database.update("quads", row, "id=" + ofToString(this->selection->index));
@@ -173,11 +274,28 @@ void Canvas::touchMoved(ofxKCTouchGui::Touch & touch) {
 		}
 	} else if (this->selection && this->getTouchCount() == 3) {
 		for(int i=0; i<4; i++) {
-			this->selection->corners[i] += touchMovementInWorkspace;
+			this->selection->corners[i] += touchMovementInWorkspace / 3.0f;
 		}
 		this->selection->update();
 		this->updateSelectionOnServer();
 	} else if (this->getTouchCount() != 2) {
-		this->viewPosition -= touchMovementInWorkspace;
+		this->viewPosition -= touchMovementInWorkspace / (float) this->getTouchCount();
+	}
+}
+
+//----------
+void Canvas::callbackProjectorSelect(int & index) {
+	if (this->selection) {
+		if (this->selection->iProjector != index) {
+			this->clearSelection();
+		};
+	}
+}
+
+//----------
+void Canvas::callbackTypeSelect(int & index) {
+	if (this->selection) {
+		this->selection->iType = index;
+		this->updateSelectionOnServer();
 	}
 }

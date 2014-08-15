@@ -17,9 +17,15 @@ ofxMySQL & Connection::getConnection() {
 }
 
 //---------
+ofxOscSender & Connection::getOscSender() {
+	return this->osc;
+}
+
+//---------
 void Connection::update() {
 	if (!this->database.isConnected()) {
 		this->database.connect(this->hostname, this->username, this->password, this->dbname);
+		this->osc.setup(this->hostname, 4456);
 	}
 }
 

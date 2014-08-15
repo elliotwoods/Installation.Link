@@ -5,6 +5,8 @@
 
 #include "ofMain.h"
 
+#include "TypeSelection.h"
+
 struct Quad {
 public:
 	Quad(int index, int iProjector, int iType);
@@ -21,7 +23,7 @@ public:
 	int zOrder;
 	int iProjector;
 	int iType;
-	
+
 protected:
 	void init();
 	ofMesh meshOutline;
