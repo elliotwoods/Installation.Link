@@ -5,8 +5,8 @@
 
 #include "ofMain.h"
 
-#include "ofxiPhone.h"
-#include "ofxiPhoneExtras.h"
+#include "ofxiOS.h"
+#include "ofxiOSExtras.h"
 #include "ofxOsc.h"
 
 #include "ofxKCTouchGUI.h"
@@ -35,7 +35,7 @@
 #define MSG_SET_PRIORITY_0 8
 
 
-class DKOClientApp : public ofxiPhoneApp {
+class DKOClientApp : public ofxiOSApp {
 	
 public:
 	

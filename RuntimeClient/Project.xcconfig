@@ -3,12 +3,12 @@
 OF_PATH = ../../..
 
 //THIS HAS ALL THE HEADER AND LIBS FOR OF CORE
-#include "../../../libs/openFrameworksCompiled/project/iphone/CoreOF.xcconfig"
+#include "../../../libs/openFrameworksCompiled/project/ios/CoreOF.xcconfig"
 
 OTHER_LDFLAGS = $(OF_CORE_LIBS) 
 HEADER_SEARCH_PATHS = $(OF_CORE_HEADERS)
 
 COMPRESS_PNG_FILES = NO
 GCC_THUMB_SUPPORT = NO
-IPHONEOS_DEPLOYMENT_TARGET = 3.2
+IPHONEOS_DEPLOYMENT_TARGET = 3.1
 TARGETED_DEVICE_FAMILY = 1

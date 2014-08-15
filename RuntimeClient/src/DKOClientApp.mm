@@ -41,7 +41,7 @@ void DKOClientApp::longLoad()
 	ofSetFrameRate(30);
 	ofSetVerticalSync(true);
 	ofEnableSmoothing(); //pretty sure this doesn't work
-	ofxiPhoneSetOrientation(OFXIPHONE_ORIENTATION_PORTRAIT);
+	ofSetOrientation(OF_ORIENTATION_DEFAULT);//Set iOS to Orientation Portrait
 	//
 	////////////////////////////////////////////////////////
 	
@@ -135,7 +135,7 @@ void DKOClientApp::longLoad()
 	_GUI.pushElement(_btnReset);
 	_GUI.pushElement(_btnPriority);
 	//
-	_GUI.setSleepTimeout(60);
+	//_GUI.setSleepTimeout(60);
 	//
 	////////////////////////////////////////////////////////
 	
