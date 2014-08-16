@@ -196,7 +196,7 @@
    </LINK>
    <LINK dstnodeid="31" dstpinname="Input" srcnodeid="29" srcpinname="BPP">
    </LINK>
-   <NODE componentmode="FullScreen" id="39" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
+   <NODE componentmode="Hidden" id="39" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
    <BOUNDS height="270" left="615" top="5860" type="Node" width="5520">
    </BOUNDS>
    <BOUNDS height="1800" left="615" top="5860" type="Box" width="2400">
@@ -290,7 +290,7 @@
    <PIN pinname="[ From .." slicecount="1" values="2">
    </PIN>
    </NODE>
-   <NODE componentmode="FullScreen" id="40" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
+   <NODE componentmode="Hidden" id="40" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
    <BOUNDS height="270" left="615" top="7870" type="Node" width="5520">
    </BOUNDS>
    <BOUNDS height="1800" left="615" top="7870" type="Box" width="2400">
@@ -733,7 +733,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="3070" top="740" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" values="5,10">
+   <PIN pinname="Y Input Value" slicecount="2" values="10,20">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="s">
    </PIN>

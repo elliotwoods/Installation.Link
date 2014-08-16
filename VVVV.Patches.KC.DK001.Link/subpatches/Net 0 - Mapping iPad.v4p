@@ -857,6 +857,8 @@
    </PIN>
    <PIN pinname="Field Names" slicecount="1" values="|id, iProjector, iType, corner0x, corner0y, corner1x, corner1y, corner2x, corner2y, corner3x, corner3y, zOrder|">
    </PIN>
+   <PIN pinname="id" visible="1">
+   </PIN>
    </NODE>
    <LINK dstnodeid="48" dstpinname="SendQuery" srcnodeid="46" srcpinname="Output">
    </LINK>
@@ -1348,4 +1350,38 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE componentmode="Hidden" id="120" nodename="AsValue (String)" systemname="AsValue (String)">
+   <BOUNDS height="100" left="1200" top="4320" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="0" left="1200" top="4320" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="7440" top="5235" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="10" values="0,0,0,0,0,3,3,3,0,0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="id" dstnodeid="120" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="3400" y="3620">
+   </LINKPOINT>
+   <LINKPOINT x="1260" y="3620">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="122" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1200" top="9150" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1200" top="9150" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Index">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="120" srcpinname="Output" dstnodeid="122" dstpinname="Y Input Value">
+   </LINK>
    </PATCH>

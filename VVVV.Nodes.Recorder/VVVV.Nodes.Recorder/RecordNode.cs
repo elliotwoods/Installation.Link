@@ -128,6 +128,11 @@ namespace VVVV.Nodes.Recorder
                         {
                             FBitmap.UnlockBits(bitmapData);
                         }
+						var folder = Path.GetDirectoryName(FFilename);
+						if (!Directory.Exists(folder))
+						{
+							Directory.CreateDirectory(folder);
+						}
                         FBitmap.Save(FFilename);
                     }
                     catch (Exception e)

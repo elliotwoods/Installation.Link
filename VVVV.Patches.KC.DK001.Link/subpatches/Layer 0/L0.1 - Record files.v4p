@@ -30,7 +30,7 @@
    </NODE>
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Handle">
    </LINK>
-   <BOUNDS type="Window" left="19090" top="6110" width="14160" height="9490">
+   <BOUNDS type="Window" left="10270" top="8260" width="14160" height="9490">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
    </PACK>
@@ -271,7 +271,7 @@
    </PIN>
    <PIN pinname="Padding" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Size" slicecount="1" values="6" visible="1">
+   <PIN pinname="Size" slicecount="1" visible="1" values="6">
    </PIN>
    <PIN pinname="Align" slicecount="1" values="Right">
    </PIN>
@@ -469,5 +469,23 @@
    <LINK srcnodeid="28" srcpinname="Status" dstnodeid="30" dstpinname="Input String">
    </LINK>
    <LINK srcnodeid="19" srcpinname="Output String" dstnodeid="28" dstpinname="Extension">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="31" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10780" top="7120" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10780" top="7120" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Recording Complete|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Down Edge" dstnodeid="31" dstpinname="Y Input Value">
    </LINK>
    </PATCH>
