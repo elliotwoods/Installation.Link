@@ -580,16 +580,6 @@
    <PIN pinname="Application Title" slicecount="1" values="x64-Main">
    </PIN>
    </NODE>
-   <NODE systemname="ReceiveTexture (EX9.SharedTexture Network)" filename="..\..\..\..\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\ReceiveTexture (EX9.SharedTexture Network).v4p" nodename="ReceiveTexture (EX9.SharedTexture Network)" componentmode="Hidden" id="124">
-   <BOUNDS type="Node" left="5780" top="4620" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Window" left="21510" top="9410" width="9000" height="9050">
-   </BOUNDS>
-   <PIN pinname="Channel" slicecount="1" values="/camera1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="125" systemname="IOBox (String)">
    <BOUNDS type="Box" left="5780" top="3710" width="800" height="480">
    </BOUNDS>
@@ -610,10 +600,6 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <LINK srcnodeid="125" srcpinname="Output String" dstnodeid="124" dstpinname="Channel">
-   </LINK>
-   <LINK srcnodeid="124" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture">
-   </LINK>
    <NODE systemname="ShellExecute (Windows)" nodename="ShellExecute (Windows)" componentmode="Hidden" id="126">
    <BOUNDS type="Node" left="18400" top="1670" width="100" height="100">
    </BOUNDS>
@@ -730,4 +716,14 @@
    <PIN pinname="String Type" slicecount="1" values="String">
    </PIN>
    </NODE>
+   <NODE systemname="Layer 0 - Recorders" filename="subpatches\Layer 0 - Recorders.v4p" nodename="subpatches\Layer 0 - Recorders.v4p" componentmode="InAWindow" id="134">
+   <BOUNDS type="Node" left="5770" top="4570" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="26330" top="14940" width="9000" height="6000">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="134" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture">
+   </LINK>
    </PATCH>

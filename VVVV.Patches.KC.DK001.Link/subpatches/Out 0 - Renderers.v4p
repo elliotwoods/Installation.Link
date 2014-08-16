@@ -29,6 +29,8 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="Time" slicecount="1" values="10">
+   </PIN>
    </NODE>
    <NODE componentmode="InABox" id="27" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
    <BOUNDS height="100" left="4710" top="4910" type="Node" width="100">

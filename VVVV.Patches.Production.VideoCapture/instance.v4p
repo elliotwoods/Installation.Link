@@ -197,7 +197,7 @@
    </PIN>
    <PIN pinname="Type" pintype="Input" visible="-1" slicecount="1" values="Texture">
    </PIN>
-   <PIN pinname="Format" pintype="Input" visible="-1" slicecount="1" values="|No Specific|">
+   <PIN pinname="Format" pintype="Input" visible="1" slicecount="1" values="X8R8G8B8">
    </PIN>
    <PIN pinname="Mip Map Count" pintype="Input" visible="-1" slicecount="1" values="|1 mm|">
    </PIN>
