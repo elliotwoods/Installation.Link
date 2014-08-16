@@ -1,0 +1,65 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\N1.7 - Recording control.v4p" systemname="N1.7 - Recording control" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 1\N1.7 - Recording control.v4p">
+   <BOUNDS type="Window" left="16750" top="12650" width="9000" height="6000">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
+   <NODE systemname="VideoIn (DShow9)" nodename="VideoIn (DShow9)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="830" top="1190" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Framerate" slicecount="1" values="30">
+   </PIN>
+   <PIN pinname="Video" visible="1">
+   </PIN>
+   <PIN pinname="Video Format" slicecount="1" values="MJPG">
+   </PIN>
+   <PIN pinname="Driver" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="VideoTexture (EX9.Texture VMR9)" nodename="VideoTexture (EX9.Texture VMR9)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="820" top="1850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Video" visible="1">
+   </PIN>
+   <PIN pinname="Wait for every Nth frame" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Video" dstnodeid="1" dstpinname="Video">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="2" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="810" top="2390" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="810" top="2390" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="2" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Ord2Enum (Enumerations)" nodename="Ord2Enum (Enumerations)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2110" top="700" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Enum" dstnodeid="0" dstpinname="Driver">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2110" top="220" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2110" top="220" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Device Index|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Ord Value">
+   </LINK>
+   </PATCH>

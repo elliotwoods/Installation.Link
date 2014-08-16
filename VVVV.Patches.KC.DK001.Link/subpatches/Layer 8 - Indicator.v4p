@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
-   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 8 - Indicator.v4p" filename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 8 - Indicator.v4p" systemname="Layer 8 - Indicator">
-   <BOUNDS height="11115" left="14025" top="8070" type="Window" width="14070">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 8 - Indicator.v4p" filename="C:\jobs\kimchi and chips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 8 - Indicator.v4p" systemname="Layer 8 - Indicator">
+   <BOUNDS height="11115" left="5640" top="2355" type="Window" width="14070">
    </BOUNDS>
    <NODE componentmode="InABox" id="2" nodename="IOBox (Node)" systemname="IOBox (Node)">
    <BOUNDS height="100" left="480" top="8775" type="Node" width="100">
@@ -9,7 +9,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Layer" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layer">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="3" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
@@ -23,7 +23,7 @@
    </PIN>
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Recorder IDs|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Recorder IDs|">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="0">
    </PIN>
@@ -37,7 +37,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="8220" top="6690" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Projector XY|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Projector XY|">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -53,7 +53,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="6780" top="6210" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iProjector" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="iProjector">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -67,7 +67,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="6780" top="6210" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iType" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="iType">
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -103,7 +103,7 @@
    </BOUNDS>
    <BOUNDS height="270" left="3675" top="1755" type="Box" width="2880">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|&lt;-- must be the same as in small faces|" encoded="0">
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|&lt;-- must be the same as in small faces|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -233,6 +233,16 @@
    </PIN>
    <PIN pinname="Background Color" visible="1">
    </PIN>
+   <PIN pinname="Fullscreen Depthbuffer Format" slicecount="1" values="NONE">
+   </PIN>
+   <PIN pinname="Fullscreen Dimensions" slicecount="1" values="|1024 x 768|">
+   </PIN>
+   <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="NONE">
+   </PIN>
+   <PIN pinname="Windowed Depthbuffer Format" slicecount="1" values="NONE">
+   </PIN>
+   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="NONE">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="32" nodename="UniformScale (Transform)" systemname="UniformScale (Transform)">
    <BOUNDS height="100" left="1680" top="7560" type="Node" width="100">
@@ -269,7 +279,7 @@
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="Filename" slicecount="1" values="..\shaders\BicubicFilterKernel.hdr" encoded="0">
+   <PIN pinname="Filename" slicecount="1" encoded="0" values="..\shaders\BicubicFilterKernel.hdr">
    </PIN>
    </NODE>
    <LINK dstnodeid="23" dstpinname="Filter Texture" srcnodeid="41" srcpinname="Texture Out">
@@ -377,7 +387,7 @@
    </PIN>
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Indicate bang|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Indicate bang|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -581,7 +591,7 @@
    </BOUNDS>
    <BOUNDS height="270" left="660" top="6315" type="Box" width="495">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="quad" encoded="0">
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="quad">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -694,4 +704,6 @@
    </NODE>
    <LINK srcnodeid="85" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Select types">
    </LINK>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
    </PATCH>

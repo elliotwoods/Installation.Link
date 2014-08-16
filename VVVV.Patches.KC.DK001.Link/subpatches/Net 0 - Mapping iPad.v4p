@@ -167,6 +167,8 @@
    </PIN>
    <PIN pinname="Arguments" visible="1">
    </PIN>
+   <PIN pinname="OnReceive" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="33" nodename="AsValue (String)" systemname="AsValue (String)">
    <BOUNDS height="100" left="8775" top="3270" type="Node" width="100">
@@ -181,22 +183,6 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="33" dstpinname="Input" srcnodeid="34" srcpinname="Arguments">
-   </LINK>
-   <NODE componentmode="Hidden" id="32" nodename="S+H (Animation)" systemname="S+H (Animation)">
-   <BOUNDS height="270" left="8775" top="4410" type="Node" width="765">
-   </BOUNDS>
-   <BOUNDS height="0" left="8775" top="4410" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="11580" top="6495" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Set" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="32" dstpinname="Input" srcnodeid="33" srcpinname="Output">
    </LINK>
    <LINK dstnodeid="34" dstpinname="Input" linkstyle="VHV" srcnodeid="49" srcpinname="Output">
    <LINKPOINT x="7620" y="1855">
@@ -329,7 +315,7 @@
    </PIN>
    <BOUNDS height="8445" left="3765" top="2595" type="Window" width="10515">
    </BOUNDS>
-   <PIN pinname=" iViewPort" visible="1">
+   <PIN pinname=" iViewPort" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="20" nodename="AsValue (String)" systemname="AsValue (String)">
@@ -519,7 +505,7 @@
    </PIN>
    <PIN pinname="Mesh" visible="1">
    </PIN>
-   <PIN pinname="iViewPort" visible="1">
+   <PIN pinname="iViewPort" visible="1" slicecount="1" values="-1">
    </PIN>
    </NODE>
    <LINK dstnodeid="52" dstpinname="Layer 2" srcnodeid="63" srcpinname="Layer">
@@ -571,7 +557,7 @@
    </PIN>
    <PIN pinname="Projector XY" visible="1">
    </PIN>
-   <PIN pinname="Current iProjector" visible="1">
+   <PIN pinname="Current iProjector" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Type names" visible="1" slicecount="1" values="||">
    </PIN>
@@ -598,10 +584,6 @@
    <PIN pinname="Layer 3" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="68" dstpinname="Layer 1" srcnodeid="67" srcpinname="Layer">
-   </LINK>
-   <LINK dstnodeid="68" dstpinname="Layer 2" srcnodeid="52" srcpinname="Layer">
-   </LINK>
    <LINK dstnodeid="66" dstpinname="Input Node" linkstyle="VHV" srcnodeid="68" srcpinname="Layer">
    <LINKPOINT x="4960" y="10223">
    </LINKPOINT>
@@ -618,18 +600,6 @@
    <LINKPOINT x="3915" y="7020">
    </LINKPOINT>
    <LINKPOINT x="5940" y="7020">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="67" dstpinname="Current iProjector" hiddenwhenlocked="0" linkstyle="Bezier" srcnodeid="32" srcpinname="Output">
-   <LINKPOINT x="8775" y="6738">
-   </LINKPOINT>
-   <LINKPOINT x="6450" y="6688">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="63" dstpinname="iViewPort" linkstyle="Bezier" srcnodeid="32" srcpinname="Output">
-   <LINKPOINT x="8730" y="6430">
-   </LINKPOINT>
-   <LINKPOINT x="10395" y="6380">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="74" nodename="Divide (Value)" systemname="Divide (Value)">
@@ -725,7 +695,7 @@
    </BOUNDS>
    <BOUNDS height="0" left="7830" top="4410" type="Window" width="0">
    </BOUNDS>
-   <PIN pinname="Alpha" slicecount="1" values="0.5">
+   <PIN pinname="Alpha" slicecount="1" values="0.1">
    </PIN>
    <PIN pinname="Hue" slicecount="1" values="0">
    </PIN>
@@ -796,12 +766,6 @@
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="MySQLDataBase">
    </PIN>
    </NODE>
-   <LINK dstnodeid="24" dstpinname=" iViewPort" linkstyle="VHV" srcnodeid="32" srcpinname="Output">
-   <LINKPOINT x="8835" y="5201">
-   </LINKPOINT>
-   <LINKPOINT x="9195" y="5405">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="Hidden" id="94" nodename="AND (Boolean)" systemname="AND (Boolean)">
    <BOUNDS height="100" left="7800" top="4035" type="Node" width="100">
    </BOUNDS>
@@ -836,16 +800,6 @@
    </LINK>
    <LINK dstnodeid="94" dstpinname="Input 1" srcnodeid="95" srcpinname="Count">
    </LINK>
-   <NODE componentmode="Hidden" id="97" nodename="AND (Boolean)" systemname="AND (Boolean)">
-   <BOUNDS height="100" left="8955" top="4035" type="Node" width="100">
-   </BOUNDS>
-   <PIN pinname="Input 2" slicecount="1" visible="1" values="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input 1" visible="1">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" id="96" nodename="Count (Value)" systemname="Count (Value)">
    <BOUNDS height="100" left="8940" top="3720" type="Node" width="100">
    </BOUNDS>
@@ -854,18 +808,10 @@
    <PIN pinname="Count" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="97" dstpinname="Input 1" srcnodeid="96" srcpinname="Count">
-   </LINK>
    <LINK dstnodeid="96" dstpinname="Input" linkstyle="VHV" srcnodeid="33" srcpinname="Output">
    <LINKPOINT x="8835" y="3623">
    </LINKPOINT>
    <LINKPOINT x="8940" y="3623">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="32" dstpinname="Set" linkstyle="VHV" srcnodeid="97" srcpinname="Output">
-   <LINKPOINT x="9015" y="4343">
-   </LINKPOINT>
-   <LINKPOINT x="9480" y="4343">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="48" nodename="Select (MySQL Network)" systemname="Select (MySQL Network)" filename="%VVVV%\addonpack\lib\nodes\plugins\MySQLNodes.dll">
@@ -1207,11 +1153,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="113" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="18400" top="4380" width="800" height="240">
+   <BOUNDS type="Box" left="18810" top="1560" width="800" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="18400" top="4380" width="0" height="0">
+   <BOUNDS type="Node" left="18810" top="1560" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="4">
+   <PIN pinname="Y Input Value" slicecount="1" values="2">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1222,9 +1168,17 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="107" dstpinname="Frame Count">
+   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="107" dstpinname="Frame Count" linkstyle="Bezier">
+   <LINKPOINT x="18830" y="3370">
+   </LINKPOINT>
+   <LINKPOINT x="18430" y="3370">
+   </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Frame Count">
+   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="112" dstpinname="Frame Count" linkstyle="Bezier">
+   <LINKPOINT x="18840" y="3370">
+   </LINKPOINT>
+   <LINKPOINT x="19180" y="3370">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="33" srcpinname="Output" dstnodeid="112" dstpinname="Input">
    </LINK>
@@ -1237,7 +1191,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Alpha" slicecount="1" values="0.05">
+   <PIN pinname="Alpha" slicecount="1" values="0.1">
    </PIN>
    </NODE>
    <NODE componentmode="InAWindow" filename="..\shaders\Select viewport.fx" id="115" nodename="..\shaders\Select viewport.fx" systemname="Select viewport (EX9.Effect)">
@@ -1314,12 +1268,6 @@
    </LINK>
    <LINK srcnodeid="117" srcpinname="Y Output Value" dstnodeid="107" dstpinname="Reset">
    </LINK>
-   <LINK srcnodeid="115" srcpinname="Layer" dstnodeid="68" dstpinname="Layer 3" linkstyle="Bezier">
-   <LINKPOINT x="18180" y="8205">
-   </LINKPOINT>
-   <LINKPOINT x="9810" y="8205">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Scale (Transform)" nodename="Scale (Transform)" componentmode="Hidden" id="118">
    <BOUNDS type="Node" left="16700" top="5130" width="100" height="100">
    </BOUNDS>
@@ -1330,4 +1278,74 @@
    </NODE>
    <LINK srcnodeid="118" srcpinname="Transform Out" dstnodeid="111" dstpinname="Transform In">
    </LINK>
+   <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="68" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="52" srcpinname="Layer" dstnodeid="68" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="115" srcpinname="Layer" dstnodeid="68" dstpinname="Layer 3" linkstyle="Bezier">
+   <LINKPOINT x="18180" y="8205">
+   </LINKPOINT>
+   <LINKPOINT x="9810" y="8205">
+   </LINKPOINT>
+   </LINK>
+   <NODE componentmode="Hidden" id="32" nodename="Queue (Spreads)" systemname="Queue (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll">
+   <BOUNDS height="270" left="8775" top="4410" type="Node" width="765">
+   </BOUNDS>
+   <BOUNDS height="0" left="8775" top="4410" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="11580" top="6495" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Insert" visible="1">
+   </PIN>
+   <PIN pinname="Frame Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="32" dstpinname="Input" srcnodeid="33" srcpinname="Output">
+   </LINK>
+   <LINK dstnodeid="67" dstpinname="Current iProjector" hiddenwhenlocked="0" linkstyle="Bezier" srcnodeid="32" srcpinname="Output">
+   <LINKPOINT x="8775" y="6738">
+   </LINKPOINT>
+   <LINKPOINT x="6450" y="6688">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="63" dstpinname="iViewPort" linkstyle="Bezier" srcnodeid="32" srcpinname="Output">
+   <LINKPOINT x="8730" y="6430">
+   </LINKPOINT>
+   <LINKPOINT x="10395" y="6380">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="24" dstpinname=" iViewPort" linkstyle="VHV" srcnodeid="32" srcpinname="Output">
+   <LINKPOINT x="8835" y="5201">
+   </LINKPOINT>
+   <LINKPOINT x="9195" y="5405">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="OnReceive" dstnodeid="32" dstpinname="Insert">
+   </LINK>
+   <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="32" dstpinname="Frame Count" linkstyle="Bezier">
+   <LINKPOINT x="18810" y="3100">
+   </LINKPOINT>
+   <LINKPOINT x="9310" y="3100">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="119" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="14120" top="710" width="1810" height="230">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14120" top="710" width="1810" height="230">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|da eun lee. sang eun lee|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
    </PATCH>

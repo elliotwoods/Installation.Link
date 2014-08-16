@@ -1,8 +1,8 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
-   <BOUNDS height="13350" left="0" top="3030" type="Window" width="18600">
+   <BOUNDS height="13350" left="2010" top="3670" type="Window" width="22490">
    </BOUNDS>
-   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad">
+   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
    <BOUNDS height="100" left="2580" top="4755" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="11700" left="5890" top="0" type="Window" width="21150">
@@ -47,7 +47,7 @@
    <NODE componentmode="Hidden" filename="subpatches\Layer 2 - Big faces.v4p" id="27" nodename="subpatches\Layer 2 - Big faces.v4p" systemname="Layer 2 - Big faces">
    <BOUNDS height="270" left="3240" top="6075" type="Node" width="3450">
    </BOUNDS>
-   <BOUNDS height="7380" left="3675" top="3210" type="Window" width="9990">
+   <BOUNDS height="7380" left="15630" top="8610" type="Window" width="9990">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1">
    </PIN>
@@ -59,7 +59,7 @@
    </PIN>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Color" visible="1" slicecount="6" values="|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|,|0.00000,1.00000,0.00000,1.00000|">
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    <BOUNDS left="3240" top="6075" type="Box">
    </BOUNDS>
@@ -182,12 +182,12 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InAWindow" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers">
+   <NODE componentmode="Hidden" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers">
    <BOUNDS height="100" left="1905" top="8820" type="Node" width="100">
    </BOUNDS>
-   <PIN pinname="Layers in" visible="1">
+   <PIN pinname="Layers in" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS height="9075" left="2580" top="3045" type="Window" width="11235">
+   <BOUNDS height="9070" left="21470" top="7930" type="Window" width="11230">
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" id="66" nodename="Memory (Debug ex9)" systemname="Memory (Debug ex9)">
@@ -429,7 +429,7 @@
    <LINK dstnodeid="72" dstpinname="Y Input Value" srcnodeid="101" srcpinname="Position Out">
    </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Layer 8 - Indicator.v4p" id="102" nodename="subpatches\Layer 8 - Indicator.v4p" systemname="Layer 8 - Indicator">
-   <BOUNDS height="100" left="16410" top="6675" type="Node" width="100">
+   <BOUNDS height="100" left="16440" top="6565" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="11115" left="5640" top="2355" type="Window" width="14070">
    </BOUNDS>
@@ -447,21 +447,21 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="102" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3165" y="5400">
+   <LINKPOINT x="3175" y="5363">
    </LINKPOINT>
-   <LINKPOINT x="16440" y="5400">
+   <LINKPOINT x="16460" y="5327">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="102" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3705" y="5400">
+   <LINKPOINT x="3715" y="5363">
    </LINKPOINT>
-   <LINKPOINT x="16800" y="5400">
+   <LINKPOINT x="16820" y="5327">
    </LINKPOINT>
    </LINK>
    <LINK dstnodeid="102" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4260" y="5400">
+   <LINKPOINT x="4270" y="5363">
    </LINKPOINT>
-   <LINKPOINT x="17160" y="5400">
+   <LINKPOINT x="17180" y="5327">
    </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Keys 0 - Switch mode.v4p" id="104" nodename="subpatches\Keys 0 - Switch mode.v4p" systemname="Keys 0 - Switch mode">
@@ -499,8 +499,6 @@
    <LINK dstnodeid="28" dstpinname="Layer 6" srcnodeid="102" srcpinname="Layer">
    </LINK>
    <LINK dstnodeid="28" dstpinname="Layer 5" srcnodeid="79" srcpinname="Layers out">
-   </LINK>
-   <LINK dstnodeid="64" dstpinname="Layers in" srcnodeid="21" srcpinname="Output">
    </LINK>
    <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
    <LINKPOINT x="3240" y="7838">
@@ -568,26 +566,168 @@
    </NODE>
    <LINK srcnodeid="116" srcpinname="Y Output Value" dstnodeid="114" dstpinname="Update">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="118" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="15380" top="1900" width="1410" height="590">
+   <NODE systemname="FullscreenQuad (DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\FullscreenQuad (DX9).v4p" nodename="FullscreenQuad (DX9)" componentmode="Hidden" id="123">
+   <BOUNDS type="Node" left="6570" top="9140" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Node" left="15380" top="1900" width="0" height="0">
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
+   </LINK>
+   <NODE systemname="VVVV (VVVV)" nodename="VVVV (VVVV)" componentmode="Hidden" id="-11">
+   <BOUNDS type="Node" left="14680" top="660" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Default" slicecount="1" values="192.168.1.1">
+   <PIN pinname="Application Title" slicecount="1" values="x64-Main">
+   </PIN>
+   </NODE>
+   <NODE systemname="ReceiveTexture (EX9.SharedTexture Network)" filename="..\..\..\..\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\ReceiveTexture (EX9.SharedTexture Network).v4p" nodename="ReceiveTexture (EX9.SharedTexture Network)" componentmode="Hidden" id="124">
+   <BOUNDS type="Node" left="5780" top="4620" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Window" left="21510" top="9410" width="9000" height="9050">
+   </BOUNDS>
+   <PIN pinname="Channel" slicecount="1" values="/camera1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="125" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="5780" top="3710" width="800" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5780" top="3710" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="2" values="/camera1,/camera2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
    </PIN>
    <PIN pinname="File Mask" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
-   <PIN pinname="String Type" slicecount="1" values="IP">
+   <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Rows" slicecount="1" values="3">
+   <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Input String" visible="1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Standard Gateway|">
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <LINK srcnodeid="114" srcpinname="Standard Gateway" dstnodeid="118" dstpinname="Input String">
+   <LINK srcnodeid="125" srcpinname="Output String" dstnodeid="124" dstpinname="Channel">
    </LINK>
+   <LINK srcnodeid="124" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="ShellExecute (Windows)" nodename="ShellExecute (Windows)" componentmode="Hidden" id="126">
+   <BOUNDS type="Node" left="18400" top="1670" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Do Execute" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Commandline Arguments" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="127" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="18410" top="530" width="1270" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18410" top="530" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="..\..\..\..\vvvv-sdk\vvvv45\vvvv.exe">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="cmd.exe">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|Windows Executable (*.exe, *.com, *.bat)||*.exe;*.com;*.bat|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="127" srcpinname="Output String" dstnodeid="126" dstpinname="File">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="128" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="18630" top="950" width="1570" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18630" top="950" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="/allowmultiple">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="129" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="18390" top="2050" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18390" top="2050" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="126" srcpinname="Result" dstnodeid="129" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="130">
+   <BOUNDS type="Node" left="20640" top="540" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="20640" top="540" width="800" height="240">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" values="..\VVVV.Patches.Production.VideoCapture\main.v4p">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="131">
+   <BOUNDS type="Node" left="20460" top="1060" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" slicecount="1" values="|/o |">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="130" srcpinname="Output String" dstnodeid="131" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="132">
+   <BOUNDS type="Node" left="18640" top="1300" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Intersperse" slicecount="1" values="Space">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="128" srcpinname="Output String" dstnodeid="132" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="132" srcpinname="Output" dstnodeid="126" dstpinname="Commandline Arguments">
+   </LINK>
+   <LINK srcnodeid="131" srcpinname="Output" dstnodeid="132" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="133" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="18370" top="2370" width="3830" height="230">
+   </BOUNDS>
+   <BOUNDS type="Box" left="18370" top="2370" width="3830" height="230">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|//this part loads the video captures in a 32bit process|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="String">
+   </PIN>
+   </NODE>
    </PATCH>

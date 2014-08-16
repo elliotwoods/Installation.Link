@@ -1,11 +1,11 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Out 0 - Renderers.v4p" locked="0">
-   <BOUNDS height="9075" left="2580" top="3045" type="Window" width="11235">
+   <BOUNDS height="9070" left="21470" top="7930" type="Window" width="11230">
    </BOUNDS>
    <NODE componentmode="InABox" id="1" nodename="IOBox (Node)" systemname="IOBox (Node)">
-   <BOUNDS height="100" left="180" top="360" type="Node" width="100">
+   <BOUNDS height="100" left="180" top="340" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="180" top="360" type="Box" width="795">
+   <BOUNDS height="240" left="180" top="340" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="7485" top="11010" type="Window" width="215">
    </BOUNDS>
@@ -331,18 +331,6 @@
    <LINK dstnodeid="44" dstpinname="Y Input Value" srcnodeid="40" srcpinname="Actual Backbuffer Width">
    </LINK>
    <LINK dstnodeid="43" dstpinname="Y Input Value" srcnodeid="40" srcpinname="Actual Backbuffer Height">
-   </LINK>
-   <LINK dstnodeid="39" dstpinname="Layers" srcnodeid="1" srcpinname="Output Node" linkstyle="Bezier">
-   <LINKPOINT x="210" y="2700">
-   </LINKPOINT>
-   <LINKPOINT x="630" y="2360">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="40" dstpinname="Layers" srcnodeid="1" srcpinname="Output Node" linkstyle="Bezier">
-   <LINKPOINT x="210" y="3720">
-   </LINKPOINT>
-   <LINKPOINT x="630" y="3380">
-   </LINKPOINT>
    </LINK>
    <NODE componentmode="Hidden" id="62" nodename="ZWriteEnable (EX9.RenderState)" systemname="ZWriteEnable (EX9.RenderState)">
    <BOUNDS height="100" left="7545" top="3510" type="Node" width="100">
@@ -746,32 +734,8 @@
    <LINKPOINT x="3105" y="4309">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="95" border="0">
-   <BOUNDS type="Node" left="2760" top="7490" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2760" top="7490" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="70860" top="3460" width="6220" height="5060">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1">
-   </PIN>
-   <PIN pinname="Transformations Index" visible="1" pintype="Input" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Viewport" visible="1" pintype="Input" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Windowed Depthbuffer Format" slicecount="1" values="D24X8">
-   </PIN>
-   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="8">
-   </PIN>
-   <PIN pinname="Fullscreen Antialiasing Quality Level" slicecount="1" values="8">
-   </PIN>
-   <PIN pinname="Fullscreen Depthbuffer Format" slicecount="1" values="D24X8">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="95" dstpinname="Layers">
+   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="40" dstpinname="Layers">
    </LINK>
-   <LINK srcnodeid="42" srcpinname="Viewports" dstnodeid="95" dstpinname="Viewport">
-   </LINK>
-   <LINK srcnodeid="41" srcpinname="Output" dstnodeid="95" dstpinname="Transformations Index">
+   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="39" dstpinname="Layers">
    </LINK>
    </PATCH>
