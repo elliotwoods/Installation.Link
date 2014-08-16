@@ -289,7 +289,7 @@
    </PIN>
    <PIN pinname="Backbuffer Width" slicecount="1" values="512">
    </PIN>
-   <PIN pinname="Backbuffer Height" slicecount="1" values="1024">
+   <PIN pinname="Backbuffer Height" slicecount="1" values="2048">
    </PIN>
    </NODE>
    <LINK dstnodeid="26" dstpinname="Source" srcnodeid="27" srcpinname="GDI Out">

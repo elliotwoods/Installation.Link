@@ -2,7 +2,7 @@
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
    <BOUNDS height="13350" left="2010" top="3670" type="Window" width="22490">
    </BOUNDS>
-   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
+   <NODE componentmode="InAWindow" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
    <BOUNDS height="100" left="2580" top="4755" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="11700" left="5890" top="0" type="Window" width="21150">
