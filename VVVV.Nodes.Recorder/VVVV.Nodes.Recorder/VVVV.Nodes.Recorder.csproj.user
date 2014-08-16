@@ -6,6 +6,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>c:\vvvv\vvvv_45beta32.1_x64\vvvv.exe</StartProgram>
+    <StartProgram>c:\vvvv\vvvv_45beta32.1_x86\vvvv.exe</StartProgram>
   </PropertyGroup>
 </Project>

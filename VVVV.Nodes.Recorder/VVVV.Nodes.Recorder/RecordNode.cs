@@ -17,6 +17,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
+using System.Drawing.Imaging;
+using System.Diagnostics;
 
 #endregion usings
 
@@ -32,8 +35,134 @@ namespace VVVV.Nodes.Recorder
 	#endregion PluginInfo
 	public class RecordNode : IPluginEvaluate, IPartImportsSatisfiedNotification, IDisposable
 	{
-		class Instance
+		class Instance : IDisposable
 		{
+            class Saver : IDisposable
+            {
+                public enum State
+                {
+                    Available,
+                    Saving
+                }
+
+                byte[] FData = null;
+                Bitmap FBitmap = null;
+                Thread FThread;
+                string FFilename;
+                Surface FBackGPUSurface;
+                Surface FOffscreenSurface;
+
+                int FWidth;
+                int FHeight;
+                int FLength;
+
+                public State CurrentState {get; private set; }
+
+                public bool Available
+                {
+                    get
+                    {
+                        return CurrentState == State.Available;
+                    }
+                }   
+
+                public Saver()
+                {
+                    CurrentState = State.Available;
+                }
+
+                public void Save(Surface surface, string filename)
+                {
+                    CurrentState = State.Saving;
+
+                    var device = surface.Device as DeviceEx;
+                    var format = surface.Description.Format;
+
+                    FWidth = surface.Description.Width;
+                    FHeight = surface.Description.Height;
+                    FLength = FWidth * FHeight * 4;
+
+                    if (FBitmap == null || FBitmap.Width != FWidth || FBitmap.Height != FHeight)
+                    {
+                        FBackGPUSurface = Surface.CreateOffscreenPlainEx(device, FWidth, FHeight, format, Pool.Default, Usage.None);
+                        FOffscreenSurface = Surface.CreateOffscreenPlainEx(device, FWidth, FHeight, format, Pool.SystemMemory, Usage.None);
+                        FBitmap = new Bitmap(FWidth, FHeight);
+                    }
+
+                    device.StretchRectangle(surface, FBackGPUSurface, TextureFilter.None);
+
+                    FFilename = filename;
+                    FThread = new Thread(ThreadedFunction);
+                    FThread.Start();
+                }
+
+                void ThreadedFunction()
+                {
+                    try
+                    {
+                        if (FData == null || FData.Length != FLength)
+                        {
+                            FData = new byte[FLength];
+                        }
+
+                        Surface.FromSurface(FOffscreenSurface, FBackGPUSurface, Filter.None, 0);
+
+                        var bitmapData = FBitmap.LockBits(new Rectangle(0, 0, FWidth, FHeight),
+                            ImageLockMode.WriteOnly,
+                            PixelFormat.Format32bppRgb);
+                        try
+                        {
+                            var rect = FOffscreenSurface.LockRectangle(LockFlags.ReadOnly);
+                            try
+                            {
+                                rect.Data.Read(FData, 0, FLength);
+                            }
+                            finally
+                            {
+                                FOffscreenSurface.UnlockRectangle();
+                            }
+
+                            Marshal.Copy(FData, 0, bitmapData.Scan0, FLength);
+                        }
+                        finally
+                        {
+                            FBitmap.UnlockBits(bitmapData);
+                        }
+                        FBitmap.Save(FFilename);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Print(e.Message);
+                    }
+                    finally
+                    {
+                        CurrentState = State.Available;
+                    }
+                }
+
+                public void Dispose()
+                {
+                    if (FThread != null)
+                    {
+                        FThread.Join();
+                    }
+                    if (FBitmap != null)
+                    {
+                        FBitmap.Dispose();
+                        FBitmap = null;
+                    }
+                    if (FBackGPUSurface != null)
+                    {
+                        FBackGPUSurface.Dispose();
+                        FBackGPUSurface = null;
+                    }
+                    if (FOffscreenSurface != null)
+                    {
+                        FOffscreenSurface.Dispose();
+                        FOffscreenSurface = null;
+                    }
+                }
+            }
 			public enum TextureType
 			{
 				None,
@@ -54,13 +183,11 @@ namespace VVVV.Nodes.Recorder
 			Usage FUsage;
 
 			SlimDX.Direct3D9.Texture FTextureShared = null;
-			Surface FSurfaceOffscreen;
 
-			byte[] FData = null;
+            List<Saver> FSavers = new List<Saver>();
 
 			public Instance()
 			{
-				Mogre.DDSCodec.Startup();
 				this.FContext = new Direct3DEx();
 				this.FHiddenControl = new Control();
 			}
@@ -155,10 +282,6 @@ namespace VVVV.Nodes.Recorder
 					BackBufferHeight = this.FHeight
 				});
 
-				this.FSurfaceOffscreen = Surface.CreateOffscreenPlainEx(FDevice, FWidth, FHeight, Format.A8R8G8B8, Pool.SystemMemory, Usage.None);
-
-				this.FData = new byte[FWidth * FHeight * 4];
-
 				this.FInitialised = true;
 			}
 
@@ -170,65 +293,64 @@ namespace VVVV.Nodes.Recorder
 					this.FDevice = null;
 				}
 
-				if (this.FSurfaceOffscreen != null)
-				{
-					this.FSurfaceOffscreen.Dispose();
-					this.FSurfaceOffscreen = null;
-				}
+                foreach(var saver in FSavers)
+                {
+                    saver.Dispose();
+                }
+                FSavers.Clear();
 
 				FInitialised = false;
-				FData = null;
 			}
 
-			public byte[] ReadBack()
+			public void WriteImage(string filename)
 			{
-				if (FInitialised)
+                if (FInitialised)
 				{
-					Surface.FromSurface(FSurfaceOffscreen, FTextureShared.GetSurfaceLevel(0), Filter.None, 0xFFFFFF);
+                    var saver = GetAvailableSaver();
+                    saver.Save(FTextureShared.GetSurfaceLevel(0), filename);
+                }
+            }
 
-					bool success = false;
-					var rect = FSurfaceOffscreen.LockRectangle(LockFlags.ReadOnly);
-					try
-					{
-						rect.Data.Read(FData, 0, FData.Length);
-						success = true;
-					}
-					catch(Exception e)
-					{
+            Saver GetAvailableSaver()
+            {
+                foreach(var saver in FSavers)
+                {
+                    if (saver.Available)
+                    {
+                        return saver;
+                    }
+                }
 
-					}
-					finally
-					{
-						FSurfaceOffscreen.UnlockRectangle();
-					}
+                var newSaver = new Saver();
+                FSavers.Add(newSaver);
+                return newSaver;
+            }
 
-					if (success)
-					{
-						return FData;
-					}
-				}
+            public void CleanCompleteSavers(int minimumSavers)
+            {
+                HashSet<Saver> toRemove = new HashSet<Saver>();
 
-				return null;
-			}
+                foreach(var saver in FSavers)
+                {
+                    if (FSavers.Count <= minimumSavers)
+                    {
+                        return;
+                    }
+                    if (saver.Available)
+                    {
+                        saver.Dispose();
+                        toRemove.Add(saver);
+                    }
+                }
 
-			public unsafe void WriteImage(string filename)
-			{
-				var data = ReadBack();
-				if (data == null)
-				{
-					throw(new Exception("No data"));
-				}
-				var codec = Mogre.Codec.GetCodec("dds");
-				fixed(byte * dataFixed = &data[0])
-				{
-					var memory = new Mogre.MemoryDataStream((void*) dataFixed, (uint) data.Length);
-					var memoryPtr = new Mogre.MemoryDataStreamPtr(memory);
-					var codecData = new Mogre.Codec.CodecData();
-					var codecDataPtr = new Mogre.Codec.CodecDataPtr(codecData);
-					codec.CodeToFile(memoryPtr, filename, codecDataPtr);
-				}
-			}
-		}
+                FSavers.RemoveAll(saver => toRemove.Contains(saver));
+            }
+
+            public void Dispose()
+            {
+                Deallocate();
+            }
+        }
 		#region fields & pins
 #pragma warning disable 0649
 		[Input("Width")]
@@ -245,6 +367,9 @@ namespace VVVV.Nodes.Recorder
 
 		[Input("Handle")]
 		IDiffSpread<uint> FInHandle;
+
+        [Input("Minimum Savers", DefaultValue=0)]
+        ISpread<int> FInMinimumSavers;
 
 		[Input("Filename", StringType=StringType.Filename)]
 		ISpread<string> FInFilename;
@@ -284,6 +409,7 @@ namespace VVVV.Nodes.Recorder
 			{
 				Initialise();
 			}
+            FInstance.CleanCompleteSavers(FInMinimumSavers[0]);
 		}
 
 		void Initialise()
@@ -322,6 +448,7 @@ namespace VVVV.Nodes.Recorder
 
 		public void Dispose()
 		{
+            FInstance.Dispose();
 			FHDEHost.MainLoop.OnRender -= MainLoop_OnRender;
 			FHDEHost.MainLoop.OnPresent -= MainLoop_OnPresent;
 		}
