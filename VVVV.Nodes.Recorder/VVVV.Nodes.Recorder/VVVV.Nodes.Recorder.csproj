@@ -111,6 +111,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileTextureBaseNode.cs" />
+    <Compile Include="FileTextureNodes.cs" />
     <Compile Include="PlayNode.cs" />
     <Compile Include="RecordNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

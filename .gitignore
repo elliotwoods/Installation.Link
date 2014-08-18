@@ -35,3 +35,5 @@ Release/
 *~.xml
 
 *.o
+
+Recordings/*

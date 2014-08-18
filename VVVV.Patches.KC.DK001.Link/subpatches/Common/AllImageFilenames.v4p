@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p" systemname="AllImageFilenames" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p">
-   <BOUNDS type="Window" left="26860" top="8040" width="9000" height="10560">
+   <BOUNDS type="Window" left="26860" top="12600" width="9000" height="6000">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
    </PACK>
@@ -490,26 +490,6 @@
    </NODE>
    <LINK srcnodeid="13" srcpinname="Output" dstnodeid="15" dstpinname="Select types">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7280" top="340" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="7280" top="340" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Do">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Select (Value)" nodename="Select (Value)" componentmode="Hidden" id="17" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll">
    <BOUNDS type="Node" left="4430" top="2510" width="2780" height="270">
    </BOUNDS>
@@ -628,12 +608,40 @@
    <PIN pinname="Input 2" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="25" srcpinname="Output" dstnodeid="24" dstpinname="Set">
-   </LINK>
    <LINK srcnodeid="23" srcpinname="Output" dstnodeid="25" dstpinname="Input 1" linkstyle="VHV">
    <LINKPOINT x="6480" y="7540">
    </LINKPOINT>
    <LINKPOINT x="3300" y="7540">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="4080" top="7690" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="27">
+   <BOUNDS type="Node" left="7990" top="380" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7990" top="380" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Update">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="26" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Output" dstnodeid="26" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="24" dstpinname="Set">
    </LINK>
    </PATCH>

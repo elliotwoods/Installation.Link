@@ -311,7 +311,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 2" visible="1" slicecount="1" values="-0.04">
+   <PIN pinname="Input 2" visible="1" slicecount="11" values="-0.04">
    </PIN>
    <PIN pinname="Input" visible="1" slicecount="1" values="1">
    </PIN>
@@ -347,8 +347,6 @@
    <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="36" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Output" dstnodeid="28" dstpinname="X">
-   </LINK>
-   <LINK srcnodeid="25" srcpinname="Output" dstnodeid="30" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="36" srcpinname="Output" dstnodeid="25" dstpinname="Input 1">
    </LINK>
@@ -389,5 +387,23 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="12" srcpinname="Hits" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="39" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7410" top="6920" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7410" top="6920" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Input Index|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Input Index" dstnodeid="39" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="36" srcpinname="Output" dstnodeid="30" dstpinname="Input 2">
    </LINK>
    </PATCH>

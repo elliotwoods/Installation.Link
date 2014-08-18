@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\L0.1 - Record files.v4p" systemname="L0.1 - Texture preview" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\L0.1 - Texture preview.v4p">
-   <BOUNDS type="Window" left="23430" top="10920" width="14160" height="9490">
+   <BOUNDS type="Window" left="13520" top="8610" width="16680" height="9490">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
    </PACK>
@@ -299,7 +299,7 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
-   <PIN pinname="Input String" visible="1">
+   <PIN pinname="Input String" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="MonoFlop (Animation)" nodename="MonoFlop (Animation)" componentmode="Hidden" id="24">
@@ -474,46 +474,104 @@
    <LINKPOINT x="10130" y="5040">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Recorder (DX11.Texture2D)" filename="..\..\..\VVVV.Nodes.Recorder\VVVV.Nodes.Recorder\bin\VVVV.Nodes.Recorder.dll" nodename="Recorder (DX11.Texture2D)" componentmode="Hidden" id="34">
-   <BOUNDS type="Node" left="350" top="6290" width="6880" height="270">
+   <NODE systemname="DeleteFolder (String)" filename="..\plugins\StringDeleteFolder\StringDeleteFolder.csproj" nodename="DeleteFolder (String)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="11730" top="2500" width="2330" height="270">
    </BOUNDS>
+   <PIN pinname="Folder Name" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Do" visible="1" slicecount="1" values="0">
+   </PIN>
    <PIN pinname="Status" visible="1">
    </PIN>
-   <PIN pinname="Filename" visible="1">
-   </PIN>
-   <PIN pinname="Write" visible="1">
-   </PIN>
-   <PIN pinname="Format" slicecount="1" values="Dds">
-   </PIN>
-   <PIN pinname="Minimum Savers" slicecount="1" values="2">
+   <PIN pinname="Contents" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="35" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="370" top="680" width="800" height="240">
+   <LINK srcnodeid="17" srcpinname="Output String" dstnodeid="39" dstpinname="Folder Name">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="39" dstpinname="Do">
+   </LINK>
+   <NODE systemname="EQ (String)" nodename="EQ (String)" componentmode="Hidden" id="41">
+   <BOUNDS type="Node" left="11730" top="2950" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Node" left="370" top="680" width="0" height="0">
+   <PIN pinname="Input 2" slicecount="1" values="|WILL NEVER BE TRUE|">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Inverse Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Status" dstnodeid="41" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="AND (Boolean)" nodename="AND (Boolean)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="11300" top="3450" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="42" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="43" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="11900" top="3440" width="2430" height="230">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11900" top="3440" width="2430" height="230">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|&lt;--ensure deletion happens first|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Inverse Output" dstnodeid="42" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="45" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1070" top="2580" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1070" top="2580" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Input">
    </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="35" srcpinname="Output Node" dstnodeid="34" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="34" srcpinname="Status" dstnodeid="23" dstpinname="Input String">
-   </LINK>
-   <LINK srcnodeid="21" srcpinname="Output String" dstnodeid="34" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="34" dstpinname="Write">
-   </LINK>
-   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="36" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Box" left="3760" top="5720" width="660" height="240">
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="46" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3240" top="3530" width="1590" height="270">
    </BOUNDS>
-   <BOUNDS type="Node" left="3760" top="5720" width="0" height="0">
+   <BOUNDS type="Node" left="3240" top="3530" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="Dds">
    </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="36" srcpinname="Output Enum" dstnodeid="34" dstpinname="Format">
+   <NODE systemname="Writer (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Writer (DX11.Texture 2d)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="2410" top="5530" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Write" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Output Enum" dstnodeid="47" dstpinname="Format">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Output Node" dstnodeid="47" dstpinname="Texture In">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output String" dstnodeid="47" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="42" srcpinname="Output" dstnodeid="47" dstpinname="Write">
    </LINK>
    </PATCH>

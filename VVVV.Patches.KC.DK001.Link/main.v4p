@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
-   <BOUNDS height="13350" left="12250" top="4670" type="Window" width="22490">
+   <BOUNDS height="15190" left="11150" top="3390" type="Window" width="22490">
    </BOUNDS>
    <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
    <BOUNDS height="270" left="2580" top="4755" type="Node" width="1800">
@@ -35,7 +35,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Switch" visible="1">
    </PIN>
@@ -59,7 +59,7 @@
    </PIN>
    <PIN pinname="Layers out" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   <PIN pinname="Texture" visible="1" slicecount="1" values=",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,">
    </PIN>
    <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
@@ -90,32 +90,6 @@
    <LINKPOINT x="4590" y="6347">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="Hidden" id="28" nodename="Group (EX9)" systemname="Group (EX9)">
-   <BOUNDS height="270" left="3240" top="8005" type="Node" width="13245">
-   </BOUNDS>
-   <BOUNDS height="0" left="3240" top="8005" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="2910" top="8520" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Layer Template Count" slicecount="1" values="6">
-   </PIN>
-   <PIN pinname="Enabled" pintype="Input" slicecount="1" visible="-1" values="1">
-   </PIN>
-   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Layer 3" visible="1">
-   </PIN>
-   <PIN pinname="Layer 4" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Layer 5" visible="1">
-   </PIN>
-   <PIN pinname="Layer 6" visible="1">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" id="58" nodename="Kalle (VVVV)" systemname="Kalle (VVVV)">
    <BOUNDS height="100" left="9765" top="1230" type="Node" width="100">
    </BOUNDS>
@@ -420,22 +394,6 @@
    </NODE>
    <LINK dstnodeid="18" dstpinname="MySQLDataBase" srcnodeid="106" srcpinname="MySQLDataBase">
    </LINK>
-   <LINK dstnodeid="28" dstpinname="Layer 3" linkstyle="Bezier" srcnodeid="77" srcpinname="Layers out">
-   <LINKPOINT x="10630" y="6990">
-   </LINKPOINT>
-   <LINKPOINT x="8480" y="7330">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="28" dstpinname="Layer 6" srcnodeid="102" srcpinname="Layer">
-   </LINK>
-   <LINK dstnodeid="28" dstpinname="Layer 5" srcnodeid="79" srcpinname="Layers out">
-   </LINK>
-   <LINK dstnodeid="21" dstpinname="Input 1" linkstyle="Bezier" srcnodeid="28" srcpinname="Layer">
-   <LINKPOINT x="3240" y="8838">
-   </LINKPOINT>
-   <LINKPOINT x="2670" y="8838">
-   </LINKPOINT>
-   </LINK>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
    <PACK Name="addonpack" Version="31.9.0">
@@ -611,11 +569,11 @@
    </PIN>
    </NODE>
    <NODE systemname="Layer 0 - Recorders" filename="subpatches\Layer 0 - Recorders.v4p" nodename="subpatches\Layer 0 - Recorders.v4p" componentmode="InAWindow" id="134" stayontop="0">
-   <BOUNDS type="Node" left="5950" top="6070" width="100" height="100">
+   <BOUNDS type="Node" left="10470" top="9860" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="19150" top="4500" width="14280" height="13650">
+   <BOUNDS type="Window" left="16850" top="6400" width="18430" height="13650">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
@@ -635,19 +593,25 @@
    </PIN>
    <PIN pinname="iType" visible="1">
    </PIN>
+   <PIN pinname="Recording Index" visible="1">
+   </PIN>
+   <PIN pinname="Player Quad Indices" visible="1">
+   </PIN>
+   <PIN pinname="Record Quad Index" visible="1" slicecount="1" values="20">
+   </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="MySQLDataBase" dstnodeid="134" dstpinname="Database" linkstyle="Bezier">
-   <LINKPOINT x="2700" y="4620">
+   <LINKPOINT x="4207" y="5883">
    </LINKPOINT>
-   <LINKPOINT x="7520" y="5120">
+   <LINKPOINT x="10533" y="7647">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Data 0 - Players" filename="subpatches\Data 0 - Players.v4p" componentmode="InAWindow" id="137" nodename="subpatches\Data 0 - Players.v4p">
-   <BOUNDS type="Node" left="6120" top="5070" width="100" height="100">
+   <NODE systemname="Data 0 - Players" filename="subpatches\Data 0 - Players.v4p" componentmode="Hidden" id="137" nodename="subpatches\Data 0 - Players.v4p">
+   <BOUNDS type="Node" left="8220" top="10700" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="6120" top="5070" width="4800" height="3600">
+   <BOUNDS type="Box" left="8220" top="10700" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="11390" top="6830" width="21950" height="16130">
+   <BOUNDS type="Window" left="0" top="0" width="19200" height="21040">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
@@ -672,6 +636,12 @@
    <PIN pinname="iType" visible="1">
    </PIN>
    <PIN pinname="Frame Index" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Recording Index" visible="1">
+   </PIN>
+   <PIN pinname="Player Quad Indices" visible="1">
+   </PIN>
+   <PIN pinname="Progress Bar" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="MySQLDataBase" dstnodeid="137" dstpinname="Database">
@@ -704,8 +674,6 @@
    </LINK>
    <LINK srcnodeid="18" srcpinname="Projector XY" dstnodeid="137" dstpinname="Projector XY">
    </LINK>
-   <LINK srcnodeid="137" srcpinname="Layer" dstnodeid="28" dstpinname="Layer 4">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="139" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="21610" top="590" width="480" height="480">
    </BOUNDS>
@@ -732,34 +700,154 @@
    <LINKPOINT x="19487" y="1412">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="FileTexture (EX9.Texture)" nodename="FileTexture (EX9.Texture)" componentmode="Hidden" id="142">
-   <BOUNDS type="Node" left="10010" top="4480" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN pinname="Filename" slicecount="1" values="|..\aspect ratio test.png|">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="134" srcpinname="Frame Count" dstnodeid="137" dstpinname="Frame Count">
    </LINK>
    <LINK srcnodeid="18" srcpinname="Index" dstnodeid="134" dstpinname="Quad Index">
    </LINK>
    <LINK srcnodeid="134" srcpinname="Recording Complete" dstnodeid="137" dstpinname="Recording complete">
    </LINK>
-   <LINK srcnodeid="27" srcpinname="Layers out" dstnodeid="64" dstpinname="Layers in">
-   </LINK>
    <LINK srcnodeid="18" srcpinname="iType" dstnodeid="134" dstpinname="iType">
    </LINK>
    <LINK srcnodeid="18" srcpinname="iType" dstnodeid="137" dstpinname="iType">
    </LINK>
-   <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture">
-   </LINK>
-   <NODE systemname="Data 0.2 - Frame Runner" filename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" nodename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" componentmode="InAWindow" id="145">
+   <NODE systemname="Data 0.2 - Frame Runner" filename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" nodename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" componentmode="Hidden" id="145">
    <BOUNDS type="Node" left="7740" top="3980" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <BOUNDS type="Window" left="23130" top="8530" width="9000" height="6000">
+   </BOUNDS>
    </NODE>
    <LINK srcnodeid="145" srcpinname="Output" dstnodeid="137" dstpinname="Frame Index">
+   </LINK>
+   <LINK srcnodeid="134" srcpinname="Recording Index" dstnodeid="137" dstpinname="Recording Index">
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="134" dstpinname="Player Quad Indices">
+   <LINKPOINT x="11185" y="9775">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="134" dstpinname="Texture In">
+   <LINKPOINT x="10637" y="11198">
+   </LINKPOINT>
+   <LINKPOINT x="11995" y="9585">
+   </LINKPOINT>
+   <LINKPOINT x="10183" y="9372">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Layer 2 - Indicator" filename="subpatches\Layer 2 - Indicator.v4p" nodename="subpatches\Layer 2 - Indicator.v4p" componentmode="Hidden" id="157">
+   <BOUNDS type="Node" left="14440" top="9883" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9720" top="5998" width="9440" height="7770">
+   </BOUNDS>
+   <BOUNDS type="Window" left="20510" top="11130" width="9440" height="10870">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Video Quad Indices" visible="1" slicecount="342" values="1,2,3,5,6,7,9,10,12,15,16,18,20,21,22,25,26,28,30,31,32,33,35,36,37,38,39,40,41,42,43,44,45,46,47,48,50,51,52,53,54,56,57,58,59,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,77,78,79,80,81,82,83,84,85,86,87,88,89,90,92,93,95,96,97,99,100,103,104,105,106,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,149,150,151,152,153,154,155,158,161,162,163,166,167,168,169,171,172,173,175,176,177,178,179,180,181,182,183,184,186,188,189,190,191,192,193,195,196,197,198,199,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,259,260,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,279,280,281,283,284,285,286,287,288,289,290,291,292,294,295,296,298,299,300,301,302,303,304,305,306,307,308,309,310,311,313,314,315,316,317,318,319,320,321,322,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,361,363,365,366,367,368,369,370,371,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,395,396,397,399,400,403,404">
+   </PIN>
+   <PIN pinname="Quad ID" visible="1">
+   </PIN>
+   <PIN pinname="Selection" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="157" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="iProjector" dstnodeid="157" dstpinname="iProjector">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="157" dstpinname="iType">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Projector XY" dstnodeid="157" dstpinname="Projector XY">
+   </LINK>
+   <NODE componentmode="Hidden" id="28" nodename="Group (DX11.Layer)" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS height="270" left="3240" top="8005" type="Node" width="13245">
+   </BOUNDS>
+   <BOUNDS height="0" left="3240" top="8005" type="Box" width="0">
+   </BOUNDS>
+   <BOUNDS height="0" left="2910" top="8520" type="Window" width="0">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Layer Template Count">
+   </PIN>
+   <PIN pinname="Enabled" pintype="Input" slicecount="1" visible="-1" values="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 4" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 5" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer 6" visible="1">
+   </PIN>
+   <PIN pinname="Render State" visible="-1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Layers out" dstnodeid="28" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="157" srcpinname="Layer" dstnodeid="28" dstpinname="Layer 5">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="158" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="16940" top="8110" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16940" top="8110" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="158" srcpinname="Y Output Value" dstnodeid="157" dstpinname="Reselect">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Layer Out" dstnodeid="64" dstpinname="Layers in">
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="157" dstpinname="Video Quad Indices">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="157" dstpinname="Quad ID">
+   </LINK>
+   <LINK srcnodeid="157" srcpinname="Selection" dstnodeid="134" dstpinname="Record Quad Index">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="159" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="14450" top="10520" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14450" top="10520" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="157" srcpinname="Selection" dstnodeid="159" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InABox" id="160">
+   <BOUNDS type="Node" left="8910" top="11200" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8910" top="11200" width="870" height="2250">
+   </BOUNDS>
+   <BOUNDS type="Window" left="19550" top="14250" width="4220" height="3560">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="137" srcpinname="Progress Bar" dstnodeid="160" dstpinname="Texture In">
    </LINK>
    </PATCH>

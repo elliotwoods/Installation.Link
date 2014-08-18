@@ -22,6 +22,9 @@ namespace VVVV.Nodes
 		[Input("Folder Name", StringType = StringType.Directory)]
 		public ISpread<string> FInFoldername;
 
+		[Input("Contents")]
+		public ISpread<bool> FInContents;
+		
 		[Input("Do", IsBang = true)]
 		public ISpread<bool> FInDo;
 		
@@ -50,7 +53,17 @@ namespace VVVV.Nodes
 				{
 					try
 					{
-						Directory.Delete(FInFoldername[i], true);
+						if (FInContents[i])
+						{
+							System.IO.DirectoryInfo downloadedMessageInfo = new DirectoryInfo(FInFoldername[i]);
+
+							foreach (FileInfo file in downloadedMessageInfo.GetFiles())
+							{
+							    file.Delete(); 
+							}
+						} else {
+							Directory.Delete(FInFoldername[i], true);
+						}
 						FOutStatus[i] = "OK";
 					}
 					catch (Exception e)

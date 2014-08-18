@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\Make empty folders.v4p" systemname="Make empty folders" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\Make empty folders.v4p">
-   <BOUNDS type="Window" left="15370" top="5490" width="12160" height="14800">
+   <BOUNDS type="Window" left="9600" top="5650" width="12160" height="14800">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
    </PACK>
@@ -121,14 +121,14 @@
    </PIN>
    <PIN pinname="Input 1" visible="1">
    </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="blank.dds">
+   <PIN pinname="Input 2" slicecount="1" values="blank.png">
    </PIN>
    <PIN pinname="Intersperse" slicecount="1" values="DosPath">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Output String" dstnodeid="16" dstpinname="Input 1">
    </LINK>
-   <NODE systemname="AllImageFilenames" filename="..\Common\AllImageFilenames.v4p" componentmode="InAWindow" id="40" nodename="..\Common\AllImageFilenames.v4p">
+   <NODE systemname="AllImageFilenames" filename="..\Common\AllImageFilenames.v4p" componentmode="Hidden" id="40" nodename="..\Common\AllImageFilenames.v4p">
    <BOUNDS type="Node" left="4260" top="8210" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="4260" top="8210" width="4800" height="3600">
@@ -144,6 +144,8 @@
    <PIN pinname="iType" visible="1">
    </PIN>
    <PIN pinname="Folder Names" visible="1">
+   </PIN>
+   <PIN pinname="Update" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Output String" dstnodeid="40" dstpinname="Recordings Repo">
@@ -165,58 +167,6 @@
    <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="40" srcpinname="Folder Names" dstnodeid="12" dstpinname="Input String">
-   </LINK>
-   <NODE systemname="ToR8 (DX11.TextureFX)" filename="..\..\texture11\ToR8.tfx" nodename="ToR8 (DX11.TextureFX)" componentmode="Hidden" id="43">
-   <BOUNDS type="Node" left="1990" top="7590" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Texture In" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="DynamicTexture (DX11.Texture 2d)" nodename="DynamicTexture (DX11.Texture 2d)" componentmode="Hidden" id="14" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="1990" top="6960" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Width" slicecount="1" values="320">
-   </PIN>
-   <PIN pinname="Height" slicecount="1" values="240">
-   </PIN>
-   <PIN pinname="Blue">
-   </PIN>
-   <PIN pinname="Green">
-   </PIN>
-   <PIN pinname="Red">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="14" srcpinname="Texture Out" dstnodeid="43" dstpinname="Texture In">
-   </LINK>
-   <NODE systemname="Writer (DX11.Texture 2d)" nodename="Writer (DX11.Texture 2d)" componentmode="Hidden" id="15" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="2000" top="8600" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Texture" visible="1">
-   </PIN>
-   <PIN pinname="File Format">
-   </PIN>
-   <PIN pinname="FileName" visible="1">
-   </PIN>
-   <PIN pinname="Save">
-   </PIN>
-   <PIN pinname="Filename" visible="1">
-   </PIN>
-   <PIN pinname="Texture In" visible="1">
-   </PIN>
-   <PIN pinname="Format" slicecount="1" values="Dds">
-   </PIN>
-   <PIN pinname="Write" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="15" dstpinname="Filename">
-   </LINK>
-   <LINK srcnodeid="43" srcpinname="Texture Out" dstnodeid="15" dstpinname="Texture In">
-   </LINK>
-   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Write">
    </LINK>
    <NODE systemname="Copier (File)" nodename="Copier (File)" componentmode="Hidden" id="45">
    <BOUNDS type="Node" left="3980" top="10740" width="100" height="100">
@@ -303,5 +253,97 @@
    <LINK srcnodeid="48" srcpinname="String Value" dstnodeid="49" dstpinname="Input String">
    </LINK>
    <LINK srcnodeid="16" srcpinname="Output" dstnodeid="47" dstpinname="Filename">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="50" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2200" top="8970" width="1470" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2200" top="8970" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="..\..\..\Recordings\blank.png">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="render">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="50" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="DynamicTexture (EX9.Texture Color)" nodename="DynamicTexture (EX9.Texture Color)" componentmode="Hidden" id="14" filename="">
+   <BOUNDS type="Node" left="1990" top="6960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Width" slicecount="1" values="320">
+   </PIN>
+   <PIN pinname="Height" slicecount="1" values="240">
+   </PIN>
+   <PIN pinname="Blue">
+   </PIN>
+   <PIN pinname="Green">
+   </PIN>
+   <PIN pinname="Red">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Writer (EX9.Texture)" nodename="Writer (EX9.Texture)" componentmode="Hidden" id="15" filename="">
+   <BOUNDS type="Node" left="2010" top="9490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Format" slicecount="1" values="PNG">
+   </PIN>
+   <PIN pinname="FileName" visible="1" slicecount="1" values="file.foo">
+   </PIN>
+   <PIN pinname="Save" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   <PIN pinname="Format">
+   </PIN>
+   <PIN pinname="Write" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Texture Out" dstnodeid="15" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="50" srcpinname="Output String" dstnodeid="15" dstpinname="FileName">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Save">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="51" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2510" top="7330" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2510" top="7330" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="blank.dds">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Output String" dstnodeid="16" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="52" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3540" top="7250" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3540" top="7250" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="DDS">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Output Enum" dstnodeid="15" dstpinname="File Format">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Update">
    </LINK>
    </PATCH>

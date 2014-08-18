@@ -115,6 +115,10 @@ namespace VVVV.Nodes.Recorder
 
 				public void Save(DX11Texture2D texture, FeralTic.DX11.DX11RenderContext context, string filename, SlimDX.Direct3D11.ImageFileFormat format)
 				{
+					if (texture == null)
+					{
+						throw (new Exception("No texture"));
+					}
 					CurrentState = State.Saving;
 
 					if (FBackSurface == null || FBackSurface.Description.Width != texture.Width || FBackSurface.Description.Height != texture.Height || context != FContext)
