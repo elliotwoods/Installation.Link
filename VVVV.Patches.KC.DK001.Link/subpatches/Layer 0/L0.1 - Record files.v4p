@@ -1,36 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
    <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\L0.1 - Record files.v4p" systemname="L0.1 - Texture preview" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\L0.1 - Texture preview.v4p">
-   <NODE systemname="Recorder" filename="..\..\..\VVVV.Nodes.Recorder\VVVV.Nodes.Recorder\bin\Debug\VVVV.Nodes.Recorder.dll" nodename="Recorder" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="350" top="6180" width="6060" height="270">
-   </BOUNDS>
-   <PIN pinname="Width" slicecount="1" values="320">
-   </PIN>
-   <PIN pinname="Height" slicecount="1" values="240">
-   </PIN>
-   <PIN pinname="Handle" visible="1">
-   </PIN>
-   <PIN pinname="Usage" slicecount="1" values="RenderTarget">
-   </PIN>
-   <PIN pinname="Format" slicecount="1" values="X8R8G8B8">
-   </PIN>
-   <PIN pinname="Minimum Savers" slicecount="1" values="5">
-   </PIN>
-   <PIN pinname="Filename" visible="1">
-   </PIN>
-   <PIN pinname="Write" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <NODE id="3" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
-   <PIN pinname="Descriptive Name" slicecount="1" values="Handle">
-   </PIN>
-   <BOUNDS type="Box" left="3770" top="690" width="1250" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="3770" top="690" width="750" height="240">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Handle">
-   </LINK>
-   <BOUNDS type="Window" left="10270" top="8260" width="14160" height="9490">
+   <BOUNDS type="Window" left="23430" top="10920" width="14160" height="9490">
    </BOUNDS>
    <PACK Name="addonpack" Version="31.9.0">
    </PACK>
@@ -249,7 +219,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6690" top="4240" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" values=".png">
+   <PIN pinname="Input String" slicecount="1" values=".dds">
    </PIN>
    <PIN pinname="Default" slicecount="1" values="text">
    </PIN>
@@ -298,8 +268,6 @@
    </NODE>
    <LINK srcnodeid="16" srcpinname="Output" dstnodeid="21" dstpinname="Input String">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Output String" dstnodeid="0" dstpinname="Filename">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="22" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7470" top="7120" width="480" height="480">
    </BOUNDS>
@@ -331,9 +299,9 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="0" srcpinname="Status" dstnodeid="23" dstpinname="Input String">
-   </LINK>
    <NODE systemname="MonoFlop (Animation)" nodename="MonoFlop (Animation)" componentmode="Hidden" id="24">
    <BOUNDS type="Node" left="7840" top="3300" width="100" height="100">
    </BOUNDS>
@@ -384,12 +352,6 @@
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output" dstnodeid="22" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="0" dstpinname="Write" linkstyle="Bezier">
-   <LINKPOINT x="7460" y="5120">
-   </LINKPOINT>
-   <LINKPOINT x="6400" y="5120">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="27">
    <BOUNDS type="Node" left="10080" top="4640" width="100" height="100">
    </BOUNDS>
@@ -398,6 +360,8 @@
    <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Up Edge" visible="1">
+   </PIN>
+   <PIN pinname="Down Edge" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="26" srcpinname="Output" dstnodeid="27" dstpinname="Input" linkstyle="Bezier">
@@ -487,5 +451,69 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="27" srcpinname="Down Edge" dstnodeid="31" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="12560" top="7120" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12560" top="7120" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Frame Count|">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Output" dstnodeid="32" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="27" srcpinname="Down Edge" dstnodeid="28" dstpinname="Do" linkstyle="VHV">
+   <LINKPOINT x="10780" y="5040">
+   </LINKPOINT>
+   <LINKPOINT x="10130" y="5040">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Recorder (DX11.Texture2D)" filename="..\..\..\VVVV.Nodes.Recorder\VVVV.Nodes.Recorder\bin\VVVV.Nodes.Recorder.dll" nodename="Recorder (DX11.Texture2D)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="350" top="6290" width="6880" height="270">
+   </BOUNDS>
+   <PIN pinname="Status" visible="1">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Write" visible="1">
+   </PIN>
+   <PIN pinname="Format" slicecount="1" values="Dds">
+   </PIN>
+   <PIN pinname="Minimum Savers" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="35" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="370" top="680" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="370" top="680" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Output Node" dstnodeid="34" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Status" dstnodeid="23" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output String" dstnodeid="34" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="34" dstpinname="Write">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="36" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3760" top="5720" width="660" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3760" top="5720" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="Dds">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Output Enum" dstnodeid="34" dstpinname="Format">
    </LINK>
    </PATCH>

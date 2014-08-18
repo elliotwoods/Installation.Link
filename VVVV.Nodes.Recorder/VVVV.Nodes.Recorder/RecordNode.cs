@@ -137,7 +137,7 @@ namespace VVVV.Nodes.Recorder
                     }
                     catch (Exception e)
                     {
-                        Debug.Print(e.Message);
+                        System.Diagnostics.Debug.Print(e.Message);
                     }
                     finally
                     {

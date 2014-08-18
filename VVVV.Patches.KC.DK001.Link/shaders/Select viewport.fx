@@ -28,8 +28,9 @@ sampler Samp = sampler_state    //sampler for doing the texture-lookup
 	
 };
 
+#include <effects\Bicubic.fxh>
+
 float4x4 tTex: TEXTUREMATRIX <string uiname="Texture Transform";>;
-float4x4 tTex2;
 //the data structure: "vertexshader to pixelshader"
 //used as output data with the VS function
 //and as input data with the PS function
@@ -74,7 +75,6 @@ float4 PS(vs2ps In): COLOR
 
 	float4 texcd = In.TexCd;
 	texcd /= texcd.w;
-	texcd = mul(texcd, tTex2);
 	
 	//float4 texCol = tex2Dbicubic(Samp, texcd);
 	float4 texCol = tex2D(Samp, texcd);
@@ -97,6 +97,33 @@ float4 PS(vs2ps In): COLOR
     return col;
 }
 
+float4 PSBicubic(vs2ps In): COLOR
+{
+    //In.TexCd = In.TexCd / In.TexCd.w; // for perpective texture projections (e.g. shadow maps) ps_2_0
+
+	float4 texcd = In.TexCd;
+	texcd /= texcd.w;
+	
+	//float4 texCol = tex2Dbicubic(Samp, texcd);
+	float4 texCol = tex2Dbicubic(Samp, texcd);
+	
+	float4 col;
+    
+    col.a = 1;
+    if (enableAlpha)
+	{
+    	col = texCol;
+		col.a *= texcd.x > 0 && texcd.x < 1 && texcd.y > 0 && texcd.y < 1;
+    } else
+    	col.rgb = texCol.rgb * texCol.a;
+    
+    if (cAmb.a != 0) //specific condition for colour add (e.g. indicate)
+    	col *= cAmb;
+    else
+    	col += cAmb;
+    col.a *= abs(ViewIndex-iViewPort)<0.1;
+    return col;
+}
 // --------------------------------------------------------------------------------------------------
 // TECHNIQUES:
 // --------------------------------------------------------------------------------------------------
@@ -108,5 +135,15 @@ technique TWithinProjection
         //Wrap0 = U;  // useful when mesh is round like a sphere
         VertexShader = compile vs_1_1 VS();
         PixelShader = compile ps_2_0 PS();
+    }
+}
+
+technique TWithinProjectionBicubic
+{
+    pass P0
+    {
+        //Wrap0 = U;  // useful when mesh is round like a sphere
+        VertexShader = compile vs_1_1 VS();
+        PixelShader = compile ps_2_0 PSBicubic();
     }
 }

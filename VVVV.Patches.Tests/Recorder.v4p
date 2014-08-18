@@ -410,7 +410,7 @@
    </LINK>
    <LINK srcnodeid="36" srcpinname="Output" dstnodeid="50" dstpinname="Input">
    </LINK>
-   <NODE systemname="ReceiveTexture (EX9.SharedTexture Network)" filename="..\..\..\..\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\ReceiveTexture (EX9.SharedTexture Network).v4p" nodename="ReceiveTexture (EX9.SharedTexture Network)" componentmode="Hidden" id="51">
+   <NODE systemname="ReceiveTexture (DX11.Texture2D SharedTexture Network)" filename="..\..\..\..\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\ReceiveTexture (DX11.Texture2D SharedTexture Network)v4p.v4p" nodename="ReceiveTexture (DX11.Texture2D SharedTexture Network)" componentmode="Hidden" id="51">
    <BOUNDS type="Node" left="3140" top="2770" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Channel" slicecount="1" values="/camera1">

@@ -77,9 +77,11 @@
    </PIN>
    <PIN pinname="Color" visible="1">
    </PIN>
-   <PIN pinname="Filter Texture" visible="1">
+   <PIN pinname="Filter Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="size source XY" visible="1">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="| TWithinProjectionBicubic|">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="16" nodename="IOBox (Node)" systemname="IOBox (Node)">
@@ -110,12 +112,12 @@
    </NODE>
    <LINK dstnodeid="11" dstpinname="Mesh" srcnodeid="17" srcpinname="Mesh">
    </LINK>
-   <NODE componentmode="Hidden" filename="..\modules\Select quad (DKO).v4p" id="20" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)">
+   <NODE componentmode="InAWindow" filename="..\modules\Select quad (DKO).v4p" id="20" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)">
    <BOUNDS height="270" left="1605" top="2565" type="Node" width="2430">
    </BOUNDS>
    <BOUNDS height="3600" left="1605" top="2565" type="Box" width="4800">
    </BOUNDS>
-   <BOUNDS height="5985" left="6435" top="5220" type="Window" width="6690">
+   <BOUNDS height="9040" left="6430" top="5220" type="Window" width="8630">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1">
    </PIN>
@@ -126,6 +128,10 @@
    <PIN pinname="Transform" visible="1">
    </PIN>
    <PIN pinname="Select types" visible="1">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1">
+   </PIN>
+   <PIN pinname="Input Index" visible="1">
    </PIN>
    </NODE>
    <LINK dstnodeid="20" dstpinname="iProjector" srcnodeid="2" srcpinname="Y Output Value">
@@ -141,9 +147,9 @@
    </LINKPOINT>
    </LINK>
    <NODE componentmode="InABox" id="23" nodename="IOBox (Node)" systemname="IOBox (Node)">
-   <BOUNDS height="100" left="4590" top="2685" type="Node" width="100">
+   <BOUNDS height="100" left="3860" top="145" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="4590" top="2685" type="Box" width="795">
+   <BOUNDS height="240" left="3860" top="145" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="9540" top="8445" type="Window" width="215">
    </BOUNDS>
@@ -170,42 +176,6 @@
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Color">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="26" nodename="FileTexture (EX9.Texture)" systemname="FileTexture (EX9.Texture)">
-   <BOUNDS height="100" left="2595" top="4410" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="2595" top="4410" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="8115" top="8160" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN encoded="0" pinname="Filename" slicecount="1" values="..\shaders\BicubicFilterKernel.hdr">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="11" dstpinname="Filter Texture" srcnodeid="26" srcpinname="Texture Out">
-   </LINK>
-   <NODE componentmode="InABox" id="27" nodename="IOBox (Value Advanced)" systemname="IOBOX (VALUE ADVANCED)">
-   <BOUNDS height="100" left="1365" top="4035" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="480" left="1365" top="4035" type="Box" width="795">
-   </BOUNDS>
-   <BOUNDS height="160" left="7575" top="7740" type="Window" width="215">
-   </BOUNDS>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="2" values="1024,768">
-   </PIN>
-   <PIN pinname="Minimum" slicecount="1" values="-1000">
-   </PIN>
-   <PIN pinname="Maximum" slicecount="1" values="1000">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="11" dstpinname="size source XY" srcnodeid="27" srcpinname="Y Output Value">
-   </LINK>
    <NODE componentmode="Hidden" id="88" nodename="Count (Node)" systemname="Count (Node)">
    <BOUNDS height="100" left="8250" top="3255" type="Node" width="100">
    </BOUNDS>
@@ -259,7 +229,7 @@
    </BOUNDS>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="2" visible="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
    </PIN>
    <PIN pinname="Minimum" slicecount="1" values="-1000">
    </PIN>
@@ -267,8 +237,6 @@
    </PIN>
    </NODE>
    <LINK dstnodeid="20" dstpinname="Select types" srcnodeid="94" srcpinname="Y Output Value">
-   </LINK>
-   <LINK dstnodeid="11" dstpinname="Texture" srcnodeid="23" srcpinname="Output Node">
    </LINK>
    <LINK dstnodeid="11" dstpinname="Color" srcnodeid="25" srcpinname="Color Output">
    </LINK>
@@ -287,5 +255,73 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="95" srcpinname="Output" dstnodeid="94" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Texture Transform" dstnodeid="11" dstpinname="Texture Transform">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="97" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4930" top="4200" width="800" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4930" top="4200" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="2" values="320,240">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="Y Output Value" dstnodeid="11" dstpinname="size source XY">
+   </LINK>
+   <NODE componentmode="Hidden" id="99" nodename="FILETEXTURE (EX9.TEXTURE)" systemname="FileTexture (EX9.Texture)">
+   <BOUNDS height="0" left="5480" top="1705" type="Node" width="0">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Reload" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Mip Map Count" slicecount="1" values="All">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="98" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="0" left="5480" top="1300" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="285" left="5480" top="1300" type="Box" width="1950">
+   </BOUNDS>
+   <BOUNDS height="160" left="5520" top="7155" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" encoded="0" values="..\..\..\..\..\vvvv\vvvv_45beta32.1_x64\lib\nodes\effects\BicubicFilterKernel.hdr">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="99" dstpinname="Filename" srcnodeid="98" srcpinname="Output String">
+   </LINK>
+   <LINK srcnodeid="99" srcpinname="Texture Out" dstnodeid="11" dstpinname="Filter Texture">
+   </LINK>
+   <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="100">
+   <BOUNDS type="Node" left="3850" top="3410" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="100" srcpinname="Output Node" dstnodeid="11" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="100" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Input Index" dstnodeid="100" dstpinname="Index" linkstyle="Bezier">
+   <LINKPOINT x="4040" y="3125">
+   </LINKPOINT>
+   <LINKPOINT x="4470" y="3125">
+   </LINKPOINT>
    </LINK>
    </PATCH>

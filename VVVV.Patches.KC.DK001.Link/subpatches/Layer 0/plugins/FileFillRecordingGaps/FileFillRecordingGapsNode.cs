@@ -71,14 +71,27 @@ namespace VVVV.Nodes
 							
 							bool found = false;
 							
-							for(int searchForMatch = -10; searchForMatch < 10; searchForMatch++)
+							for(int searchForMatch = -1; searchForMatch > -10; searchForMatch--)
 							{
-								var searchFilename = makeString(searchForMatch, i);
+								var searchFilename = makeString(searchForMatch + fileIndex, i);
 								if (File.Exists(searchFilename))
 								{
 									File.Copy(searchFilename, filename);
 									found = true;
 									break;
+								}
+							}
+							if (!found)
+							{
+								for(int searchForMatch = +1; searchForMatch < +10; searchForMatch++)
+								{
+									var searchFilename = makeString(searchForMatch + fileIndex, i);
+									if (File.Exists(searchFilename))
+									{
+										File.Copy(searchFilename, filename);
+										found = true;
+										break;
+									}
 								}
 							}
 							if (!found) {

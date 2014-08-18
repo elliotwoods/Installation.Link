@@ -9,4 +9,9 @@
     <StartProgram>c:\vvvv\vvvv_45beta32.1_x64\vvvv.exe</StartProgram>
     <StartArguments>/allowmultiple</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\vvvv\vvvv_45beta32.1_x64\vvvv.exe</StartProgram>
+    <StartArguments>/allowmultiple</StartArguments>
+  </PropertyGroup>
 </Project>

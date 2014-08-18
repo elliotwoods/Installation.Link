@@ -39,34 +39,34 @@ namespace VVVV.Nodes
 			class ResourcePool : IDisposable
 			{
 				public List<DX11DynamicTexture2D> FTextures = new List<DX11DynamicTexture2D>();
-				DX11DynamicTexture2D FBlackTexture;
+				DX11DynamicTexture2D FFrontTexture;
+				DX11RenderContext FContext;
 
-				public ResourcePool(DX11RenderContext context)
+				public ResourcePool(DX11RenderContext context, int width, int height)
 				{
-					FBlackTexture = new DX11DynamicTexture2D(context, 4, 4, SlimDX.DXGI.Format.R8_UNorm);
-					byte[] black = new byte[16];
-					for(int i=0; i<16; i++)
+					FFrontTexture = new DX11DynamicTexture2D(context, width, height, SlimDX.DXGI.Format.R8_UNorm);
+					byte[] black = new byte[width * height];
+					for(int i=0; i<width * height; i++)
 					{
 						black[i] = 0;
 					}
-					FBlackTexture.WriteData(black);
+					FFrontTexture.WriteData(black);
+					FContext = context;
 				}
 
 				public DX11DynamicTexture2D GetTexture(int index)
 				{
-					if (FTextures.Count == 0)
+					if (FTextures.Count != 0)
 					{
-						return FBlackTexture;
+						index = VMath.Clamp(index, 0, FTextures.Count - 1);
+						FContext.CurrentDeviceContext.CopyResource(FTextures[index].Resource, FFrontTexture.Resource);
 					}
-					else
-					{
-						return FTextures[VVVV.Utils.VMath.VMath.Clamp(index, 0, FTextures.Count - 1)];
-					}
+					return FFrontTexture;
 				}
 
 				public void Dispose()
 				{
-					FBlackTexture.Dispose();
+					FFrontTexture.Dispose();
 					foreach(var texture in FTextures)
 					{
 						texture.Dispose();
@@ -76,9 +76,10 @@ namespace VVVV.Nodes
 
 			int FWidth = 320;
 			int FHeight = 240;
-			string FPathCached;
 
 			ILogger FLogger;
+
+			static Object FLockCreation = new Object();
 
 			public DX11Resource<DX11DynamicTexture2D> Resource = new DX11Resource<DX11DynamicTexture2D>();
 			public int Index = 0;
@@ -91,6 +92,10 @@ namespace VVVV.Nodes
 
 			bool FRunningThread = true;
 			Thread FThread;
+
+			bool FNeedsRelist = false;
+			string FPath;
+			string FMask;
 
 			public Instance(int width, int height, ILogger logger)
 			{
@@ -105,27 +110,19 @@ namespace VVVV.Nodes
 
 			public void LoadPath(string path, string mask)
 			{
-				if (FPathCached == path)
+				if (FPath == path)
 				{
 					return;
 				}
-				var filenames = Directory.GetFiles(path, mask);
-
+				
 				lock (FTexturePoolLock)
 				{
 					FTexturePool.Clear();
 				}
 
-				lock(FMemoryPoolLock)
-				{
-					FMemoryPool.Clear();
-					foreach (var filename in filenames)
-					{
-						var image = new Image();
-						image.Filename = filename;
-						FMemoryPool.Add(image);
-					}
-				}
+				FPath = path;
+				FMask = mask;
+				FNeedsRelist = true;
 			}
 
 			public void Update(DX11RenderContext context)
@@ -135,7 +132,7 @@ namespace VVVV.Nodes
 				{
 					if (!FTexturePool.ContainsKey(context))
 					{
-						resourcePool = new ResourcePool(context);
+						resourcePool = new ResourcePool(context, FWidth, FHeight);
 						FTexturePool.Add(context, resourcePool);
 					}
 					else
@@ -148,81 +145,122 @@ namespace VVVV.Nodes
 
 			unsafe void ThreadedFunction()
 			{
+				Random random = new Random();
+				Thread.Sleep((int)(random.NextDouble() * 1000.0));
+
 				while(FRunningThread)
 				{
-					lock(FMemoryPoolLock)
+					try
 					{
-						int imageIndex = 0;
-						foreach(var image in FMemoryPool)
+						if (FNeedsRelist)
 						{
 							try
 							{
-								if (!image.LoadedCPU)
+								var filenames = Directory.GetFiles(FPath, FMask);
+								lock (FMemoryPoolLock)
 								{
-									var bitmap = new Bitmap(image.Filename);
-									image.Data = new byte[FWidth* FHeight];
-									var bitmapData = bitmap.LockBits(new Rectangle(0, 0, FWidth, FHeight), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-									Exception e3 = null;
-									try
+									FMemoryPool.Clear();
+									foreach (var filename in filenames)
 									{
-										byte* input = (byte*) bitmapData.Scan0;
-										fixed(byte* outputFixed = &image.Data[0])
-										{
-											byte* output = outputFixed;
-											for(int i=0; i<FWidth * FHeight; i++)
-											{
-												input++; //a
-
-												int pixelData = 0;
-												pixelData += *input++;
-												pixelData += *input++;
-												pixelData += *input++;
-
-												*output++ = (byte) (pixelData / 3);
-											}
-										}
-
-										image.LoadedCPU = true;
+										var image = new Image();
+										image.Filename = filename;
+										FMemoryPool.Add(image);
 									}
-									catch (Exception e2)
-									{
-										e3 = e2;
-									}
-									finally
-									{
-										bitmap.UnlockBits(bitmapData);
-									}
-									if (e3 != null)
-									{
-										throw (e3);
-									}
-									//we've done enough work for this cycle
-									break;
 								}
+							}
+							catch (Exception e)
+							{
+								FLogger.Log(e);
+							}
+							FNeedsRelist = false;
+						}
 
-								lock (FTexturePoolLock)
+						lock (FMemoryPoolLock)
+						{
+							int imageIndex = 0;
+							foreach (var image in FMemoryPool)
+							{
+								try
 								{
-									foreach (var resourcePool in FTexturePool)
+									if (!image.LoadedCPU)
 									{
-										var context = resourcePool.Key;
-										var texturePool = resourcePool.Value.FTextures;
-										if (texturePool.Count <= imageIndex)
+										var bitmap = new Bitmap(image.Filename);
+										image.Data = new byte[FWidth * FHeight];
+										var bitmapData = bitmap.LockBits(new Rectangle(0, 0, FWidth, FHeight), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+										Exception e3 = null;
+										try
 										{
-											var texture = new DX11DynamicTexture2D(context, FWidth, FHeight, SlimDX.DXGI.Format.R8_UNorm);
-											texture.WriteDataStride(image.Data);
-											texturePool.Add(texture);
+											byte* input = (byte*)bitmapData.Scan0;
+											fixed (byte* outputFixed = &image.Data[0])
+											{
+												byte* output = outputFixed;
+												for (int i = 0; i < FWidth * FHeight; i++)
+												{
+													input++; //a
+
+													int pixelData = 0;
+													pixelData += *input++;
+													pixelData += *input++;
+													pixelData += *input++;
+
+													*output++ = (byte)(pixelData / 3);
+												}
+											}
+
+											image.LoadedCPU = true;
+										}
+										catch (Exception e2)
+										{
+											e3 = e2;
+										}
+										finally
+										{
+											bitmap.UnlockBits(bitmapData);
+										}
+										if (e3 != null)
+										{
+											throw (e3);
 										}
 										//we've done enough work for this cycle
 										break;
 									}
+
+									lock (FTexturePoolLock)
+									{
+										foreach (var resourcePool in FTexturePool)
+										{
+											lock(FLockCreation)// make sure all threads don't go crazy at the same time
+											{
+												var context = resourcePool.Key;
+												var texturePool = resourcePool.Value.FTextures;
+												if (texturePool.Count <= imageIndex)
+												{
+													var texture = new DX11DynamicTexture2D(context, FWidth, FHeight, SlimDX.DXGI.Format.R8_UNorm);
+
+													GCHandle pinnedArray = GCHandle.Alloc(image.Data, GCHandleType.Pinned);
+													IntPtr pointer = pinnedArray.AddrOfPinnedObject();
+													texture.WriteDataPitch(pointer, image.Data.Length, FWidth);
+													pinnedArray.Free();
+
+													texturePool.Add(texture);
+												}
+											}
+											//we've done enough work for this cycle
+											break;
+										}
+									}
 								}
+								catch (Exception e)
+								{
+									FLogger.Log(e);
+								}
+								imageIndex++;
 							}
-							catch(Exception e)
-							{
-								FLogger.Log(e);
-							}
-							imageIndex++;
 						}
+					}
+					catch(Exception e)
+					{
+
 					}
 					Thread.Sleep(10);
 				}

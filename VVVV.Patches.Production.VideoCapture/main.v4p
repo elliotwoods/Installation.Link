@@ -179,6 +179,10 @@
    </BOUNDS>
    <PIN pinname="Application Title" slicecount="1" values="x86-Cameras">
    </PIN>
+   <PIN pinname="Show in Tray" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Show in TaskBar" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2320" top="2640" width="800" height="240">
