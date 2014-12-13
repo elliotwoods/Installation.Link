@@ -128,11 +128,16 @@ namespace VVVV.Nodes.Recorder
                         {
                             FBitmap.UnlockBits(bitmapData);
                         }
+						var folder = Path.GetDirectoryName(FFilename);
+						if (!Directory.Exists(folder))
+						{
+							Directory.CreateDirectory(folder);
+						}
                         FBitmap.Save(FFilename);
                     }
                     catch (Exception e)
                     {
-                        Debug.Print(e.Message);
+                        System.Diagnostics.Debug.Print(e.Message);
                     }
                     finally
                     {
@@ -254,34 +259,28 @@ namespace VVVV.Nodes.Recorder
 
 				if (width != this.FWidth || height != this.FHeight || format != this.FFormat || usage != this.FUsage)
 				{
-					Allocate(width, height);
+					Allocate(width, height, format, usage);
 				}
 
-				this.FFormat = format;
-				this.FUsage = usage;
-
-				if (this.FTextureShared != null)
-				{
-					this.FTextureShared.Dispose();
-					this.FTextureShared = null;
-				}
-				this.FTextureShared = new Texture(this.FDevice, this.FWidth, this.FHeight, 1, FUsage, FFormat, Pool.Default, ref this.FHandle);
+				this.FTextureShared = new Texture(this.FDevice, width, height, 1, usage, format, Pool.Default, ref this.FHandle);
 			}
 
-			void Allocate(int width, int height)
+			void Allocate(int width, int height, Format format, Usage usage)
 			{
 				this.Deallocate();
-
-				this.FWidth = width;
-				this.FHeight = height;
 
 				var flags = CreateFlags.HardwareVertexProcessing | CreateFlags.Multithreaded | CreateFlags.PureDevice | CreateFlags.FpuPreserve;
 				this.FDevice = new DeviceEx(FContext, 0, DeviceType.Hardware, this.FHiddenControl.Handle, flags, new PresentParameters()
 				{
-					BackBufferWidth = this.FWidth,
-					BackBufferHeight = this.FHeight
+					BackBufferWidth = width,
+					BackBufferHeight = height
 				});
 
+
+				this.FWidth = width;
+				this.FHeight = height;
+				this.FUsage = usage;
+				this.FFormat = format;
 				this.FInitialised = true;
 			}
 
@@ -291,6 +290,12 @@ namespace VVVV.Nodes.Recorder
 				{
 					this.FDevice.Dispose();
 					this.FDevice = null;
+				}
+
+				if (this.FTextureShared != null)
+				{
+					this.FTextureShared.Dispose();
+					this.FTextureShared = null;
 				}
 
                 foreach(var saver in FSavers)
@@ -349,6 +354,8 @@ namespace VVVV.Nodes.Recorder
             public void Dispose()
             {
                 Deallocate();
+				FContext.Dispose();
+				FContext = null;
             }
         }
 		#region fields & pins

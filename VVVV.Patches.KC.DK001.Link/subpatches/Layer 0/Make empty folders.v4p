@@ -1,0 +1,349 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\Make empty folders.v4p" systemname="Make empty folders" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0\Make empty folders.v4p">
+   <BOUNDS type="Window" left="9600" top="5650" width="12160" height="14800">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="0" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="1660" top="630" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1660" top="630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="..\..\Recordings">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Recordings Repo|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Directory">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="1">
+   <BOUNDS type="Node" left="3850" top="630" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3850" top="630" width="800" height="240">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Quad Index|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5320" top="630" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5320" top="630" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="iType">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="CreateDirectory (File)" filename="plugins\FileCreateDirectory\FileCreateDirectory.csproj" nodename="CreateDirectory (File)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="5850" top="9270" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Directory" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7210" top="590" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7210" top="590" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Do">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Do">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="5850" top="9710" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5850" top="9710" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Status">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Status" dstnodeid="11" dstpinname="Input String">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="12" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="8000" top="9300" width="4060" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8000" top="9300" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="189" visible="1" values="..\..\..\Recordings\20,..\..\..\Recordings\21,..\..\..\Recordings\31,..\..\..\Recordings\32,..\..\..\Recordings\35,..\..\..\Recordings\37,..\..\..\Recordings\44,..\..\..\Recordings\47,..\..\..\Recordings\48,..\..\..\Recordings\50,..\..\..\Recordings\51,..\..\..\Recordings\52,..\..\..\Recordings\53,..\..\..\Recordings\54,..\..\..\Recordings\56,..\..\..\Recordings\57,..\..\..\Recordings\58,..\..\..\Recordings\59,..\..\..\Recordings\62,..\..\..\Recordings\63,..\..\..\Recordings\65,..\..\..\Recordings\67,..\..\..\Recordings\68,..\..\..\Recordings\69,..\..\..\Recordings\71,..\..\..\Recordings\72,..\..\..\Recordings\73,..\..\..\Recordings\74,..\..\..\Recordings\75,..\..\..\Recordings\77,..\..\..\Recordings\78,..\..\..\Recordings\79,..\..\..\Recordings\80,..\..\..\Recordings\81,..\..\..\Recordings\82,..\..\..\Recordings\83,..\..\..\Recordings\84,..\..\..\Recordings\85,..\..\..\Recordings\86,..\..\..\Recordings\87,..\..\..\Recordings\88,..\..\..\Recordings\89,..\..\..\Recordings\92,..\..\..\Recordings\96,..\..\..\Recordings\99,..\..\..\Recordings\103,..\..\..\Recordings\109,..\..\..\Recordings\110,..\..\..\Recordings\111,..\..\..\Recordings\114,..\..\..\Recordings\117,..\..\..\Recordings\126,..\..\..\Recordings\129,..\..\..\Recordings\131,..\..\..\Recordings\132,..\..\..\Recordings\133,..\..\..\Recordings\134,..\..\..\Recordings\135,..\..\..\Recordings\136,..\..\..\Recordings\137,..\..\..\Recordings\138,..\..\..\Recordings\139,..\..\..\Recordings\140,..\..\..\Recordings\141,..\..\..\Recordings\143,..\..\..\Recordings\146,..\..\..\Recordings\147,..\..\..\Recordings\149,..\..\..\Recordings\150,..\..\..\Recordings\151,..\..\..\Recordings\152,..\..\..\Recordings\153,..\..\..\Recordings\154,..\..\..\Recordings\166,..\..\..\Recordings\168,..\..\..\Recordings\169,..\..\..\Recordings\171,..\..\..\Recordings\175,..\..\..\Recordings\176,..\..\..\Recordings\177,..\..\..\Recordings\178,..\..\..\Recordings\179,..\..\..\Recordings\180,..\..\..\Recordings\181,..\..\..\Recordings\183,..\..\..\Recordings\186,..\..\..\Recordings\189,..\..\..\Recordings\190,..\..\..\Recordings\191,..\..\..\Recordings\192,..\..\..\Recordings\193,..\..\..\Recordings\195,..\..\..\Recordings\196,..\..\..\Recordings\197,..\..\..\Recordings\198,..\..\..\Recordings\199,..\..\..\Recordings\210,..\..\..\Recordings\213,..\..\..\Recordings\216,..\..\..\Recordings\217,..\..\..\Recordings\218,..\..\..\Recordings\219,..\..\..\Recordings\221,..\..\..\Recordings\222,..\..\..\Recordings\223,..\..\..\Recordings\224,..\..\..\Recordings\225,..\..\..\Recordings\226,..\..\..\Recordings\227,..\..\..\Recordings\229,..\..\..\Recordings\231,..\..\..\Recordings\232,..\..\..\Recordings\233,..\..\..\Recordings\235,..\..\..\Recordings\236,..\..\..\Recordings\238,..\..\..\Recordings\242,..\..\..\Recordings\243,..\..\..\Recordings\244,..\..\..\Recordings\245,..\..\..\Recordings\246,..\..\..\Recordings\247,..\..\..\Recordings\248,..\..\..\Recordings\251,..\..\..\Recordings\253,..\..\..\Recordings\259,..\..\..\Recordings\260,..\..\..\Recordings\267,..\..\..\Recordings\269,..\..\..\Recordings\270,..\..\..\Recordings\272,..\..\..\Recordings\275,..\..\..\Recordings\276,..\..\..\Recordings\277,..\..\..\Recordings\279,..\..\..\Recordings\280,..\..\..\Recordings\283,..\..\..\Recordings\285,..\..\..\Recordings\286,..\..\..\Recordings\290,..\..\..\Recordings\291,..\..\..\Recordings\292,..\..\..\Recordings\302,..\..\..\Recordings\303,..\..\..\Recordings\305,..\..\..\Recordings\306,..\..\..\Recordings\307,..\..\..\Recordings\309,..\..\..\Recordings\310,..\..\..\Recordings\311,..\..\..\Recordings\313,..\..\..\Recordings\315,..\..\..\Recordings\317,..\..\..\Recordings\318,..\..\..\Recordings\319,..\..\..\Recordings\320,..\..\..\Recordings\321,..\..\..\Recordings\322,..\..\..\Recordings\324,..\..\..\Recordings\326,..\..\..\Recordings\328,..\..\..\Recordings\332,..\..\..\Recordings\334,..\..\..\Recordings\335,..\..\..\Recordings\337,..\..\..\Recordings\342,..\..\..\Recordings\343,..\..\..\Recordings\344,..\..\..\Recordings\345,..\..\..\Recordings\346,..\..\..\Recordings\350,..\..\..\Recordings\351,..\..\..\Recordings\354,..\..\..\Recordings\357,..\..\..\Recordings\377,..\..\..\Recordings\378,..\..\..\Recordings\382,..\..\..\Recordings\384,..\..\..\Recordings\387,..\..\..\Recordings\388,..\..\..\Recordings\389,..\..\..\Recordings\390,..\..\..\Recordings\391,..\..\..\Recordings\392,..\..\..\Recordings\395,..\..\..\Recordings\399,..\..\..\Recordings\400,..\..\..\Recordings\403,..\..\..\Recordings\404">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Directory">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="2160" top="8070" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="blank.png">
+   </PIN>
+   <PIN pinname="Intersperse" slicecount="1" values="DosPath">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output String" dstnodeid="16" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="AllImageFilenames" filename="..\Common\AllImageFilenames.v4p" componentmode="Hidden" id="40" nodename="..\Common\AllImageFilenames.v4p">
+   <BOUNDS type="Node" left="4260" top="8210" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4260" top="8210" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="23280" top="8300" width="9000" height="9450">
+   </BOUNDS>
+   <PIN pinname="Recordings Repo" visible="1" slicecount="1" values="..\..\Recordings">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Quad Index" visible="1">
+   </PIN>
+   <PIN pinname="iType" visible="1">
+   </PIN>
+   <PIN pinname="Folder Names" visible="1">
+   </PIN>
+   <PIN pinname="Update" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output String" dstnodeid="40" dstpinname="Recordings Repo">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Quad Index">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="40" dstpinname="iType">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Folder Names" dstnodeid="7" dstpinname="Directory">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="4570" top="10290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="42" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Folder Names" dstnodeid="12" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="Copier (File)" nodename="Copier (File)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="3980" top="10740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Copy" visible="1">
+   </PIN>
+   <PIN pinname="To Filename" visible="1">
+   </PIN>
+   <PIN pinname="From Filename" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Output 1" dstnodeid="45" dstpinname="Copy">
+   </LINK>
+   <LINK srcnodeid="40" srcpinname="Output" dstnodeid="45" dstpinname="To Filename">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="45" dstpinname="From Filename">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="47" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="7830" top="10980" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3070" top="1070" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Filename" pintype="Input" visible="1" slicecount="1" values="..\Recordings\blank.dds">
+   </PIN>
+   <PIN pinname="Load In Background" pintype="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Reload" pintype="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Keep In Memory" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="No Mips" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output">
+   </PIN>
+   <PIN pinname="SizeXY" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Format" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Is Valid" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InABox" id="46">
+   <BOUNDS type="Node" left="8120" top="11420" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8120" top="11420" width="4000" height="3000">
+   </BOUNDS>
+   <BOUNDS type="Window" left="21830" top="16980" width="4220" height="3560">
+   </BOUNDS>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Texture Out" dstnodeid="46" dstpinname="Texture In">
+   </LINK>
+   <NODE systemname="Enum2String (Enumerations)" nodename="Enum2String (Enumerations)" componentmode="Hidden" id="48">
+   <BOUNDS type="Node" left="7000" top="11430" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="47" srcpinname="Format" dstnodeid="48" dstpinname="Enum">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="49" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="6990" top="11910" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6990" top="11910" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="48" srcpinname="String Value" dstnodeid="49" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="47" dstpinname="Filename">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="50" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2200" top="8970" width="1470" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2200" top="8970" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="..\..\..\Recordings\blank.png">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="render">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="50" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="DynamicTexture (EX9.Texture Color)" nodename="DynamicTexture (EX9.Texture Color)" componentmode="Hidden" id="14" filename="">
+   <BOUNDS type="Node" left="1990" top="6960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Width" slicecount="1" values="320">
+   </PIN>
+   <PIN pinname="Height" slicecount="1" values="240">
+   </PIN>
+   <PIN pinname="Blue">
+   </PIN>
+   <PIN pinname="Green">
+   </PIN>
+   <PIN pinname="Red">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.00000,0.00000,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Writer (EX9.Texture)" nodename="Writer (EX9.Texture)" componentmode="Hidden" id="15" filename="">
+   <BOUNDS type="Node" left="2010" top="9490" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Format" slicecount="1" values="PNG">
+   </PIN>
+   <PIN pinname="FileName" visible="1" slicecount="1" values="file.foo">
+   </PIN>
+   <PIN pinname="Save" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Texture In" visible="1">
+   </PIN>
+   <PIN pinname="Format">
+   </PIN>
+   <PIN pinname="Write" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Texture Out" dstnodeid="15" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="50" srcpinname="Output String" dstnodeid="15" dstpinname="FileName">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Save">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="51" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2510" top="7330" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2510" top="7330" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="blank.dds">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="text">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="51" srcpinname="Output String" dstnodeid="16" dstpinname="Input 2">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="52" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="3540" top="7250" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3540" top="7250" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="DDS">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="52" srcpinname="Output Enum" dstnodeid="15" dstpinname="File Format">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="40" dstpinname="Update">
+   </LINK>
+   </PATCH>

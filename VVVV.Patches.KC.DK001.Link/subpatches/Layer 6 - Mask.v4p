@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
-   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 6 - Mask.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
+   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 6 - Mask.v4p">
    <BOUNDS height="10260" left="9825" top="3060" type="Window" width="9000">
    </BOUNDS>
    <NODE componentmode="InABox" id="2" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
@@ -69,9 +69,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="3" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="4275" top="1185" type="Node" width="100">
+   <BOUNDS height="100" left="4295" top="1045" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="405" left="4275" top="1185" type="Box" width="480">
+   <BOUNDS height="405" left="4295" top="1045" type="Box" width="480">
    </BOUNDS>
    <BOUNDS height="160" left="8700" top="6300" type="Window" width="215">
    </BOUNDS>
@@ -81,7 +81,7 @@
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="5">
+   <PIN pinname="Y Input Value" slicecount="1" values="11">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -170,4 +170,6 @@
    </NODE>
    <LINK dstnodeid="11" dstpinname="Lightness" srcnodeid="23" srcpinname="Y Output Value">
    </LINK>
+   <PACK Name="addonpack" Version="31.9.0">
+   </PACK>
    </PATCH>

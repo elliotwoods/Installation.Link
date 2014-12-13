@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,10 +29,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +55,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FeralTic">
+      <HintPath>..\..\..\..\..\vvvv-sdk\vvvv45\packs\dx11\core\FeralTic.dll</HintPath>
+    </Reference>
     <Reference Include="SlimDX">
       <HintPath>..\packages\SlimDX.4.0.13.44\lib\NET40\SlimDX.dll</HintPath>
     </Reference>
@@ -74,6 +78,12 @@
     <Reference Include="VVVV.Core">
       <HintPath>..\packages\VVVV.Core.32.1.0\lib\net40\VVVV.Core.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="VVVV.DX11.Core">
+      <HintPath>..\..\..\..\..\vvvv-sdk\vvvv45\packs\dx11\core\VVVV.DX11.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VVVV.DX11.Lib">
+      <HintPath>..\..\..\..\..\vvvv-sdk\vvvv45\packs\dx11\core\VVVV.DX11.Lib.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Hosting">
       <HintPath>..\..\..\..\..\vvvv\vvvv_45beta32.1_x64\lib\core\VVVV.Hosting.dll</HintPath>
@@ -101,8 +111,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileTextureBaseNode.cs" />
+    <Compile Include="FileTextureNodes.cs" />
+    <Compile Include="PlayNode.cs" />
     <Compile Include="RecordNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordNodeDX11.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
