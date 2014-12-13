@@ -6,6 +6,9 @@ void ofApp::setup(){
 	ofSetFrameRate(60);
 	ofSetFullscreen(true);
 	
+	bool halfRes = ofGetWidth() < 1536;
+	float resMul = halfRes ? 0.5f : 1.0f;
+	
 	this->timeOfLastAction = 0.0f;
 	
 	this->gui.init();
@@ -27,20 +30,48 @@ void ofApp::setup(){
 	ofAddListener(this->addButton->onButtonHit, this->canvas.get(), &Canvas::addNew);
 	this->gui.add(this->addButton);
 	
+	
 	this->clearSelectionButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("tick")));
-	this->clearSelectionButton->setBounds(ofRectangle(this->canvas->getBounds().x + 70, ofGetHeight() - 220, 150, 150));
+	this->clearSelectionButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * 70, ofGetHeight() - resMul * 220, resMul * 150, resMul * 150));
 	ofAddListener(this->clearSelectionButton->onButtonHit, this->canvas.get(), &Canvas::clearSelection);
 	this->gui.add(this->clearSelectionButton);
 	
 	this->deleteButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("cross")));
-	this->deleteButton->setBounds(ofRectangle(this->canvas->getBounds().x + 70, ofGetHeight() - 220 - 200, 150, 150));
+	this->deleteButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * 70, ofGetHeight() - resMul * (220 + 200), resMul * 150, resMul * 150));
 	ofAddListener(this->deleteButton->onButtonHit, this->canvas.get(), &Canvas::deleteSelection);
 	this->gui.add(this->deleteButton);
 	
-	this->bringToFrontButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("bringToFront")));
-	this->bringToFrontButton->setBounds(ofRectangle(this->canvas->getBounds().x + 70, ofGetHeight() - 220 - 400, 150, 150));
-	ofAddListener(this->bringToFrontButton->onButtonHit, this->canvas.get(), &Canvas::bringSelectionToFront);
-	this->gui.add(this->bringToFrontButton);
+	this->sendToBackButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("sendToBack")));
+	this->sendToBackButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * 70, ofGetHeight() - resMul * (220 + 400), resMul * 150, resMul * 150));
+	ofAddListener(this->sendToBackButton->onButtonHit, this->canvas.get(), &Canvas::sendSelectionToBack);
+	this->gui.add(this->sendToBackButton);
+	
+	
+	this->flipHorizontalButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("flipHorizontal")));
+	this->flipHorizontalButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * (70 + 200), ofGetHeight() - resMul * 220, resMul * 150, resMul * 150));
+	ofAddListener(this->flipHorizontalButton->onButtonHit, this->canvas.get(), &Canvas::flipHorizontal);
+	this->gui.add(this->flipHorizontalButton);
+	
+	this->flipVerticalButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("flipVertical")));
+	this->flipVerticalButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * (70 + 200 + 200), ofGetHeight() - resMul * 220, resMul * 150, resMul * 150));
+	ofAddListener(this->flipVerticalButton->onButtonHit, this->canvas.get(), &Canvas::flipVertical);
+	this->gui.add(this->flipVerticalButton);
+	
+	this->rotateRightButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("rotateRight")));
+	this->rotateRightButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * (70 + 200 + 200 + 200), ofGetHeight() - resMul * 220, resMul * 150, resMul * 150));
+	ofAddListener(this->rotateRightButton->onButtonHit, this->canvas.get(), &Canvas::rotateRight);
+	this->gui.add(this->rotateRightButton);
+	
+	this->snapPointButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("snapPoint")));
+	this->snapPointButton->setBounds(ofRectangle(this->canvas->getBounds().x + resMul * (70 + 200), ofGetHeight() - resMul * (220 + 200), resMul * 150, resMul * 150));
+	ofAddListener(this->snapPointButton->onButtonHit, this->canvas.get(), &Canvas::snapPoint);
+	this->gui.add(this->snapPointButton);
+	
+	this->resetQuadButton = shared_ptr<ofxKCTouchGui::Elements::Button>(new ofxKCTouchGui::Elements::Button(ofxAssets::image("resetQuad")));
+	this->resetQuadButton->setBounds(ofRectangle(this->canvas->getBounds().x  + resMul * (70 + 200 + 200), ofGetHeight() - resMul * (220 + 200), resMul * 150, resMul * 150));
+	ofAddListener(this->resetQuadButton->onButtonHit, this->canvas.get(), &Canvas::resetQuad);
+	this->gui.add(this->resetQuadButton);
+	
 	
 	this->projectorSelection = shared_ptr<ProjectorSelection>(new ProjectorSelection());
 	this->projectorSelection->setBounds(ofRectangle(20, 140, 460, 100));
@@ -70,9 +101,16 @@ void ofApp::setup(){
 void ofApp::update(){
 	this->gui.update();
 	
-	this->clearSelectionButton->setEnabled(this->canvas->getSelection());
-	this->deleteButton->setEnabled(this->canvas->getSelection());
-	this->bringToFrontButton->setEnabled(this->canvas->getSelection());
+	bool hasSelection = this->canvas->getSelection();
+	this->clearSelectionButton->setEnabled(hasSelection);
+	this->deleteButton->setEnabled(hasSelection);
+	this->sendToBackButton->setEnabled(hasSelection);
+	
+	this->flipHorizontalButton->setEnabled(hasSelection);
+	this->flipVerticalButton->setEnabled(hasSelection);
+	this->rotateRightButton->setEnabled(hasSelection);
+	this->snapPointButton->setEnabled(hasSelection);
+	this->resetQuadButton->setEnabled(hasSelection);
 	
 	if (ofGetElapsedTimef() - timeOfLastAction > 1.0f) {
 		this->canvas->refresh();

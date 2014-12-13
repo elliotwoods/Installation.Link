@@ -73,15 +73,7 @@ void Canvas::addNew() {
 	if (this->connection) {
 		shared_ptr<Quad> newQuad(new Quad(this->getNextFreeIndex(), this->projectorSelection->getSelectionIndex(), this->typeSelection->getSelectionDatabaseIndex()));
 		
-		float scaleOfNewInView = 0.5f;
-		const float left = this->getBounds().getWidth() / 2.0f - this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
-		const float right = this->getBounds().getWidth() / 2.0f + this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
-		const float top = this->getBounds().getHeight() / 2.0f - this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
-		const float bottom = this->getBounds().getHeight() / 2.0f + this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
-		newQuad->corners[0] = ofVec3f(left, top, 0) * this->transform.getInverse();
-		newQuad->corners[1] = ofVec3f(right, top, 0) * this->transform.getInverse();
-		newQuad->corners[2] = ofVec3f(right, bottom, 0) * this->transform.getInverse();
-		newQuad->corners[3] = ofVec3f(left, bottom, 0) * this->transform.getInverse();
+		this->setQuadToScreen(newQuad);
 		
 		newQuad->update();
 		
@@ -114,6 +106,86 @@ void Canvas::bringSelectionToFront() {
 		this->quads.insert(pair<int, shared_ptr<Quad> >(cacheSelection->index, cacheSelection));
 		this->setSelection(cacheSelection);
 		this->connection->getConnection().insert("quads", cacheSelection->getDatabaseRow());
+	}
+}
+
+//----------
+void Canvas::sendSelectionToBack() {
+	if (this->selection && this->connection) {
+		auto cacheSelection = this->selection;
+		this->deleteSelection();
+		cacheSelection->index = this->getNewBottomIndex();
+		this->quads.insert(pair<int, shared_ptr<Quad> >(cacheSelection->index, cacheSelection));
+		this->setSelection(cacheSelection);
+		this->connection->getConnection().insert("quads", cacheSelection->getDatabaseRow());
+	}
+}
+
+//----------
+void Canvas::flipHorizontal() {
+	if (this->selection && this->connection) {
+		auto quad = this->selection;
+		std::swap(this->selection->corners[0], this->selection->corners[1]);
+		std::swap(this->selection->corners[2], this->selection->corners[3]);
+		this->updateSelectionOnServer();
+	}
+}
+
+//----------
+void Canvas::flipVertical() {
+	if (this->selection && this->connection) {
+		auto quad = this->selection;
+		std::swap(this->selection->corners[0], this->selection->corners[3]);
+		std::swap(this->selection->corners[1], this->selection->corners[2]);
+		this->updateSelectionOnServer();
+	}
+}
+
+//----------
+void Canvas::rotateRight() {
+	if (this->selection && this->connection) {
+		auto quad = this->selection;
+		auto oldFirst = this->selection->corners[0];
+		this->selection->corners[0] = this->selection->corners[3];
+		this->selection->corners[3] = this->selection->corners[2];
+		this->selection->corners[2] = this->selection->corners[1];
+		this->selection->corners[1] = oldFirst;
+		this->updateSelectionOnServer();
+	}
+}
+
+//----------
+void Canvas::snapPoint() {
+	if (this->selection && this->connection) {
+		auto & corner = this->selection->corners[this->selectedCorner];
+		auto minDistance = std::numeric_limits<float>::max();
+		ofVec2f foundCorner;
+		for(auto quad : this->quads) {
+			if (quad.second == this->selection) {
+				continue;
+			}
+			if (quad.second->iProjector != selection->iProjector) {
+				continue;
+			}
+			for(int i=0; i<4; i++) {
+				auto distance = (quad.second->corners[i] - corner).lengthSquared();
+				if (distance < minDistance) {
+					foundCorner = quad.second->corners[i];
+					minDistance = distance;
+				}
+			}
+		}
+		if ((foundCorner - corner).length() < 0.05) {
+			corner = foundCorner;
+		}
+		this->updateSelectionOnServer();
+	}
+}
+
+//----------
+void Canvas::resetQuad() {
+	if (this->selection && this->connection) {
+		this->setQuadToScreen(this->selection);
 	}
 }
 
@@ -177,6 +249,28 @@ int Canvas::getNextFreeIndex() const {
 	return nextFreeIndex;
 }
 
+//----------
+int Canvas::getNewBottomIndex() const {
+	if (this->quads.empty()) {
+		return 0;
+	} else {
+		auto startPosition = this->quads.begin()->first;
+		return startPosition - 1;
+	}
+}
+
+//----------
+void Canvas::setQuadToScreen(shared_ptr<Quad> quad) {
+	float scaleOfNewInView = 0.5f;
+	const float left = this->getBounds().getWidth() / 2.0f - this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
+	const float right = this->getBounds().getWidth() / 2.0f + this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
+	const float top = this->getBounds().getHeight() / 2.0f - this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
+	const float bottom = this->getBounds().getHeight() / 2.0f + this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
+	quad->corners[0] = ofVec3f(left, top, 0) * this->transform.getInverse();
+	quad->corners[1] = ofVec3f(right, top, 0) * this->transform.getInverse();
+	quad->corners[2] = ofVec3f(right, bottom, 0) * this->transform.getInverse();
+	quad->corners[3] = ofVec3f(left, bottom, 0) * this->transform.getInverse();
+}
 //----------
 void Canvas::draw() {
 	if (this->selection) {
@@ -244,15 +338,41 @@ void Canvas::touchHit(ofxKCTouchGui::Touch & touch) {
 		}
 	}
 	
+	if (!this->selection) {
+		//if we have no selection let's search out the closest in this projector (e.g. with invalid transform)
+		float minDistance = std::numeric_limits<float>::max();
+		auto touchInCanvasSpace = touchLocation * this->transform.getInverse();
+		shared_ptr<Quad> closest;
+		for(auto quad : this->quads) {
+			if (quad.second->iProjector == this->projectorSelection->getSelectionIndex()) {
+				for(int i=0; i<4; i++) {
+					auto distance = (quad.second->corners[i] - touchInCanvasSpace).lengthSquared();
+					if (minDistance > distance) {
+						minDistance = distance;
+						closest = quad.second;
+					}
+				}
+			}
+		}
+		if (closest) {
+			this->setSelection(closest);
+			return;
+		}
+	}
+	//we only get here if we don't return already
 	this->selection.reset();
 }
 
 //----------
-void Canvas::updateSelectionOnServer() const {
+void Canvas::updateSelectionOnServer() {
 	if (this->selection && this->enableUpdateQuad) {
-		auto row = this->selection->getDatabaseRow();
-		auto & database = this->connection->getConnection();
-		database.update("quads", row, "id=" + ofToString(this->selection->index));
+		if (this->selection->getTransform().isValid() && this->selection->getTransform().getInverse().isValid()) {
+			auto row = this->selection->getDatabaseRow();
+			auto & database = this->connection->getConnection();
+			database.update("quads", row, "id=" + ofToString(this->selection->index));
+		} else {
+			this->refresh();
+		}
 	}
 }
 

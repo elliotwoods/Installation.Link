@@ -39,7 +39,13 @@ public:
 	shared_ptr<ofxKCTouchGui::Elements::Button> addButton;
 	shared_ptr<ofxKCTouchGui::Elements::Button> clearSelectionButton;
 	shared_ptr<ofxKCTouchGui::Elements::Button> deleteButton;
-	shared_ptr<ofxKCTouchGui::Elements::Button> bringToFrontButton;
+	shared_ptr<ofxKCTouchGui::Elements::Button> sendToBackButton;
+	
+	shared_ptr<ofxKCTouchGui::Elements::Button> flipHorizontalButton;
+	shared_ptr<ofxKCTouchGui::Elements::Button> flipVerticalButton;
+	shared_ptr<ofxKCTouchGui::Elements::Button> rotateRightButton;
+	shared_ptr<ofxKCTouchGui::Elements::Button> snapPointButton;
+	shared_ptr<ofxKCTouchGui::Elements::Button> resetQuadButton;
 	
 	shared_ptr<Connection> connection;
 	shared_ptr<Canvas> canvas;

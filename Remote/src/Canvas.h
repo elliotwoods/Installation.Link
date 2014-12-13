@@ -22,6 +22,13 @@ public:
 	void addNew();
 	void deleteSelection();
 	void bringSelectionToFront();
+	void sendSelectionToBack();
+	
+	void flipHorizontal();
+	void flipVertical();
+	void rotateRight();
+	void snapPoint();
+	void resetQuad();
 	
 	shared_ptr<Quad> getSelection();
 	void setSelection(int index);
@@ -32,7 +39,9 @@ public:
 	ofMatrix4x4 getViewTransform() const;
 	
 	int getNextFreeIndex() const;
+	int getNewBottomIndex() const;
 protected:
+	void setQuadToScreen(shared_ptr<Quad>);
 	void draw();
 	void drawWorkspace();
 	
@@ -42,7 +51,7 @@ protected:
 	void callbackProjectorSelect(int &);
 	void callbackTypeSelect(int & index);
 	
-	void updateSelectionOnServer() const;
+	void updateSelectionOnServer();
 	
 	shared_ptr<Connection> connection;
 	shared_ptr<ProjectorSelection> projectorSelection;
