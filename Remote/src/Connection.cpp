@@ -5,7 +5,7 @@ Connection::Connection() {
 	ofAddListener(this->onUpdate, this, &Connection::update);
 	ofAddListener(this->onDraw, this, &Connection::draw);
 	
-	this->hostname = "192.168.1.42";
+	this->hostname = "192.168.1.4";
 	this->username = DB_USER;
 	this->password = DB_PASSWORD;
 	this->dbname = "link";
