@@ -12,12 +12,12 @@ class Connection : public ofxKCTouchGui::Element {
 public:
 	Connection();
 	ofxMySQL & getConnection();
-	ofxOscSender & getOscSender();
+	shared_ptr<ofxOscSender> getOscSender();
 protected:
 	void update();
 	void draw();
 	ofxMySQL database;
-	ofxOscSender osc;
+	shared_ptr<ofxOscSender> osc;
 	
 	string hostname, username, password, dbname;
 };

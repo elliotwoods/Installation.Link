@@ -1,4 +1,5 @@
 #include "Canvas.h"
+#include "Controller.h"
 
 //----------
 Canvas::Canvas() {
@@ -270,12 +271,15 @@ void Canvas::setQuadToScreen(shared_ptr<Quad> quad) {
 	quad->corners[1] = ofVec3f(right, top, 0) * this->transform.getInverse();
 	quad->corners[2] = ofVec3f(right, bottom, 0) * this->transform.getInverse();
 	quad->corners[3] = ofVec3f(left, bottom, 0) * this->transform.getInverse();
+	
+	quad->update();
+	this->updateSelectionOnServer();
 }
 //----------
 void Canvas::draw() {
 	if (this->selection) {
 		for (int i=0; i<4; i++) {
-			auto cornerPosition = (ofVec3f) this->selection->corners[i] * this->transform;
+			auto cornerPosition = (ofVec3f) this->selection->corners[i] * this->transform / ofxKCTouchGui::Controller::X().getZoom();
 
 			ofPushStyle();
 			ofFill();
@@ -307,7 +311,7 @@ void Canvas::drawWorkspace() {
 
 //----------
 void Canvas::touchHit(ofxKCTouchGui::Touch & touch) {
-	ofVec3f touchLocation = (ofVec2f &) touch;
+	ofVec3f touchLocation = (ofVec2f &) touch * ofxKCTouchGui::Controller::X().getZoom();
 	touchLocation -= this->getBounds().getTopLeft();
 	
 	for(auto it = this->quads.rbegin(); it != this->quads.rend(); it++) {
