@@ -35,9 +35,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="3">
-   <BOUNDS type="Node" left="10680" top="500" width="100" height="100">
+   <BOUNDS type="Node" left="9675" top="500" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="10680" top="500" width="480" height="480">
+   <BOUNDS type="Box" left="9675" top="500" width="480" height="480">
    </BOUNDS>
    <PIN pinname="Value Type" slicecount="1" values="Boolean">
    </PIN>
@@ -73,6 +73,8 @@
    </PIN>
    <PIN pinname="Alpha" visible="1" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="..\modules\Select quad (DKO).v4p" id="6" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)">
    <BOUNDS height="270" left="4900" top="4085" type="Node" width="9015">
@@ -107,9 +109,9 @@
    <LINK srcnodeid="0" srcpinname="Output" dstnodeid="2" dstpinname="Index">
    </LINK>
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled" linkstyle="Bezier">
-   <LINKPOINT x="10675" y="3548">
+   <LINKPOINT x="10005" y="3548">
    </LINKPOINT>
-   <LINKPOINT x="1070" y="3548">
+   <LINKPOINT x="735" y="3548">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="1" srcpinname="Count" dstnodeid="0" dstpinname="Scale">
@@ -169,7 +171,7 @@
    <LINK srcnodeid="19" srcpinname="Geometry Out" dstnodeid="4" dstpinname="Geometry">
    </LINK>
    <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="6145" top="11855" width="100" height="100">
+   <BOUNDS type="Node" left="6115" top="11855" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -183,7 +185,7 @@
    <LINK srcnodeid="20" srcpinname="Output" dstnodeid="4" dstpinname="Color">
    </LINK>
    <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="6510" top="10965" width="100" height="100">
+   <BOUNDS type="Node" left="6480" top="10965" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -247,7 +249,7 @@
    <LINK srcnodeid="30" srcpinname="Output" dstnodeid="31" dstpinname="Input">
    </LINK>
    <NODE systemname="WaveShaper (Value)" nodename="WaveShaper (Value)" componentmode="Hidden" id="32">
-   <BOUNDS type="Node" left="6515" top="11435" width="100" height="100">
+   <BOUNDS type="Node" left="6485" top="11435" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -355,9 +357,9 @@
    <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Quad">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="13860" top="1890" width="570" height="1515">
+   <BOUNDS type="Box" left="13860" top="2190" width="570" height="1515">
    </BOUNDS>
-   <BOUNDS type="Node" left="13860" top="1890" width="0" height="0">
+   <BOUNDS type="Node" left="13860" top="2190" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="5" visible="1" values="1,2,3,4,5">
    </PIN>
@@ -437,5 +439,25 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="2" srcpinname="Output" dstnodeid="12" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="44" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10770" top="450" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10770" top="450" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Enabled">
    </LINK>
    </PATCH>

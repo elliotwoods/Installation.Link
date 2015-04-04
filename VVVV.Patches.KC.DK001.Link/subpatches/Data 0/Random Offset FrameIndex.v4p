@@ -43,7 +43,7 @@
    </PIN>
    </NODE>
    <NODE systemname="RandomSpread (Spreads)" nodename="RandomSpread (Spreads)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="2595" top="2435" width="100" height="100">
+   <BOUNDS type="Node" left="4305" top="2495" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -55,7 +55,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="2280" top="4220" width="100" height="100">
+   <BOUNDS type="Node" left="4035" top="4205" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -65,7 +65,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Mod (Value)" nodename="Mod (Value)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="2295" top="4655" width="100" height="100">
+   <BOUNDS type="Node" left="4050" top="4640" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -75,7 +75,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="1575" top="5270" width="765" height="270">
+   <BOUNDS type="Node" left="1515" top="5270" width="2565" height="270">
    </BOUNDS>
    <PIN pinname="Input 1" visible="1">
    </PIN>
@@ -85,7 +85,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Frac (Value)" nodename="Frac (Value)" componentmode="Hidden" id="8">
-   <BOUNDS type="Node" left="2820" top="2825" width="100" height="100">
+   <BOUNDS type="Node" left="4305" top="2915" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -105,9 +105,9 @@
    <NODE id="9" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Output">
    </PIN>
-   <BOUNDS type="Box" left="1575" top="6040" width="750" height="240">
+   <BOUNDS type="Box" left="1515" top="6040" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1575" top="6040" width="750" height="240">
+   <BOUNDS type="Node" left="1515" top="6040" width="750" height="240">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="7" srcpinname="Output" dstnodeid="9" dstpinname="Y Input Value">
@@ -125,9 +125,9 @@
    <NODE id="11" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
    <PIN pinname="Descriptive Name" slicecount="1" values="|Input 1|">
    </PIN>
-   <BOUNDS type="Box" left="2600" top="500" width="750" height="240">
+   <BOUNDS type="Box" left="4040" top="500" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2600" top="500" width="750" height="240">
+   <BOUNDS type="Node" left="4040" top="500" width="750" height="240">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Input 1">
@@ -135,7 +135,7 @@
    <LINK srcnodeid="8" srcpinname="Whole Part" dstnodeid="5" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="5" srcpinname="Output" dstnodeid="6" dstpinname="Input 1">
-   <LINKPOINT x="2325" y="4700">
+   <LINKPOINT x="4080" y="4685">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Input 2">
@@ -146,7 +146,7 @@
    </LINK>
    <LINK srcnodeid="4" srcpinname="Output" dstnodeid="8" dstpinname="Input">
    </LINK>
-   <BOUNDS type="Window" left="-1" top="-1" width="4420" height="7040">
+   <BOUNDS type="Window" left="28860" top="17820" width="7200" height="9075">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>

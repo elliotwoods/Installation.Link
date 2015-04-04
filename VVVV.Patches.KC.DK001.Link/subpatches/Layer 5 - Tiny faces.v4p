@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 5 - Tiny faces.v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 5 - Tiny faces.v4p" scrollx="15" scrolly="30">
    <BOUNDS height="11850" left="16530" top="13275" type="Window" width="20775">
    </BOUNDS>
    <NODE componentmode="Hidden" id="4" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)" filename="..\modules\Select quad (DKO).v4p">
@@ -25,9 +25,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="6" nodename="IOBox (Node)" systemname="IOBox (Node)">
-   <BOUNDS height="100" left="390" top="9285" type="Node" width="100">
+   <BOUNDS height="100" left="210" top="10680" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="390" top="9285" type="Box" width="795">
+   <BOUNDS height="240" left="210" top="10680" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="12210" top="11655" type="Window" width="215">
    </BOUNDS>
@@ -312,8 +312,6 @@
    <PIN pinname="ViewportSelection" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="6" dstpinname="Input Node" srcnodeid="8" srcpinname="Layer">
-   </LINK>
    <LINK dstnodeid="8" dstpinname="Color" srcnodeid="11" srcpinname="Output">
    </LINK>
    <NODE componentmode="Hidden" id="9" nodename="Grid (DX11.Geometry)" systemname="Grid (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
@@ -330,9 +328,17 @@
    </NODE>
    <LINK srcnodeid="9" srcpinname="Geometry Out" dstnodeid="8" dstpinname="Geometry">
    </LINK>
-   <LINK srcnodeid="4" srcpinname="Transform" dstnodeid="8" dstpinname="Transform In">
+   <LINK srcnodeid="4" srcpinname="Transform" dstnodeid="8" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="2640" y="5910">
+   </LINKPOINT>
+   <LINKPOINT x="2640" y="5910">
+   </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="4" srcpinname="iProjector" dstnodeid="8" dstpinname="ViewportSelection">
+   <LINK srcnodeid="4" srcpinname="iProjector" dstnodeid="8" dstpinname="ViewportSelection" linkstyle="Bezier">
+   <LINKPOINT x="8460" y="5903">
+   </LINKPOINT>
+   <LINKPOINT x="6315" y="5903">
+   </LINKPOINT>
    </LINK>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -361,9 +367,9 @@
    <LINK srcnodeid="32" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Quad">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="17235" top="1815" width="795" height="240">
+   <BOUNDS type="Box" left="9900" top="2205" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="17235" top="1815" width="0" height="0">
+   <BOUNDS type="Node" left="9900" top="2205" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -375,5 +381,85 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Select Type">
+   </LINK>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="210" top="10095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Layer" dstnodeid="34" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Layer Out" dstnodeid="6" dstpinname="Input Node">
+   </LINK>
+   <NODE componentmode="InAWindow" id="35" nodename="SelectViewport (DX11.Effect)" systemname="SelectViewport (DX11.Effect)" filename="dx11\SelectViewport.fx">
+   <BOUNDS height="270" left="570" top="9600" type="Node" width="8145">
+   </BOUNDS>
+   <BOUNDS height="12000" left="9750" top="7470" type="Window" width="12000">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="iViewPort" visible="1">
+   </PIN>
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="ViewportSelection" visible="1" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Render State" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Stroke">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Geometry Out" dstnodeid="35" dstpinname="Geometry" linkstyle="Bezier">
+   <LINKPOINT x="1920" y="8980">
+   </LINKPOINT>
+   <LINKPOINT x="2055" y="9080">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output" dstnodeid="35" dstpinname="Color" linkstyle="Bezier">
+   <LINKPOINT x="4095" y="9010">
+   </LINKPOINT>
+   <LINKPOINT x="4260" y="9110">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Transform" dstnodeid="35" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="2640" y="6280">
+   </LINKPOINT>
+   <LINKPOINT x="2790" y="6380">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="iProjector" dstnodeid="35" dstpinname="ViewportSelection" linkstyle="Bezier">
+   <LINKPOINT x="8475" y="6288">
+   </LINKPOINT>
+   <LINKPOINT x="6480" y="6388">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="36">
+   <BOUNDS type="Node" left="1305" top="9210" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Fill Mode" slicecount="1" values="Wireframe">
+   </PIN>
+   <PIN pinname="Enable Line AntiAlias" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Enable MultiSampling" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Render State" dstnodeid="35" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="35" srcpinname="Layer" dstnodeid="34" dstpinname="Layer 2">
    </LINK>
    </PATCH>

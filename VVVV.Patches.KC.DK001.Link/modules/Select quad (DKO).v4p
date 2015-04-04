@@ -227,11 +227,11 @@
    <LINK srcnodeid="40" srcpinname="Output" dstnodeid="41" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="Unpack (Quad)" filename="..\modules\Unpack (Quad).v4p" nodename="..\modules\Unpack (Quad).v4p" componentmode="Hidden" id="42">
-   <BOUNDS type="Node" left="2280" top="2460" width="10350" height="270">
+   <BOUNDS type="Node" left="2280" top="2460" width="10365" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="2010" top="240" width="4470" height="7530">
    </BOUNDS>
-   <BOUNDS type="Window" left="10710" top="18480" width="11550" height="10755">
+   <BOUNDS type="Window" left="10710" top="16530" width="13365" height="12705">
    </BOUNDS>
    <PIN pinname="Select Type" visible="1" slicecount="10" values="1,2,3,4,5,6,7,8,9,10">
    </PIN>
@@ -246,6 +246,8 @@
    <PIN pinname="Index" visible="1">
    </PIN>
    <PIN pinname="Order" visible="1">
+   </PIN>
+   <PIN pinname="Skip Indices" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="44" systemname="IOBox (Value Advanced)">
@@ -309,9 +311,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="47">
-   <BOUNDS type="Node" left="12555" top="1275" width="100" height="100">
+   <BOUNDS type="Node" left="12585" top="1275" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="12555" top="1275" width="795" height="240">
+   <BOUNDS type="Box" left="12585" top="1275" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>

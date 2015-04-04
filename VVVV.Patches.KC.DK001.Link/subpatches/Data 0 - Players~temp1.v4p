@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Data 0 - Players.v4p" systemname="Data 0 - Players" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Data 0 - Players.v4p" scrollx="0" scrolly="-360">
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Data 0 - Players.v4p" systemname="Data 0 - Players" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Data 0 - Players.v4p" scrollx="0" scrolly="360">
    <BOUNDS type="Window" left="0" top="0" width="26610" height="26625">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -271,7 +271,7 @@
    <NODE systemname="Sift (Value)" nodename="Sift (Value)" componentmode="Hidden" id="140">
    <BOUNDS type="Node" left="13650" top="5730" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Filter" visible="1">
    </PIN>
@@ -282,6 +282,8 @@
    <PIN pinname="Find" slicecount="1" values="All">
    </PIN>
    </NODE>
+   <LINK srcnodeid="114" srcpinname="Quad Indices" dstnodeid="140" dstpinname="Input">
+   </LINK>
    <LINK srcnodeid="134" srcpinname="Y Output Value" dstnodeid="140" dstpinname="Filter">
    </LINK>
    <LINK srcnodeid="140" srcpinname="Hits" dstnodeid="135" dstpinname="Input">
@@ -527,9 +529,9 @@
    </BOUNDS>
    <BOUNDS type="Window" left="28860" top="17820" width="7200" height="9075">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
    </NODE>
+   <LINK srcnodeid="114" srcpinname="Quad Indices" dstnodeid="174" dstpinname="Input">
+   </LINK>
    <LINK srcnodeid="113" srcpinname="Y Output Value" dstnodeid="174" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="174" srcpinname="Output" dstnodeid="111" dstpinname="Y Input Value">
@@ -719,9 +721,5 @@
    <LINK srcnodeid="188" srcpinname="Is Valid" dstnodeid="123" dstpinname="Data">
    </LINK>
    <LINK srcnodeid="188" srcpinname="Texture Out" dstnodeid="184" dstpinname="Input Node">
-   </LINK>
-   <LINK srcnodeid="171" srcpinname="Index" dstnodeid="174" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="171" srcpinname="Index" dstnodeid="140" dstpinname="Input">
    </LINK>
    </PATCH>
