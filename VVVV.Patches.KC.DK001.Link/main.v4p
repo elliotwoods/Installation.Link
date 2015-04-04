@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="1350" scrolly="2685">
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="3240" scrolly="0">
    <BOUNDS height="16740" left="13245" top="4875" type="Window" width="22485">
    </BOUNDS>
    <NODE componentmode="Hidden" id="21" nodename="Switch (Node Input)" systemname="Switch (Node Input)">
