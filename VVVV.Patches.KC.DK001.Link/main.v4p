@@ -1,35 +1,11 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
-   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="6467306">
-   <BOUNDS height="15190" left="11150" top="3390" type="Window" width="22490">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="0" scrolly="0">
+   <BOUNDS height="15180" left="12315" top="4455" type="Window" width="22485">
    </BOUNDS>
-   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
-   <BOUNDS height="270" left="2580" top="4755" type="Node" width="1800">
-   </BOUNDS>
-   <BOUNDS height="14130" left="5890" top="0" type="Window" width="21150">
-   </BOUNDS>
-   <PIN pinname="Layers mapping" visible="1">
-   </PIN>
-   <PIN pinname="iProjector" visible="1">
-   </PIN>
-   <PIN pinname="iType" visible="1">
-   </PIN>
-   <PIN pinname="Projector XY" visible="1">
-   </PIN>
-   <PIN pinname="View Mode" visible="1">
-   </PIN>
-   <PIN pinname="Recordings" visible="1">
-   </PIN>
-   <PIN pinname="MySQLDataBase" visible="1" slicecount="1" values="||">
-   </PIN>
-   <BOUNDS left="2580" top="4755" type="Box">
-   </BOUNDS>
-   <PIN pinname="Index" visible="1">
-   </PIN>
-   </NODE>
    <NODE componentmode="Hidden" id="21" nodename="Switch (Node Input)" systemname="Switch (Node Input)">
-   <BOUNDS height="270" left="1920" top="9400" type="Node" width="2175">
+   <BOUNDS height="270" left="1980" top="12225" type="Node" width="3885">
    </BOUNDS>
-   <BOUNDS height="0" left="1920" top="9400" type="Box" width="0">
+   <BOUNDS height="0" left="1980" top="12230" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="1770" top="11355" type="Window" width="0">
    </BOUNDS>
@@ -39,31 +15,31 @@
    </PIN>
    <PIN pinname="Switch" visible="1">
    </PIN>
-   <PIN pinname="Input 2" visible="1">
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Input Count" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Input 3" visible="1">
+   <PIN pinname="Input 3" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="subpatches\Layer 1 - Video Faces.v4p" id="27" nodename="subpatches\Layer 1 - Video Faces.v4p" systemname="Layer 1 - Video Faces">
-   <BOUNDS height="270" left="3240" top="7275" type="Node" width="3450">
+   <BOUNDS height="270" left="3240" top="6825" type="Node" width="3450">
    </BOUNDS>
-   <BOUNDS height="11990" left="5510" top="6530" type="Window" width="13080">
+   <BOUNDS height="11985" left="8640" top="15720" type="Window" width="13080">
    </BOUNDS>
-   <PIN pinname="iProjector" visible="1">
+   <PIN pinname="iProjector" visible="1" slicecount="17" values="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
    </PIN>
-   <PIN pinname="iType" visible="1">
+   <PIN pinname="iType" visible="1" slicecount="17" values="0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4">
    </PIN>
-   <PIN pinname="Projector XY" visible="1">
+   <PIN pinname="Projector XY" visible="1" slicecount="136" values="0.296797,-0.124034,0.358027,-0.109904,0.345601,-0.0464334,0.286359,-0.0591781,-0.984418,-0.50735,-0.947942,-0.506779,-0.954457,-0.426415,-0.990682,-0.427314,-0.66678,-0.721206,-0.630674,-0.722094,-0.634985,-0.645149,-0.671158,-0.646031,-0.816732,-0.283179,-0.777745,-0.280052,-0.785671,-0.191648,-0.82462,-0.191956,-0.9192,0.137652,-0.882297,0.138912,-0.887242,0.222419,-0.925116,0.22338,-0.659714,0.472581,-0.621552,0.477896,-0.629244,0.564769,-0.6666,0.564117,-0.546844,0.109542,-0.510736,0.11078,-0.516129,0.194905,-0.55309,0.195762,-0.364492,0.398481,-0.327091,0.399778,-0.33359,0.48867,-0.370198,0.486309,-0.0974659,0.470382,-0.0623042,0.468767,-0.065734,0.556346,-0.101893,0.554079,-0.352371,-0.32349,-0.216212,-0.317325,-0.224566,-0.103189,-0.361297,-0.104963,0.0149589,-0.149701,0.145217,-0.14867,0.140951,0.0659674,0.00939915,0.0636278,-0.0983199,-0.269346,0.0147954,-0.267546,0.00853855,-0.0166377,-0.106086,-0.0153142,-0.222175,-0.0971167,-0.107596,-0.0901638,-0.11736,0.16816,-0.234589,0.166502,0.813345,-0.222479,0.912747,-0.214278,0.919086,0.0228001,0.81819,0.0210109,0.579807,-0.0459535,0.683986,-0.0485241,0.691358,0.200493,0.585394,0.203815,0.470785,-0.260098,0.575566,-0.249967,0.577476,-0.0104806,0.471719,-0.0166564,0.288345,0.241951,0.506318,0.122849,0.545743,0.570091,0.259635,0.418869">
    </PIN>
    <PIN pinname="Layers out" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Texture" visible="1" slicecount="1" values=",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,">
+   <PIN pinname="Texture" visible="1" slicecount="191" values=",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,">
    </PIN>
    <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
-   <BOUNDS left="3240" top="7275" type="Box">
+   <BOUNDS left="3240" top="6825" type="Box">
    </BOUNDS>
    <PIN pinname="nFaces" visible="1">
    </PIN>
@@ -71,25 +47,9 @@
    </PIN>
    <PIN pinname="Sequence" visible="1">
    </PIN>
+   <PIN pinname="Quad" visible="1">
+   </PIN>
    </NODE>
-   <LINK dstnodeid="27" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3395" y="5934">
-   </LINKPOINT>
-   <LINKPOINT x="3130" y="5782">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="27" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="4070" y="5934">
-   </LINKPOINT>
-   <LINKPOINT x="3595" y="5782">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="27" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="3885" y="5939">
-   </LINKPOINT>
-   <LINKPOINT x="4590" y="6347">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="Hidden" id="58" nodename="Kalle (VVVV)" systemname="Kalle (VVVV)">
    <BOUNDS height="100" left="9765" top="1230" type="Node" width="100">
    </BOUNDS>
@@ -105,7 +65,7 @@
    </BOUNDS>
    <BOUNDS height="1320" left="210" top="720" type="Box" width="9465">
    </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|WHANKI 2014|">
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|PULMUONE 2015|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -123,7 +83,7 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Lightness" slicecount="1" values="0.65">
+   <PIN pinname="Lightness" slicecount="1" values="0.46">
    </PIN>
    <PIN pinname="Hue" slicecount="1" values="0.0933333333333332">
    </PIN>
@@ -151,7 +111,7 @@
    </BOUNDS>
    <BOUNDS height="780" left="6825" top="1965" type="Box" width="2850">
    </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|Copyright Kimchi and Chips 2014&cr;&lf;Elliot Woods, Mimi Son&cr;&lf;http://www.kimchiandchips.com|">
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|Copyright Kimchi and Chips 2015&cr;&lf;Elliot Woods, Mimi Son&cr;&lf;http://www.kimchiandchips.com|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -159,11 +119,13 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="subpatches\Out 0 - Renderers.v4p" id="64" nodename="subpatches\Out 0 - Renderers.v4p" systemname="Out 0 - Renderers">
-   <BOUNDS height="100" left="3245" top="10940" type="Node" width="100">
+   <BOUNDS height="100" left="1980" top="12915" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers in" visible="1" slicecount="1" values="||">
    </PIN>
    <BOUNDS height="12560" left="13980" top="6480" type="Window" width="15660">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1980" top="12915">
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" id="66" nodename="Memory (Debug ex9)" systemname="Memory (Debug ex9)">
@@ -205,9 +167,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="-6" nodename="MainLoop (VVVV)" systemname="MAINLOOP (VVVV)">
-   <BOUNDS height="100" left="11400" top="3120" type="Node" width="100">
+   <BOUNDS height="100" left="10965" top="3420" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="11400" top="3120" type="Box" width="0">
+   <BOUNDS height="0" left="10965" top="3420" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="11130" top="2940" type="Window" width="0">
    </BOUNDS>
@@ -239,85 +201,49 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" filename="subpatches\Layer 5 - Tiny faces.v4p" id="77" nodename="subpatches\Layer 5 - Tiny faces.v4p" systemname="Layer 5 - Tiny faces">
-   <BOUNDS height="100" left="10530" top="6075" type="Node" width="100">
+   <BOUNDS height="100" left="9825" top="6825" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
    </PIN>
-   <PIN pinname="iProjector" visible="1">
+   <PIN pinname="iProjector" visible="1" slicecount="17" values="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
    </PIN>
-   <PIN pinname="iType" visible="1">
+   <PIN pinname="iType" visible="1" slicecount="17" values="0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4">
    </PIN>
-   <PIN pinname="Projector XY" visible="1">
+   <PIN pinname="Projector XY" visible="1" slicecount="136" values="0.296797,-0.124034,0.358027,-0.109904,0.345601,-0.0464334,0.286359,-0.0591781,-0.984418,-0.50735,-0.947942,-0.506779,-0.954457,-0.426415,-0.990682,-0.427314,-0.66678,-0.721206,-0.630674,-0.722094,-0.634985,-0.645149,-0.671158,-0.646031,-0.816732,-0.283179,-0.777745,-0.280052,-0.785671,-0.191648,-0.82462,-0.191956,-0.9192,0.137652,-0.882297,0.138912,-0.887242,0.222419,-0.925116,0.22338,-0.659714,0.472581,-0.621552,0.477896,-0.629244,0.564769,-0.6666,0.564117,-0.546844,0.109542,-0.510736,0.11078,-0.516129,0.194905,-0.55309,0.195762,-0.364492,0.398481,-0.327091,0.399778,-0.33359,0.48867,-0.370198,0.486309,-0.0974659,0.470382,-0.0623042,0.468767,-0.065734,0.556346,-0.101893,0.554079,-0.352371,-0.32349,-0.216212,-0.317325,-0.224566,-0.103189,-0.361297,-0.104963,0.0149589,-0.149701,0.145217,-0.14867,0.140951,0.0659674,0.00939915,0.0636278,-0.0983199,-0.269346,0.0147954,-0.267546,0.00853855,-0.0166377,-0.106086,-0.0153142,-0.222175,-0.0971167,-0.107596,-0.0901638,-0.11736,0.16816,-0.234589,0.166502,0.813345,-0.222479,0.912747,-0.214278,0.919086,0.0228001,0.81819,0.0210109,0.579807,-0.0459535,0.683986,-0.0485241,0.691358,0.200493,0.585394,0.203815,0.470785,-0.260098,0.575566,-0.249967,0.577476,-0.0104806,0.471719,-0.0166564,0.288345,0.241951,0.506318,0.122849,0.545743,0.570091,0.259635,0.418869">
    </PIN>
-   <BOUNDS left="10530" top="6075" type="Box">
+   <BOUNDS left="9825" top="6825" type="Box">
    </BOUNDS>
-   <BOUNDS height="10260" left="3405" top="660" type="Window" width="9000">
+   <BOUNDS height="11850" left="16530" top="13275" type="Window" width="20775">
    </BOUNDS>
+   <PIN pinname="Quad" visible="1" slicecount="365" values="0,0.00273972602739726,0.00547945205479452,0.00821917808219178,0.010958904109589,0.0136986301369863,0.0164383561643836,0.0191780821917808,0.0219178082191781,0.0246575342465753,0.0273972602739726,0.0301369863013699,0.0328767123287671,0.0356164383561644,0.0383561643835616,0.0410958904109589,0.0438356164383562,0.0465753424657534,0.0493150684931507,0.0520547945205479,0.0547945205479452,0.0575342465753425,0.0602739726027397,0.063013698630137,0.0657534246575342,0.0684931506849315,0.0712328767123288,0.073972602739726,0.0767123287671233,0.0794520547945206,0.0821917808219178,0.0849315068493151,0.0876712328767123,0.0904109589041096,0.0931506849315069,0.0958904109589041,0.0986301369863014,0.101369863013699,0.104109589041096,0.106849315068493,0.10958904109589,0.112328767123288,0.115068493150685,0.117808219178082,0.120547945205479,0.123287671232877,0.126027397260274,0.128767123287671,0.131506849315068,0.134246575342466,0.136986301369863,0.13972602739726,0.142465753424658,0.145205479452055,0.147945205479452,0.150684931506849,0.153424657534247,0.156164383561644,0.158904109589041,0.161643835616438,0.164383561643836,0.167123287671233,0.16986301369863,0.172602739726027,0.175342465753425,0.178082191780822,0.180821917808219,0.183561643835616,0.186301369863014,0.189041095890411,0.191780821917808,0.194520547945205,0.197260273972603,0.2,0.202739726027397,0.205479452054794,0.208219178082192,0.210958904109589,0.213698630136986,0.216438356164384,0.219178082191781,0.221917808219178,0.224657534246575,0.227397260273973,0.23013698630137,0.232876712328767,0.235616438356164,0.238356164383562,0.241095890410959,0.243835616438356,0.246575342465753,0.249315068493151,0.252054794520548,0.254794520547945,0.257534246575342,0.26027397260274,0.263013698630137,0.265753424657534,0.268493150684932,0.271232876712329,0.273972602739726,0.276712328767123,0.279452054794521,0.282191780821918,0.284931506849315,0.287671232876712,0.29041095890411,0.293150684931507,0.295890410958904,0.298630136986301,0.301369863013699,0.304109589041096,0.306849315068493,0.30958904109589,0.312328767123288,0.315068493150685,0.317808219178082,0.320547945205479,0.323287671232877,0.326027397260274,0.328767123287671,0.331506849315069,0.334246575342466,0.336986301369863,0.33972602739726,0.342465753424658,0.345205479452055,0.347945205479452,0.350684931506849,0.353424657534247,0.356164383561644,0.358904109589041,0.361643835616438,0.364383561643836,0.367123287671233,0.36986301369863,0.372602739726027,0.375342465753425,0.378082191780822,0.380821917808219,0.383561643835616,0.386301369863014,0.389041095890411,0.391780821917808,0.394520547945205,0.397260273972603,0.4,0.402739726027397,0.405479452054794,0.408219178082192,0.410958904109589,0.413698630136986,0.416438356164384,0.419178082191781,0.421917808219178,0.424657534246575,0.427397260273973,0.43013698630137,0.432876712328767,0.435616438356164,0.438356164383562,0.441095890410959,0.443835616438356,0.446575342465753,0.449315068493151,0.452054794520548,0.454794520547945,0.457534246575342,0.46027397260274,0.463013698630137,0.465753424657534,0.468493150684932,0.471232876712329,0.473972602739726,0.476712328767123,0.479452054794521,0.482191780821918,0.484931506849315,0.487671232876712,0.49041095890411,0.493150684931507,0.495890410958904,0.498630136986301,0.501369863013699,0.504109589041096,0.506849315068493,0.50958904109589,0.512328767123288,0.515068493150685,0.517808219178082,0.520547945205479,0.523287671232877,0.526027397260274,0.528767123287671,0.531506849315069,0.534246575342466,0.536986301369863,0.53972602739726,0.542465753424658,0.545205479452055,0.547945205479452,0.550684931506849,0.553424657534247,0.556164383561644,0.558904109589041,0.561643835616438,0.564383561643836,0.567123287671233,0.56986301369863,0.572602739726027,0.575342465753425,0.578082191780822,0.580821917808219,0.583561643835617,0.586301369863014,0.589041095890411,0.591780821917808,0.594520547945206,0.597260273972603,0.6,0.602739726027397,0.605479452054794,0.608219178082192,0.610958904109589,0.613698630136986,0.616438356164384,0.619178082191781,0.621917808219178,0.624657534246575,0.627397260273973,0.63013698630137,0.632876712328767,0.635616438356164,0.638356164383562,0.641095890410959,0.643835616438356,0.646575342465753,0.649315068493151,0.652054794520548,0.654794520547945,0.657534246575342,0.66027397260274,0.663013698630137,0.665753424657534,0.668493150684932,0.671232876712329,0.673972602739726,0.676712328767123,0.679452054794521,0.682191780821918,0.684931506849315,0.687671232876712,0.69041095890411,0.693150684931507,0.695890410958904,0.698630136986301,0.701369863013699,0.704109589041096,0.706849315068493,0.70958904109589,0.712328767123288,0.715068493150685,0.717808219178082,0.72054794520548,0.723287671232877,0.726027397260274,0.728767123287671,0.731506849315069,0.734246575342466,0.736986301369863,0.73972602739726,0.742465753424658,0.745205479452055,0.747945205479452,0.750684931506849,0.753424657534247,0.756164383561644,0.758904109589041,0.761643835616438,0.764383561643836,0.767123287671233,0.76986301369863,0.772602739726027,0.775342465753425,0.778082191780822,0.780821917808219,0.783561643835616,0.786301369863014,0.789041095890411,0.791780821917808,0.794520547945205,0.797260273972603,0.8,0.802739726027397,0.805479452054794,0.808219178082192,0.810958904109589,0.813698630136986,0.816438356164383,0.819178082191781,0.821917808219178,0.824657534246575,0.827397260273973,0.83013698630137,0.832876712328767,0.835616438356164,0.838356164383562,0.841095890410959,0.843835616438356,0.846575342465753,0.849315068493151,0.852054794520548,0.854794520547945,0.857534246575342,0.86027397260274,0.863013698630137,0.865753424657534,0.868493150684931,0.871232876712329,0.873972602739726,0.876712328767123,0.879452054794521,0.882191780821918,0.884931506849315,0.887671232876712,0.89041095890411,0.893150684931507,0.895890410958904,0.898630136986301,0.901369863013699,0.904109589041096,0.906849315068493,0.90958904109589,0.912328767123288,0.915068493150685,0.917808219178082,0.920547945205479,0.923287671232877,0.926027397260274,0.928767123287671,0.931506849315068,0.934246575342466,0.936986301369863,0.93972602739726,0.942465753424658,0.945205479452055,0.947945205479452,0.950684931506849,0.953424657534247,0.956164383561644,0.958904109589041,0.961643835616438,0.964383561643836,0.967123287671233,0.96986301369863,0.972602739726027,0.975342465753425,0.978082191780822,0.980821917808219,0.983561643835616,0.986301369863014,0.989041095890411,0.991780821917808,0.994520547945206,0.997260273972603">
+   </PIN>
    </NODE>
-   <LINK dstnodeid="77" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="2900" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="10930" y="5393">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="77" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3575" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="11875" y="5393">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="77" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4235" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="12835" y="5393">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Layer 6 - Mask.v4p" id="79" nodename="subpatches\Layer 6 - Mask.v4p" systemname="Layer 6 - Mask">
-   <BOUNDS height="100" left="13785" top="6075" type="Node" width="100">
+   <BOUNDS height="100" left="13140" top="6825" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layers out" visible="1">
    </PIN>
-   <BOUNDS left="13785" top="6075" type="Box">
+   <BOUNDS left="13140" top="6825" type="Box">
    </BOUNDS>
-   <PIN pinname="iProjector" visible="1">
+   <PIN pinname="iProjector" visible="1" slicecount="342" values="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0">
    </PIN>
-   <PIN pinname="iType" visible="1">
+   <PIN pinname="iType" visible="1" slicecount="342" values="0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4,0,0">
    </PIN>
-   <PIN pinname="Projector XY" visible="1">
+   <PIN pinname="Projector XY" visible="1" slicecount="136" values="0.296797,-0.124034,0.358027,-0.109904,0.345601,-0.0464334,0.286359,-0.0591781,-0.984418,-0.50735,-0.947942,-0.506779,-0.954457,-0.426415,-0.990682,-0.427314,-0.66678,-0.721206,-0.630674,-0.722094,-0.634985,-0.645149,-0.671158,-0.646031,-0.816732,-0.283179,-0.777745,-0.280052,-0.785671,-0.191648,-0.82462,-0.191956,-0.9192,0.137652,-0.882297,0.138912,-0.887242,0.222419,-0.925116,0.22338,-0.659714,0.472581,-0.621552,0.477896,-0.629244,0.564769,-0.6666,0.564117,-0.546844,0.109542,-0.510736,0.11078,-0.516129,0.194905,-0.55309,0.195762,-0.364492,0.398481,-0.327091,0.399778,-0.33359,0.48867,-0.370198,0.486309,-0.0974659,0.470382,-0.0623042,0.468767,-0.065734,0.556346,-0.101893,0.554079,-0.352371,-0.32349,-0.216212,-0.317325,-0.224566,-0.103189,-0.361297,-0.104963,0.0149589,-0.149701,0.145217,-0.14867,0.140951,0.0659674,0.00939915,0.0636278,-0.0983199,-0.269346,0.0147954,-0.267546,0.00853855,-0.0166377,-0.106086,-0.0153142,-0.222175,-0.0971167,-0.107596,-0.0901638,-0.11736,0.16816,-0.234589,0.166502,0.813345,-0.222479,0.912747,-0.214278,0.919086,0.0228001,0.81819,0.0210109,0.579807,-0.0459535,0.683986,-0.0485241,0.691358,0.200493,0.585394,0.203815,0.470785,-0.260098,0.575566,-0.249967,0.577476,-0.0104806,0.471719,-0.0166564,0.288345,0.241951,0.506318,0.122849,0.545743,0.570091,0.259635,0.418869">
+   </PIN>
+   <BOUNDS type="Window" left="25605" top="16050" width="20370" height="12150">
+   </BOUNDS>
+   <PIN pinname="Quad" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="79" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3020" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="14065" y="5393">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="79" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3695" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="14890" y="5393">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="79" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4355" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="15700" y="5393">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Test 0 - Grid.v4p" id="86" nodename="subpatches\Test 0 - Grid.v4p" systemname="Test 0 - Grid">
-   <BOUNDS height="100" left="4050" top="8530" type="Node" width="100">
+   <BOUNDS height="100" left="5805" top="11550" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
+   <BOUNDS type="Box" left="5805" top="11550">
+   </BOUNDS>
    </NODE>
-   <LINK dstnodeid="21" dstpinname="Input 2" linkstyle="Bezier" srcnodeid="18" srcpinname="Layers mapping">
-   <LINKPOINT x="2610" y="6900">
-   </LINKPOINT>
-   <LINKPOINT x="3270" y="7240">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="21" dstpinname="Input 3" srcnodeid="86" srcpinname="Layer">
-   </LINK>
    <NODE componentmode="Hidden" id="101" nodename="Damper (Animation)" systemname="Damper (Animation)">
    <BOUNDS height="100" left="10980" top="2010" type="Node" width="100">
    </BOUNDS>
@@ -332,71 +258,31 @@
    </LINK>
    <LINK dstnodeid="72" dstpinname="Y Input Value" srcnodeid="101" srcpinname="Position Out">
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 8 - Indicator.v4p" id="102" nodename="subpatches\Layer 8 - Indicator.v4p" systemname="Layer 8 - Indicator">
-   <BOUNDS height="100" left="16440" top="6565" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="11115" left="5640" top="2355" type="Window" width="14070">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Recorder IDs" visible="1" slicecount="2" values="0,0">
-   </PIN>
-   <PIN pinname="iProjector" visible="1">
-   </PIN>
-   <PIN pinname="iType" visible="1">
-   </PIN>
-   <PIN pinname="Projector XY" visible="1">
-   </PIN>
-   <PIN pinname="Indicate bang" visible="1" slicecount="2" values="0,0">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="102" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
-   <LINKPOINT x="3175" y="5363">
-   </LINKPOINT>
-   <LINKPOINT x="16460" y="5327">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="102" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
-   <LINKPOINT x="3715" y="5363">
-   </LINKPOINT>
-   <LINKPOINT x="16820" y="5327">
-   </LINKPOINT>
-   </LINK>
-   <LINK dstnodeid="102" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
-   <LINKPOINT x="4270" y="5363">
-   </LINKPOINT>
-   <LINKPOINT x="17180" y="5327">
-   </LINKPOINT>
-   </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Keys 0 - Switch mode.v4p" id="104" nodename="subpatches\Keys 0 - Switch mode.v4p" systemname="Keys 0 - Switch mode">
-   <BOUNDS height="100" left="1920" top="8710" type="Node" width="100">
+   <BOUNDS height="100" left="1980" top="11550" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="View Mode" visible="1">
    </PIN>
+   <BOUNDS type="Box" left="1980" top="11550">
+   </BOUNDS>
    </NODE>
-   <LINK dstnodeid="104" dstpinname="View Mode" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="18" srcpinname="View Mode">
-   <LINKPOINT x="4215" y="6690">
-   </LINKPOINT>
-   <LINKPOINT x="1980" y="7030">
-   </LINKPOINT>
-   </LINK>
    <LINK dstnodeid="21" dstpinname="Switch" srcnodeid="104" srcpinname="View Mode">
    </LINK>
    <NODE componentmode="Hidden" filename="subpatches\Net 2 - MySQL connection.v4p" id="106" nodename="subpatches\Net 2 - MySQL connection.v4p" systemname="Net 2 - MySQL connection">
-   <BOUNDS height="100" left="1545" top="3405" type="Node" width="100">
+   <BOUNDS height="100" left="2295" top="3405" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="6870" left="18810" top="6340" type="Window" width="7410">
    </BOUNDS>
    <PIN pinname="MySQLDataBase" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS left="1545" top="3405" type="Box">
+   <BOUNDS left="2295" top="3405" type="Box">
    </BOUNDS>
+   <PIN pinname="Connected" visible="1">
+   </PIN>
    </NODE>
-   <LINK dstnodeid="18" dstpinname="MySQLDataBase" srcnodeid="106" srcpinname="MySQLDataBase">
-   </LINK>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="31.9.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="IP (Network)" nodename="IP (Network)" componentmode="Hidden" id="114">
    <BOUNDS type="Node" left="13100" top="1410" width="100" height="100">
@@ -465,7 +351,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="18410" top="530" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" values="..\..\..\..\vvvv-sdk\vvvv45\vvvv.exe">
+   <PIN pinname="Input String" slicecount="1" values="..\..\vvvv_45beta33.7_x86\vvvv.exe">
    </PIN>
    <PIN pinname="Default" slicecount="1" values="cmd.exe">
    </PIN>
@@ -568,12 +454,12 @@
    <PIN pinname="String Type" slicecount="1" values="String">
    </PIN>
    </NODE>
-   <NODE systemname="Layer 0 - Recorders" filename="subpatches\Layer 0 - Recorders.v4p" nodename="subpatches\Layer 0 - Recorders.v4p" componentmode="InAWindow" id="134" stayontop="0">
-   <BOUNDS type="Node" left="10470" top="9860" width="100" height="100">
+   <NODE systemname="Layer 0 - Recorders" filename="subpatches\Layer 0 - Recorders.v4p" nodename="subpatches\Layer 0 - Recorders.v4p" componentmode="Hidden" id="134" stayontop="0">
+   <BOUNDS type="Node" left="8940" top="9350" width="8670" height="270">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="16850" top="6400" width="18430" height="13650">
+   <BOUNDS type="Window" left="30120" top="13950" width="18420" height="13650">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
@@ -587,37 +473,39 @@
    </PIN>
    <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Quad Index" visible="1">
+   <PIN pinname="Quad Index" visible="1" slicecount="17" values="-10,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423">
    </PIN>
    <PIN pinname="Recording Complete" visible="1">
    </PIN>
-   <PIN pinname="iType" visible="1">
+   <PIN pinname="iType" visible="1" slicecount="17" values="0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4">
    </PIN>
    <PIN pinname="Recording Index" visible="1">
    </PIN>
-   <PIN pinname="Player Quad Indices" visible="1">
+   <PIN pinname="Player Quad Indices" visible="1" slicecount="332" values="-67,-66,-65,-64,-63,-62,-61,-60,-59,-58,-57,-56,-55,-54,-53,-52,-51,-50,-49,-48,-47,-46,-43,-42,-41,-40,-39,-37,-36,-34,-33,-31,-30,-27,-26,-25,-24,-17,-16,-14,-12,-11,428,429,430,434,435,437,439,440,441,442,443,444,447,448,449,450,452,454,455,456,458,459,460,461,462,464,465,467,468,469,470,471,472,474,475,477,479,480,482,483,484,485,486,487,488,490,491,492,494,495,496,497,498,499,500,502,503,505,506,508,509,510,511,513,515,516,517,518,519,520,521,522,524,525,526,530,531,533,535,536,537,539,541,542,543,544,545,546,547,548,552,553,554,555,556,558,559,560,561,562,564,565,567,568,573,579,583,584,585,587,588,589,592,593,594,595,598,599,600,601,602,607,608,611,615,616,617,619,620,621,623,624,625,626,630,631,632,633,634,635,636,637,638,639,640,641,642,643,644,645,646,647,649,650,652,653,654,656,658,659,660,661,662,663,664,665,666,668,669,670,671,672,673,674,675,676,677,678,679,681,682,683,684,685,686,687,688,692,693,694,695,696,697,698,700,701,702,703,704,705,706,707,708,709,710,712,715,716,717,718,719,720,721,722,723,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,740,742,743,744,746,747,748,751,755,756,762,764,766,768,771,773,774,777,778,779,781,782,783,784,-67,-66,-65,-64,-63,-62,-61,-60,-59,-57,-56,-55,-54,-53,-52,-51,-50,-49,-48,-47,-46,-40,-39,-37,-36,-34,-33,-31,-30,-27,-25,-24,-17,-16,-14,-12">
    </PIN>
-   <PIN pinname="Record Quad Index" visible="1" slicecount="1" values="20">
+   <PIN pinname="Record Quad Index" visible="1" slicecount="1" values="-67">
+   </PIN>
+   <PIN pinname="Quad" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="MySQLDataBase" dstnodeid="134" dstpinname="Database" linkstyle="Bezier">
-   <LINKPOINT x="4207" y="5883">
+   <LINKPOINT x="4197" y="5713">
    </LINKPOINT>
-   <LINKPOINT x="10533" y="7647">
+   <LINKPOINT x="9763" y="7307">
    </LINKPOINT>
    </LINK>
    <NODE systemname="Data 0 - Players" filename="subpatches\Data 0 - Players.v4p" componentmode="Hidden" id="137" nodename="subpatches\Data 0 - Players.v4p">
-   <BOUNDS type="Node" left="8220" top="10700" width="100" height="100">
+   <BOUNDS type="Node" left="8985" top="11195" width="10755" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="8220" top="10700" width="4800" height="3600">
+   <BOUNDS type="Box" left="8985" top="11195" width="4800" height="3600">
    </BOUNDS>
-   <BOUNDS type="Window" left="0" top="0" width="19200" height="21040">
+   <BOUNDS type="Window" left="0" top="0" width="26610" height="26625">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Quad Index" visible="1">
+   <PIN pinname="Quad Index" visible="1" slicecount="17" values="-10,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423">
    </PIN>
    <PIN pinname="iProjector" visible="1">
    </PIN>
@@ -633,7 +521,7 @@
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="iType" visible="1">
+   <PIN pinname="iType" visible="1" slicecount="17" values="0,0,0,0,0,0,0,0,0,5,5,4,4,4,4,4,4">
    </PIN>
    <PIN pinname="Frame Index" visible="1" slicecount="1" values="0">
    </PIN>
@@ -643,13 +531,15 @@
    </PIN>
    <PIN pinname="Progress Bar" visible="1">
    </PIN>
+   <PIN pinname="Quad" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="MySQLDataBase" dstnodeid="137" dstpinname="Database">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="138" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="6600" top="2910" width="1900" height="240">
+   <BOUNDS type="Box" left="11415" top="4380" width="1900" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="6600" top="2910" width="0" height="0">
+   <BOUNDS type="Node" left="11415" top="4380" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="1" values="..\Recordings">
    </PIN>
@@ -661,18 +551,12 @@
    </PIN>
    <PIN pinname="Output String" visible="1">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Recordings Repo|">
+   </PIN>
    </NODE>
    <LINK srcnodeid="138" srcpinname="Output String" dstnodeid="137" dstpinname="Recordings Repo">
    </LINK>
    <LINK srcnodeid="138" srcpinname="Output String" dstnodeid="134" dstpinname="Recordings Repo">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="137" dstpinname="Quad Index">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="iProjector" dstnodeid="137" dstpinname="iProjector">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="137" dstpinname="Quad Type">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="Projector XY" dstnodeid="137" dstpinname="Projector XY">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="139" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="21610" top="590" width="480" height="480">
@@ -702,16 +586,10 @@
    </LINK>
    <LINK srcnodeid="134" srcpinname="Frame Count" dstnodeid="137" dstpinname="Frame Count">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="134" dstpinname="Quad Index">
-   </LINK>
    <LINK srcnodeid="134" srcpinname="Recording Complete" dstnodeid="137" dstpinname="Recording complete">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="134" dstpinname="iType">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="137" dstpinname="iType">
-   </LINK>
    <NODE systemname="Data 0.2 - Frame Runner" filename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" nodename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" componentmode="Hidden" id="145">
-   <BOUNDS type="Node" left="7740" top="3980" width="100" height="100">
+   <BOUNDS type="Node" left="13275" top="10400" width="4380" height="270">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -722,10 +600,6 @@
    </LINK>
    <LINK srcnodeid="134" srcpinname="Recording Index" dstnodeid="137" dstpinname="Recording Index">
    </LINK>
-   <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="134" dstpinname="Player Quad Indices">
-   <LINKPOINT x="11185" y="9775">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="134" dstpinname="Texture In">
    <LINKPOINT x="10637" y="11198">
    </LINKPOINT>
@@ -735,33 +609,37 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="Layer 2 - Indicator" filename="subpatches\Layer 2 - Indicator.v4p" nodename="subpatches\Layer 2 - Indicator.v4p" componentmode="Hidden" id="157">
-   <BOUNDS type="Node" left="14440" top="9883" width="0" height="0">
+   <BOUNDS type="Node" left="15060" top="6825" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="9720" top="5998" width="9440" height="7770">
+   <BOUNDS type="Box" left="15060" top="6825" width="9440" height="7770">
    </BOUNDS>
-   <BOUNDS type="Window" left="20510" top="11130" width="9440" height="10870">
+   <BOUNDS type="Window" left="19995" top="14010" width="18825" height="14715">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
    <PIN pinname="Video Quad Indices" visible="1" slicecount="342" values="1,2,3,5,6,7,9,10,12,15,16,18,20,21,22,25,26,28,30,31,32,33,35,36,37,38,39,40,41,42,43,44,45,46,47,48,50,51,52,53,54,56,57,58,59,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,77,78,79,80,81,82,83,84,85,86,87,88,89,90,92,93,95,96,97,99,100,103,104,105,106,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,149,150,151,152,153,154,155,158,161,162,163,166,167,168,169,171,172,173,175,176,177,178,179,180,181,182,183,184,186,188,189,190,191,192,193,195,196,197,198,199,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,259,260,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,279,280,281,283,284,285,286,287,288,289,290,291,292,294,295,296,298,299,300,301,302,303,304,305,306,307,308,309,310,311,313,314,315,316,317,318,319,320,321,322,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,361,363,365,366,367,368,369,370,371,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,395,396,397,399,400,403,404">
    </PIN>
-   <PIN pinname="Quad ID" visible="1">
+   <PIN pinname="Quad ID" visible="1" slicecount="15" values="-10,408,409,410,411,412,413,414,415,416,417,418,419,420,421">
    </PIN>
    <PIN pinname="Selection" visible="1">
+   </PIN>
+   <PIN pinname="iProjector" slicecount="15" values="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+   </PIN>
+   <PIN pinname="iType" slicecount="15" values="0,0,0,0,0,0,0,0,0,5,5,4,4,4,4">
+   </PIN>
+   <PIN pinname="Projector XY" slicecount="136" values="0.296797,-0.124034,0.358027,-0.109904,0.345601,-0.0464334,0.286359,-0.0591781,-0.984418,-0.50735,-0.947942,-0.506779,-0.954457,-0.426415,-0.990682,-0.427314,-0.66678,-0.721206,-0.630674,-0.722094,-0.634985,-0.645149,-0.671158,-0.646031,-0.816732,-0.283179,-0.777745,-0.280052,-0.785671,-0.191648,-0.82462,-0.191956,-0.9192,0.137652,-0.882297,0.138912,-0.887242,0.222419,-0.925116,0.22338,-0.659714,0.472581,-0.621552,0.477896,-0.629244,0.564769,-0.6666,0.564117,-0.546844,0.109542,-0.510736,0.11078,-0.516129,0.194905,-0.55309,0.195762,-0.364492,0.398481,-0.327091,0.399778,-0.33359,0.48867,-0.370198,0.486309,-0.0974659,0.470382,-0.0623042,0.468767,-0.065734,0.556346,-0.101893,0.554079,-0.352371,-0.32349,-0.216212,-0.317325,-0.224566,-0.103189,-0.361297,-0.104963,0.0149589,-0.149701,0.145217,-0.14867,0.140951,0.0659674,0.00939915,0.0636278,-0.0983199,-0.269346,0.0147954,-0.267546,0.00853855,-0.0166377,-0.106086,-0.0153142,-0.222175,-0.0971167,-0.107596,-0.0901638,-0.11736,0.16816,-0.234589,0.166502,0.813345,-0.222479,0.912747,-0.214278,0.919086,0.0228001,0.81819,0.0210109,0.579807,-0.0459535,0.683986,-0.0485241,0.691358,0.200493,0.585394,0.203815,0.470785,-0.260098,0.575566,-0.249967,0.577476,-0.0104806,0.471719,-0.0166564,0.288345,0.241951,0.506318,0.122849,0.545743,0.570091,0.259635,0.418869">
+   </PIN>
+   <PIN pinname="Quad" visible="1">
+   </PIN>
+   <PIN pinname="Reselect" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="157" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="iProjector" dstnodeid="157" dstpinname="iProjector">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="157" dstpinname="iType">
-   </LINK>
-   <LINK srcnodeid="18" srcpinname="Projector XY" dstnodeid="157" dstpinname="Projector XY">
-   </LINK>
    <NODE componentmode="Hidden" id="28" nodename="Group (DX11.Layer)" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS height="270" left="3240" top="8005" type="Node" width="13245">
+   <BOUNDS height="270" left="3240" top="8010" type="Node" width="13245">
    </BOUNDS>
-   <BOUNDS height="0" left="3240" top="8005" type="Box" width="0">
+   <BOUNDS height="0" left="3240" top="8010" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="2910" top="8520" type="Window" width="0">
    </BOUNDS>
@@ -795,9 +673,9 @@
    <LINK srcnodeid="157" srcpinname="Layer" dstnodeid="28" dstpinname="Layer 5">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="158" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="16940" top="8110" width="480" height="480">
+   <BOUNDS type="Box" left="16430" top="4930" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="16940" top="8110" width="0" height="0">
+   <BOUNDS type="Node" left="16430" top="4930" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -811,21 +689,17 @@
    </PIN>
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Reselect">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="158" srcpinname="Y Output Value" dstnodeid="157" dstpinname="Reselect">
-   </LINK>
-   <LINK srcnodeid="28" srcpinname="Layer Out" dstnodeid="64" dstpinname="Layers in">
-   </LINK>
    <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="157" dstpinname="Video Quad Indices">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="157" dstpinname="Quad ID">
-   </LINK>
-   <LINK srcnodeid="157" srcpinname="Selection" dstnodeid="134" dstpinname="Record Quad Index">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="159" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="14450" top="10520" width="800" height="240">
+   <BOUNDS type="Box" left="15080" top="8825" width="800" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="14450" top="10520" width="0" height="0">
+   <BOUNDS type="Node" left="15080" top="8825" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -833,15 +707,21 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="157" srcpinname="Selection" dstnodeid="159" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture">
+   <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="27" dstpinname="Texture" linkstyle="Bezier">
+   <LINKPOINT x="9105" y="13275">
+   </LINKPOINT>
+   <LINKPOINT x="6555" y="5280">
+   </LINKPOINT>
    </LINK>
    <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InABox" id="160">
-   <BOUNDS type="Node" left="8910" top="11200" width="100" height="100">
+   <BOUNDS type="Node" left="14355" top="12050" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="8910" top="11200" width="870" height="2250">
+   <BOUNDS type="Box" left="14355" top="12050" width="1230" height="2715">
    </BOUNDS>
    <BOUNDS type="Window" left="19550" top="14250" width="4220" height="3560">
    </BOUNDS>
@@ -849,5 +729,205 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="137" srcpinname="Progress Bar" dstnodeid="160" dstpinname="Texture In">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="161" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4200" top="3810" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4200" top="3810" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Connected">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="106" srcpinname="Connected" dstnodeid="161" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Layer Out" dstnodeid="21" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
+   </LINK>
+   <LINK srcnodeid="86" srcpinname="Layer" dstnodeid="21" dstpinname="Input 3">
+   </LINK>
+   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
+   <BOUNDS height="270" left="3240" top="4785" type="Node" width="2610">
+   </BOUNDS>
+   <BOUNDS height="14130" left="21660" top="11790" type="Window" width="21150">
+   </BOUNDS>
+   <PIN pinname="Layers mapping" visible="1">
+   </PIN>
+   <PIN pinname="iProjector" visible="1">
+   </PIN>
+   <PIN pinname="iType" visible="1">
+   </PIN>
+   <PIN pinname="Projector XY" visible="1">
+   </PIN>
+   <PIN pinname="View Mode" visible="1">
+   </PIN>
+   <PIN pinname="Recordings" visible="1">
+   </PIN>
+   <PIN pinname="MySQLDataBase" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS left="3240" top="4785" type="Box">
+   </BOUNDS>
+   <PIN pinname="Index" visible="1">
+   </PIN>
+   <PIN pinname="Order" visible="1">
+   </PIN>
+   <PIN pinname="Quad" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="27" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
+   <LINKPOINT x="3395" y="5934">
+   </LINKPOINT>
+   <LINKPOINT x="3130" y="5782">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="27" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
+   <LINKPOINT x="4070" y="5934">
+   </LINKPOINT>
+   <LINKPOINT x="3595" y="5782">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="27" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
+   <LINKPOINT x="3885" y="5939">
+   </LINKPOINT>
+   <LINKPOINT x="4590" y="6347">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="77" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
+   <LINKPOINT x="2665" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="10460" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="77" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
+   <LINKPOINT x="3340" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="11405" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="77" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
+   <LINKPOINT x="4000" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="12365" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="79" dstpinname="iProjector" linkstyle="VHV" srcnodeid="18" srcpinname="iProjector">
+   <LINKPOINT x="3020" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="14065" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="79" dstpinname="iType" linkstyle="VHV" srcnodeid="18" srcpinname="iType">
+   <LINKPOINT x="3695" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="14890" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="79" dstpinname="Projector XY" linkstyle="VHV" srcnodeid="18" srcpinname="Projector XY">
+   <LINKPOINT x="4355" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="15700" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK dstnodeid="18" dstpinname="MySQLDataBase" srcnodeid="106" srcpinname="MySQLDataBase">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="137" dstpinname="Quad Index">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="134" dstpinname="Quad Index">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="134" dstpinname="iType">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="137" dstpinname="iType">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="iProjector" dstnodeid="157" dstpinname="iProjector">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="iType" dstnodeid="157" dstpinname="iType">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Projector XY" dstnodeid="157" dstpinname="Projector XY">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Index" dstnodeid="157" dstpinname="Quad ID">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Layers mapping" dstnodeid="21" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="77" srcpinname="Layers out" dstnodeid="28" dstpinname="Layer 3">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Quad" dstnodeid="77" dstpinname="Quad" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="3300" y="5925">
+   </LINKPOINT>
+   <LINKPOINT x="9825" y="5925">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="79" srcpinname="Layers out" dstnodeid="28" dstpinname="Layer 4">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Quad" dstnodeid="79" dstpinname="Quad" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="3300" y="5925">
+   </LINKPOINT>
+   <LINKPOINT x="13140" y="5925">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Quad" dstnodeid="27" dstpinname="Quad" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Quad" dstnodeid="137" dstpinname="Quad" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="1480" y="5940">
+   </LINKPOINT>
+   <LINKPOINT x="10805" y="5940">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="View Mode" dstnodeid="104" dstpinname="View Mode" linkstyle="Bezier" hiddenwhenlocked="0">
+   <LINKPOINT x="5550" y="7820">
+   </LINKPOINT>
+   <LINKPOINT x="2235" y="8770">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Quad" dstnodeid="157" dstpinname="Quad" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="3295" y="5925">
+   </LINKPOINT>
+   <LINKPOINT x="15065" y="5925">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="159" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Record Quad Index">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Quad" dstnodeid="134" dstpinname="Quad" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="3270" y="5940">
+   </LINKPOINT>
+   <LINKPOINT x="8970" y="5940">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="137" srcpinname="Player Quad Indices" dstnodeid="134" dstpinname="Player Quad Indices">
+   <LINKPOINT x="20235" y="11520">
+   </LINKPOINT>
+   <LINKPOINT x="18450" y="8610">
+   </LINKPOINT>
+   <LINKPOINT x="12945" y="8670">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="164">
+   <BOUNDS type="Node" left="17160" top="4950" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="165">
+   <BOUNDS type="Node" left="16425" top="5625" width="795" height="270">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="165" srcpinname="Output" dstnodeid="157" dstpinname="Reselect">
+   </LINK>
+   <LINK srcnodeid="158" srcpinname="Y Output Value" dstnodeid="165" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="164" srcpinname="Bang" dstnodeid="165" dstpinname="Input 2">
    </LINK>
    </PATCH>

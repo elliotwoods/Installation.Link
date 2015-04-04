@@ -1,4 +1,4 @@
-//@author: vux
+//@author: elliotwoods
 //@help: template for texture fx
 //@tags: texture
 //@credits: 
@@ -27,7 +27,7 @@ float4 PS(psInput input) : SV_Target
 
 technique10 Process
 {
-	pass P0
+	pass P0 <string format="R32G32B32A32_Float"; >
 	{
 		SetPixelShader(CompileShader(ps_4_0,PS()));
 	}

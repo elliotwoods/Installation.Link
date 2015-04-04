@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha32.2.dtd" >
-   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Production.VideoCapture\instance.v4p" systemname="instance" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Production.VideoCapture\instance.v4p">
-   <BOUNDS type="Window" left="22460" top="3030" width="11270" height="9870">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.Production.VideoCapture\instance.v4p" systemname="instance" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Production.VideoCapture\instance.v4p">
+   <BOUNDS type="Window" left="2520" top="12645" width="11265" height="9870">
    </BOUNDS>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InABox" id="2">
    <BOUNDS type="Node" left="1020" top="3490" width="100" height="100">
@@ -16,7 +16,7 @@
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <PACK Name="addonpack" Version="32.2.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="VideoIn (CV.Image DirectShow)" filename="%VVVV%\packs\VVVV.Packs.Image\nodes\plugins\VVVV.Nodes.OpenCV.VideoInput.dll" nodename="VideoIn (CV.Image DirectShow)" componentmode="Hidden" id="22">
    <BOUNDS type="Node" left="1030" top="2400" width="7300" height="270">
@@ -153,7 +153,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="8770" top="100" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="7" values="0.14,0.24,0.39,0.81,0.25,0,0">
+   <PIN pinname="Y Input Value" slicecount="7" values="0.36,0,0.39,0.81,0.1,0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -169,8 +169,10 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Input 1|">
+   </PIN>
    </NODE>
-   <PACK Name="VVVV.Packs" Version="0.1.0">
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
    <NODE systemname="SendTexture (EX9.SharedTexture Network)" filename="%VVVV%\packs\VVVV.Packs.KimchiAndChips\nodes\modules\SendTexture (EX9.SharedTexture Network).v4p" nodename="SendTexture (EX9.SharedTexture Network)" componentmode="Hidden" id="32">
    <BOUNDS type="Node" left="4380" top="8170" width="100" height="100">

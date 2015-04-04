@@ -1,37 +1,7 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
-   <PATCH nodename="C:\kimchiandchips\Link\VVVV.Patches.KC.DK001.Link\subpatches\Test 0 - Grid.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Test 0 - Grid.v4p" scrollx="0" scrolly="0">
    <BOUNDS height="6000" left="3045" top="5220" type="Window" width="9000">
    </BOUNDS>
-   <NODE componentmode="Hidden" id="0" nodename="UniformScale (Transform)" systemname="UniformScale (Transform)">
-   <BOUNDS height="100" left="1635" top="3510" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="1635" top="3510" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="7770" top="9975" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="XYZ" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="Transform In" slicecount="1" visible="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE componentmode="Hidden" id="1" nodename="Quad (DX9)" systemname="Quad (DX9)">
-   <BOUNDS height="100" left="1470" top="4020" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="1470" top="4020" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="8970" top="11115" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Transform" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Texture" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="1" dstpinname="Transform" srcnodeid="0" srcpinname="Transform Out">
-   </LINK>
    <NODE componentmode="InABox" id="3" nodename="IOBox (Node)" systemname="IOBox (Node)">
    <BOUNDS height="100" left="1485" top="4845" type="Node" width="100">
    </BOUNDS>
@@ -39,243 +9,47 @@
    </BOUNDS>
    <BOUNDS height="160" left="9330" top="11610" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Layer" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layer">
    </PIN>
    </NODE>
-   <LINK dstnodeid="3" dstpinname="Input Node" srcnodeid="1" srcpinname="Layer">
-   </LINK>
-   <NODE componentmode="Hidden" id="4" nodename="Line (GDI)" systemname="Line (GDI)">
-   <BOUNDS height="100" left="525" top="1785" type="Node" width="100">
+   <NODE systemname="Grid (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Grid (DX11.Geometry)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="1785" top="3375" width="100" height="100">
    </BOUNDS>
-   <BOUNDS height="0" left="525" top="1785" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="8940" top="9315" type="Window" width="0">
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" slicecount="2" values="2,2">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="1470" top="4005" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="X1" visible="1">
+   <PIN pinname="Geometry" visible="1">
    </PIN>
-   <PIN pinname="X2" visible="1">
-   </PIN>
-   <PIN pinname="Y1" slicecount="1" values="-1">
+   <PIN pinname="Render State" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="5" nodename="Line (GDI)" systemname="Line (GDI)">
-   <BOUNDS height="100" left="1950" top="1785" type="Node" width="100">
+   <LINK srcnodeid="24" srcpinname="Layer" dstnodeid="3" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="24" dstpinname="Geometry">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState)" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="25" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
+   <BOUNDS type="Node" left="1620" top="2955" width="100" height="100">
    </BOUNDS>
-   <BOUNDS height="0" left="1950" top="1785" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="8940" top="9315" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Y1" visible="1">
-   </PIN>
-   <PIN pinname="Y2" visible="1">
-   </PIN>
-   <PIN pinname="X1" slicecount="1" values="-1">
+   <PIN pinname="Mode" slicecount="1" values="NoCullWireframe">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" id="7" nodename="Group (GDI)" systemname="Group (GDI)">
-   <BOUNDS height="270" left="525" top="2205" type="Node" width="2925">
-   </BOUNDS>
-   <BOUNDS height="0" left="525" top="2205" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9045" top="9765" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Layer 1" visible="1">
-   </PIN>
-   <PIN pinname="Layer 2" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Layer Template Count" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Layer 3" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" pintype="Input" slicecount="1" visible="-1" values="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="7" dstpinname="Layer 1" srcnodeid="4" srcpinname="Layer">
+   <LINK srcnodeid="25" srcpinname="Render State" dstnodeid="24" dstpinname="Render State">
    </LINK>
-   <LINK dstnodeid="7" dstpinname="Layer 2" srcnodeid="5" srcpinname="Layer">
-   </LINK>
-   <NODE componentmode="Hidden" id="8" nodename="Renderer (GDI)" stayontop="0" systemname="Renderer (GDI)">
-   <BOUNDS height="100" left="525" top="2550" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="1800" left="525" top="2550" type="Box" width="2400">
-   </BOUNDS>
-   <BOUNDS height="7590" left="2175" top="1620" type="Window" width="11730">
-   </BOUNDS>
-   <PIN pinname="Backbuffer Width" slicecount="1" values="1024">
-   </PIN>
-   <PIN pinname="Backbuffer Height" slicecount="1" values="768">
-   </PIN>
-   <PIN pinname="Layers" visible="1">
-   </PIN>
-   <PIN pinname="GDI Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="8" dstpinname="Layers" srcnodeid="7" srcpinname="Layer">
-   </LINK>
-   <NODE componentmode="Hidden" id="9" nodename="GDITexture (EX9.Texture)" systemname="GDITexture (EX9.Texture)">
-   <BOUNDS height="100" left="1815" top="3090" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="1815" top="3090" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="10710" top="10710" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Source" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="9" dstpinname="Source" srcnodeid="8" srcpinname="GDI Out">
-   </LINK>
-   <LINK dstnodeid="1" dstpinname="Texture" srcnodeid="9" srcpinname="Texture Out">
-   </LINK>
-   <NODE componentmode="Hidden" id="10" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="540" top="1230" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="540" top="1230" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9465" top="8670" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Width" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Spread Count" slicecount="1" values="128">
-   </PIN>
-   <PIN pinname="Alignment" slicecount="1" values="Block">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="4" dstpinname="X1" srcnodeid="10" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="4" dstpinname="X2" srcnodeid="10" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="11" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="2100" top="1230" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="2100" top="1230" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9465" top="8670" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Width" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Spread Count" slicecount="1" values="64">
-   </PIN>
-   <PIN pinname="Alignment" slicecount="1" values="Block">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="5" dstpinname="Y1" srcnodeid="11" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="5" dstpinname="Y2" srcnodeid="11" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="12" nodename="Text (GDI)" systemname="Text (GDI)">
-   <BOUNDS height="100" left="3405" top="1785" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="3405" top="1785" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9360" top="9900" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Text" visible="1">
-   </PIN>
-   <PIN pinname="Size" slicecount="1" values="21">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="7" dstpinname="Layer 3" srcnodeid="12" srcpinname="Layer">
-   </LINK>
-   <NODE componentmode="Hidden" id="14" nodename="LinearSpread (Spreads)" systemname="LinearSpread (Spreads)">
-   <BOUNDS height="100" left="3420" top="540" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="3420" top="540" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9300" top="9105" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Spread Count" slicecount="1" values="32">
-   </PIN>
-   <PIN pinname="Width" slicecount="1" values="2">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="12" dstpinname="X" srcnodeid="14" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="17" nodename="Map (Value)" systemname="Map (Value)">
-   <BOUNDS height="100" left="5250" top="750" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="5250" top="750" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="11085" top="9165" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Source Minimum" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Destination Maximum" slicecount="1" values="1024">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="17" dstpinname="Input" srcnodeid="14" srcpinname="Output">
-   </LINK>
-   <NODE componentmode="Hidden" id="18" nodename="FormatValue (String)" systemname="FormatValue (String)">
-   <BOUNDS height="100" left="5235" top="1200" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="5235" top="1200" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="10950" top="9345" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="18" dstpinname="Input" srcnodeid="17" srcpinname="Output">
-   </LINK>
-   <LINK dstnodeid="12" dstpinname="Text" linkstyle="VHV" srcnodeid="18" srcpinname="Output">
-   <LINKPOINT x="5235" y="1613">
-   </LINKPOINT>
-   <LINKPOINT x="4080" y="1613">
-   </LINKPOINT>
-   </LINK>
-   <NODE componentmode="Hidden" id="19" nodename="Vector (2d Join)" systemname="Vector (2d Join)">
-   <BOUNDS height="100" left="3540" top="1230" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="3540" top="1230" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="11295" top="9510" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   <PIN pinname="X" slicecount="1" values="-0.03">
-   </PIN>
-   <PIN pinname="Y" slicecount="1" values="0.03">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="12" dstpinname="Y" srcnodeid="19" srcpinname="XY">
-   </LINK>
-   <NODE componentmode="Hidden" id="21" nodename="Renderer (GDI)" systemname="Renderer (GDI)">
-   <BOUNDS height="100" left="3225" top="2610" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="1800" left="3225" top="2610" type="Box" width="2400">
-   </BOUNDS>
-   <BOUNDS height="9165" left="3630" top="1935" type="Window" width="11115">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="21" dstpinname="Layers" srcnodeid="7" srcpinname="Layer">
-   </LINK>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    </PATCH>
