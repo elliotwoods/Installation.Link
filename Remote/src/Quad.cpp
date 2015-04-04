@@ -61,7 +61,7 @@ void Quad::draw(bool selected) {
 	ofScale(2.0f / 500.0f, -2.0f / 500.0f);
 	ofPushStyle();
 	ofSetColor(selected ? 0 : 255);
-	ofxAssets::font("swisop3", 100).drawStringAsShapes(TypeSelection::X().getCaptionForIndex(this->iType), -250, 200);
+	ofxAssets::font("ofxKCTouchGui2::swisop3", 100).drawStringAsShapes(TypeSelection::X().getCaptionForIndex(this->iType), -250, 200);
 	ofPopStyle();
 	
 	if (selected) {

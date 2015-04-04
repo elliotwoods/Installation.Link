@@ -37,3 +37,5 @@ Release/
 *.o
 
 Recordings/*
+
+Credentials.h
