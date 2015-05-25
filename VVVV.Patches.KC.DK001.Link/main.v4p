@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="3240" scrolly="0">
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="0" scrolly="810">
    <BOUNDS height="16740" left="13245" top="4875" type="Window" width="22485">
    </BOUNDS>
    <NODE componentmode="Hidden" id="21" nodename="Switch (Node Input)" systemname="Switch (Node Input)">
@@ -461,7 +461,7 @@
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="24015" top="11040" width="24525" height="19725">
+   <BOUNDS type="Window" left="16995" top="10995" width="24525" height="19725">
    </BOUNDS>
    <PIN pinname="Database" visible="1">
    </PIN>
@@ -492,6 +492,8 @@
    <PIN pinname="Recording" visible="1">
    </PIN>
    <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Select Next Quad" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="MySQLDataBase" dstnodeid="134" dstpinname="Database" linkstyle="Bezier">
@@ -606,7 +608,7 @@
    </LINK>
    <LINK srcnodeid="134" srcpinname="Frame Count" dstnodeid="137" dstpinname="Frame Count">
    </LINK>
-   <LINK srcnodeid="134" srcpinname="Recording Complete" dstnodeid="137" dstpinname="Recording complete">
+   <LINK srcnodeid="134" srcpinname="Reload from recording" dstnodeid="137" dstpinname="Reload from recording">
    </LINK>
    <NODE systemname="Data 0.2 - Frame Runner" filename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" nodename="subpatches\Data 0\Data 0.2 - Frame Runner.v4p" componentmode="Hidden" id="145">
    <BOUNDS type="Node" left="13275" top="10400" width="4380" height="270">
@@ -618,7 +620,7 @@
    </NODE>
    <LINK srcnodeid="145" srcpinname="Output" dstnodeid="137" dstpinname="Frame Index">
    </LINK>
-   <LINK srcnodeid="134" srcpinname="Recording Index" dstnodeid="137" dstpinname="Recording Index">
+   <LINK srcnodeid="134" srcpinname="Last Recording Index" dstnodeid="137" dstpinname="Last Recording Index">
    </LINK>
    <LINK srcnodeid="137" srcpinname="Texture Out" dstnodeid="134" dstpinname="Texture In">
    <LINKPOINT x="10637" y="11198">
@@ -945,7 +947,7 @@
    </PIN>
    <PIN pinname="Input Count" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Input 3" visible="1">
+   <PIN pinname="Input 3" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="165" srcpinname="Output" dstnodeid="157" dstpinname="Reselect">
@@ -1028,12 +1030,6 @@
    <LINKPOINT x="11115" y="8325">
    </LINKPOINT>
    <LINKPOINT x="13125" y="8325">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="134" srcpinname="Recording Complete" dstnodeid="165" dstpinname="Input 3" linkstyle="Bezier">
-   <LINKPOINT x="17535" y="7568">
-   </LINKPOINT>
-   <LINKPOINT x="13770" y="7568">
    </LINKPOINT>
    </LINK>
    <NODE systemname="OSCDecoder (Network)" nodename="OSCDecoder (Network)" componentmode="Hidden" id="175">
@@ -1267,5 +1263,11 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="194" srcpinname="Bang" dstnodeid="139" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="134" srcpinname="Select Next Quad" dstnodeid="165" dstpinname="Input 3" linkstyle="Bezier">
+   <LINKPOINT x="16095" y="7568">
+   </LINKPOINT>
+   <LINKPOINT x="13770" y="7568">
+   </LINKPOINT>
    </LINK>
    </PATCH>

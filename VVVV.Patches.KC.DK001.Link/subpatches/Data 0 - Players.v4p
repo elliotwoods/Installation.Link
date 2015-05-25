@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Data 0 - Players.v4p" systemname="Data 0 - Players" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Data 0 - Players.v4p" scrollx="0" scrolly="-360">
-   <BOUNDS type="Window" left="0" top="0" width="26610" height="26625">
+   <BOUNDS type="Window" left="1800" top="4830" width="26610" height="26625">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -41,7 +41,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Bang">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Recording complete|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Reload from recording|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -50,26 +50,6 @@
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="96">
-   <BOUNDS type="Node" left="16500" top="1490" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="97">
-   <BOUNDS type="Node" left="16490" top="1120" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="97" srcpinname="Output 1" dstnodeid="96" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="95" srcpinname="Y Output Value" dstnodeid="97" dstpinname="Input 1">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="101">
    <BOUNDS type="Node" left="18560" top="810" width="100" height="100">
    </BOUNDS>
@@ -91,15 +71,13 @@
    <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="102">
    <BOUNDS type="Node" left="16510" top="2020" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Input 2" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="96" srcpinname="Output 1" dstnodeid="102" dstpinname="Input 1">
-   </LINK>
    <LINK srcnodeid="101" srcpinname="Y Output Value" dstnodeid="102" dstpinname="Input 2">
    </LINK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="108">
@@ -184,22 +162,6 @@
    </NODE>
    <LINK srcnodeid="123" srcpinname="Texture Out" dstnodeid="124" dstpinname="Texture In">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="134" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="14250" top="4700" width="800" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="14250" top="4700" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="734">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="135">
    <BOUNDS type="Node" left="13640" top="10180" width="855" height="270">
    </BOUNDS>
@@ -273,7 +235,7 @@
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Filter" visible="1">
+   <PIN pinname="Filter" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Hits" visible="1">
    </PIN>
@@ -282,8 +244,6 @@
    <PIN pinname="Find" slicecount="1" values="All">
    </PIN>
    </NODE>
-   <LINK srcnodeid="134" srcpinname="Y Output Value" dstnodeid="140" dstpinname="Filter">
-   </LINK>
    <LINK srcnodeid="140" srcpinname="Hits" dstnodeid="135" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="142" systemname="IOBox (Value Advanced)">
@@ -361,7 +321,7 @@
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Recording Index|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Last Recording Index|">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -602,48 +562,6 @@
    </NODE>
    <LINK srcnodeid="179" srcpinname="Output" dstnodeid="178" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="181">
-   <BOUNDS type="Node" left="14550" top="1490" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="180">
-   <BOUNDS type="Node" left="14540" top="1120" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="180" srcpinname="Output 1" dstnodeid="181" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="157" srcpinname="Y Output Value" dstnodeid="180" dstpinname="Input 1">
-   </LINK>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="183">
-   <BOUNDS type="Node" left="14550" top="2390" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="182">
-   <BOUNDS type="Node" left="14540" top="2020" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="182" srcpinname="Output 1" dstnodeid="183" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="181" srcpinname="Output 1" dstnodeid="182" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="183" srcpinname="Output 1" dstnodeid="134" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="GetSlice (Node)" nodename="GetSlice (Node)" componentmode="Hidden" id="184">
    <BOUNDS type="Node" left="8790" top="13350" width="100" height="100">
    </BOUNDS>
@@ -723,5 +641,9 @@
    <LINK srcnodeid="171" srcpinname="Index" dstnodeid="174" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="171" srcpinname="Index" dstnodeid="140" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="157" srcpinname="Y Output Value" dstnodeid="140" dstpinname="Filter">
+   </LINK>
+   <LINK srcnodeid="95" srcpinname="Y Output Value" dstnodeid="102" dstpinname="Input 1">
    </LINK>
    </PATCH>
