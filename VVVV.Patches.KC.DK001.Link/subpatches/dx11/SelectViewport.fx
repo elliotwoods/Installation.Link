@@ -71,6 +71,7 @@ float4 PS(vs2ps In): SV_Target
 float4 PSMono(vs2ps In): SV_Target
 {
     float col = texture2d.Sample(g_samLinear,In.TexCd.xy).r;
+	col *= cAmb;
     return float4(col, col, col, 1.0f);
 }
 

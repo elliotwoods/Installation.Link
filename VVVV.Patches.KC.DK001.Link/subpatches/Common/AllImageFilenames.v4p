@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta32.1.dtd" >
-   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p" systemname="AllImageFilenames" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p">
-   <BOUNDS type="Window" left="26860" top="12600" width="9000" height="6000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p" systemname="AllImageFilenames" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p">
+   <BOUNDS type="Window" left="26850" top="12600" width="11895" height="10680">
    </BOUNDS>
-   <PACK Name="addonpack" Version="31.9.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE id="9" systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="1640" top="6710" width="100" height="100">
@@ -436,78 +436,10 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="..\modules\Select quad (DKO).v4p" id="15" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)">
-   <BOUNDS height="270" left="5240" top="1990" type="Node" width="2430">
-   </BOUNDS>
-   <BOUNDS height="3600" left="5240" top="1990" type="Box" width="4800">
-   </BOUNDS>
-   <BOUNDS height="9040" left="6430" top="5220" type="Window" width="8630">
-   </BOUNDS>
-   <PIN pinname="iProjector" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="iType" visible="1">
-   </PIN>
-   <PIN pinname="Projector XY" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Transform" visible="1">
-   </PIN>
-   <PIN pinname="Select types" visible="1">
-   </PIN>
-   <PIN pinname="Texture Transform" visible="1">
-   </PIN>
-   <PIN pinname="Input Index" visible="1">
-   </PIN>
-   <PIN pinname="Hits" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="14" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="6020" top="340" width="800" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="6020" top="340" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="iType">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="15" dstpinname="iType">
-   </LINK>
-   <NODE systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="7610" top="1130" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="[ From .." slicecount="1" values="1">
-   </PIN>
-   <PIN pinname=".. To [" slicecount="1" values="11">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="15" dstpinname="Select types">
-   </LINK>
-   <NODE systemname="Select (Value)" nodename="Select (Value)" componentmode="Hidden" id="17" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll">
-   <BOUNDS type="Node" left="4430" top="2510" width="2780" height="270">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Select" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="Hits" dstnodeid="17" dstpinname="Select">
-   </LINK>
    <NODE systemname="FormatValue (String)" nodename="FormatValue (String)" componentmode="Hidden" id="19">
    <BOUNDS type="Node" left="4420" top="2980" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   <PIN pinname="Input" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -525,8 +457,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="19" srcpinname="Output" dstnodeid="18" dstpinname="Input 2">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Output" dstnodeid="19" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="10" srcpinname="Output String" dstnodeid="18" dstpinname="Input 1">
    </LINK>
@@ -547,22 +477,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Output" dstnodeid="20" dstpinname="Input String">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="21" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5900" top="3950" width="800" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5900" top="3950" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Quad Indices|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="17" srcpinname="Output" dstnodeid="21" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="FrameDifference (Animation)" nodename="FrameDifference (Animation)" componentmode="Hidden" id="22">
    <BOUNDS type="Node" left="6480" top="6660" width="100" height="100">
@@ -643,5 +557,7 @@
    <LINK srcnodeid="25" srcpinname="Output" dstnodeid="26" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="26" srcpinname="Output" dstnodeid="24" dstpinname="Set">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Input">
    </LINK>
    </PATCH>

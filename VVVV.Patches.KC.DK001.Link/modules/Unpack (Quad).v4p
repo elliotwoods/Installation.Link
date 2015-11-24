@@ -1,0 +1,357 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\modules\Unpack (Quad).v4p" systemname="Unpack (Quad)" filename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\modules\Unpack (Quad).v4p" scrollx="0" scrolly="30">
+   <BOUNDS type="Window" left="10710" top="16530" width="13365" height="12705">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="0">
+   <BOUNDS type="Node" left="1500" top="1500" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1500" top="1500" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Quad">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="12">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="12" values=",,,,,,,,,,,">
+   </PIN>
+   </NODE>
+   <NODE systemname="Unzip (Value Bin)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Unzip (Value Bin)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="1515" top="5490" width="5670" height="270">
+   </BOUNDS>
+   <PIN pinname="Output Count" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Input Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 2" visible="1">
+   </PIN>
+   <PIN pinname="Output 3" visible="1">
+   </PIN>
+   <PIN pinname="Output 4" visible="1">
+   </PIN>
+   <PIN pinname="Output 5" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7125" top="3330" width="630" height="1455">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7125" top="3330" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="5" visible="1" values="1,1,1,1,8">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1515" top="8880" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1515" top="8880" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Order">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="365" values="0,0.00273972602739726,0.00547945205479452,0.00821917808219178,0.010958904109589,0.0136986301369863,0.0164383561643836,0.0191780821917808,0.0219178082191781,0.0246575342465753,0.0273972602739726,0.0301369863013699,0.0328767123287671,0.0356164383561644,0.0383561643835616,0.0410958904109589,0.0438356164383562,0.0465753424657534,0.0493150684931507,0.0520547945205479,0.0547945205479452,0.0575342465753425,0.0602739726027397,0.063013698630137,0.0657534246575342,0.0684931506849315,0.0712328767123288,0.073972602739726,0.0767123287671233,0.0794520547945206,0.0821917808219178,0.0849315068493151,0.0876712328767123,0.0904109589041096,0.0931506849315069,0.0958904109589041,0.0986301369863014,0.101369863013699,0.104109589041096,0.106849315068493,0.10958904109589,0.112328767123288,0.115068493150685,0.117808219178082,0.120547945205479,0.123287671232877,0.126027397260274,0.128767123287671,0.131506849315068,0.134246575342466,0.136986301369863,0.13972602739726,0.142465753424658,0.145205479452055,0.147945205479452,0.150684931506849,0.153424657534247,0.156164383561644,0.158904109589041,0.161643835616438,0.164383561643836,0.167123287671233,0.16986301369863,0.172602739726027,0.175342465753425,0.178082191780822,0.180821917808219,0.183561643835616,0.186301369863014,0.189041095890411,0.191780821917808,0.194520547945205,0.197260273972603,0.2,0.202739726027397,0.205479452054794,0.208219178082192,0.210958904109589,0.213698630136986,0.216438356164384,0.219178082191781,0.221917808219178,0.224657534246575,0.227397260273973,0.23013698630137,0.232876712328767,0.235616438356164,0.238356164383562,0.241095890410959,0.243835616438356,0.246575342465753,0.249315068493151,0.252054794520548,0.254794520547945,0.257534246575342,0.26027397260274,0.263013698630137,0.265753424657534,0.268493150684932,0.271232876712329,0.273972602739726,0.276712328767123,0.279452054794521,0.282191780821918,0.284931506849315,0.287671232876712,0.29041095890411,0.293150684931507,0.295890410958904,0.298630136986301,0.301369863013699,0.304109589041096,0.306849315068493,0.30958904109589,0.312328767123288,0.315068493150685,0.317808219178082,0.320547945205479,0.323287671232877,0.326027397260274,0.328767123287671,0.331506849315069,0.334246575342466,0.336986301369863,0.33972602739726,0.342465753424658,0.345205479452055,0.347945205479452,0.350684931506849,0.353424657534247,0.356164383561644,0.358904109589041,0.361643835616438,0.364383561643836,0.367123287671233,0.36986301369863,0.372602739726027,0.375342465753425,0.378082191780822,0.380821917808219,0.383561643835616,0.386301369863014,0.389041095890411,0.391780821917808,0.394520547945205,0.397260273972603,0.4,0.402739726027397,0.405479452054794,0.408219178082192,0.410958904109589,0.413698630136986,0.416438356164384,0.419178082191781,0.421917808219178,0.424657534246575,0.427397260273973,0.43013698630137,0.432876712328767,0.435616438356164,0.438356164383562,0.441095890410959,0.443835616438356,0.446575342465753,0.449315068493151,0.452054794520548,0.454794520547945,0.457534246575342,0.46027397260274,0.463013698630137,0.465753424657534,0.468493150684932,0.471232876712329,0.473972602739726,0.476712328767123,0.479452054794521,0.482191780821918,0.484931506849315,0.487671232876712,0.49041095890411,0.493150684931507,0.495890410958904,0.498630136986301,0.501369863013699,0.504109589041096,0.506849315068493,0.50958904109589,0.512328767123288,0.515068493150685,0.517808219178082,0.520547945205479,0.523287671232877,0.526027397260274,0.528767123287671,0.531506849315069,0.534246575342466,0.536986301369863,0.53972602739726,0.542465753424658,0.545205479452055,0.547945205479452,0.550684931506849,0.553424657534247,0.556164383561644,0.558904109589041,0.561643835616438,0.564383561643836,0.567123287671233,0.56986301369863,0.572602739726027,0.575342465753425,0.578082191780822,0.580821917808219,0.583561643835617,0.586301369863014,0.589041095890411,0.591780821917808,0.594520547945206,0.597260273972603,0.6,0.602739726027397,0.605479452054794,0.608219178082192,0.610958904109589,0.613698630136986,0.616438356164384,0.619178082191781,0.621917808219178,0.624657534246575,0.627397260273973,0.63013698630137,0.632876712328767,0.635616438356164,0.638356164383562,0.641095890410959,0.643835616438356,0.646575342465753,0.649315068493151,0.652054794520548,0.654794520547945,0.657534246575342,0.66027397260274,0.663013698630137,0.665753424657534,0.668493150684932,0.671232876712329,0.673972602739726,0.676712328767123,0.679452054794521,0.682191780821918,0.684931506849315,0.687671232876712,0.69041095890411,0.693150684931507,0.695890410958904,0.698630136986301,0.701369863013699,0.704109589041096,0.706849315068493,0.70958904109589,0.712328767123288,0.715068493150685,0.717808219178082,0.72054794520548,0.723287671232877,0.726027397260274,0.728767123287671,0.731506849315069,0.734246575342466,0.736986301369863,0.73972602739726,0.742465753424658,0.745205479452055,0.747945205479452,0.750684931506849,0.753424657534247,0.756164383561644,0.758904109589041,0.761643835616438,0.764383561643836,0.767123287671233,0.76986301369863,0.772602739726027,0.775342465753425,0.778082191780822,0.780821917808219,0.783561643835616,0.786301369863014,0.789041095890411,0.791780821917808,0.794520547945205,0.797260273972603,0.8,0.802739726027397,0.805479452054794,0.808219178082192,0.810958904109589,0.813698630136986,0.816438356164383,0.819178082191781,0.821917808219178,0.824657534246575,0.827397260273973,0.83013698630137,0.832876712328767,0.835616438356164,0.838356164383562,0.841095890410959,0.843835616438356,0.846575342465753,0.849315068493151,0.852054794520548,0.854794520547945,0.857534246575342,0.86027397260274,0.863013698630137,0.865753424657534,0.868493150684931,0.871232876712329,0.873972602739726,0.876712328767123,0.879452054794521,0.882191780821918,0.884931506849315,0.887671232876712,0.89041095890411,0.893150684931507,0.895890410958904,0.898630136986301,0.901369863013699,0.904109589041096,0.906849315068493,0.90958904109589,0.912328767123288,0.915068493150685,0.917808219178082,0.920547945205479,0.923287671232877,0.926027397260274,0.928767123287671,0.931506849315068,0.934246575342466,0.936986301369863,0.93972602739726,0.942465753424658,0.945205479452055,0.947945205479452,0.950684931506849,0.953424657534247,0.956164383561644,0.958904109589041,0.961643835616438,0.964383561643836,0.967123287671233,0.96986301369863,0.972602739726027,0.975342465753425,0.978082191780822,0.980821917808219,0.983561643835616,0.986301369863014,0.989041095890411,0.991780821917808,0.994520547945206,0.997260273972603">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Input Bin Size">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2760" top="8895" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2760" top="8895" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Index">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="365" values="-67,-66,-65,-64,-63,-62,-61,-60,-59,-58,-57,-56,-55,-54,-53,-52,-51,-50,-49,-48,-47,-46,-43,-42,-41,-40,-39,-37,-36,-34,-33,-31,-30,-27,-26,-25,-24,-17,-16,-14,-12,-11,-10,408,409,410,411,412,413,414,415,418,419,420,421,422,423,425,426,427,428,429,430,434,435,437,439,440,441,442,443,444,447,448,449,450,451,452,453,454,455,456,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,477,478,479,480,482,483,484,485,486,487,488,489,490,491,492,494,495,496,497,498,499,500,502,503,505,506,507,508,509,510,511,513,515,516,517,518,519,520,521,522,524,525,526,527,529,530,531,533,535,536,537,539,541,542,543,544,545,546,547,548,550,551,552,553,554,555,556,558,559,560,561,562,564,565,567,568,569,570,571,572,573,574,576,578,579,580,581,582,583,584,585,587,588,589,591,592,593,594,595,596,597,598,599,600,601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,619,620,621,622,623,624,625,626,627,628,630,631,632,633,634,635,636,637,638,639,640,641,642,643,644,645,646,647,649,650,652,653,654,656,658,659,660,661,662,663,664,665,666,668,669,670,671,672,673,674,675,676,677,678,679,681,682,683,684,685,686,687,688,689,691,692,693,694,695,696,697,698,700,701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720,721,722,723,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,740,741,742,743,744,746,747,748,749,751,753,754,755,756,757,758,761,762,764,766,767,768,769,771,773,774,775,777,778,779,781,782,783">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="4005" top="8940" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4005" top="8940" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="iProjector">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="365" values="0,1,1,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,2,2,2,2,1,0,0,0,0,1,1,1,1,2,2,1,1,1,1,2,2,2,2,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,0,0,0,0,1,1,0,0,1,1,0,1,0,1,1,0,1,0,0,1,1,0,1,0,0,0,1,1,0,1,0,0,0,0,1,0,1,0,1,0,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,2,1,2,1,1,1,2,2,2,1,1,2,2,2,1,2,1,2,2,1,2,1,2,2,1,2,2,2,1,2,2,2,2,1,2,2,1,2,2,1,2,1,2,2,1,2,1,2,2,1,2,1,1,2,2,2,2,1,2,1,2,2,2,2,1,2,2,1,2,1,2,1,2,2,1,2,1,2,1,2,2,1,2,2,2,1,2,2,1,2,1,2,2,1,2,1,1,2,2,1,1,1,2,1,2,2,1,2,2,1,2,1,2,1,2,1,2,1,2,1,1,2,2,1,1,2,1,2,1,1,1,2,1,2,1,1,2,1,2,1,2,1,1,2,1,2,1,2,2,1,2,1,2,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0,0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5250" top="8925" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5250" top="8925" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="iType">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="365" values="1,5,1,1,1,1,1,1,3,3,1,1,1,1,2,1,1,3,2,1,1,3,1,1,1,1,1,1,1,1,3,2,4,1,1,4,1,1,3,1,1,1,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,5,3,2,1,1,1,1,1,1,1,1,2,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,3,1,3,1,3,1,1,2,1,2,1,2,1,1,1,1,1,1,1,1,2,1,0,0,0,0,1,1,0,0,1,0,0,0,1,6,1,1,1,4,0,5,1,1,1,0,0,1,2,3,1,3,5,1,1,1,1,1,2,1,2,3,3,1,1,1,2,1,1,1,1,1,1,1,1,1,3,1,1,1,1,3,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,2,4,1,1,1,1,1,3,1,3,1,1,3,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,2,1,1,1,3,1,1,1,1,1,0,1,0,0,1,1,1,1,2,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,2,1,1,1,1,3,1,1,1,1,1,0,0,0,1,1,1,1,1,7,1,1,1,0,1,1,1,1,1,1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6510" top="8910" width="1110" height="1095">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6510" top="8910" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Corners">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="9">
+   <BOUNDS type="Node" left="8190" top="1380" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8190" top="1380" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Select Type|">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="EQ (Value)" nodename="EQ (Value)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="8205" top="2415" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="11" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8400" top="2010" width="285" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8400" top="2010" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="-1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="OR (Boolean Spectral)" nodename="OR (Boolean Spectral)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="8190" top="2850" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output" dstnodeid="12" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="8190" top="7050" width="1710" height="270">
+   </BOUNDS>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Output" dstnodeid="13" dstpinname="Switch">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="16" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="9825" top="6210" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9825" top="6210" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="Sift (Value)" nodename="Sift (Value)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="9015" top="6315" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Filter" visible="1">
+   </PIN>
+   <PIN pinname="Find" slicecount="1" values="All">
+   </PIN>
+   <PIN pinname="Hits" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output 4" dstnodeid="17" dstpinname="Input" linkstyle="Bezier" hiddenwhenlocked="0">
+   <LINKPOINT x="5310" y="6023">
+   </LINKPOINT>
+   <LINKPOINT x="9015" y="6023">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Filter" linkstyle="Bezier">
+   <LINKPOINT x="8220" y="3968">
+   </LINKPOINT>
+   <LINKPOINT x="9210" y="3968">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Hits" dstnodeid="13" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="1515" top="8160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Select" visible="1" slicecount="365" values="1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Output" dstnodeid="3" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output 1" dstnodeid="18" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="2760" top="8160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select" visible="1" slicecount="365" values="1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Output" dstnodeid="4" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output 2" dstnodeid="19" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="4005" top="8160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select" visible="1" slicecount="365" values="1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Output" dstnodeid="6" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output 3" dstnodeid="20" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="5250" top="8160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select" visible="1" slicecount="365" values="1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output 4" dstnodeid="21" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (Value Vector)" filename="%VVVV%\addonpack\lib\nodes\plugins\VectorSized.dll" nodename="Select (Value Vector)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="6495" top="8160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Select" visible="1" slicecount="365" values="1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,1,0,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,1,0,1,0,1,1,1,0,1,1,1,1,1,1,1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="8">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output" dstnodeid="8" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Output 5" dstnodeid="22" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="22" dstpinname="Select" linkstyle="VHV">
+   <LINKPOINT x="8190" y="7725">
+   </LINKPOINT>
+   <LINKPOINT x="7095" y="7725">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="21" dstpinname="Select" linkstyle="VHV">
+   <LINKPOINT x="8190" y="7725">
+   </LINKPOINT>
+   <LINKPOINT x="5790" y="7725">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="20" dstpinname="Select" linkstyle="VHV">
+   <LINKPOINT x="8190" y="7725">
+   </LINKPOINT>
+   <LINKPOINT x="4545" y="7725">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="19" dstpinname="Select" linkstyle="VHV">
+   <LINKPOINT x="8190" y="7725">
+   </LINKPOINT>
+   <LINKPOINT x="3300" y="7725">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="18" dstpinname="Select" linkstyle="VHV">
+   <LINKPOINT x="8190" y="7725">
+   </LINKPOINT>
+   <LINKPOINT x="2055" y="7725">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>

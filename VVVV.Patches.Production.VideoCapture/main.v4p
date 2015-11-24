@@ -1,17 +1,17 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha32.2.dtd" >
-   <PATCH nodename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Production.VideoCapture\main.v4p" systemname="main" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Production.VideoCapture\main.v4p" bgcolor="6052956">
-   <BOUNDS type="Window" left="0" top="0" width="7750" height="4530">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.Production.VideoCapture\main.v4p" systemname="main" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.Production.VideoCapture\main.v4p" bgcolor="6052956" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="0" top="0" width="7740" height="7815">
    </BOUNDS>
-   <PACK Name="VVVV.Packs" Version="0.1.0">
+   <PACK Name="VVVV.Packs" Version="0.2.0">
    </PACK>
-   <PACK Name="addonpack" Version="32.2.0">
+   <PACK Name="addonpack" Version="33.7.0">
    </PACK>
    <NODE systemname="instance" filename="instance.v4p" nodename="..\VVVV.Patches.Production.VideoCapture\instance.v4p" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1460" top="2090" width="100" height="100">
    </BOUNDS>
    <PIN pinname="FPS" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="22460" top="3030" width="11270" height="9870">
+   <BOUNDS type="Window" left="2520" top="12645" width="11265" height="9870">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
@@ -239,6 +239,8 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1430" top="3410" width="0" height="0">
    </BOUNDS>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="14" srcpinname="Color" dstnodeid="13" dstpinname="Color Input">
    </LINK>
@@ -261,5 +263,63 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="16" srcpinname="Output" dstnodeid="15" dstpinname="Background Kalle">
+   </LINK>
+   <NODE systemname="FullscreenQuad (DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\FullscreenQuad (DX9).v4p" nodename="FullscreenQuad (DX9)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="3270" top="5625" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="17" dstpinname="Texture">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="18">
+   <BOUNDS type="Node" left="3270" top="6600" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3270" top="6600" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="810" top="20835" width="11820" height="9825">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Quad (DX9)" nodename="Quad (DX9)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="4965" top="5625" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Color Output" dstnodeid="19" dstpinname="Color">
+   </LINK>
+   <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="20">
+   <BOUNDS type="Node" left="3255" top="6165" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Layer" dstnodeid="20" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Layer" dstnodeid="20" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Layer" dstnodeid="18" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="5760" top="4695" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="0.01">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Transform Out" dstnodeid="19" dstpinname="Transform">
    </LINK>
    </PATCH>
