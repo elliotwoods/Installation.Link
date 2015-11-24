@@ -12,7 +12,7 @@ void ofApp::setup(){
 	if(ofGetWidth() < 1536) {
 		this->gui.setZoom(0.4f);
 	}
-	this->gui.setBrokenRotation(true);
+	this->gui.setBrokenRotation(true); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
 	
 	this->connection = shared_ptr<Connection>(new Connection());
 	this->connection->setBounds(ofRectangle(20, 40, 480, 100));
