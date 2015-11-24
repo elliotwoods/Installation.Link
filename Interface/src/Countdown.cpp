@@ -5,6 +5,7 @@ using namespace ofxAssets;
 
 //----------
 Countdown::Countdown() {
+	ofAddListener(this->onUpdate, this, &Countdown::update);
 	ofAddListener(this->onDraw, this, &Countdown::draw);
 	this->reset();
 }
@@ -12,6 +13,15 @@ Countdown::Countdown() {
 //----------
 void Countdown::reset() {
 	this->resetTime = ofGetElapsedTimef();
+}
+
+//----------
+void Countdown::update() {
+	float runTime = ofGetElapsedTimef() - this->resetTime;
+	
+	if (runTime >= 5.0f) {
+		ofNotifyEvent(this->onCountdownOver, this);
+	}
 }
 
 //----------
@@ -35,9 +45,7 @@ void Countdown::draw() {
 	ofCircle(r, r, ofMap(runTime, 0, 1, 0, r - 30, true));
 	ofPopStyle();
 	
-	if (runTime >= 5.0f) {
-		ofNotifyEvent(this->onCountdownOver, this);
-	} else if (runTime > 1.0f) {
+	if (runTime > 1.0f) {
 		//text
 		ofPushStyle();
 		ofSetColor(255, (sin((runTime - 0.25f) * TWO_PI) + 1.0f) / 2.0f * 255.0f);
@@ -64,6 +72,9 @@ void Countdown::draw() {
 		ofSetLineWidth(0);
 		path.draw(r, r);
 		ofPopStyle();
+		
+		//draw the under message offset (we switched the messages around)
+		image("recording_under").draw(ofVec2f(638, 1718) - this->getBounds().getTopLeft());
 	}
 
 }

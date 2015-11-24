@@ -39,7 +39,7 @@ void Recording::draw() {
 	ofPushStyle();
 	ofEnableAlphaBlending();
 	ofSetColor(255, 255.0f * (1.0f - (1.0f + cos(runTime * TWO_PI)) / 2.0f));
-	auto & img = image("recordingvideo");
+	auto & img = image("recording");
 	img.draw((this->getBounds().getWidth() - img.getWidth()) / 2.0f, (this->getBounds().getHeight() - img.getHeight()) / 2.0f);
 	ofPopStyle();
 	

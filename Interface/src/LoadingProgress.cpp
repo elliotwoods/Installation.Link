@@ -1,9 +1,33 @@
-//
-//  Loading.cpp
-//  Interface
-//
-//  Created by Elliot Woods on 04/04/2015.
-//
-//
+#include "LoadingProgress.h"
 
-#include "Loading.h"
+//----------
+LoadingProgress::LoadingProgress() {
+	ofAddListener(this->onDraw, this, &LoadingProgress::draw);
+	
+	this->progress = 1.0f;
+}
+
+//----------
+void LoadingProgress::setProgress(float progress) {
+	this->progress = progress;
+}
+
+//----------
+float LoadingProgress::getProgress() const {
+	return this->progress;
+}
+
+//----------
+void LoadingProgress::draw() {
+	ofPushStyle();
+	ofSetColor(255,0,0);
+	ofRect(0, 0, this->getBounds().getWidth(), progress * this->getBounds().getHeight());
+	
+	ofSetColor(0);
+	ofPushMatrix();
+	ofTranslate(20.0f, this->getBounds().getHeight() / 2.0f);
+	ofScale(4.0f, 4.0f);
+	ofDrawBitmapString("Loading...", 0, 0);
+	ofPopMatrix();
+	ofPopStyle();
+}

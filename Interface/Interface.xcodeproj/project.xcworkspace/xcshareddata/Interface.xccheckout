@@ -5,54 +5,50 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CFABC44C-4350-4B66-89D6-7294C80BEF70</string>
+	<string>9692CBCC-46FA-4FBC-A56F-FDAA490C0A51</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Interface</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>10119567-14D4-4C93-9AE5-1A36C54177A3</key>
-		<string>ssh://github.com/elliotwoods/ofxAssets.git</string>
-		<key>1A39C29A-2539-434C-A9A3-28D9747A2F9D</key>
-		<string>ssh://github.com/elliotwoods/ofxKCTouchGui2.git</string>
-		<key>2B2CA768-3300-4F9B-A29A-2BACE71537FC</key>
-		<string>ssh://github.com/elliotwoods/openFrameworks.git</string>
-		<key>512BB73B-5307-42F8-9631-98CF2E87AFDC</key>
-		<string>https://github.com/elliotwoods/Installations.Link</string>
-		<key>5D6AFC29-4C50-4E93-8186-218A8C2DF906</key>
-		<string>ssh://github.com/elliotwoods/ofxMySQL.git</string>
-		<key>C3493017-473B-4FA3-A5A5-82AD12DE0721</key>
+		<key>315E0C0A98115B17895B70CE6025A6ECD04CCB15</key>
+		<string>https://github.com/elliotwoods/ofxKCTouchGui2.git</string>
+		<key>804365A2A03AE91D0A94F46F33BFBBDE49154A3B</key>
 		<string>https://github.com/paulobarcelos/ofxHomography.git</string>
+		<key>C4A4227C90560D4A126D81E16DDDB4026E9182E4</key>
+		<string>https://github.com/elliotwoods/ofxAssets.git</string>
+		<key>DC1CFB7A971A715223DD6AA68C2D299A2C036A60</key>
+		<string>https://github.com/elliotwoods/Installation.Link.git</string>
+		<key>E587D2642C11CDCA6B6E251289F4EF7F101013E5</key>
+		<string>https://github.com/elliotwoods/ofxMySQL.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>apps/Installation.Link/Interface/Interface.xcodeproj/project.xcworkspace</string>
+	<string>Interface/Interface.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>10119567-14D4-4C93-9AE5-1A36C54177A3</key>
-		<string>../../../../../addons/ofxAssets</string>
-		<key>1A39C29A-2539-434C-A9A3-28D9747A2F9D</key>
+		<key>315E0C0A98115B17895B70CE6025A6ECD04CCB15</key>
 		<string>../../../../../addons/ofxKCTouchGui2</string>
-		<key>2B2CA768-3300-4F9B-A29A-2BACE71537FC</key>
-		<string>../../../../..</string>
-		<key>512BB73B-5307-42F8-9631-98CF2E87AFDC</key>
-		<string>../../..</string>
-		<key>5D6AFC29-4C50-4E93-8186-218A8C2DF906</key>
-		<string>../../../../../addons/ofxMySQL</string>
-		<key>C3493017-473B-4FA3-A5A5-82AD12DE0721</key>
+		<key>804365A2A03AE91D0A94F46F33BFBBDE49154A3B</key>
 		<string>../../../../../addons/ofxHomography</string>
+		<key>C4A4227C90560D4A126D81E16DDDB4026E9182E4</key>
+		<string>../../../../../addons/ofxAssets</string>
+		<key>DC1CFB7A971A715223DD6AA68C2D299A2C036A60</key>
+		<string>../../..</string>
+		<key>E587D2642C11CDCA6B6E251289F4EF7F101013E5</key>
+		<string>../../../../../addons/ofxMySQL</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/elliotwoods/Installations.Link</string>
+	<string>https://github.com/elliotwoods/Installation.Link.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2B2CA768-3300-4F9B-A29A-2BACE71537FC</string>
+	<string>DC1CFB7A971A715223DD6AA68C2D299A2C036A60</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>512BB73B-5307-42F8-9631-98CF2E87AFDC</string>
+			<string>DC1CFB7A971A715223DD6AA68C2D299A2C036A60</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Installation.Link</string>
 		</dict>
@@ -60,7 +56,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>10119567-14D4-4C93-9AE5-1A36C54177A3</string>
+			<string>C4A4227C90560D4A126D81E16DDDB4026E9182E4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxAssets</string>
 		</dict>
@@ -68,7 +64,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C3493017-473B-4FA3-A5A5-82AD12DE0721</string>
+			<string>804365A2A03AE91D0A94F46F33BFBBDE49154A3B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxHomography</string>
 		</dict>
@@ -76,7 +72,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1A39C29A-2539-434C-A9A3-28D9747A2F9D</string>
+			<string>315E0C0A98115B17895B70CE6025A6ECD04CCB15</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxKCTouchGui2</string>
 		</dict>
@@ -84,17 +80,9 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5D6AFC29-4C50-4E93-8186-218A8C2DF906</string>
+			<string>E587D2642C11CDCA6B6E251289F4EF7F101013E5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxMySQL</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2B2CA768-3300-4F9B-A29A-2BACE71537FC</string>
-			<key>IDESourceControlWCCName</key>
-			<string>openFrameworks</string>
 		</dict>
 	</array>
 </dict>

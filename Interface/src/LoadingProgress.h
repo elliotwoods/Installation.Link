@@ -1,14 +1,13 @@
-//
-//  Loading.h
-//  Interface
-//
-//  Created by Elliot Woods on 04/04/2015.
-//
-//
+#pragma once
 
-#ifndef __Interface__Loading__
-#define __Interface__Loading__
+#include "ofxKCTouchGui.h"
 
-#include <stdio.h>
-
-#endif /* defined(__Interface__Loading__) */
+class LoadingProgress : public ofxKCTouchGui::Element {
+public:
+	LoadingProgress();
+	void setProgress(float);
+	float getProgress() const;
+protected:
+	void draw();
+	float progress;
+};

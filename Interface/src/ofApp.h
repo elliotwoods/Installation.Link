@@ -10,8 +10,7 @@
 #include "StartButton.h"
 #include "Countdown.h"
 #include "Recording.h"
-
-#define RES_MULT 1
+#include "LoadingProgress.h"
 
 class ofApp : public ofxiOSApp{
     
@@ -47,11 +46,12 @@ public:
 	shared_ptr<StartButton> startButton;
 	shared_ptr<Countdown> countdown;
 	shared_ptr<Recording> recording;
-	
-	ofFbo fbo;
+	shared_ptr<LoadingProgress> loadingProgress;
 	
 	State state;
+	float lastLoadingProgressMessage;
 	
-	ofxOscSender osc;
+	ofxOscSender oscSender;
+	ofxOscReceiver oscReceiver;
 };
 

@@ -38,12 +38,17 @@ void StartButton::draw() {
 		ofCircle(r, r, ofMap(runTime, 0, 1, r - 30, 0, true));
 		ofPopStyle();
 	} else {
-		//text
-		ofPushStyle();
-		ofSetColor(255, 255.0f * (sin(phase) + 1.0f) / 2.0f);
-		auto & recordyourvideo = image("recordyourvideo");
-		recordyourvideo.draw((this->getBounds().getWidth() - recordyourvideo.getWidth()) / 2.0f, (this->getBounds().getHeight() - recordyourvideo.getHeight()) / 2.0f);
-		ofPopStyle();
+		if(this->getTouchCount() > 0) {
+			auto & touchDown = image("touch");
+			touchDown.draw((this->getBounds().getWidth() - touchDown.getWidth()) / 2.0f, (this->getBounds().getHeight() - touchDown.getHeight()) / 2.0f);
+		} else {
+			//text
+			ofPushStyle();
+			ofSetColor(255, 255.0f * (sin(phase) + 1.0f) / 2.0f);
+			auto & touch = image("touch");
+			touch.draw((this->getBounds().getWidth() - touch.getWidth()) / 2.0f, (this->getBounds().getHeight() - touch.getHeight()) / 2.0f);
+			ofPopStyle();
+		}
 		
 		//black dot
 		ofPushStyle();
@@ -53,5 +58,8 @@ void StartButton::draw() {
 				 (cos(phase) + 1.0f) * this->getBounds().getHeight() / 2.0f,
 				 10.0f);
 		ofPopStyle();
+		
+		//draw the under message offset
+		image("touch_under").draw(ofVec2f(425, 1718) - this->getBounds().getTopLeft());
 	}
 }

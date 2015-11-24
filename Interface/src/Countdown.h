@@ -8,6 +8,7 @@ public:
 	void reset();
 	ofEvent<void> onCountdownOver;
 protected:
+	void update();
 	void draw();
 	float resetTime;
 };
