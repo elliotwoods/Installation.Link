@@ -1,0 +1,51 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DC1CFB7A971A715223DD6AA68C2D299A2C036A60",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C4A4227C90560D4A126D81E16DDDB4026E9182E4" : 0,
+    "DC1CFB7A971A715223DD6AA68C2D299A2C036A60" : 0,
+    "804365A2A03AE91D0A94F46F33BFBBDE49154A3B" : 0,
+    "315E0C0A98115B17895B70CE6025A6ECD04CCB15" : 0,
+    "E587D2642C11CDCA6B6E251289F4EF7F101013E5" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0C42DBF0-C749-4336-A5B2-82F83C85D09C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C4A4227C90560D4A126D81E16DDDB4026E9182E4" : "..\/addons\/ofxAssets",
+    "DC1CFB7A971A715223DD6AA68C2D299A2C036A60" : "Installation.Link\/",
+    "804365A2A03AE91D0A94F46F33BFBBDE49154A3B" : "..\/addons\/ofxHomography",
+    "315E0C0A98115B17895B70CE6025A6ECD04CCB15" : "..\/addons\/ofxKCTouchGui2",
+    "E587D2642C11CDCA6B6E251289F4EF7F101013E5" : "..\/addons\/ofxMySQL"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Remote",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Remote\/Remote.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elliotwoods\/ofxKCTouchGui2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "315E0C0A98115B17895B70CE6025A6ECD04CCB15"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/paulobarcelos\/ofxHomography.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "804365A2A03AE91D0A94F46F33BFBBDE49154A3B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elliotwoods\/ofxAssets.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C4A4227C90560D4A126D81E16DDDB4026E9182E4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elliotwoods\/Installation.Link.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DC1CFB7A971A715223DD6AA68C2D299A2C036A60"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/elliotwoods\/ofxMySQL.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E587D2642C11CDCA6B6E251289F4EF7F101013E5"
+    }
+  ]
+}

@@ -1,10 +1,14 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){	
+void ofApp::setup(){
+	// Notes :
+	//	* libmysql is built for armv7
+	//	* On iPhone. Start the application with the device in portrait
+
 	ofSetOrientation(OF_ORIENTATION_90_RIGHT);//Set iOS to Orientation Landscape Right
 	ofSetFrameRate(60);
-	ofSetFullscreen(true);
+	//ofSetFullscreen(true);
 
 	this->timeOfLastAction = 0.0f;
 	
@@ -12,7 +16,7 @@ void ofApp::setup(){
 	if(ofGetWidth() < 1536) {
 		this->gui.setZoom(0.4f);
 	}
-	this->gui.setBrokenRotation(true); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
+	//this->gui.setBrokenRotation(true); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
 	
 	this->connection = shared_ptr<Connection>(new Connection());
 	this->connection->setBounds(ofRectangle(20, 40, 480, 100));
@@ -101,8 +105,14 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	this->gui.update();
-	
-	bool hasSelection = this->canvas->getSelection();
+
+	bool hasSelection;
+	if(this->canvas->getSelection()) {
+		hasSelection = true;
+	} else {
+		hasSelection = false;
+	}
+
 	this->clearSelectionButton->setEnabled(hasSelection);
 	this->deleteButton->setEnabled(hasSelection);
 	this->sendToBackButton->setEnabled(hasSelection);
@@ -122,7 +132,6 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofBackgroundGradient(60, 0);
-	
 	this->gui.draw();
 }
 
