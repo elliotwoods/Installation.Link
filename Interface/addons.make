@@ -1,0 +1,3 @@
+ofxAssets
+ofxKCTouchGui2
+ofxOsc

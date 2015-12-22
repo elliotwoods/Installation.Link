@@ -21,13 +21,13 @@ float LoadingProgress::getProgress() const {
 void LoadingProgress::draw() {
 	ofPushStyle();
 	ofSetColor(255,0,0);
-	ofRect(0, 0, this->getBounds().getWidth(), progress * this->getBounds().getHeight());
+	ofDrawRectangle(0, 0, this->getBounds().getWidth(), progress * this->getBounds().getHeight());
 	
 	ofSetColor(0);
 	ofPushMatrix();
 	ofTranslate(20.0f, this->getBounds().getHeight() / 2.0f);
 	ofScale(4.0f, 4.0f);
-	ofDrawBitmapString("Loading...", 0, 0);
+	ofDrawBitmapString(string("Loading..."), 0, 0);
 	ofPopMatrix();
 	ofPopStyle();
 }

@@ -35,7 +35,7 @@ void ofApp::setup(){
 	
 	this->state = State_Waiting;
 	
-	this->oscSender.setup("192.168.0.2", 3456);
+	this->oscSender.setup("192.168.1.3", 3456);
 	this->oscReceiver.setup(4444);
 }
 
