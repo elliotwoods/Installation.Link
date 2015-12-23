@@ -7,8 +7,7 @@ If you're on a slow graphics card, switch off bicubic filtering in the shader (e
 
 
 NOTE : FileTexture DX11 needs to be customised to allow for spreaded reload flag:
-
-https://gist.github.com/elliotwoods/62c5524c89ffd7fc8d14
+Use: https://github.com/elliotwoods/Installation.Link/tree/master/VVVV.Nodes.Recorder/VVVV.Nodes.Recorder
 
 We'll try and switch to Pooled Texture2D to avoid needing this switch.
 
