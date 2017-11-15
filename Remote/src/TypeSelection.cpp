@@ -18,13 +18,13 @@ void TypeSelection::setConnection(shared_ptr<Connection> connection) {
 //----------
 void TypeSelection::refresh() {
 	if (this->connection) {
-		auto & databse = this->connection->getConnection();
-		if (databse.isConnected()) {
+		auto & database = this->connection->getConnection();
+		if (database.isConnected()) {
 			auto cacheSelection = this->getSelectionIndex();
 			this->clearOptions();
 			this->databaseID.clear();
 			
-			auto result = databse.select("facetypes");
+			auto result = database.select("facetypes", "*", "ORDER BY id");
 			for(auto resultRow : result) {
 				this->addOption(resultRow["NameShort"]);
 				this->databaseID.insert(pair<string, int>(resultRow["NameShort"], ofToInt(resultRow["id"])));

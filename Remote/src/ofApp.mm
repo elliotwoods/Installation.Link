@@ -8,17 +8,31 @@ void ofApp::setup(){
 	//	* libmysql is built for armv7
 	//	* On iPhone. Start the application with the device in portrait
 
-	ofSetOrientation(OF_ORIENTATION_90_RIGHT);//Set iOS to Orientation Landscape Right
+	ofSetOrientation(OF_ORIENTATION_DEFAULT);//Set iOS to Orientation Landscape Right
 	ofSetFrameRate(60);
-	//ofSetFullscreen(true);
+	ofSetFullscreen(true);
 
 	this->timeOfLastAction = 0.0f;
 	
 	this->gui.init();
-	if(ofGetWidth() < 1536) {
-		this->gui.setZoom(0.4f);
-	}
-	this->gui.setBrokenRotation(true); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
+    
+    //let's setup the zoom based on the device width
+    {
+        auto width = ofGetWidth();
+        auto zoom = 1.0f;
+        switch(width) {
+            case 1536:
+                zoom = 0.5f;
+            default:
+                break;
+        }
+        
+        if(zoom != 1.0f) {
+            this->gui.setZoom(zoom);
+        }
+    }
+	
+	this->gui.setBrokenRotation(false); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
 	
 	this->connection = shared_ptr<Connection>(new Connection());
 	this->connection->setBounds(ofRectangle(20, 40, 480, 100));
