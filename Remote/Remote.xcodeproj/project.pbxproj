@@ -14,6 +14,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		304AF2321DA32D24896420B2 /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F14F5A0B093321B9185165 /* Canvas.cpp */; };
 		41BE1D830E11A00FBE9E9D43 /* Quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EA101F998182708AB3CDA14 /* Quad.cpp */; };
+		48AA27BB22351E4FA5861B1A /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DC6F426A806798D22023EAD /* Font.cpp */; };
 		4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */; };
 		4D6E39A9FAEACA1FE787DEF2 /* TypeSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A330E588D954249C256EBCF /* TypeSelection.cpp */; };
 		510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6DEF695B88BA5FAACEAA937 /* UdpSocket.cpp */; };
@@ -21,6 +22,7 @@
 		535FCB0E448278EEE1A35101 /* Controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 263D21E1D2D1268EC5945292 /* Controller.cpp */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
 		5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */; };
+		5982B12539F35D02AB49803E /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CA592F5516257EAC38A029 /* Image.cpp */; };
 		62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */; };
 		640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */; };
 		66CA411C5A9664E27326BF36 /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C085E327DAB912CFA2A443D /* ofxTCPServer.cpp */; };
@@ -31,23 +33,31 @@
 		678E131017951549005B6D19 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130F17951549005B6D19 /* Default-568h@2x~iphone.png */; };
 		67DFA53619F92A69003B3434 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67DFA53419F92A5E003B3434 /* Accelerate.framework */; };
 		67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B361208CD4107E479F04E7B /* NetworkingUtils.cpp */; };
+		69F41565AE8CB530C199B35F /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B207BA15FAB40EEE9106EA10 /* Sound.cpp */; };
 		6A24CC0664F4090E5624EBA3 /* Connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81B93FAF69C7EE47E3582F41 /* Connection.cpp */; };
 		72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */; };
 		7BB8A825EC628B64D5F9F917 /* MultiSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9958B0FE9A41F7A0E80D1A0 /* MultiSelect.cpp */; };
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
-		8BC6E3C81C212548004E867E /* ofxMySQL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BC6E3C61C212548004E867E /* ofxMySQL.cpp */; };
+		8B11F5D21F40355800F4D860 /* libmysqlclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B11F5D11F40355800F4D860 /* libmysqlclient.a */; };
+		8BB24B3E1F29E20F00C66DB5 /* my_config.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 8BB24B0D1F29E20E00C66DB5 /* my_config.h.in */; };
+		8BB24B3F1F29E20F00C66DB5 /* mysql.h.pp in Sources */ = {isa = PBXBuildFile; fileRef = 8BB24B231F29E20E00C66DB5 /* mysql.h.pp */; };
+		8BB24B401F29E20F00C66DB5 /* mysql_version.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 8BB24B271F29E20E00C66DB5 /* mysql_version.h.in */; };
 		8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */; };
 		92F698C5C65CA0489D713F32 /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4FE1C9E62B4ED0995F2BF89 /* Element.cpp */; };
 		960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF88F02779DD820913ACEA06 /* ofxTCPClient.cpp */; };
+		977E32123A8A07E1DB9A0D85 /* BaseAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1910C8597F22BAFEB2C87C9 /* BaseAsset.cpp */; };
 		9C39A910EAC6A6B122C02B3A /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C258E6D9B89C38EF3AE7D934 /* Canvas.cpp */; };
 		A6CCD8BA6761F3D0D414668E /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6344DEF5708C53DAF76506FE /* Button.cpp */; };
 		AAAD269F43CBC134DC80E61F /* Touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BC6518237660A4C206DD94 /* Touch.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
+		B44B5599ADC860A956B01646 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D729ECA86453DE065311E034 /* Set.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 		C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */; };
+		D57027F36B35F3FF654824D9 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CED095FF14A0932EE69B7A8 /* Shader.cpp */; };
 		D6D9A3631B256390D73E2C18 /* ofxAssets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13FF4A2D641AAE64D70ABCC6 /* ofxAssets.cpp */; };
+		DFD6A3C8AA9C3BE084F1E2D8 /* ofxMySQL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DCC9D122E8F37B2FC167195F /* ofxMySQL.cpp */; };
 		E2564CF7DDB3713772BB682E /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35BB9BB90DBABFD3B39F8DB6 /* ofxUDPManager.cpp */; };
 		E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400613B39D2100A75A5D /* AVFoundation.framework */; };
 		E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400713B39D2100A75A5D /* CoreMedia.framework */; };
@@ -56,6 +66,7 @@
 		E41D421413B3A95300A75A5D /* libofxiOS_iphoneos_Debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D410213B3A0D800A75A5D /* libofxiOS_iphoneos_Debug.a */; };
 		E4D8936E11527B74007E1F53 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936B11527B74007E1F53 /* main.mm */; };
 		E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936D11527B74007E1F53 /* ofApp.mm */; };
+		F3061312C884CB6931AC899E /* Register.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87DC2B0A687258A832A3504F /* Register.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,14 +90,11 @@
 		00D6D32B84B099226431108C /* ofxOsc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOsc.h; path = ../../../addons/ofxOsc/src/ofxOsc.h; sourceTree = SOURCE_ROOT; };
 		029684CF678F70F6D3537A29 /* OscOutboundPacketStream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscOutboundPacketStream.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h; sourceTree = SOURCE_ROOT; };
 		0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscParameterSync.cpp; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.cpp; sourceTree = SOURCE_ROOT; };
-		0F0868FAD3EDCB9067FE8DFA /* mysql_version.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = mysql_version.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysql_version.h; sourceTree = SOURCE_ROOT; };
-		0F4B5315130532DE1C7FC7A8 /* my_list.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_list.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_list.h; sourceTree = SOURCE_ROOT; };
-		0FC833B046CDC0A81A6ECE68 /* mysys_err.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = mysys_err.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysys_err.h; sourceTree = SOURCE_ROOT; };
+		0EDCF5F5E20ADC1EF4CC7B0B /* ofxMySQL.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMySQL.h; path = ../../../addons/ofxMySQL/src/ofxMySQL.h; sourceTree = SOURCE_ROOT; };
 		13FF4A2D641AAE64D70ABCC6 /* ofxAssets.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAssets.cpp; path = ../../../addons/ofxAssets/src/ofxAssets.cpp; sourceTree = SOURCE_ROOT; };
 		1A8797234FC433C028202882 /* Connection.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Connection.h; path = src/Connection.h; sourceTree = SOURCE_ROOT; };
-		1B3139D040163670D4894718 /* mysql_com.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = mysql_com.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysql_com.h; sourceTree = SOURCE_ROOT; };
-		1B7B2B84CE9F0C1784689B21 /* t_ctype.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = t_ctype.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/t_ctype.h; sourceTree = SOURCE_ROOT; };
 		1C085E327DAB912CFA2A443D /* ofxTCPServer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPServer.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPServer.cpp; sourceTree = SOURCE_ROOT; };
+		1D28E8B5F753FEC36FA9F6F7 /* BaseAsset.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BaseAsset.h; path = ../../../addons/ofxAssets/src/ofxAssets/BaseAsset.h; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -97,41 +105,26 @@
 		263D21E1D2D1268EC5945292 /* Controller.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Controller.cpp; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Controller.cpp; sourceTree = SOURCE_ROOT; };
 		26EF3E71A07C6948EAF6709E /* ofxTCPManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTCPManager.h; path = ../../../addons/ofxNetwork/src/ofxTCPManager.h; sourceTree = SOURCE_ROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2A210CE8EFE30729975F0D34 /* my_alarm.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_alarm.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_alarm.h; sourceTree = SOURCE_ROOT; };
-		2ED7CA21DCD9836472DD6F83 /* sslopt-longopts.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "sslopt-longopts.h"; path = "../../../addons/ofxMySQL/libs/libmysql/include/sslopt-longopts.h"; sourceTree = SOURCE_ROOT; };
 		2F519EB3B0DCD7378FB86ABE /* ofxUDPManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUDPManager.h; path = ../../../addons/ofxNetwork/src/ofxUDPManager.h; sourceTree = SOURCE_ROOT; };
 		2FD4B0329909D3527F003494 /* UdpSocket.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UdpSocket.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h; sourceTree = SOURCE_ROOT; };
 		30841703B7AC8487D16FB4AA /* ofxTCPServer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTCPServer.h; path = ../../../addons/ofxNetwork/src/ofxTCPServer.h; sourceTree = SOURCE_ROOT; };
-		3130683178C79DD6E347F12F /* mysql.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = mysql.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysql.h; sourceTree = SOURCE_ROOT; };
-		32A8D32DC2879FA52382BF57 /* wqueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = wqueue.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/wqueue.h; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiOS_Prefix.pch; sourceTree = "<group>"; };
-		340E6595150C44D29C247FCE /* decimal.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = decimal.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/decimal.h; sourceTree = SOURCE_ROOT; };
-		355E1ADF307987CAAEE55CA3 /* base64.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = base64.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/base64.h; sourceTree = SOURCE_ROOT; };
 		35BB9BB90DBABFD3B39F8DB6 /* ofxUDPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxUDPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxUDPManager.cpp; sourceTree = SOURCE_ROOT; };
-		37EF271035FE5CA1BAC5E04C /* thr_alarm.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = thr_alarm.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/thr_alarm.h; sourceTree = SOURCE_ROOT; };
 		3B361208CD4107E479F04E7B /* NetworkingUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = NetworkingUtils.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/posix/NetworkingUtils.cpp; sourceTree = SOURCE_ROOT; };
 		3D71A6D125EA82B1D0A6B542 /* ofxAssets.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAssets.h; path = ../../../addons/ofxAssets/src/ofxAssets.h; sourceTree = SOURCE_ROOT; };
-		3E0ECE387DA5C57BDCDA6F41 /* sslopt-vars.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "sslopt-vars.h"; path = "../../../addons/ofxMySQL/libs/libmysql/include/sslopt-vars.h"; sourceTree = SOURCE_ROOT; };
-		3EA41C66D6503F236FF44897 /* my_alloc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_alloc.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_alloc.h; sourceTree = SOURCE_ROOT; };
+		3D95B36A7075725E92241889 /* Shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Shader.h; path = ../../../addons/ofxAssets/src/ofxAssets/Shader.h; sourceTree = SOURCE_ROOT; };
+		4308EFF5143EFAAAC347DD57 /* Sound.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Sound.h; path = ../../../addons/ofxAssets/src/ofxAssets/Sound.h; sourceTree = SOURCE_ROOT; };
 		444657A12E59D0ED86981498 /* TimerListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TimerListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/TimerListener.h; sourceTree = SOURCE_ROOT; };
-		46F310F039F11787B9D543AC /* rwlock.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = rwlock.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/atomic/rwlock.h; sourceTree = SOURCE_ROOT; };
-		47C02608C03B9CFB69CB12C4 /* my_charsets.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_charsets.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_charsets.h; sourceTree = SOURCE_ROOT; };
 		48974F980F51769171D0B2F5 /* IpEndpointName.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = IpEndpointName.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h; sourceTree = SOURCE_ROOT; };
 		4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscPrintReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h; sourceTree = SOURCE_ROOT; };
 		4EA101F998182708AB3CDA14 /* Quad.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Quad.cpp; path = src/Quad.cpp; sourceTree = SOURCE_ROOT; };
-		50853DCC79AD1FE9B47AB511 /* my_vle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_vle.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_vle.h; sourceTree = SOURCE_ROOT; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		558EA45331AD31014B7F62C8 /* my_xml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_xml.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_xml.h; sourceTree = SOURCE_ROOT; };
-		5A394DDA3A704384B0F13A66 /* lf.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = lf.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/lf.h; sourceTree = SOURCE_ROOT; };
-		5C2574E438F5CD17AD375A3F /* my_no_pthread.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_no_pthread.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_no_pthread.h; sourceTree = SOURCE_ROOT; };
+		60EE7A3C47BB4C564A6858BC /* Font.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Font.h; path = ../../../addons/ofxAssets/src/ofxAssets/Font.h; sourceTree = SOURCE_ROOT; };
 		6344DEF5708C53DAF76506FE /* Button.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Button.cpp; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Elements/Button.cpp; sourceTree = SOURCE_ROOT; };
 		63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
-		63CA0C76A1CB8F2210F6435D /* my_getopt.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_getopt.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_getopt.h; sourceTree = SOURCE_ROOT; };
 		64BC6518237660A4C206DD94 /* Touch.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Touch.cpp; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Touch.cpp; sourceTree = SOURCE_ROOT; };
-		65BD2BDFCAA9D2080777CF1A /* my_aes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_aes.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_aes.h; sourceTree = SOURCE_ROOT; };
 		65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
-		66CB1EAC6BBDD053F69FECDC /* rijndael.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = rijndael.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysys/rijndael.h; sourceTree = SOURCE_ROOT; };
 		678E130717951530005B6D19 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "bin/data/Icon@2x.png"; sourceTree = "<group>"; };
 		678E130917951536005B6D19 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = "<group>"; };
 		678E130B1795153C005B6D19 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = "<group>"; };
@@ -140,71 +133,118 @@
 		67DFA53419F92A5E003B3434 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		68420BE11F9770DFFD114934 /* Canvas.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Canvas.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Elements/Canvas.h; sourceTree = SOURCE_ROOT; };
 		6B65E6930994CC4B2D2B8B33 /* OscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h; sourceTree = SOURCE_ROOT; };
-		6F4E370ECFAF6B7E50F43F63 /* my_time.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_time.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_time.h; sourceTree = SOURCE_ROOT; };
-		762C48884ABA0E264E5DD377 /* my_bit.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_bit.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_bit.h; sourceTree = SOURCE_ROOT; };
-		766648FD95FFEA0CDEBC3B7F /* queues.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = queues.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/queues.h; sourceTree = SOURCE_ROOT; };
+		6DC6F426A806798D22023EAD /* Font.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Font.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Font.cpp; sourceTree = SOURCE_ROOT; };
 		7689F8A0F3D0B7635A8C3104 /* ofxOscArg.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscArg.h; path = ../../../addons/ofxOsc/src/ofxOscArg.h; sourceTree = SOURCE_ROOT; };
-		7716A82347C630F5CFA600FF /* my_dir.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_dir.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_dir.h; sourceTree = SOURCE_ROOT; };
-		7E80729C9BC6FD1BC34B10C7 /* my_net.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_net.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_net.h; sourceTree = SOURCE_ROOT; };
 		7FFC441C999AC1679F107E68 /* Controller.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Controller.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Controller.h; sourceTree = SOURCE_ROOT; };
 		81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscSender.cpp; path = ../../../addons/ofxOsc/src/ofxOscSender.cpp; sourceTree = SOURCE_ROOT; };
 		81B93FAF69C7EE47E3582F41 /* Connection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Connection.cpp; path = src/Connection.cpp; sourceTree = SOURCE_ROOT; };
-		81D120EB883E76956150ABB7 /* thr_lock.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = thr_lock.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/thr_lock.h; sourceTree = SOURCE_ROOT; };
-		85D6CF943D63724C013C72AF /* my_dbug.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_dbug.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_dbug.h; sourceTree = SOURCE_ROOT; };
+		86D6C9324E8957D4B51BCFA8 /* Register.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Register.h; path = ../../../addons/ofxAssets/src/ofxAssets/Register.h; sourceTree = SOURCE_ROOT; };
+		87DC2B0A687258A832A3504F /* Register.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Register.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Register.cpp; sourceTree = SOURCE_ROOT; };
+		8B11F5D11F40355800F4D860 /* libmysqlclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmysqlclient.a; sourceTree = "<group>"; };
 		8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscBundle.h; path = ../../../addons/ofxOsc/src/ofxOscBundle.h; sourceTree = SOURCE_ROOT; };
-		8BC6E3C61C212548004E867E /* ofxMySQL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxMySQL.cpp; sourceTree = "<group>"; };
-		8BC6E3C71C212548004E867E /* ofxMySQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxMySQL.h; sourceTree = "<group>"; };
-		8C52D1ECB9D011530B5B7F49 /* my_md5.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_md5.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_md5.h; sourceTree = SOURCE_ROOT; };
+		8BB24AF51F29E20E00C66DB5 /* gcc_builtins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcc_builtins.h; sourceTree = "<group>"; };
+		8BB24AF61F29E20E00C66DB5 /* generic-msvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "generic-msvc.h"; sourceTree = "<group>"; };
+		8BB24AF71F29E20E00C66DB5 /* nolock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nolock.h; sourceTree = "<group>"; };
+		8BB24AF81F29E20E00C66DB5 /* rwlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rwlock.h; sourceTree = "<group>"; };
+		8BB24AF91F29E20E00C66DB5 /* x86-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "x86-gcc.h"; sourceTree = "<group>"; };
+		8BB24AFA1F29E20E00C66DB5 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		8BB24AFB1F29E20E00C66DB5 /* config-win.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "config-win.h"; sourceTree = "<group>"; };
+		8BB24AFC1F29E20E00C66DB5 /* decimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decimal.h; sourceTree = "<group>"; };
+		8BB24AFD1F29E20E00C66DB5 /* errmsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errmsg.h; sourceTree = "<group>"; };
+		8BB24AFE1F29E20E00C66DB5 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		8BB24AFF1F29E20E00C66DB5 /* keycache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keycache.h; sourceTree = "<group>"; };
+		8BB24B001F29E20E00C66DB5 /* lf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lf.h; sourceTree = "<group>"; };
+		8BB24B011F29E20E00C66DB5 /* m_ctype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m_ctype.h; sourceTree = "<group>"; };
+		8BB24B021F29E20E00C66DB5 /* m_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m_string.h; sourceTree = "<group>"; };
+		8BB24B031F29E20E00C66DB5 /* my_aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_aes.h; sourceTree = "<group>"; };
+		8BB24B041F29E20E00C66DB5 /* my_alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_alarm.h; sourceTree = "<group>"; };
+		8BB24B051F29E20E00C66DB5 /* my_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_alloc.h; sourceTree = "<group>"; };
+		8BB24B061F29E20E00C66DB5 /* my_atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_atomic.h; sourceTree = "<group>"; };
+		8BB24B071F29E20E00C66DB5 /* my_attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_attribute.h; sourceTree = "<group>"; };
+		8BB24B081F29E20E00C66DB5 /* my_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_base.h; sourceTree = "<group>"; };
+		8BB24B091F29E20E00C66DB5 /* my_bit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_bit.h; sourceTree = "<group>"; };
+		8BB24B0A1F29E20E00C66DB5 /* my_bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_bitmap.h; sourceTree = "<group>"; };
+		8BB24B0B1F29E20E00C66DB5 /* my_charsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_charsets.h; sourceTree = "<group>"; };
+		8BB24B0C1F29E20E00C66DB5 /* my_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_config.h; sourceTree = "<group>"; };
+		8BB24B0D1F29E20E00C66DB5 /* my_config.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = my_config.h.in; sourceTree = "<group>"; };
+		8BB24B0E1F29E20E00C66DB5 /* my_dbug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_dbug.h; sourceTree = "<group>"; };
+		8BB24B0F1F29E20E00C66DB5 /* my_dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_dir.h; sourceTree = "<group>"; };
+		8BB24B101F29E20E00C66DB5 /* my_getopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_getopt.h; sourceTree = "<group>"; };
+		8BB24B111F29E20E00C66DB5 /* my_global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_global.h; sourceTree = "<group>"; };
+		8BB24B121F29E20E00C66DB5 /* my_libwrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_libwrap.h; sourceTree = "<group>"; };
+		8BB24B131F29E20E00C66DB5 /* my_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_list.h; sourceTree = "<group>"; };
+		8BB24B141F29E20E00C66DB5 /* my_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_md5.h; sourceTree = "<group>"; };
+		8BB24B151F29E20E00C66DB5 /* my_net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_net.h; sourceTree = "<group>"; };
+		8BB24B161F29E20E00C66DB5 /* my_no_pthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_no_pthread.h; sourceTree = "<group>"; };
+		8BB24B171F29E20E00C66DB5 /* my_nosys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_nosys.h; sourceTree = "<group>"; };
+		8BB24B181F29E20E00C66DB5 /* my_pthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_pthread.h; sourceTree = "<group>"; };
+		8BB24B191F29E20E00C66DB5 /* my_stacktrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_stacktrace.h; sourceTree = "<group>"; };
+		8BB24B1A1F29E20E00C66DB5 /* my_sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_sys.h; sourceTree = "<group>"; };
+		8BB24B1B1F29E20E00C66DB5 /* my_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_time.h; sourceTree = "<group>"; };
+		8BB24B1C1F29E20E00C66DB5 /* my_tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_tree.h; sourceTree = "<group>"; };
+		8BB24B1D1F29E20E00C66DB5 /* my_trie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_trie.h; sourceTree = "<group>"; };
+		8BB24B1E1F29E20E00C66DB5 /* my_uctype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_uctype.h; sourceTree = "<group>"; };
+		8BB24B1F1F29E20E00C66DB5 /* my_vle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_vle.h; sourceTree = "<group>"; };
+		8BB24B201F29E20E00C66DB5 /* my_xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = my_xml.h; sourceTree = "<group>"; };
+		8BB24B211F29E20E00C66DB5 /* myisampack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myisampack.h; sourceTree = "<group>"; };
+		8BB24B221F29E20E00C66DB5 /* mysql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql.h; sourceTree = "<group>"; };
+		8BB24B231F29E20E00C66DB5 /* mysql.h.pp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = mysql.h.pp; sourceTree = "<group>"; };
+		8BB24B241F29E20E00C66DB5 /* mysql_com.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_com.h; sourceTree = "<group>"; };
+		8BB24B251F29E20E00C66DB5 /* mysql_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_time.h; sourceTree = "<group>"; };
+		8BB24B261F29E20E00C66DB5 /* mysql_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysql_version.h; sourceTree = "<group>"; };
+		8BB24B271F29E20E00C66DB5 /* mysql_version.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mysql_version.h.in; sourceTree = "<group>"; };
+		8BB24B281F29E20E00C66DB5 /* mysqld_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysqld_error.h; sourceTree = "<group>"; };
+		8BB24B2A1F29E20E00C66DB5 /* rijndael.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rijndael.h; sourceTree = "<group>"; };
+		8BB24B2B1F29E20E00C66DB5 /* mysys_err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mysys_err.h; sourceTree = "<group>"; };
+		8BB24B2C1F29E20E00C66DB5 /* queues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queues.h; sourceTree = "<group>"; };
+		8BB24B2D1F29E20E00C66DB5 /* service_versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = service_versions.h; sourceTree = "<group>"; };
+		8BB24B2E1F29E20E00C66DB5 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		8BB24B2F1F29E20E00C66DB5 /* sha2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha2.h; sourceTree = "<group>"; };
+		8BB24B301F29E20E00C66DB5 /* sql_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sql_common.h; sourceTree = "<group>"; };
+		8BB24B311F29E20E00C66DB5 /* sslopt-case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sslopt-case.h"; sourceTree = "<group>"; };
+		8BB24B321F29E20E00C66DB5 /* sslopt-longopts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sslopt-longopts.h"; sourceTree = "<group>"; };
+		8BB24B331F29E20E00C66DB5 /* sslopt-vars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sslopt-vars.h"; sourceTree = "<group>"; };
+		8BB24B341F29E20E00C66DB5 /* t_ctype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t_ctype.h; sourceTree = "<group>"; };
+		8BB24B351F29E20E00C66DB5 /* thr_alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thr_alarm.h; sourceTree = "<group>"; };
+		8BB24B361F29E20E00C66DB5 /* thr_lock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thr_lock.h; sourceTree = "<group>"; };
+		8BB24B371F29E20E00C66DB5 /* typelib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typelib.h; sourceTree = "<group>"; };
+		8BB24B381F29E20E00C66DB5 /* violite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = violite.h; sourceTree = "<group>"; };
+		8BB24B391F29E20E00C66DB5 /* waiting_threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waiting_threads.h; sourceTree = "<group>"; };
+		8BB24B3A1F29E20E00C66DB5 /* wqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wqueue.h; sourceTree = "<group>"; };
 		8C75AFC8774A62495DD53464 /* ofxOscReceiver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscReceiver.h; path = ../../../addons/ofxOsc/src/ofxOscReceiver.h; sourceTree = SOURCE_ROOT; };
-		9248E37E23720FD50C203162 /* my_pthread.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_pthread.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_pthread.h; sourceTree = SOURCE_ROOT; };
-		95D7B32A4F299779B6150741 /* my_sys.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_sys.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_sys.h; sourceTree = SOURCE_ROOT; };
 		984A75E3E72BB2A77634B34F /* ofxKCTouchGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxKCTouchGui.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui.h; sourceTree = SOURCE_ROOT; };
-		99FFEAAA4402B0EE09721DB3 /* my_tree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_tree.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_tree.h; sourceTree = SOURCE_ROOT; };
 		9A330E588D954249C256EBCF /* TypeSelection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = TypeSelection.cpp; path = src/TypeSelection.cpp; sourceTree = SOURCE_ROOT; };
 		9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
-		9CEBA5601306AE3CE8233C51 /* my_bitmap.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_bitmap.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_bitmap.h; sourceTree = SOURCE_ROOT; };
+		9CED095FF14A0932EE69B7A8 /* Shader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Shader.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Shader.cpp; sourceTree = SOURCE_ROOT; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
+		A0D15E898E99721966EB62CB /* Set.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Set.h; path = ../../../addons/ofxAssets/src/ofxAssets/Set.h; sourceTree = SOURCE_ROOT; };
+		A1910C8597F22BAFEB2C87C9 /* BaseAsset.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = BaseAsset.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/BaseAsset.cpp; sourceTree = SOURCE_ROOT; };
 		A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscHostEndianness.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
-		A316B0122480CAEE1D000F80 /* mysqld_error.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = mysqld_error.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysqld_error.h; sourceTree = SOURCE_ROOT; };
-		A329C8B3114CF01F4B1DCF03 /* my_stacktrace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_stacktrace.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_stacktrace.h; sourceTree = SOURCE_ROOT; };
 		A340683855BCE84FE98F553D /* Button.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Button.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Elements/Button.h; sourceTree = SOURCE_ROOT; };
 		A4D3201AF6F123E0FC7DAA4A /* Credentials.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Credentials.h; path = src/Credentials.h; sourceTree = SOURCE_ROOT; };
 		ADD194746185E2DA11468377 /* IpEndpointName.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = IpEndpointName.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.cpp; sourceTree = SOURCE_ROOT; };
-		AE20F05A3964F9D004BAF1EE /* my_attribute.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_attribute.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_attribute.h; sourceTree = SOURCE_ROOT; };
 		AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MessageMappingOscPacketListener.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/MessageMappingOscPacketListener.h; sourceTree = SOURCE_ROOT; };
-		B16BBCCAE49CDE59A460EDCE /* my_global.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_global.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_global.h; sourceTree = SOURCE_ROOT; };
-		B1E8DE2A9BDC17C6F3095844 /* m_ctype.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = m_ctype.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/m_ctype.h; sourceTree = SOURCE_ROOT; };
-		B216E73CFE4C1869454FD9C0 /* my_libwrap.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_libwrap.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_libwrap.h; sourceTree = SOURCE_ROOT; };
+		B207BA15FAB40EEE9106EA10 /* Sound.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Sound.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Sound.cpp; sourceTree = SOURCE_ROOT; };
 		B2AA59382885EA077F0E5127 /* MultiSelect.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MultiSelect.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Elements/MultiSelect.h; sourceTree = SOURCE_ROOT; };
-		B30534A12ED8BA6C359147AC /* m_string.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = m_string.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/m_string.h; sourceTree = SOURCE_ROOT; };
 		B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscParameterSync.h; path = ../../../addons/ofxOsc/src/ofxOscParameterSync.h; sourceTree = SOURCE_ROOT; };
-		B6169697624A3D73951FDF27 /* sha1.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = sha1.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/sha1.h; sourceTree = SOURCE_ROOT; };
-		B62B0A074CEAB587413310A6 /* keycache.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = keycache.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/keycache.h; sourceTree = SOURCE_ROOT; };
 		B7F14F5A0B093321B9185165 /* Canvas.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Canvas.cpp; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Elements/Canvas.cpp; sourceTree = SOURCE_ROOT; };
-		B9D3E03013A764F9CBA8BE8C /* my_nosys.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_nosys.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_nosys.h; sourceTree = SOURCE_ROOT; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DDC910DA781C00E9C588 /* ofxiOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ofxiOS-Info.plist"; sourceTree = "<group>"; };
 		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscPrintReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		BF88F02779DD820913ACEA06 /* ofxTCPClient.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPClient.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPClient.cpp; sourceTree = SOURCE_ROOT; };
-		C15C6BEBA9B1DD71D6E10D14 /* generic-msvc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "generic-msvc.h"; path = "../../../addons/ofxMySQL/libs/libmysql/include/atomic/generic-msvc.h"; sourceTree = SOURCE_ROOT; };
 		C258E6D9B89C38EF3AE7D934 /* Canvas.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Canvas.cpp; path = src/Canvas.cpp; sourceTree = SOURCE_ROOT; };
 		C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscReceiver.cpp; path = ../../../addons/ofxOsc/src/ofxOscReceiver.cpp; sourceTree = SOURCE_ROOT; };
 		C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscMessage.h; path = ../../../addons/ofxOsc/src/ofxOscMessage.h; sourceTree = SOURCE_ROOT; };
 		C671C170050D15B6556D971C /* Quad.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Quad.h; path = src/Quad.h; sourceTree = SOURCE_ROOT; };
 		C6937888E126BADC8777423B /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		C8C9B823D7872F9CBF03A813 /* ofxTCPClient.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxTCPClient.h; path = ../../../addons/ofxNetwork/src/ofxTCPClient.h; sourceTree = SOURCE_ROOT; };
-		CB57E32A90447A4CB19E1088 /* service_versions.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = service_versions.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/service_versions.h; sourceTree = SOURCE_ROOT; };
-		CC2F7ABC15240D9F777DEADC /* hash.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = hash.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/hash.h; sourceTree = SOURCE_ROOT; };
+		CC333C075AA06FB210BE2266 /* Image.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Image.h; path = ../../../addons/ofxAssets/src/ofxAssets/Image.h; sourceTree = SOURCE_ROOT; };
 		CC8593836D67181AC60782C5 /* TypeSelection.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TypeSelection.h; path = src/TypeSelection.h; sourceTree = SOURCE_ROOT; };
-		CD4241FE1C1D6F3F4D2A32EF /* waiting_threads.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = waiting_threads.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/waiting_threads.h; sourceTree = SOURCE_ROOT; };
-		D1EDE365D4C07D5F59C847CD /* mysql_time.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = mysql_time.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/mysql_time.h; sourceTree = SOURCE_ROOT; };
-		D524B0A58FD7E838F322C56B /* my_config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_config.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_config.h; sourceTree = SOURCE_ROOT; };
-		D73A5940006A042D0EB3B9EB /* my_base.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_base.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_base.h; sourceTree = SOURCE_ROOT; };
+		D729ECA86453DE065311E034 /* Set.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Set.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Set.cpp; sourceTree = SOURCE_ROOT; };
 		D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscTypes.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp; sourceTree = SOURCE_ROOT; };
-		DA7889B9137CD838F64ABF23 /* my_trie.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_trie.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_trie.h; sourceTree = SOURCE_ROOT; };
-		DBD0C482DBB46B6848026630 /* myisampack.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = myisampack.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/myisampack.h; sourceTree = SOURCE_ROOT; };
+		DCC9D122E8F37B2FC167195F /* ofxMySQL.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxMySQL.cpp; path = ../../../addons/ofxMySQL/src/ofxMySQL.cpp; sourceTree = SOURCE_ROOT; };
 		DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscMessage.cpp; path = ../../../addons/ofxOsc/src/ofxOscMessage.cpp; sourceTree = SOURCE_ROOT; };
 		E41D3ED613B38FB500A75A5D /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E41D3EE513B3906D00A75A5D /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/ios/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -217,28 +257,17 @@
 		E4D8936B11527B74007E1F53 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
 		E4D8936C11527B74007E1F53 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4D8936D11527B74007E1F53 /* ofApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofApp.mm; path = src/ofApp.mm; sourceTree = SOURCE_ROOT; };
-		E4F8608EF16424A38F5478FA /* my_atomic.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_atomic.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_atomic.h; sourceTree = SOURCE_ROOT; };
-		E59679208327ECBE1BB6E184 /* nolock.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = nolock.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/atomic/nolock.h; sourceTree = SOURCE_ROOT; };
 		E6DEF695B88BA5FAACEAA937 /* UdpSocket.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UdpSocket.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/posix/UdpSocket.cpp; sourceTree = SOURCE_ROOT; };
-		E8E4E44CFCB76233C91A0C26 /* gcc_builtins.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = gcc_builtins.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/atomic/gcc_builtins.h; sourceTree = SOURCE_ROOT; };
-		EA89D59D1F23D124308E1648 /* sslopt-case.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "sslopt-case.h"; path = "../../../addons/ofxMySQL/libs/libmysql/include/sslopt-case.h"; sourceTree = SOURCE_ROOT; };
-		EC4F5C11995FF5BA34FE3F41 /* typelib.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = typelib.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/typelib.h; sourceTree = SOURCE_ROOT; };
-		EE5176F4F7EC487F18A44684 /* config-win.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "config-win.h"; path = "../../../addons/ofxMySQL/libs/libmysql/include/config-win.h"; sourceTree = SOURCE_ROOT; };
-		F0F6B6051177D9A6C34AC43D /* my_uctype.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = my_uctype.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/my_uctype.h; sourceTree = SOURCE_ROOT; };
-		F15057DC8F4C7DB168077490 /* x86-gcc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = "x86-gcc.h"; path = "../../../addons/ofxMySQL/libs/libmysql/include/atomic/x86-gcc.h"; sourceTree = SOURCE_ROOT; };
 		F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPManager.cpp; sourceTree = SOURCE_ROOT; };
-		F3B9E58B503E1F15CFA65E5E /* errmsg.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = errmsg.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/errmsg.h; sourceTree = SOURCE_ROOT; };
 		F4F5B6B8BA2BD52C646ED908 /* OscException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscException.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h; sourceTree = SOURCE_ROOT; };
 		F4FE1C9E62B4ED0995F2BF89 /* Element.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Element.cpp; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Element.cpp; sourceTree = SOURCE_ROOT; };
 		F531FEC78D286446D0C04CF7 /* Touch.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Touch.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Touch.h; sourceTree = SOURCE_ROOT; };
 		F66993296A3AEEC70FD444F5 /* ofxNetwork.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNetwork.h; path = ../../../addons/ofxNetwork/src/ofxNetwork.h; sourceTree = SOURCE_ROOT; };
 		F6AF609CC56160615C91848C /* ofxHomography.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxHomography.h; path = ../../../addons/ofxHomography/src/ofxHomography.h; sourceTree = SOURCE_ROOT; };
-		F6B86C92CE34A83059B9D7A6 /* sql_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = sql_common.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/sql_common.h; sourceTree = SOURCE_ROOT; };
+		F7CA592F5516257EAC38A029 /* Image.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Image.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Image.cpp; sourceTree = SOURCE_ROOT; };
 		F7FBC56859535E597B24BB91 /* NetworkingUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = NetworkingUtils.h; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h; sourceTree = SOURCE_ROOT; };
 		F9958B0FE9A41F7A0E80D1A0 /* MultiSelect.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = MultiSelect.cpp; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui/Elements/MultiSelect.cpp; sourceTree = SOURCE_ROOT; };
 		F9DC94C4C08C3BDB11512E53 /* Canvas.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Canvas.h; path = src/Canvas.h; sourceTree = SOURCE_ROOT; };
-		FC62CEE29FA4F97B2F0BB5C6 /* violite.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = violite.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/violite.h; sourceTree = SOURCE_ROOT; };
-		FF9A8FAC848CEC6B1CD38D90 /* sha2.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = sha2.h; path = ../../../addons/ofxMySQL/libs/libmysql/include/sha2.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +285,7 @@
 				53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */,
 				5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */,
 				E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */,
+				8B11F5D21F40355800F4D860 /* libmysqlclient.a in Frameworks */,
 				E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */,
 				E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */,
 				E41D400E13B39D2100A75A5D /* MapKit.framework in Frameworks */,
@@ -266,12 +296,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04EA24C53D082C6DC3660200 /* libs */ = {
+		046B5690BD1DA26C394DABF0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				E91E210AE2EE374E8B0802FB /* libmysql */,
+				DCC9D122E8F37B2FC167195F /* ofxMySQL.cpp */,
+				0EDCF5F5E20ADC1EF4CC7B0B /* ofxMySQL.h */,
 			);
-			name = libs;
+			name = src;
 			sourceTree = "<group>";
 		};
 		18240ECCE4076FB0833A8578 /* ofxNetwork */ = {
@@ -388,78 +419,10 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		3E439F2DEE039240B2E8F033 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				8E2FF8CD9AD8B793C9482EDC /* atomic */,
-				355E1ADF307987CAAEE55CA3 /* base64.h */,
-				EE5176F4F7EC487F18A44684 /* config-win.h */,
-				340E6595150C44D29C247FCE /* decimal.h */,
-				F3B9E58B503E1F15CFA65E5E /* errmsg.h */,
-				CC2F7ABC15240D9F777DEADC /* hash.h */,
-				B62B0A074CEAB587413310A6 /* keycache.h */,
-				5A394DDA3A704384B0F13A66 /* lf.h */,
-				B1E8DE2A9BDC17C6F3095844 /* m_ctype.h */,
-				B30534A12ED8BA6C359147AC /* m_string.h */,
-				65BD2BDFCAA9D2080777CF1A /* my_aes.h */,
-				2A210CE8EFE30729975F0D34 /* my_alarm.h */,
-				3EA41C66D6503F236FF44897 /* my_alloc.h */,
-				E4F8608EF16424A38F5478FA /* my_atomic.h */,
-				AE20F05A3964F9D004BAF1EE /* my_attribute.h */,
-				D73A5940006A042D0EB3B9EB /* my_base.h */,
-				762C48884ABA0E264E5DD377 /* my_bit.h */,
-				9CEBA5601306AE3CE8233C51 /* my_bitmap.h */,
-				47C02608C03B9CFB69CB12C4 /* my_charsets.h */,
-				D524B0A58FD7E838F322C56B /* my_config.h */,
-				85D6CF943D63724C013C72AF /* my_dbug.h */,
-				7716A82347C630F5CFA600FF /* my_dir.h */,
-				63CA0C76A1CB8F2210F6435D /* my_getopt.h */,
-				B16BBCCAE49CDE59A460EDCE /* my_global.h */,
-				B216E73CFE4C1869454FD9C0 /* my_libwrap.h */,
-				0F4B5315130532DE1C7FC7A8 /* my_list.h */,
-				8C52D1ECB9D011530B5B7F49 /* my_md5.h */,
-				7E80729C9BC6FD1BC34B10C7 /* my_net.h */,
-				5C2574E438F5CD17AD375A3F /* my_no_pthread.h */,
-				B9D3E03013A764F9CBA8BE8C /* my_nosys.h */,
-				9248E37E23720FD50C203162 /* my_pthread.h */,
-				A329C8B3114CF01F4B1DCF03 /* my_stacktrace.h */,
-				95D7B32A4F299779B6150741 /* my_sys.h */,
-				6F4E370ECFAF6B7E50F43F63 /* my_time.h */,
-				99FFEAAA4402B0EE09721DB3 /* my_tree.h */,
-				DA7889B9137CD838F64ABF23 /* my_trie.h */,
-				F0F6B6051177D9A6C34AC43D /* my_uctype.h */,
-				50853DCC79AD1FE9B47AB511 /* my_vle.h */,
-				558EA45331AD31014B7F62C8 /* my_xml.h */,
-				DBD0C482DBB46B6848026630 /* myisampack.h */,
-				3130683178C79DD6E347F12F /* mysql.h */,
-				1B3139D040163670D4894718 /* mysql_com.h */,
-				D1EDE365D4C07D5F59C847CD /* mysql_time.h */,
-				0F0868FAD3EDCB9067FE8DFA /* mysql_version.h */,
-				A316B0122480CAEE1D000F80 /* mysqld_error.h */,
-				B47997DC047365925B00A6E6 /* mysys */,
-				0FC833B046CDC0A81A6ECE68 /* mysys_err.h */,
-				766648FD95FFEA0CDEBC3B7F /* queues.h */,
-				CB57E32A90447A4CB19E1088 /* service_versions.h */,
-				B6169697624A3D73951FDF27 /* sha1.h */,
-				FF9A8FAC848CEC6B1CD38D90 /* sha2.h */,
-				F6B86C92CE34A83059B9D7A6 /* sql_common.h */,
-				EA89D59D1F23D124308E1648 /* sslopt-case.h */,
-				2ED7CA21DCD9836472DD6F83 /* sslopt-longopts.h */,
-				3E0ECE387DA5C57BDCDA6F41 /* sslopt-vars.h */,
-				1B7B2B84CE9F0C1784689B21 /* t_ctype.h */,
-				37EF271035FE5CA1BAC5E04C /* thr_alarm.h */,
-				81D120EB883E76956150ABB7 /* thr_lock.h */,
-				EC4F5C11995FF5BA34FE3F41 /* typelib.h */,
-				FC62CEE29FA4F97B2F0BB5C6 /* violite.h */,
-				CD4241FE1C1D6F3F4D2A32EF /* waiting_threads.h */,
-				32A8D32DC2879FA52382BF57 /* wqueue.h */,
-			);
-			name = include;
-			sourceTree = "<group>";
-		};
 		4C5AF0A9BE41EC68A067150D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				EFCDA0F3B5AD30B56470886B /* ofxAssets */,
 				13FF4A2D641AAE64D70ABCC6 /* ofxAssets.cpp */,
 				3D71A6D125EA82B1D0A6B542 /* ofxAssets.h */,
 			);
@@ -499,42 +462,130 @@
 			name = oscpack;
 			sourceTree = "<group>";
 		};
-		8BC6E3C51C212548004E867E /* src */ = {
+		8BB24AF11F29E20E00C66DB5 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				8BC6E3C61C212548004E867E /* ofxMySQL.cpp */,
-				8BC6E3C71C212548004E867E /* ofxMySQL.h */,
+				8BB24AF21F29E20E00C66DB5 /* libmysql */,
 			);
-			name = src;
-			path = ../../../addons/ofxMySQL/src;
+			name = libs;
+			path = ../../../addons/ofxMySQL/libs;
 			sourceTree = "<group>";
 		};
-		8BC6E3CD1C21262B004E867E /* lib */ = {
+		8BB24AF21F29E20E00C66DB5 /* libmysql */ = {
 			isa = PBXGroup;
 			children = (
-				8BC6E3CE1C21262B004E867E /* ios */,
+				8BB24AF31F29E20E00C66DB5 /* include */,
+				8BB24B3B1F29E20E00C66DB5 /* lib */,
 			);
-			name = lib;
-			path = ../../../addons/ofxMySQL/libs/libmysql/lib;
+			path = libmysql;
 			sourceTree = "<group>";
 		};
-		8BC6E3CE1C21262B004E867E /* ios */ = {
+		8BB24AF31F29E20E00C66DB5 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				8BB24AF41F29E20E00C66DB5 /* atomic */,
+				8BB24AFA1F29E20E00C66DB5 /* base64.h */,
+				8BB24AFB1F29E20E00C66DB5 /* config-win.h */,
+				8BB24AFC1F29E20E00C66DB5 /* decimal.h */,
+				8BB24AFD1F29E20E00C66DB5 /* errmsg.h */,
+				8BB24AFE1F29E20E00C66DB5 /* hash.h */,
+				8BB24AFF1F29E20E00C66DB5 /* keycache.h */,
+				8BB24B001F29E20E00C66DB5 /* lf.h */,
+				8BB24B011F29E20E00C66DB5 /* m_ctype.h */,
+				8BB24B021F29E20E00C66DB5 /* m_string.h */,
+				8BB24B031F29E20E00C66DB5 /* my_aes.h */,
+				8BB24B041F29E20E00C66DB5 /* my_alarm.h */,
+				8BB24B051F29E20E00C66DB5 /* my_alloc.h */,
+				8BB24B061F29E20E00C66DB5 /* my_atomic.h */,
+				8BB24B071F29E20E00C66DB5 /* my_attribute.h */,
+				8BB24B081F29E20E00C66DB5 /* my_base.h */,
+				8BB24B091F29E20E00C66DB5 /* my_bit.h */,
+				8BB24B0A1F29E20E00C66DB5 /* my_bitmap.h */,
+				8BB24B0B1F29E20E00C66DB5 /* my_charsets.h */,
+				8BB24B0C1F29E20E00C66DB5 /* my_config.h */,
+				8BB24B0D1F29E20E00C66DB5 /* my_config.h.in */,
+				8BB24B0E1F29E20E00C66DB5 /* my_dbug.h */,
+				8BB24B0F1F29E20E00C66DB5 /* my_dir.h */,
+				8BB24B101F29E20E00C66DB5 /* my_getopt.h */,
+				8BB24B111F29E20E00C66DB5 /* my_global.h */,
+				8BB24B121F29E20E00C66DB5 /* my_libwrap.h */,
+				8BB24B131F29E20E00C66DB5 /* my_list.h */,
+				8BB24B141F29E20E00C66DB5 /* my_md5.h */,
+				8BB24B151F29E20E00C66DB5 /* my_net.h */,
+				8BB24B161F29E20E00C66DB5 /* my_no_pthread.h */,
+				8BB24B171F29E20E00C66DB5 /* my_nosys.h */,
+				8BB24B181F29E20E00C66DB5 /* my_pthread.h */,
+				8BB24B191F29E20E00C66DB5 /* my_stacktrace.h */,
+				8BB24B1A1F29E20E00C66DB5 /* my_sys.h */,
+				8BB24B1B1F29E20E00C66DB5 /* my_time.h */,
+				8BB24B1C1F29E20E00C66DB5 /* my_tree.h */,
+				8BB24B1D1F29E20E00C66DB5 /* my_trie.h */,
+				8BB24B1E1F29E20E00C66DB5 /* my_uctype.h */,
+				8BB24B1F1F29E20E00C66DB5 /* my_vle.h */,
+				8BB24B201F29E20E00C66DB5 /* my_xml.h */,
+				8BB24B211F29E20E00C66DB5 /* myisampack.h */,
+				8BB24B221F29E20E00C66DB5 /* mysql.h */,
+				8BB24B231F29E20E00C66DB5 /* mysql.h.pp */,
+				8BB24B241F29E20E00C66DB5 /* mysql_com.h */,
+				8BB24B251F29E20E00C66DB5 /* mysql_time.h */,
+				8BB24B261F29E20E00C66DB5 /* mysql_version.h */,
+				8BB24B271F29E20E00C66DB5 /* mysql_version.h.in */,
+				8BB24B281F29E20E00C66DB5 /* mysqld_error.h */,
+				8BB24B291F29E20E00C66DB5 /* mysys */,
+				8BB24B2B1F29E20E00C66DB5 /* mysys_err.h */,
+				8BB24B2C1F29E20E00C66DB5 /* queues.h */,
+				8BB24B2D1F29E20E00C66DB5 /* service_versions.h */,
+				8BB24B2E1F29E20E00C66DB5 /* sha1.h */,
+				8BB24B2F1F29E20E00C66DB5 /* sha2.h */,
+				8BB24B301F29E20E00C66DB5 /* sql_common.h */,
+				8BB24B311F29E20E00C66DB5 /* sslopt-case.h */,
+				8BB24B321F29E20E00C66DB5 /* sslopt-longopts.h */,
+				8BB24B331F29E20E00C66DB5 /* sslopt-vars.h */,
+				8BB24B341F29E20E00C66DB5 /* t_ctype.h */,
+				8BB24B351F29E20E00C66DB5 /* thr_alarm.h */,
+				8BB24B361F29E20E00C66DB5 /* thr_lock.h */,
+				8BB24B371F29E20E00C66DB5 /* typelib.h */,
+				8BB24B381F29E20E00C66DB5 /* violite.h */,
+				8BB24B391F29E20E00C66DB5 /* waiting_threads.h */,
+				8BB24B3A1F29E20E00C66DB5 /* wqueue.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		8BB24AF41F29E20E00C66DB5 /* atomic */ = {
+			isa = PBXGroup;
+			children = (
+				8BB24AF51F29E20E00C66DB5 /* gcc_builtins.h */,
+				8BB24AF61F29E20E00C66DB5 /* generic-msvc.h */,
+				8BB24AF71F29E20E00C66DB5 /* nolock.h */,
+				8BB24AF81F29E20E00C66DB5 /* rwlock.h */,
+				8BB24AF91F29E20E00C66DB5 /* x86-gcc.h */,
+			);
+			path = atomic;
+			sourceTree = "<group>";
+		};
+		8BB24B291F29E20E00C66DB5 /* mysys */ = {
+			isa = PBXGroup;
+			children = (
+				8BB24B2A1F29E20E00C66DB5 /* rijndael.h */,
+			);
+			path = mysys;
+			sourceTree = "<group>";
+		};
+		8BB24B3B1F29E20E00C66DB5 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				8BB24B3C1F29E20F00C66DB5 /* ios */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		8BB24B3C1F29E20F00C66DB5 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				8B11F5D11F40355800F4D860 /* libmysqlclient.a */,
 			);
 			path = ios;
-			sourceTree = "<group>";
-		};
-		8E2FF8CD9AD8B793C9482EDC /* atomic */ = {
-			isa = PBXGroup;
-			children = (
-				E8E4E44CFCB76233C91A0C26 /* gcc_builtins.h */,
-				C15C6BEBA9B1DD71D6E10D14 /* generic-msvc.h */,
-				E59679208327ECBE1BB6E184 /* nolock.h */,
-				46F310F039F11787B9D543AC /* rwlock.h */,
-				F15057DC8F4C7DB168077490 /* x86-gcc.h */,
-			);
-			name = atomic;
 			sourceTree = "<group>";
 		};
 		95643286CF52AB4C1D5BC269 /* ofxKCTouchGui */ = {
@@ -549,14 +600,6 @@
 				F531FEC78D286446D0C04CF7 /* Touch.h */,
 			);
 			name = ofxKCTouchGui;
-			sourceTree = "<group>";
-		};
-		B47997DC047365925B00A6E6 /* mysys */ = {
-			isa = PBXGroup;
-			children = (
-				66CB1EAC6BBDD053F69FECDC /* rijndael.h */,
-			);
-			name = mysys;
 			sourceTree = "<group>";
 		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
@@ -604,8 +647,8 @@
 		BCD82AABE58AD99E6A72697C /* ofxMySQL */ = {
 			isa = PBXGroup;
 			children = (
-				8BC6E3C51C212548004E867E /* src */,
-				04EA24C53D082C6DC3660200 /* libs */,
+				8BB24AF11F29E20E00C66DB5 /* libs */,
+				046B5690BD1DA26C394DABF0 /* src */,
 			);
 			name = ofxMySQL;
 			sourceTree = "<group>";
@@ -695,21 +738,33 @@
 			name = ofxOsc;
 			sourceTree = "<group>";
 		};
-		E91E210AE2EE374E8B0802FB /* libmysql */ = {
-			isa = PBXGroup;
-			children = (
-				8BC6E3CD1C21262B004E867E /* lib */,
-				3E439F2DEE039240B2E8F033 /* include */,
-			);
-			name = libmysql;
-			sourceTree = "<group>";
-		};
 		EFBC5F25613E13E4119D2354 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				F6AF609CC56160615C91848C /* ofxHomography.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		EFCDA0F3B5AD30B56470886B /* ofxAssets */ = {
+			isa = PBXGroup;
+			children = (
+				A1910C8597F22BAFEB2C87C9 /* BaseAsset.cpp */,
+				1D28E8B5F753FEC36FA9F6F7 /* BaseAsset.h */,
+				6DC6F426A806798D22023EAD /* Font.cpp */,
+				60EE7A3C47BB4C564A6858BC /* Font.h */,
+				F7CA592F5516257EAC38A029 /* Image.cpp */,
+				CC333C075AA06FB210BE2266 /* Image.h */,
+				87DC2B0A687258A832A3504F /* Register.cpp */,
+				86D6C9324E8957D4B51BCFA8 /* Register.h */,
+				D729ECA86453DE065311E034 /* Set.cpp */,
+				A0D15E898E99721966EB62CB /* Set.h */,
+				9CED095FF14A0932EE69B7A8 /* Shader.cpp */,
+				3D95B36A7075725E92241889 /* Shader.h */,
+				B207BA15FAB40EEE9106EA10 /* Sound.cpp */,
+				4308EFF5143EFAAAC347DD57 /* Sound.h */,
+			);
+			name = ofxAssets;
 			sourceTree = "<group>";
 		};
 		FF8CDF57858E9B94E3237115 /* ip */ = {
@@ -803,6 +858,8 @@
 			files = (
 				678E130817951530005B6D19 /* Icon@2x.png in Resources */,
 				678E130A17951536005B6D19 /* Icon.png in Resources */,
+				8BB24B401F29E20F00C66DB5 /* mysql_version.h.in in Resources */,
+				8BB24B3E1F29E20F00C66DB5 /* my_config.h.in in Resources */,
 				678E130C1795153C005B6D19 /* Default.png in Resources */,
 				678E130E17951540005B6D19 /* Default@2x.png in Resources */,
 				678E131017951549005B6D19 /* Default-568h@2x~iphone.png in Resources */,
@@ -834,10 +891,18 @@
 			files = (
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
+				8BB24B3F1F29E20F00C66DB5 /* mysql.h.pp in Sources */,
 				9C39A910EAC6A6B122C02B3A /* Canvas.cpp in Sources */,
 				6A24CC0664F4090E5624EBA3 /* Connection.cpp in Sources */,
 				41BE1D830E11A00FBE9E9D43 /* Quad.cpp in Sources */,
 				4D6E39A9FAEACA1FE787DEF2 /* TypeSelection.cpp in Sources */,
+				977E32123A8A07E1DB9A0D85 /* BaseAsset.cpp in Sources */,
+				48AA27BB22351E4FA5861B1A /* Font.cpp in Sources */,
+				5982B12539F35D02AB49803E /* Image.cpp in Sources */,
+				F3061312C884CB6931AC899E /* Register.cpp in Sources */,
+				B44B5599ADC860A956B01646 /* Set.cpp in Sources */,
+				D57027F36B35F3FF654824D9 /* Shader.cpp in Sources */,
+				69F41565AE8CB530C199B35F /* Sound.cpp in Sources */,
 				D6D9A3631B256390D73E2C18 /* ofxAssets.cpp in Sources */,
 				535FCB0E448278EEE1A35101 /* Controller.cpp in Sources */,
 				92F698C5C65CA0489D713F32 /* Element.cpp in Sources */,
@@ -845,6 +910,7 @@
 				304AF2321DA32D24896420B2 /* Canvas.cpp in Sources */,
 				7BB8A825EC628B64D5F9F917 /* MultiSelect.cpp in Sources */,
 				AAAD269F43CBC134DC80E61F /* Touch.cpp in Sources */,
+				DFD6A3C8AA9C3BE084F1E2D8 /* ofxMySQL.cpp in Sources */,
 				960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */,
 				125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */,
 				66CA411C5A9664E27326BF36 /* ofxTCPServer.cpp in Sources */,
@@ -852,7 +918,6 @@
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
-				8BC6E3C81C212548004E867E /* ofxMySQL.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
@@ -881,18 +946,21 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CGB4H2337N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LIBRARY_SEARCH_PATHS = ../../../addons/ofxMySQL/libs/libmysql/lib/ios;
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = KimchiAndChips.Link.Remote;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -900,18 +968,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CGB4H2337N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LIBRARY_SEARCH_PATHS = ../../../addons/ofxMySQL/libs/libmysql/lib/ios;
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = KimchiAndChips.Link.Remote;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -939,6 +1010,7 @@
 					"$(OF_CORE_HEADERS)",
 					src,
 					../../../addons/ofxAssets/src,
+					../../../addons/ofxAssets/src/ofxAssets,
 					../../../addons/ofxHomography/src,
 					../../../addons/ofxKCTouchGui2/src,
 					../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui,
@@ -950,6 +1022,7 @@
 					../../../addons/ofxMySQL/libs/libmysql/include/mysys,
 					../../../addons/ofxMySQL/libs/libmysql/lib,
 					../../../addons/ofxMySQL/libs/libmysql/lib/ios,
+					../../../addons/ofxMySQL/src,
 					../../../addons/ofxNetwork/src,
 					../../../addons/ofxOsc/libs,
 					../../../addons/ofxOsc/libs/oscpack,
@@ -998,6 +1071,7 @@
 					"$(OF_CORE_HEADERS)",
 					src,
 					../../../addons/ofxAssets/src,
+					../../../addons/ofxAssets/src/ofxAssets,
 					../../../addons/ofxHomography/src,
 					../../../addons/ofxKCTouchGui2/src,
 					../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui,
@@ -1009,6 +1083,7 @@
 					../../../addons/ofxMySQL/libs/libmysql/include/mysys,
 					../../../addons/ofxMySQL/libs/libmysql/lib,
 					../../../addons/ofxMySQL/libs/libmysql/lib/ios,
+					../../../addons/ofxMySQL/src,
 					../../../addons/ofxNetwork/src,
 					../../../addons/ofxOsc/libs,
 					../../../addons/ofxOsc/libs/oscpack,

@@ -1,2 +1,2 @@
-#define DB_USER "link"
-#define DB_PASSWORD "chipsandgravy"
+#define DB_USER "root"
+#define DB_PASSWORD "0jKkU3hm6MnE"

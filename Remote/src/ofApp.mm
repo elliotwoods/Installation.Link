@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+#define PROJECTOR_COUNT 8
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 	// Notes :
@@ -16,7 +18,7 @@ void ofApp::setup(){
 	if(ofGetWidth() < 1536) {
 		this->gui.setZoom(0.4f);
 	}
-	//this->gui.setBrokenRotation(true); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
+	this->gui.setBrokenRotation(true); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
 	
 	this->connection = shared_ptr<Connection>(new Connection());
 	this->connection->setBounds(ofRectangle(20, 40, 480, 100));
@@ -80,10 +82,9 @@ void ofApp::setup(){
 	
 	this->projectorSelection = shared_ptr<ProjectorSelection>(new ProjectorSelection());
 	this->projectorSelection->setBounds(ofRectangle(20, 140, 460, 100));
-	this->projectorSelection->addOption("0");
-	this->projectorSelection->addOption("1");
-	this->projectorSelection->addOption("2");
-	this->projectorSelection->addOption("3");
+    for(int i=0; i<PROJECTOR_COUNT; i++) {
+        this->projectorSelection->addOption(ofToString(i));
+    }
 	this->gui.add(this->projectorSelection);
 	this->canvas->setProjectorSelection(this->projectorSelection);
 	
