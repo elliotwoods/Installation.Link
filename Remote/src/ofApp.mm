@@ -16,13 +16,21 @@ void ofApp::setup(){
 	
 	this->gui.init();
     
+    auto portrait = ofGetWidth() < ofGetHeight();
+    auto width = ofGetWidth();
+    auto height = ofGetHeight();
+    
     //let's setup the zoom based on the device width
     {
-        auto width = ofGetWidth();
+        
         auto zoom = 1.0f;
         switch(width) {
             case 1536:
+                zoom = 0.75f;
+                break;
+            case 640:
                 zoom = 0.5f;
+                break;
             default:
                 break;
         }
@@ -31,6 +39,9 @@ void ofApp::setup(){
             this->gui.setZoom(zoom);
         }
     }
+    
+    width = this->gui.getWidth();
+    height = this->gui.getHeight();
 	
 	this->gui.setBrokenRotation(false); //set to true for iPad 2 and iPad Air 2 (iOS 8.2 issue?
 	
@@ -95,7 +106,7 @@ void ofApp::setup(){
 	
 	
 	this->projectorSelection = shared_ptr<ProjectorSelection>(new ProjectorSelection());
-	this->projectorSelection->setBounds(ofRectangle(20, 140, 460, 100));
+	this->projectorSelection->setBounds(ofRectangle(20, 140, width / 2, 100));
     for(int i=0; i<PROJECTOR_COUNT; i++) {
         this->projectorSelection->addOption(ofToString(i));
     }
@@ -103,16 +114,22 @@ void ofApp::setup(){
 	this->canvas->setProjectorSelection(this->projectorSelection);
 	
 	this->typeSelection = shared_ptr<TypeSelection>(new TypeSelection());
-	this->typeSelection->setBounds(ofRectangle(20 + 460 + 20, 140, this->gui.getWidth() - (20 + 460 + 20) - 20, 100));
+    if(portrait) {
+        this->typeSelection->setBounds(ofRectangle(20, 140 + 100 + 20, this->gui.getWidth() - (20 + 20), 100));
+    }
+    else {
+        this->typeSelection->setBounds(ofRectangle(20 + 460 + 20, 140, this->gui.getWidth() - (20 + 460 + 20) - 20, 100));
+    }
 	this->typeSelection->setConnection(this->connection);
 	this->gui.add(this->typeSelection);
 	this->canvas->setTypeSelection(this->typeSelection);
 	
 	this->viewModeSelection = shared_ptr<ViewModeSelection>(new ViewModeSelection());
+    this->viewModeSelection->addOption("");
 	this->viewModeSelection->addOption("Live");
 	this->viewModeSelection->addOption("Edit");
 	this->viewModeSelection->addOption("Grid");
-	this->viewModeSelection->setBounds(ofRectangle(this->typeSelection->getBounds().x, 20, 400, 100));
+	this->viewModeSelection->setBounds(ofRectangle(this->typeSelection->getBounds().x, 20, width / 2, 100));
 	this->gui.add(this->viewModeSelection);
 }
 
@@ -225,10 +242,14 @@ void ofApp::pushOsc() {
 			bundle.addMessage(msg);
 		}
 		{
-			ofxOscMessage msg;
-			msg.setAddress("/View/Mode");
-			msg.addIntArg(this->viewModeSelection->getSelectionIndex());
-			bundle.addMessage(msg);
+            auto selectedIndex = this->viewModeSelection->getSelectionIndex();
+            if(selectedIndex != 0) {
+                selectedIndex -= 1; // it was offset by 1
+                ofxOscMessage msg;
+                msg.setAddress("/View/Mode");
+                msg.addIntArg(selectedIndex);
+                bundle.addMessage(msg);
+            }
 		}
 		{
 			ofxOscMessage msg;

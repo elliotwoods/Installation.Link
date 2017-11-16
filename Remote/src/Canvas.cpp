@@ -262,21 +262,33 @@ int Canvas::getNewBottomIndex() const {
 
 //----------
 void Canvas::setQuadToScreen(shared_ptr<Quad> quad) {
-	float scaleOfNewInView = 0.5f;
-	const float left = this->getBounds().getWidth() / 2.0f - this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
-	const float right = this->getBounds().getWidth() / 2.0f + this->getBounds().getWidth() / 2.0f * scaleOfNewInView;
-	const float top = this->getBounds().getHeight() / 2.0f - this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
-	const float bottom = this->getBounds().getHeight() / 2.0f + this->getBounds().getHeight() / 2.0f * scaleOfNewInView;
-	quad->corners[0] = ofVec3f(left, top, 0) * this->transform.getInverse();
-	quad->corners[1] = ofVec3f(right, top, 0) * this->transform.getInverse();
-	quad->corners[2] = ofVec3f(right, bottom, 0) * this->transform.getInverse();
-	quad->corners[3] = ofVec3f(left, bottom, 0) * this->transform.getInverse();
+	float scaleOfNewInView = 0.3f;
+    
+    const auto center = this->getBounds().getCenter();
+    const auto width = this->getBounds().getWidth();
+    const auto height = this->getBounds().getHeight();
+    
+    const float left = center.x - width / 2 * scaleOfNewInView;
+    const float right = center.x + width / 2 * scaleOfNewInView;
+    const float top = center.y - height / 2 * scaleOfNewInView;
+    const float bottom = center.y + height / 2 * scaleOfNewInView;
+    
+    auto globalZoom = ofxKCTouchGui::Controller::X().getZoom();
+    //it's a hack that we have to multiply by global zoom here. it means something is wrong elsewhere
+    auto transform = ofMatrix4x4::newScaleMatrix(globalZoom, globalZoom, 1.0) * this->getCanvasToGui().getInverse();
+    
+	quad->corners[0] = ofVec3f(left, top, 0) * transform;
+	quad->corners[1] = ofVec3f(right, top, 0) * transform;
+	quad->corners[2] = ofVec3f(right, bottom, 0) * transform;
+	quad->corners[3] = ofVec3f(left, bottom, 0) * transform;
 	
 	quad->update();
 	this->updateSelectionOnServer();
 }
 //----------
 void Canvas::draw() {
+    ofDrawCircle(0, 0, 1.0f);
+    
 	if (this->selection) {
 		for (int i=0; i<4; i++) {
 			auto cornerPosition = (ofVec3f) this->selection->corners[i] * this->transform / ofxKCTouchGui::Controller::X().getZoom();
