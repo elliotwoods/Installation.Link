@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0 - Mapping iPad.v4p" scrollx="45" scrolly="0">
-   <BOUNDS height="14130" left="21660" top="11790" type="Window" width="21150">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0 - Mapping iPad.v4p" scrollx="2445" scrolly="0">
+   <BOUNDS height="14130" left="6615" top="12660" type="Window" width="21150">
    </BOUNDS>
    <NODE componentmode="Hidden" id="49" nodename="UDP (Network Server)" systemname="UDP (Network Server String)">
    <BOUNDS height="100" left="10590" top="540" type="Node" width="100">
@@ -14,6 +14,10 @@
    <PIN pinname="Queue Count" visible="1">
    </PIN>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Enable" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Status" visible="1">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="47" nodename="GT (Value)" systemname="GT (Value)">
@@ -432,10 +436,10 @@
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="|Layers mapping|">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="Net 0\N0.1 - Mapping view.v4p" id="67" nodename="Net 0\N0.1 - Mapping view.v4p" systemname="N0.1 - Mapping view">
+   <NODE componentmode="InAWindow" filename="Net 0\N0.1 - Mapping view.v4p" id="67" nodename="Net 0\N0.1 - Mapping view.v4p" systemname="N0.1 - Mapping view">
    <BOUNDS height="270" left="8460" top="8745" type="Node" width="1710">
    </BOUNDS>
-   <BOUNDS height="9135" left="13545" top="19935" type="Window" width="12495">
+   <BOUNDS height="9135" left="20325" top="12825" type="Window" width="12495">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -716,46 +720,8 @@
    </LINK>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE componentmode="Hidden" hiddenwhenlocked="1" id="79" nodename="Select (MySQL Network)" systemname="Select (MySQL Network)" filename="%VVVV%\addonpack\lib\nodes\plugins\MySQLNodes.dll">
-   <BOUNDS height="100" left="8415" top="6280" type="Node" width="100">
-   </BOUNDS>
-   <BOUNDS height="0" left="8415" top="6280" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="13260" top="10290" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="SendQuery" visible="1">
-   </PIN>
-   <PIN pinname="MySQLDataBase" visible="1">
-   </PIN>
-   <PIN encoded="0" pinname="Fields" slicecount="1" values="NameShort">
-   </PIN>
-   <PIN encoded="0" pinname="Tables" slicecount="1" values="facetypes">
-   </PIN>
-   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="||">
-   </PIN>
-   <PIN encoded="0" pinname="SetOutputPins (FieldName0, Fieldname1)">
-   </PIN>
-   <PIN pinname="Name" visible="1">
-   </PIN>
-   <PIN pinname="NameShort" visible="1">
-   </PIN>
-   <PIN pinname="Connection" visible="1">
-   </PIN>
-   <PIN pinname="Field Names" slicecount="1" values="NameShort">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="79" dstpinname="SendQuery" hiddenwhenlocked="1" srcnodeid="46" srcpinname="Output">
-   </LINK>
-   <LINK srcnodeid="93" srcpinname="Output Node" dstnodeid="79" dstpinname="Connection" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="5865" y="4213">
-   </LINKPOINT>
-   <LINKPOINT x="8380" y="4242">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="79" srcpinname="NameShort" dstnodeid="67" dstpinname="Type names" hiddenwhenlocked="1">
-   </LINK>
    <NODE id="43" componentmode="Hidden" nodename="Zip (String)" systemname="Zip (String)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll">
    <PIN pinname="Input 8" visible="1">
    </PIN>
@@ -1125,7 +1091,7 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="Select (MySQL Network)" filename="%VVVV%\addonpack\lib\nodes\plugins\MySQLNodes.dll" nodename="Select (MySQL Network)" componentmode="Hidden" id="123">
-   <BOUNDS type="Node" left="16430" top="9310" width="100" height="100">
+   <BOUNDS type="Node" left="16340" top="7480" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Fields" slicecount="1" values="|Aspect, NameShort|">
    </PIN>
@@ -1133,7 +1099,7 @@
    </PIN>
    <PIN pinname="Tables" slicecount="1" values="facetypes">
    </PIN>
-   <PIN pinname="Order By" slicecount="1" values="||">
+   <PIN pinname="Order By" slicecount="1" values="id">
    </PIN>
    <PIN pinname="SendQuery" slicecount="1" visible="1" values="0">
    </PIN>
@@ -1141,17 +1107,19 @@
    </PIN>
    <PIN pinname="Aspect" visible="1">
    </PIN>
+   <PIN pinname="NameShort" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="93" srcpinname="Output Node" dstnodeid="123" dstpinname="Connection" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="6688" y="5740">
+   <LINKPOINT x="6658" y="5130">
    </LINKPOINT>
-   <LINKPOINT x="15572" y="5740">
+   <LINKPOINT x="15512" y="4520">
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="125" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="17570" top="9780" width="750" height="3530">
+   <BOUNDS type="Box" left="17480" top="7950" width="750" height="3530">
    </BOUNDS>
-   <BOUNDS type="Node" left="17570" top="9780" width="0" height="0">
+   <BOUNDS type="Node" left="17480" top="7950" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -1167,7 +1135,7 @@
    <LINK srcnodeid="123" srcpinname="NameShort" dstnodeid="125" dstpinname="Input String">
    </LINK>
    <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="126">
-   <BOUNDS type="Node" left="16090" top="10170" width="100" height="100">
+   <BOUNDS type="Node" left="16000" top="8340" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Send String" slicecount="1" values="AspectRatios">
    </PIN>
@@ -1175,7 +1143,7 @@
    </PIN>
    </NODE>
    <NODE systemname="AsValue (String)" nodename="AsValue (String)" componentmode="Hidden" id="127">
-   <BOUNDS type="Node" left="16090" top="9780" width="100" height="100">
+   <BOUNDS type="Node" left="16000" top="7950" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -1185,15 +1153,15 @@
    <LINK srcnodeid="127" srcpinname="Output" dstnodeid="126" dstpinname="Input Value">
    </LINK>
    <LINK srcnodeid="123" srcpinname="Aspect" dstnodeid="127" dstpinname="Input" linkstyle="VHV">
-   <LINKPOINT x="17340" y="9675">
+   <LINKPOINT x="17250" y="7845">
    </LINKPOINT>
-   <LINKPOINT x="16150" y="9675">
+   <LINKPOINT x="16060" y="7845">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="46" srcpinname="Output" dstnodeid="123" dstpinname="SendQuery" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="9068" y="5865">
+   <LINKPOINT x="9038" y="5255">
    </LINKPOINT>
-   <LINKPOINT x="16702" y="5865">
+   <LINKPOINT x="16642" y="4645">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="81" srcpinname="Output" dstnodeid="83" dstpinname="Y Input Value">
@@ -1469,5 +1437,31 @@
    <LINK srcnodeid="135" srcpinname="Output" dstnodeid="138" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="138" srcpinname="Output" dstnodeid="134" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="123" srcpinname="NameShort" dstnodeid="67" dstpinname="Type names" linkstyle="VHV">
+   <LINKPOINT x="17475" y="8235">
+   </LINKPOINT>
+   <LINKPOINT x="9615" y="8235">
+   </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="139">
+   <BOUNDS type="Box" left="13290" top="1050" width="3660" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13290" top="1050" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Multiline">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="49" srcpinname="Status" dstnodeid="139" dstpinname="Input String" linkstyle="VHV">
+   <LINKPOINT x="11340" y="915">
+   </LINKPOINT>
+   <LINKPOINT x="13290" y="915">
+   </LINKPOINT>
    </LINK>
    </PATCH>

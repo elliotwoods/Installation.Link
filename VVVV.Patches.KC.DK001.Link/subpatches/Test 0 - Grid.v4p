@@ -1,11 +1,11 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Test 0 - Grid.v4p" scrollx="0" scrolly="0">
-   <BOUNDS height="6000" left="3045" top="5220" type="Window" width="9000">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Test 0 - Grid.v4p" scrollx="15" scrolly="0">
+   <BOUNDS height="8475" left="1155" top="18375" type="Window" width="10125">
    </BOUNDS>
    <NODE componentmode="InABox" id="3" nodename="IOBox (Node)" systemname="IOBox (Node)">
-   <BOUNDS height="100" left="1485" top="4845" type="Node" width="100">
+   <BOUNDS height="100" left="2640" top="6735" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="1485" top="4845" type="Box" width="795">
+   <BOUNDS height="240" left="2640" top="6735" type="Box" width="795">
    </BOUNDS>
    <BOUNDS height="160" left="9330" top="11610" type="Window" width="215">
    </BOUNDS>
@@ -14,42 +14,58 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layer">
    </PIN>
    </NODE>
-   <NODE systemname="Grid (DX11.Geometry)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Grid (DX11.Geometry)" componentmode="Hidden" id="23">
-   <BOUNDS type="Node" left="1785" top="3375" width="100" height="100">
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   <NODE systemname="Projector Index number" filename="Test 0 - Grid\Projector Index number.v4p" componentmode="Hidden" id="49" nodename="Test 0 - Grid\Projector Index number.v4p">
+   <BOUNDS type="Node" left="5865" top="4080" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="SizeXY" slicecount="2" values="2,2">
-   </PIN>
-   <PIN pinname="Resolution X" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Resolution Y" slicecount="1" values="3">
+   <BOUNDS type="Box" left="5865" top="4080" width="4800" height="3600">
+   </BOUNDS>
+   <BOUNDS type="Window" left="5550" top="18510" width="10185" height="9510">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Constant (DX11.Effect)" filename="%VVVV%\packs\dx11\nodes\dx11\Constant.fx" nodename="Constant (DX11.Effect)" componentmode="Hidden" id="24">
-   <BOUNDS type="Node" left="1470" top="4005" width="100" height="100">
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="50">
+   <BOUNDS type="Node" left="2685" top="5730" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2685" top="5730" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="50" srcpinname="Layer Out" dstnodeid="3" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Grid" filename="Test 0 - Grid\Grid.v4p" nodename="Test 0 - Grid\Grid.v4p" componentmode="InAWindow" id="52">
+   <BOUNDS type="Node" left="2718" top="3708" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1830" top="336" width="7905" height="6745">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="7905" height="6745">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
-   </PIN>
-   <PIN pinname="Render State" visible="1">
-   </PIN>
    </NODE>
-   <LINK srcnodeid="24" srcpinname="Layer" dstnodeid="3" dstpinname="Input Node">
+   <LINK srcnodeid="49" srcpinname="Layer Out" dstnodeid="50" dstpinname="Layer 3">
    </LINK>
-   <LINK srcnodeid="23" srcpinname="Geometry Out" dstnodeid="24" dstpinname="Geometry">
+   <LINK srcnodeid="52" srcpinname="Layer" dstnodeid="50" dstpinname="Layer 2">
    </LINK>
-   <NODE systemname="Rasterizer (DX11.RenderState)" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="25" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="1620" top="2955" width="100" height="100">
+   <NODE systemname="background" filename="Test 0 - Grid\background.v4p" nodename="Test 0 - Grid\background.v4p" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="620" top="4375" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Mode" slicecount="1" values="NoCullWireframe">
-   </PIN>
+   <BOUNDS type="Box" left="-997" top="2338" width="3235" height="4075">
+   </BOUNDS>
+   <BOUNDS type="Window" left="-1" top="-1" width="3235" height="4075">
+   </BOUNDS>
    </NODE>
-   <LINK srcnodeid="25" srcpinname="Render State" dstnodeid="24" dstpinname="Render State">
+   <LINK srcnodeid="56" srcpinname="Layer" dstnodeid="50" dstpinname="Layer 1">
    </LINK>
-   <PACK Name="addonpack" Version="33.7.0">
-   </PACK>
    </PATCH>

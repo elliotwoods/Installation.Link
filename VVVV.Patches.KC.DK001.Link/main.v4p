@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="0" scrolly="810">
-   <BOUNDS height="16740" left="13245" top="4875" type="Window" width="22485">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\main.v4p" bgcolor="1867982" scrollx="330" scrolly="1305">
+   <BOUNDS height="16740" left="4710" top="9210" type="Window" width="22485">
    </BOUNDS>
    <NODE componentmode="Hidden" id="21" nodename="Switch (Node Input)" systemname="Switch (Node Input)">
    <BOUNDS height="270" left="1980" top="15375" type="Node" width="3885">
@@ -22,10 +22,10 @@
    <PIN pinname="Input 3" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Layer 1 - Video Faces.v4p" id="27" nodename="subpatches\Layer 1 - Video Faces.v4p" systemname="Layer 1 - Video Faces">
+   <NODE componentmode="InAWindow" filename="subpatches\Layer 1 - Video Faces.v4p" id="27" nodename="subpatches\Layer 1 - Video Faces.v4p" systemname="Layer 1 - Video Faces">
    <BOUNDS height="270" left="3240" top="7575" type="Node" width="3450">
    </BOUNDS>
-   <BOUNDS height="11985" left="31305" top="16545" type="Window" width="13080">
+   <BOUNDS height="11985" left="19245" top="14835" type="Window" width="13080">
    </BOUNDS>
    <PIN pinname="iProjector" visible="1" slicecount="17" values="1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
    </PIN>
@@ -35,7 +35,7 @@
    </PIN>
    <PIN pinname="Layers out" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Texture" visible="1" slicecount="191" values=",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,">
+   <PIN pinname="Texture" visible="1" slicecount="476" values=",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,">
    </PIN>
    <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
@@ -53,9 +53,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="58" nodename="Kalle (VVVV)" systemname="Kalle (VVVV)">
-   <BOUNDS height="100" left="9765" top="1230" type="Node" width="100">
+   <BOUNDS height="100" left="10065" top="1275" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="9765" top="1230" type="Box" width="0">
+   <BOUNDS height="0" left="10065" top="1275" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="5250" top="1920" type="Window" width="0">
    </BOUNDS>
@@ -65,9 +65,9 @@
    <NODE componentmode="InABox" id="59" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="270" left="210" top="720" type="Node" width="1485">
    </BOUNDS>
-   <BOUNDS height="1320" left="210" top="720" type="Box" width="9465">
+   <BOUNDS height="1335" left="210" top="720" type="Box" width="9675">
    </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|PULMUONE 2015|">
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|CULTURETANK 2017|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -77,9 +77,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="60" nodename="HSL (Color Join)" systemname="HSL (Color Join)">
-   <BOUNDS height="100" left="9765" top="795" type="Node" width="100">
+   <BOUNDS height="100" left="10065" top="840" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="0" left="9765" top="795" type="Box" width="0">
+   <BOUNDS height="0" left="10065" top="840" type="Box" width="0">
    </BOUNDS>
    <BOUNDS height="0" left="12165" top="2265" type="Window" width="0">
    </BOUNDS>
@@ -109,9 +109,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="62" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="480" left="6825" top="1965" type="Node" width="1770">
+   <BOUNDS height="480" left="7035" top="1935" type="Node" width="1770">
    </BOUNDS>
-   <BOUNDS height="780" left="6825" top="1965" type="Box" width="2850">
+   <BOUNDS height="780" left="7035" top="1935" type="Box" width="2850">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|Copyright Kimchi and Chips 2015&cr;&lf;Elliot Woods, Mimi Son&cr;&lf;http://www.kimchiandchips.com|">
    </PIN>
@@ -125,10 +125,12 @@
    </BOUNDS>
    <PIN pinname="Layers in" visible="1" slicecount="1" values="||">
    </PIN>
-   <BOUNDS height="12560" left="13980" top="6480" type="Window" width="15660">
+   <BOUNDS height="12555" left="5040" top="13935" type="Window" width="15660">
    </BOUNDS>
    <BOUNDS type="Box" left="1980" top="16065">
    </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="66" nodename="Memory (Debug ex9)" systemname="Memory (Debug ex9)">
    <BOUNDS height="100" left="11205" top="855" type="Node" width="100">
@@ -177,7 +179,7 @@
    </BOUNDS>
    <PIN pinname="Time Mode" slicecount="1" values="Raw">
    </PIN>
-   <PIN pinname="Maximum forground fps" slicecount="1" values="60">
+   <PIN pinname="Maximum Foreground FPS" slicecount="1" values="60">
    </PIN>
    <PIN pinname="Increase Timing Precision" slicecount="1" values="0">
    </PIN>
@@ -238,12 +240,14 @@
    <PIN pinname="Quad" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="subpatches\Test 0 - Grid.v4p" id="86" nodename="subpatches\Test 0 - Grid.v4p" systemname="Test 0 - Grid">
+   <NODE componentmode="InAWindow" filename="subpatches\Test 0 - Grid.v4p" id="86" nodename="subpatches\Test 0 - Grid.v4p" systemname="Test 0 - Grid">
    <BOUNDS height="100" left="5805" top="14700" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
    <BOUNDS type="Box" left="5805" top="14700">
+   </BOUNDS>
+   <BOUNDS type="Window" left="1155" top="18375" width="10125" height="8475">
    </BOUNDS>
    </NODE>
    <NODE componentmode="Hidden" id="101" nodename="Damper (Animation)" systemname="Damper (Animation)">
@@ -260,7 +264,7 @@
    </LINK>
    <LINK dstnodeid="72" dstpinname="Y Input Value" srcnodeid="101" srcpinname="Position Out">
    </LINK>
-   <NODE componentmode="Hidden" filename="subpatches\Keys 0 - Switch mode.v4p" id="104" nodename="subpatches\Keys 0 - Switch mode.v4p" systemname="Keys 0 - Switch mode">
+   <NODE componentmode="InAWindow" filename="subpatches\Keys 0 - Switch mode.v4p" id="104" nodename="subpatches\Keys 0 - Switch mode.v4p" systemname="Keys 0 - Switch mode">
    <BOUNDS height="100" left="1980" top="14700" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="View Mode" visible="1">
@@ -284,7 +288,7 @@
    </NODE>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="IP (Network)" nodename="IP (Network)" componentmode="Hidden" id="114">
    <BOUNDS type="Node" left="13100" top="1410" width="100" height="100">
@@ -772,14 +776,12 @@
    </LINK>
    <LINK srcnodeid="28" srcpinname="Layer Out" dstnodeid="21" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers in">
-   </LINK>
    <LINK srcnodeid="86" srcpinname="Layer" dstnodeid="21" dstpinname="Input 3">
    </LINK>
-   <NODE componentmode="Hidden" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
+   <NODE componentmode="InAWindow" debug="0" filename="subpatches\Net 0 - Mapping iPad.v4p" id="18" nodename="subpatches\Net 0 - Mapping iPad.v4p" systemname="Net 0 - Mapping iPad" stayontop="0">
    <BOUNDS height="270" left="3240" top="4785" type="Node" width="2610">
    </BOUNDS>
-   <BOUNDS height="14130" left="21660" top="11790" type="Window" width="21150">
+   <BOUNDS height="14130" left="6615" top="12660" type="Window" width="21150">
    </BOUNDS>
    <PIN pinname="Layers mapping" visible="1">
    </PIN>
@@ -1269,5 +1271,7 @@
    </LINKPOINT>
    <LINKPOINT x="13770" y="7568">
    </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output" dstnodeid="64" dstpinname="Layers">
    </LINK>
    </PATCH>

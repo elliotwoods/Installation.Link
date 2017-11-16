@@ -1,0 +1,153 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\N0.1 - Mapping view - Outlines.v4p" systemname="N0.1 - Mapping view - Outlines" filename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Net 0\N0.1 - Mapping view - Outlines.v4p">
+   <NODE systemname="SelectViewport (DX11.Effect)" filename="%VVVV%\packs\VVVV.Packs.ProjectorControl\nodes\dx11\SelectViewport.fx" nodename="SelectViewport (DX11.Effect)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1935" top="4620" width="1965" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="ViewportSelection" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Color" visible="1" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="Constant">
+   </PIN>
+   <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="ViewPortSelect" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="1" componentmode="Hidden" nodename="Rasterizer (DX11.RenderState Advanced)" systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" hiddenwhenlocked="0" managers="">
+   <PIN pinname="Depth Bias Clamp" slicecount="1" pintype="Input" visible="1" values="-1.25">
+   </PIN>
+   <PIN pinname="Enable Depth Clip" slicecount="1" pintype="Input" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Slope Scaled Depth Bias" slicecount="1" pintype="Input" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Enable MultiSampling" slicecount="1" pintype="Input" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Enable Line AntiAlias" slicecount="1" pintype="Input" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Depth Bias" slicecount="1" pintype="Input" visible="1" values="1">
+   </PIN>
+   <BOUNDS type="Node" height="100" left="1500" top="3915" width="100">
+   </BOUNDS>
+   <BOUNDS type="Box" height="0" left="1500" top="3915" width="0">
+   </BOUNDS>
+   <BOUNDS type="Window" height="0" left="4305" top="8280" width="0">
+   </BOUNDS>
+   <PIN pinname="Render State Out" visible="1">
+   </PIN>
+   <PIN pinname="Fill Mode" slicecount="1" pintype="Input" visible="1" values="Wireframe">
+   </PIN>
+   <PIN pinname="Render State" visible="1" slicecount="1" pintype="Output" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="NoCullWireframe">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Cull Mode" pintype="Input" visible="1" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="Enable Scissor" pintype="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Is Front Cull CCW" pintype="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE systemname="LineStrip (DX11.Geometry 3d)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="LineStrip (DX11.Geometry 3d)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="1740" top="3015" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1740" top="3015" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Geometry Out" visible="1">
+   </PIN>
+   <PIN pinname="Loop" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="VerticesXYZ" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="1755" top="1500" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1755" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="12" visible="1" values="1,-1,0,1,1,0,-1,1,0,-1,-1,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="1740" top="2580" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="2" dstpinname="VerticesXYZ">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="4" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Render State" dstnodeid="0" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Geometry Out" dstnodeid="0" dstpinname="Geometry">
+   </LINK>
+   <NODE id="5" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Transform In|">
+   </PIN>
+   <BOUNDS type="Box" left="1935" top="500" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1935" top="500" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Output Node" dstnodeid="0" dstpinname="Transform In">
+   </LINK>
+   <NODE id="6" systemname="IOBox (Value Advanced)" componentmode="InABox" nodename="IOBox (Value Advanced)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="ViewPortSelect">
+   </PIN>
+   <BOUNDS type="Box" left="2835" top="500" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2835" top="500" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="0" dstpinname="ViewPortSelect">
+   </LINK>
+   <NODE id="7" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
+   </PIN>
+   <BOUNDS type="Box" left="1935" top="5390" width="750" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1935" top="5390" width="750" height="240">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="7" dstpinname="Input Node">
+   </LINK>
+   <BOUNDS type="Window" left="-1" top="-1" width="5400" height="6390">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   </PATCH>

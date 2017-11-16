@@ -1,0 +1,7 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.Tests\HashShader.v4p" systemname="HashShader" filename="C:\vvvv\Installation.Link\VVVV.Patches.Tests\HashShader.v4p">
+   <BOUNDS type="Window" left="7155" top="7020" width="9000" height="6000">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   </PATCH>
