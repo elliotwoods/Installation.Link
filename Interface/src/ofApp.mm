@@ -35,13 +35,20 @@ void ofApp::setup(){
 	
 	this->state = State_Waiting;
 	
-	this->oscSender.setup("192.168.1.3", 3456);
+	this->oscSender.setup("192.168.0.2", 3456);
 	this->oscReceiver.setup(4444);
 }
 
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    auto loadingEnabled = (ofGetElapsedTimef() - this->lastLoadingProgressMessage) < 5.0f;
+    this->loadingProgress->setEnabled(loadingEnabled);
+    
+    this->startButton->setEnabled(this->state == State_Waiting && !loadingEnabled);
+    this->countdown->setEnabled(this->state == State_CountingDown && !loadingEnabled);
+    this->recording->setEnabled(this->state == State_Recording && !loadingEnabled);
+    
 	this->gui.update();
 	
 	while(this->oscReceiver.hasWaitingMessages()) {
@@ -53,12 +60,7 @@ void ofApp::update(){
 		}
 	}
 
-	auto loadingEnabled = (ofGetElapsedTimef() - this->lastLoadingProgressMessage) < 5.0f;
-	this->loadingProgress->setEnabled(loadingEnabled);
 	
-	this->startButton->setEnabled(this->state == State_Waiting && !loadingEnabled);
-	this->countdown->setEnabled(this->state == State_CountingDown && !loadingEnabled);
-	this->recording->setEnabled(this->state == State_Recording && !loadingEnabled);
 }
 
 //--------------------------------------------------------------
