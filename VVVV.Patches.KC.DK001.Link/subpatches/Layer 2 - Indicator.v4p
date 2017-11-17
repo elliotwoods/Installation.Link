@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 2 - Indicator.v4p" systemname="Layer 2 - Indicator" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 2 - Indicator.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 2 - Indicator.v4p" systemname="Layer 2 - Indicator" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 2 - Indicator.v4p" scrollx="3300" scrolly="0">
    <BOUNDS type="Window" left="19995" top="14010" width="18825" height="14715">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="Random (Value)" nodename="Random (Value)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1000" top="6150" width="100" height="100">
@@ -103,7 +103,7 @@
    </PIN>
    <PIN pinname="Quad" visible="1">
    </PIN>
-   <PIN pinname="Select Type" visible="1">
+   <PIN pinname="Select Type" visible="1" slicecount="5" values="1,2,3,4,5">
    </PIN>
    <PIN pinname="Index" visible="1">
    </PIN>
@@ -356,26 +356,6 @@
    </NODE>
    <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Quad">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="40" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="13860" top="2190" width="570" height="1515">
-   </BOUNDS>
-   <BOUNDS type="Node" left="13860" top="2190" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="5" visible="1" values="1,2,3,4,5">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="5">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="40" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Select Type">
-   </LINK>
    <LINK srcnodeid="16" srcpinname="Output Node" dstnodeid="27" dstpinname="Transform In 2">
    </LINK>
    <LINK srcnodeid="6" srcpinname="Index" dstnodeid="1" dstpinname="Input" linkstyle="Bezier">
@@ -473,5 +453,29 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="45" srcpinname="Render State" dstnodeid="4" dstpinname="Render State">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="13845" top="1770" width="600" height="1500">
+   </BOUNDS>
+   <BOUNDS type="Node" left="13845" top="1770" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="8" visible="1" values="4,5,6,7,8,9,10,11">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Recorders">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="46" srcpinname="Y Output Value" dstnodeid="6" dstpinname="Select Type">
    </LINK>
    </PATCH>

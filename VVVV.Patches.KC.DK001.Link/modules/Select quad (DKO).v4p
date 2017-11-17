@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\modules\Select quad (DKO).v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\modules\Select quad (DKO).v4p" scrollx="0" scrolly="0">
    <BOUNDS height="12090" left="6420" top="5220" type="Window" width="17610">
    </BOUNDS>
    <NODE componentmode="Hidden" id="9" nodename="Quad in projector (Transform).v4p" systemname="projector (Transform)" filename="Quad in projector (Transform).v4p">
@@ -66,7 +66,7 @@
    </NODE>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="22">
    <BOUNDS type="Node" left="11355" top="8820" width="100" height="100">
@@ -139,11 +139,11 @@
    <LINK srcnodeid="30" srcpinname="Output" dstnodeid="29" dstpinname="Y">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="12840" top="5235" width="800" height="240">
+   <BOUNDS type="Box" left="12810" top="5250" width="800" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="12840" top="5235" width="0" height="0">
+   <BOUNDS type="Node" left="12810" top="5250" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="1.333333333333">
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>

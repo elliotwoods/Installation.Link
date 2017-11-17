@@ -1,49 +1,15 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0 - Recorders.v4p" systemname="Layer 0 - Recorders" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0 - Recorders.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="16995" top="10995" width="24525" height="19725">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0 - Recorders.v4p" systemname="Layer 0 - Recorders" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 0 - Recorders.v4p" scrollx="15" scrolly="1395">
+   <BOUNDS type="Window" left="3495" top="5265" width="24525" height="19725">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
-   <NODE systemname="ReceiveTexture (EX9.SharedTexture Network)" filename="..\..\..\..\..\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\ReceiveTexture (EX9.SharedTexture Network).v4p" nodename="ReceiveTexture (EX9.SharedTexture Network)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="2290" top="6200" width="1450" height="270">
-   </BOUNDS>
-   <BOUNDS type="Window" left="21510" top="9410" width="9000" height="9050">
-   </BOUNDS>
-   <PIN pinname="Channel" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN pinname="Handle" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="0" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="2290" top="4620" width="800" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2290" top="4620" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="2" values="/camera1,/camera2">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Show Grid" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="L0.1 - Record files" filename="Layer 0\L0.1 - Record files.v4p" nodename="Layer 0\L0.1 - Record files.v4p" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="3640" top="12050" width="5060" height="270">
    </BOUNDS>
    <PIN pinname="Handle" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="13515" top="8610" width="16680" height="12780">
+   <BOUNDS type="Window" left="2895" top="10155" width="24600" height="12780">
    </BOUNDS>
    <PIN pinname="Folder" visible="1">
    </PIN>
@@ -102,18 +68,6 @@
    <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="15" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="8650" top="1340" width="800" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="8650" top="1340" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Database">
-   </PIN>
-   <PIN pinname="Output Node" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="17" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7470" top="9470" width="800" height="240">
    </BOUNDS>
@@ -153,48 +107,12 @@
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Input 2" visible="1" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="20" srcpinname="Output" dstnodeid="9" dstpinname="Record">
-   </LINK>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Input 1">
-   </LINK>
-   <NODE systemname="Clean Orphans" filename="Layer 0\Clean Orphans.v4p" nodename="Layer 0\Clean Orphans.v4p" componentmode="Hidden" id="29">
-   <BOUNDS type="Node" left="10960" top="5730" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Recordings repo" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="19330" top="6670" width="13360" height="8660">
-   </BOUNDS>
-   <PIN pinname="Database" visible="1">
-   </PIN>
-   <PIN pinname="Status" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="12270" top="1520" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="12270" top="1520" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="29" dstpinname="Do">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="31" systemname="IOBox (String)">
    <BOUNDS type="Box" left="7300" top="1340" width="800" height="240">
@@ -217,34 +135,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="31" srcpinname="Output String" dstnodeid="18" dstpinname="Input 1">
-   </LINK>
-   <LINK srcnodeid="31" srcpinname="Output String" dstnodeid="29" dstpinname="Recordings repo">
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="Output Node" dstnodeid="29" dstpinname="Database">
-   </LINK>
-   <NODE systemname="Add (String Spectral)" nodename="Add (String Spectral)" componentmode="Hidden" id="33">
-   <BOUNDS type="Node" left="10950" top="6210" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Intersperse" slicecount="1" values="CommaPlusSpace">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="29" srcpinname="Status" dstnodeid="33" dstpinname="Input">
-   </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="34" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="10940" top="6580" width="3060" height="550">
-   </BOUNDS>
-   <BOUNDS type="Node" left="10940" top="6580" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="33" srcpinname="Output" dstnodeid="34" dstpinname="Input String">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="36" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8630" top="12520" width="800" height="240">
@@ -284,130 +174,6 @@
    </NODE>
    <LINK srcnodeid="9" srcpinname="Recording" dstnodeid="12" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="FullscreenQuad (DX9)" nodename="FullscreenQuad (DX9)" componentmode="Hidden" id="52" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\FullscreenQuad (DX9).v4p">
-   <BOUNDS type="Node" left="4120" top="7640" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="Hidden" id="53">
-   <BOUNDS type="Node" left="4120" top="8160" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="4120" top="8160" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="23170" top="10840" width="6220" height="5060">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1">
-   </PIN>
-   <PIN pinname="Presentation Interval" slicecount="1" values="immediately">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="52" srcpinname="Layer" dstnodeid="53" dstpinname="Layers">
-   </LINK>
-   <NODE systemname="Make empty folders" filename="Layer 0\Make empty folders.v4p" componentmode="Hidden" id="54" nodename="Layer 0\Make empty folders.v4p">
-   <BOUNDS type="Node" left="14350" top="8330" width="1700" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="14350" top="8330" width="4800" height="3600">
-   </BOUNDS>
-   <BOUNDS type="Window" left="9600" top="1875" width="18930" height="18555">
-   </BOUNDS>
-   <PIN pinname="Quad Index" visible="1" slicecount="365" values="-68,-67,-66,-65,-64,-63,-62,-61,-60,-59,-58,-57,-56,-55,-54,-53,-52,-51,-50,-49,-48,-47,-46,-43,-42,-41,-40,-39,-37,-36,-34,-33,-31,-30,-27,-26,-25,-24,-17,-16,-14,-12,-11,-10,408,409,410,411,412,413,414,415,418,419,420,421,422,423,425,426,427,428,429,430,434,435,437,439,440,441,442,443,444,447,448,449,450,451,452,453,454,455,456,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,477,478,479,480,482,483,484,485,486,487,488,489,490,491,492,494,495,496,497,498,499,500,502,503,505,506,507,508,509,510,511,513,515,516,517,518,519,520,521,522,524,525,526,527,529,530,531,533,535,536,537,539,541,542,543,544,545,546,547,548,550,551,552,553,554,555,556,558,559,560,561,562,564,565,567,568,569,570,571,572,573,574,576,578,579,580,581,582,583,584,585,587,588,589,591,592,593,594,595,596,597,598,599,600,601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,619,620,621,622,623,624,625,626,627,628,630,631,632,633,634,635,636,637,638,639,640,641,642,643,644,645,646,647,649,650,652,653,654,656,658,659,660,661,662,663,664,665,666,668,669,670,671,672,673,674,675,676,677,678,679,681,682,683,684,685,686,687,688,692,693,694,695,696,697,698,700,701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720,721,722,723,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,740,741,742,743,744,746,747,748,749,751,753,754,755,756,757,758,761,762,764,766,767,768,769,771,773,774,775,777,778,779,781,782,783,784">
-   </PIN>
-   <PIN pinname="Status" visible="1">
-   </PIN>
-   <PIN pinname="Recordings Repo" visible="1">
-   </PIN>
-   <PIN pinname="Do" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Evaluate" visible="1" pintype="Input" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Existing recordings folder" visible="1" slicecount="1" values="|..\..\Recording Repos\Backup|">
-   </PIN>
-   <PIN pinname="Use existing recordings" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="56" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="15485" top="2045" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="15485" top="2045" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|REALLOCATE VIDEOS|">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Add (String Spectral)" nodename="Add (String Spectral)" componentmode="Hidden" id="58">
-   <BOUNDS type="Node" left="14350" top="8760" width="610" height="270">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="Intersperse" slicecount="1" values="CommaPlusSpace">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="57" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="14340" top="9130" width="2540" height="3390">
-   </BOUNDS>
-   <BOUNDS type="Node" left="14340" top="9130" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="58" srcpinname="Output" dstnodeid="57" dstpinname="Input String">
-   </LINK>
-   <LINK srcnodeid="54" srcpinname="Status" dstnodeid="58" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="31" srcpinname="Output String" dstnodeid="54" dstpinname="Recordings Repo">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="64" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="16960" top="7115" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="16960" top="7115" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="54" dstpinname="Evaluate">
-   </LINK>
-   <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InABox" id="65">
-   <BOUNDS type="Node" left="2000" top="13635" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2000" top="13635" width="2250" height="1550">
-   </BOUNDS>
-   <BOUNDS type="Window" left="21510" top="11220" width="10305" height="7635">
-   </BOUNDS>
-   <PIN pinname="Texture In" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
    <NODE systemname="FormatValue (String)" nodename="FormatValue (String)" componentmode="Hidden" id="67">
    <BOUNDS type="Node" left="7460" top="10230" width="100" height="100">
    </BOUNDS>
@@ -444,38 +210,6 @@
    </LINK>
    <LINK srcnodeid="68" srcpinname="Buffers" dstnodeid="9" dstpinname="Input">
    </LINK>
-   <NODE systemname="FromSharedTexture (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FromSharedTexture (DX11.Texture 2d)" componentmode="Hidden" id="46">
-   <BOUNDS type="Node" left="1650" top="8410" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Texture In" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN pinname="Pointer" visible="1">
-   </PIN>
-   <PIN pinname="Texture" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="1" srcpinname="Handle" dstnodeid="46" dstpinname="Pointer">
-   </LINK>
-   <LINK srcnodeid="46" srcpinname="Texture" dstnodeid="69" dstpinname="Texture">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="52" dstpinname="Texture">
-   </LINK>
-   <NODE systemname="GetSlice (String)" nodename="GetSlice (String)" componentmode="Hidden" id="70">
-   <BOUNDS type="Node" left="2280" top="5650" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Index" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="0" srcpinname="Output String" dstnodeid="70" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="70" srcpinname="Output" dstnodeid="1" dstpinname="Channel">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="71" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="1490" top="10490" width="1590" height="270">
    </BOUNDS>
@@ -503,11 +237,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="81" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4900" top="10200" width="800" height="480">
+   <BOUNDS type="Box" left="4750" top="10290" width="800" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="4900" top="10200" width="0" height="0">
+   <BOUNDS type="Node" left="4750" top="10290" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" values="256,128">
+   <PIN pinname="Y Input Value" slicecount="2" values="256,256">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -547,9 +281,9 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="68" srcpinname="Buffers" dstnodeid="83" dstpinname="Input Node">
-   </LINK>
    <NODE systemname="RToRGB (DX11.TextureFX)" filename="texture11\RToRGB.tfx" nodename="RToRGB (DX11.TextureFX)" componentmode="Hidden" id="84">
    <BOUNDS type="Node" left="1995" top="13140" width="100" height="100">
    </BOUNDS>
@@ -558,36 +292,12 @@
    <PIN pinname="Texture In" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="84" srcpinname="Texture Out" dstnodeid="65" dstpinname="Texture In">
-   </LINK>
    <LINK srcnodeid="68" srcpinname="Buffers" dstnodeid="84" dstpinname="Texture In">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="86" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="14745" top="7350" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="14745" top="7350" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Use existing recordings|">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="86" srcpinname="Y Output Value" dstnodeid="54" dstpinname="Use existing recordings">
-   </LINK>
    <NODE systemname="Unpack (Quad)" filename="..\modules\Unpack (Quad).v4p" nodename="..\modules\Unpack (Quad).v4p" componentmode="Hidden" id="89">
-   <BOUNDS type="Node" left="705" top="3810" width="2625" height="270">
+   <BOUNDS type="Node" left="705" top="4260" width="2625" height="270">
    </BOUNDS>
-   <BOUNDS type="Box" left="540" top="1590" width="4470" height="7530">
+   <BOUNDS type="Box" left="540" top="2040" width="4470" height="7530">
    </BOUNDS>
    <BOUNDS type="Window" left="10710" top="18480" width="11550" height="10755">
    </BOUNDS>
@@ -630,30 +340,6 @@
    </NODE>
    <LINK srcnodeid="88" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Quad">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="87" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1995" top="2355" width="555" height="1185">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1995" top="2355" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="6" visible="1" values="1,2,3,4,5,6">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="6">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="87" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Select Type">
-   </LINK>
-   <LINK srcnodeid="89" srcpinname="Index" dstnodeid="54" dstpinname="Quad Index">
-   </LINK>
    <NODE componentmode="Hidden" id="90" nodename="..\modules\Select quad (DKO).v4p" systemname="quad (DKO)" filename="..\modules\Select quad (DKO).v4p">
    <BOUNDS height="270" left="17910" top="15120" type="Node" width="3345">
    </BOUNDS>
@@ -686,12 +372,6 @@
    <LINKPOINT x="3740" y="9030">
    </LINKPOINT>
    <LINKPOINT x="14950" y="7995">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="87" srcpinname="Y Output Value" dstnodeid="90" dstpinname="Select Type" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="5015" y="9848">
-   </LINKPOINT>
-   <LINKPOINT x="16000" y="8813">
    </LINKPOINT>
    </LINK>
    <NODE systemname="EQ (Value)" nodename="EQ (Value)" componentmode="Hidden" id="92">
@@ -819,6 +499,8 @@
    </PIN>
    <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
    </PIN>
+   <PIN pinname="Enabled" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="100" srcpinname="Layer" dstnodeid="98" dstpinname="Layer 1">
    </LINK>
@@ -917,9 +599,9 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Layer Out|">
    </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="98" srcpinname="Layer Out" dstnodeid="103" dstpinname="Input Node">
-   </LINK>
    <LINK srcnodeid="68" srcpinname="Buffers" dstnodeid="100" dstpinname="Texture" linkstyle="Bezier" hiddenwhenlocked="1">
    <LINKPOINT x="4365" y="14565">
    </LINKPOINT>
@@ -933,101 +615,15 @@
    </LINKPOINT>
    </LINK>
    <NODE systemname="Preview (DX11.Texture)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Preview (DX11.Texture)" componentmode="InAWindow" id="104">
-   <BOUNDS type="Node" left="1560" top="9705" width="100" height="100">
+   <BOUNDS type="Node" left="1995" top="13725" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1560" top="9705" width="6000" height="4500">
+   <BOUNDS type="Box" left="1995" top="13725" width="6000" height="4500">
    </BOUNDS>
    <BOUNDS type="Window" left="810" top="11580" width="11805" height="9255">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="68" srcpinname="Buffers" dstnodeid="104" dstpinname="Texture In">
-   </LINK>
-   <NODE systemname="Backup Recordings" filename="Layer 0\Backup Recordings.v4p" nodename="Layer 0\Backup Recordings.v4p" componentmode="Hidden" id="105">
-   <BOUNDS type="Node" left="15810" top="3720" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Backup Folders" visible="1">
-   </PIN>
-   <PIN pinname="Active Storage Location" visible="1" slicecount="1" values="|Layer 0\|">
-   </PIN>
-   <PIN pinname="Backup Storage Location" slicecount="1" visible="1" values="|..\..\Recording Repos\Backup|">
-   </PIN>
-   <BOUNDS type="Window" left="22200" top="9675" width="9000" height="6000">
-   </BOUNDS>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="105" dstpinname="Backup Folders">
-   </LINK>
-   <LINK srcnodeid="31" srcpinname="Output String" dstnodeid="105" dstpinname="Active Storage Location">
-   </LINK>
-   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="107">
-   <BOUNDS type="Node" left="15345" top="4215" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output 1" visible="1">
-   </PIN>
-   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="107" dstpinname="Input 1">
-   </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="108" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="17280" top="2550" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="17280" top="2550" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="1" values="|..\..\Recording Repos\Backup|">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="text">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="Directory">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Backup Storage Location|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="108" srcpinname="Output String" dstnodeid="105" dstpinname="Backup Storage Location">
-   </LINK>
-   <LINK srcnodeid="108" srcpinname="Output String" dstnodeid="54" dstpinname="Existing recordings folder">
-   </LINK>
-   <LINK srcnodeid="107" srcpinname="Output 1" dstnodeid="54" dstpinname="Do">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="110" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="15675" top="4980" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="15675" top="4980" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="105" srcpinname="Success" dstnodeid="110" dstpinname="Y Input Value">
-   </LINK>
-   <NODE systemname="MonoFlop (Animation Framebased)" nodename="MonoFlop (Animation Framebased)" componentmode="Hidden" id="117" filename="%VVVV%\addonpack\lib\nodes\plugins\MonoFlop.dll">
-   <BOUNDS type="Node" left="16965" top="6555" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Set" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Frames" slicecount="1" values="60">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="56" srcpinname="Y Output Value" dstnodeid="117" dstpinname="Set">
-   </LINK>
-   <LINK srcnodeid="117" srcpinname="Output" dstnodeid="64" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="MonoFlop (Animation Framebased)" nodename="MonoFlop (Animation Framebased)" componentmode="Hidden" id="119" filename="%VVVV%\addonpack\lib\nodes\plugins\MonoFlop.dll">
    <BOUNDS type="Node" left="12720" top="13905" width="100" height="100">
    </BOUNDS>
@@ -1156,4 +752,120 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <LINK srcnodeid="84" srcpinname="Texture Out" dstnodeid="104" dstpinname="Texture In">
+   </LINK>
+   <NODE systemname="UDP (Network Client)" nodename="UDP (Network Client)" componentmode="Hidden" id="132">
+   <BOUNDS type="Node" left="3150" top="14880" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Do Send" visible="1">
+   </PIN>
+   <PIN pinname="Remote Port" slicecount="1" values="2345">
+   </PIN>
+   <PIN pinname="Remote Host" slicecount="1" values="localhost">
+   </PIN>
+   </NODE>
+   <NODE systemname="OSCEncoder (Network)" nodename="OSCEncoder (Network)" componentmode="Hidden" id="133">
+   <BOUNDS type="Node" left="3150" top="14310" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="OSCMessage" visible="1">
+   </PIN>
+   <PIN pinname="Arguments" slicecount="1" values="/nowRecording">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="133" srcpinname="OSCMessage" dstnodeid="132" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Recording" dstnodeid="132" dstpinname="Do Send">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="134">
+   <BOUNDS type="Node" left="3120" top="15195" width="6345" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3120" top="15195" width="2010" height="1020">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|//send message to camera app - recording now (don&apos;t do any changes to camera frame)|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="String">
+   </PIN>
+   </NODE>
+   <NODE systemname="SpoutReceiver (DX11.Texture2D)" filename="..\modules\SpoutReceiver (DX11.Texture2D).v4p" nodename="SpoutReceiver (DX11.Texture2D)" componentmode="InAWindow" id="135">
+   <BOUNDS type="Node" left="3660" top="6975" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   <PIN pinname="Force Update" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="135" srcpinname="Texture" dstnodeid="69" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="68" srcpinname="Buffers" dstnodeid="83" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="136" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3270" top="2490" width="600" height="1500">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3270" top="2490" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="8" visible="1" values="4,5,6,7,8,9,10,11">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Recorders">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="136" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Select Type">
+   </LINK>
+   <LINK srcnodeid="136" srcpinname="Y Output Value" dstnodeid="90" dstpinname="Select Type" linkstyle="Bezier">
+   <LINKPOINT x="3330" y="9540">
+   </LINKPOINT>
+   <LINKPOINT x="21195" y="9540">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="137">
+   <BOUNDS type="Node" left="16470" top="19515" width="1440" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16470" top="19515" width="2280" height="555">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|We disable this now and use vanity mode instead&cr;&lf;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="98" srcpinname="Layer Out" dstnodeid="103" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="138">
+   <BOUNDS type="Node" left="20445" top="10650" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="20445" top="10650" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Show Next Recording|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="138" srcpinname="Y Output Value" dstnodeid="98" dstpinname="Enabled">
+   </LINK>
    </PATCH>
