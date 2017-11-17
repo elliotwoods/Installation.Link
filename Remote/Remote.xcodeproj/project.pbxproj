@@ -38,7 +38,7 @@
 		72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */; };
 		7BB8A825EC628B64D5F9F917 /* MultiSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9958B0FE9A41F7A0E80D1A0 /* MultiSelect.cpp */; };
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
-		8B11F5D21F40355800F4D860 /* libmysqlclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B11F5D11F40355800F4D860 /* libmysqlclient.a */; };
+		8B778F371FBC4B5F001B0C34 /* libmysqlclient-armv7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B778F351FBC4B5F001B0C34 /* libmysqlclient-armv7.a */; };
 		8BB24B3E1F29E20F00C66DB5 /* my_config.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 8BB24B0D1F29E20E00C66DB5 /* my_config.h.in */; };
 		8BB24B3F1F29E20F00C66DB5 /* mysql.h.pp in Sources */ = {isa = PBXBuildFile; fileRef = 8BB24B231F29E20E00C66DB5 /* mysql.h.pp */; };
 		8BB24B401F29E20F00C66DB5 /* mysql_version.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 8BB24B271F29E20E00C66DB5 /* mysql_version.h.in */; };
@@ -85,6 +85,19 @@
 			remoteInfo = "iPhone+OF Static Library";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8B778F3A1FBC526D001B0C34 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00D6D32B84B099226431108C /* ofxOsc.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOsc.h; path = ../../../addons/ofxOsc/src/ofxOsc.h; sourceTree = SOURCE_ROOT; };
@@ -140,8 +153,8 @@
 		81B93FAF69C7EE47E3582F41 /* Connection.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Connection.cpp; path = src/Connection.cpp; sourceTree = SOURCE_ROOT; };
 		86D6C9324E8957D4B51BCFA8 /* Register.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Register.h; path = ../../../addons/ofxAssets/src/ofxAssets/Register.h; sourceTree = SOURCE_ROOT; };
 		87DC2B0A687258A832A3504F /* Register.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Register.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Register.cpp; sourceTree = SOURCE_ROOT; };
-		8B11F5D11F40355800F4D860 /* libmysqlclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmysqlclient.a; sourceTree = "<group>"; };
 		8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscBundle.h; path = ../../../addons/ofxOsc/src/ofxOscBundle.h; sourceTree = SOURCE_ROOT; };
+		8B778F351FBC4B5F001B0C34 /* libmysqlclient-armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libmysqlclient-armv7.a"; sourceTree = "<group>"; };
 		8BB24AF51F29E20E00C66DB5 /* gcc_builtins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcc_builtins.h; sourceTree = "<group>"; };
 		8BB24AF61F29E20E00C66DB5 /* generic-msvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "generic-msvc.h"; sourceTree = "<group>"; };
 		8BB24AF71F29E20E00C66DB5 /* nolock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nolock.h; sourceTree = "<group>"; };
@@ -285,7 +298,7 @@
 				53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */,
 				5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */,
 				E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */,
-				8B11F5D21F40355800F4D860 /* libmysqlclient.a in Frameworks */,
+				8B778F371FBC4B5F001B0C34 /* libmysqlclient-armv7.a in Frameworks */,
 				E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */,
 				E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */,
 				E41D400E13B39D2100A75A5D /* MapKit.framework in Frameworks */,
@@ -583,7 +596,7 @@
 		8BB24B3C1F29E20F00C66DB5 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				8B11F5D11F40355800F4D860 /* libmysqlclient.a */,
+				8B778F351FBC4B5F001B0C34 /* libmysqlclient-armv7.a */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -792,6 +805,7 @@
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				9255DD331112741900D6945E /* ShellScript */,
+				8B778F3A1FBC526D001B0C34 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -945,13 +959,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = armv7;
+				ARCHS = (
+					arm64,
+					armv7,
+				);
 				DEVELOPMENT_TEAM = CGB4H2337N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = ../../../addons/ofxMySQL/libs/libmysql/lib/ios;
 				OTHER_LDFLAGS = (
 					"$(OF_CORE_FRAMEWORKS)",
@@ -959,21 +976,25 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = KimchiAndChips.Link.Remote;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				TARGETED_DEVICE_FAMILY = 2;
-				VALID_ARCHS = armv7;
+				SDKROOT = iphoneos11.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = (
+					arm64,
+					armv7,
+				);
 				DEVELOPMENT_TEAM = CGB4H2337N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = ../../../addons/ofxMySQL/libs/libmysql/lib/ios;
 				OTHER_LDFLAGS = (
 					"$(OF_CORE_FRAMEWORKS)",
@@ -981,8 +1002,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = KimchiAndChips.Link.Remote;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				TARGETED_DEVICE_FAMILY = 2;
-				VALID_ARCHS = armv7;
+				SDKROOT = iphoneos11.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
