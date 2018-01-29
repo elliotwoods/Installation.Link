@@ -8,5 +8,5 @@ public:
 	void reset();
 protected:
 	void draw();
-	float resetTime;
+	chrono::time_point<chrono::system_clock> resetTime = chrono::system_clock::now();
 };

@@ -12,21 +12,24 @@ Countdown::Countdown() {
 
 //----------
 void Countdown::reset() {
-	this->resetTime = ofGetElapsedTimef();
+    this->resetTime = chrono::system_clock::now();
 }
 
 //----------
 void Countdown::update() {
-	float runTime = ofGetElapsedTimef() - this->resetTime;
+    auto now = chrono::system_clock::now();
+	auto runTime = now - this->resetTime;
 	
-	if (runTime >= 5.0f) {
+    if (runTime >= chrono::seconds(5)) {
 		ofNotifyEvent(this->onCountdownOver, this);
 	}
 }
 
 //----------
 void Countdown::draw() {
-	float runTime = ofGetElapsedTimef() - this->resetTime;
+    auto now = chrono::system_clock::now();
+	auto runTimeRaw = now - this->resetTime;
+    auto runTime = (float)  chrono::duration_cast<chrono::milliseconds>(runTimeRaw).count() / 1000.0f;
 	
 	ofColor red = ofColor(0x9d,0x0b,0x0e);
 	ofColor black = ofColor(0);
@@ -36,13 +39,13 @@ void Countdown::draw() {
 	ofPushStyle();
 	ofSetColor(red.getLerped(black, ofClamp(runTime, 0, 1)));
 	float r = this->getBounds().getWidth() / 2.0f;
-	ofCircle(r, r, r);
+	ofDrawCircle(r, r, r);
 	ofPopStyle();
 
 	//inner circle
 	ofPushStyle();
 	ofSetColor(0xf6, 0xf6, 0xec);
-	ofCircle(r, r, ofMap(runTime, 0, 1, 0, r - 30, true));
+	ofDrawCircle(r, r, ofMap(runTime, 0, 1, 0, r - 30, true));
 	ofPopStyle();
 	
 	if (runTime > 1.0f) {

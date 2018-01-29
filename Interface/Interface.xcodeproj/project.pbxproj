@@ -35,7 +35,6 @@
 		72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */; };
 		7BB8A825EC628B64D5F9F917 /* MultiSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9958B0FE9A41F7A0E80D1A0 /* MultiSelect.cpp */; };
 		879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */; };
-		8BB24AEA1F29DCEF00C66DB5 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 8BB24AE91F29DCEF00C66DB5 /* data */; };
 		8E1F9C0A36853893313BFD50 /* Countdown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70D1D23876F9FAB155BE9DA /* Countdown.cpp */; };
 		8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */; };
 		92F698C5C65CA0489D713F32 /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4FE1C9E62B4ED0995F2BF89 /* Element.cpp */; };
@@ -126,7 +125,6 @@
 		86D6C9324E8957D4B51BCFA8 /* Register.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Register.h; path = ../../../addons/ofxAssets/src/ofxAssets/Register.h; sourceTree = SOURCE_ROOT; };
 		87DC2B0A687258A832A3504F /* Register.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Register.cpp; path = ../../../addons/ofxAssets/src/ofxAssets/Register.cpp; sourceTree = SOURCE_ROOT; };
 		8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscBundle.h; path = ../../../addons/ofxOsc/src/ofxOscBundle.h; sourceTree = SOURCE_ROOT; };
-		8BB24AE91F29DCEF00C66DB5 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
 		8C75AFC8774A62495DD53464 /* ofxOscReceiver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscReceiver.h; path = ../../../addons/ofxOsc/src/ofxOscReceiver.h; sourceTree = SOURCE_ROOT; };
 		984A75E3E72BB2A77634B34F /* ofxKCTouchGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxKCTouchGui.h; path = ../../../addons/ofxKCTouchGui2/src/ofxKCTouchGui.h; sourceTree = SOURCE_ROOT; };
 		9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
@@ -223,7 +221,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8BB24AE91F29DCEF00C66DB5 /* data */,
 				678E130917951536005B6D19 /* Icon.png */,
 				678E130717951530005B6D19 /* Icon@2x.png */,
 				678E130B1795153C005B6D19 /* Default.png */,
@@ -262,17 +259,17 @@
 		30CB364908817057B430D528 /* osc */ = {
 			isa = PBXGroup;
 			children = (
-				AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */,
-				F4F5B6B8BA2BD52C646ED908 /* OscException.h */,
-				A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */,
 				63A47AC60FFAFC3BF093EC0F /* OscOutboundPacketStream.cpp */,
-				029684CF678F70F6D3537A29 /* OscOutboundPacketStream.h */,
 				6B65E6930994CC4B2D2B8B33 /* OscPacketListener.h */,
-				BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */,
-				4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */,
-				9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */,
-				20F35AFADAF0068B067E713F /* OscReceivedElements.h */,
 				D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */,
+				4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */,
+				AE335EB4709BFD4671EEAC84 /* MessageMappingOscPacketListener.h */,
+				A2AAA8CA403479E6FCDF920E /* OscHostEndianness.h */,
+				F4F5B6B8BA2BD52C646ED908 /* OscException.h */,
+				029684CF678F70F6D3537A29 /* OscOutboundPacketStream.h */,
+				9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */,
+				BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */,
+				20F35AFADAF0068B067E713F /* OscReceivedElements.h */,
 				C6937888E126BADC8777423B /* OscTypes.h */,
 			);
 			name = osc;
@@ -340,13 +337,13 @@
 		95643286CF52AB4C1D5BC269 /* ofxKCTouchGui */ = {
 			isa = PBXGroup;
 			children = (
-				263D21E1D2D1268EC5945292 /* Controller.cpp */,
-				7FFC441C999AC1679F107E68 /* Controller.h */,
-				F4FE1C9E62B4ED0995F2BF89 /* Element.cpp */,
-				243DBF5BE62FBC589B0AA8DC /* Element.h */,
-				E0D4DAB03ADD9D235C58A514 /* Elements */,
-				64BC6518237660A4C206DD94 /* Touch.cpp */,
 				F531FEC78D286446D0C04CF7 /* Touch.h */,
+				7FFC441C999AC1679F107E68 /* Controller.h */,
+				E0D4DAB03ADD9D235C58A514 /* Elements */,
+				243DBF5BE62FBC589B0AA8DC /* Element.h */,
+				263D21E1D2D1268EC5945292 /* Controller.cpp */,
+				F4FE1C9E62B4ED0995F2BF89 /* Element.cpp */,
+				64BC6518237660A4C206DD94 /* Touch.cpp */,
 			);
 			name = ofxKCTouchGui;
 			sourceTree = "<group>";
@@ -393,16 +390,16 @@
 		BD2F1A9F8D0C05EDB29122D0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				00D6D32B84B099226431108C /* ofxOsc.h */,
-				7689F8A0F3D0B7635A8C3104 /* ofxOscArg.h */,
-				65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */,
-				8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */,
-				DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */,
-				C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */,
-				0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */,
 				B31C608870ECEB2490A93736 /* ofxOscParameterSync.h */,
-				C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */,
+				0AED834CE4DEC5260AF302A2 /* ofxOscParameterSync.cpp */,
+				DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */,
+				00D6D32B84B099226431108C /* ofxOsc.h */,
+				65EEFA3DA3526E9CDD9C21F9 /* ofxOscBundle.cpp */,
 				8C75AFC8774A62495DD53464 /* ofxOscReceiver.h */,
+				7689F8A0F3D0B7635A8C3104 /* ofxOscArg.h */,
+				C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */,
+				C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */,
+				8B30E93FD3D3475EED522A0E /* ofxOscBundle.h */,
 				81967292BFC87A0144BD32C6 /* ofxOscSender.cpp */,
 				9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */,
 			);
@@ -412,8 +409,8 @@
 		D27B2221A225CA523C019676 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				FF8CDF57858E9B94E3237115 /* ip */,
 				30CB364908817057B430D528 /* osc */,
+				FF8CDF57858E9B94E3237115 /* ip */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -421,12 +418,12 @@
 		E0D4DAB03ADD9D235C58A514 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				6344DEF5708C53DAF76506FE /* Button.cpp */,
-				A340683855BCE84FE98F553D /* Button.h */,
-				B7F14F5A0B093321B9185165 /* Canvas.cpp */,
-				68420BE11F9770DFFD114934 /* Canvas.h */,
 				F9958B0FE9A41F7A0E80D1A0 /* MultiSelect.cpp */,
 				B2AA59382885EA077F0E5127 /* MultiSelect.h */,
+				6344DEF5708C53DAF76506FE /* Button.cpp */,
+				B7F14F5A0B093321B9185165 /* Canvas.cpp */,
+				A340683855BCE84FE98F553D /* Button.h */,
+				68420BE11F9770DFFD114934 /* Canvas.h */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -445,14 +442,14 @@
 				E4D8936B11527B74007E1F53 /* main.mm */,
 				E4D8936D11527B74007E1F53 /* ofApp.mm */,
 				E4D8936C11527B74007E1F53 /* ofApp.h */,
-				D70D1D23876F9FAB155BE9DA /* Countdown.cpp */,
-				C87BEFB58B150EC5253073D4 /* Countdown.h */,
-				AA2EB8811D964F3706D58D3A /* LoadingProgress.cpp */,
-				EFA68666AD44CECD5FF18222 /* LoadingProgress.h */,
-				6178ECE15DF85A2FEA9D4D24 /* Recording.cpp */,
-				4B3722A56B585F20E86D7AAC /* Recording.h */,
-				193C4AD3307D3E19C89E4F53 /* StartButton.cpp */,
 				FC8C1423408A10776D1CFB9B /* StartButton.h */,
+				193C4AD3307D3E19C89E4F53 /* StartButton.cpp */,
+				C87BEFB58B150EC5253073D4 /* Countdown.h */,
+				4B3722A56B585F20E86D7AAC /* Recording.h */,
+				D70D1D23876F9FAB155BE9DA /* Countdown.cpp */,
+				AA2EB8811D964F3706D58D3A /* LoadingProgress.cpp */,
+				6178ECE15DF85A2FEA9D4D24 /* Recording.cpp */,
+				EFA68666AD44CECD5FF18222 /* LoadingProgress.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -469,20 +466,20 @@
 		EFCDA0F3B5AD30B56470886B /* ofxAssets */ = {
 			isa = PBXGroup;
 			children = (
+				4308EFF5143EFAAAC347DD57 /* Sound.h */,
+				3D95B36A7075725E92241889 /* Shader.h */,
+				F7CA592F5516257EAC38A029 /* Image.cpp */,
+				6DC6F426A806798D22023EAD /* Font.cpp */,
+				D729ECA86453DE065311E034 /* Set.cpp */,
+				9CED095FF14A0932EE69B7A8 /* Shader.cpp */,
+				87DC2B0A687258A832A3504F /* Register.cpp */,
+				B207BA15FAB40EEE9106EA10 /* Sound.cpp */,
 				A1910C8597F22BAFEB2C87C9 /* BaseAsset.cpp */,
 				1D28E8B5F753FEC36FA9F6F7 /* BaseAsset.h */,
-				6DC6F426A806798D22023EAD /* Font.cpp */,
 				60EE7A3C47BB4C564A6858BC /* Font.h */,
-				F7CA592F5516257EAC38A029 /* Image.cpp */,
-				CC333C075AA06FB210BE2266 /* Image.h */,
-				87DC2B0A687258A832A3504F /* Register.cpp */,
 				86D6C9324E8957D4B51BCFA8 /* Register.h */,
-				D729ECA86453DE065311E034 /* Set.cpp */,
+				CC333C075AA06FB210BE2266 /* Image.h */,
 				A0D15E898E99721966EB62CB /* Set.h */,
-				9CED095FF14A0932EE69B7A8 /* Shader.cpp */,
-				3D95B36A7075725E92241889 /* Shader.h */,
-				B207BA15FAB40EEE9106EA10 /* Sound.cpp */,
-				4308EFF5143EFAAAC347DD57 /* Sound.h */,
 			);
 			name = ofxAssets;
 			sourceTree = "<group>";
@@ -490,13 +487,13 @@
 		FF8CDF57858E9B94E3237115 /* ip */ = {
 			isa = PBXGroup;
 			children = (
-				ADD194746185E2DA11468377 /* IpEndpointName.cpp */,
-				48974F980F51769171D0B2F5 /* IpEndpointName.h */,
-				F7FBC56859535E597B24BB91 /* NetworkingUtils.h */,
-				23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */,
 				641362CA659FAFEE4E81001B /* posix */,
-				444657A12E59D0ED86981498 /* TimerListener.h */,
 				2FD4B0329909D3527F003494 /* UdpSocket.h */,
+				444657A12E59D0ED86981498 /* TimerListener.h */,
+				23640F57DF6C4BB6BFC5DA4C /* PacketListener.h */,
+				48974F980F51769171D0B2F5 /* IpEndpointName.h */,
+				ADD194746185E2DA11468377 /* IpEndpointName.cpp */,
+				F7FBC56859535E597B24BB91 /* NetworkingUtils.h */,
 			);
 			name = ip;
 			sourceTree = "<group>";
@@ -576,7 +573,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BB24AEA1F29DCEF00C66DB5 /* data in Resources */,
 				678E130817951530005B6D19 /* Icon@2x.png in Resources */,
 				678E130A17951536005B6D19 /* Icon.png in Resources */,
 				678E130C1795153C005B6D19 /* Default.png in Resources */,
@@ -610,36 +606,36 @@
 			files = (
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,
+				E1B5DA7975268D931B4692F0 /* StartButton.cpp in Sources */,
 				8E1F9C0A36853893313BFD50 /* Countdown.cpp in Sources */,
 				20CA8F31D892DF217592F8DE /* LoadingProgress.cpp in Sources */,
 				07B5C534F944B154B38A4733 /* Recording.cpp in Sources */,
-				E1B5DA7975268D931B4692F0 /* StartButton.cpp in Sources */,
-				977E32123A8A07E1DB9A0D85 /* BaseAsset.cpp in Sources */,
-				48AA27BB22351E4FA5861B1A /* Font.cpp in Sources */,
 				5982B12539F35D02AB49803E /* Image.cpp in Sources */,
-				F3061312C884CB6931AC899E /* Register.cpp in Sources */,
+				48AA27BB22351E4FA5861B1A /* Font.cpp in Sources */,
 				B44B5599ADC860A956B01646 /* Set.cpp in Sources */,
 				D57027F36B35F3FF654824D9 /* Shader.cpp in Sources */,
+				F3061312C884CB6931AC899E /* Register.cpp in Sources */,
 				69F41565AE8CB530C199B35F /* Sound.cpp in Sources */,
+				977E32123A8A07E1DB9A0D85 /* BaseAsset.cpp in Sources */,
 				D6D9A3631B256390D73E2C18 /* ofxAssets.cpp in Sources */,
-				535FCB0E448278EEE1A35101 /* Controller.cpp in Sources */,
-				92F698C5C65CA0489D713F32 /* Element.cpp in Sources */,
+				7BB8A825EC628B64D5F9F917 /* MultiSelect.cpp in Sources */,
 				A6CCD8BA6761F3D0D414668E /* Button.cpp in Sources */,
 				304AF2321DA32D24896420B2 /* Canvas.cpp in Sources */,
-				7BB8A825EC628B64D5F9F917 /* MultiSelect.cpp in Sources */,
+				535FCB0E448278EEE1A35101 /* Controller.cpp in Sources */,
+				92F698C5C65CA0489D713F32 /* Element.cpp in Sources */,
 				AAAD269F43CBC134DC80E61F /* Touch.cpp in Sources */,
-				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
-				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
+				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
+				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
-				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
+				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
+				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
+				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
+				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
-				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
-				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
-				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
-				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,
+				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,11 +659,9 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = KimchiAndChips.Link.Interface;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = iphoneos10.3;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
@@ -681,11 +675,9 @@
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
 				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = NO;
 				INFOPLIST_FILE = "ofxiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = KimchiAndChips.Link.Interface;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = iphoneos10.3;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};

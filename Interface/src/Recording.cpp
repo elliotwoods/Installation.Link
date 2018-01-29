@@ -26,13 +26,13 @@ void Recording::draw() {
 	ofPushStyle();
 	ofSetColor(gray);
 	float r = this->getBounds().getWidth() / 2.0f;
-	ofCircle(r, r, r);
+	ofDrawCircle(r, r, r);
 	ofPopStyle();
 	
 	//inner circle
 	ofPushStyle();
 	ofSetColor(0xf6, 0xf6, 0xec);
-	ofCircle(r, r, r - 30);
+	ofDrawCircle(r, r, r - 30);
 	ofPopStyle();
 
 	//text

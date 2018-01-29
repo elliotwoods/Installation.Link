@@ -16,26 +16,29 @@ StartButton::StartButton() {
 
 //----------
 void StartButton::reset() {
-	this->resetTime = ofGetElapsedTimef();
+    this->resetTime = chrono::system_clock::now();
 }
 
 //----------
 void StartButton::draw() {
-	float runTime = ofGetElapsedTimef() - this->resetTime;
+    auto now = chrono::system_clock::now();
+    auto runTimeRaw = now - this->resetTime;
+    auto runTime = (float)  chrono::duration_cast<chrono::milliseconds>(runTimeRaw).count() / 1000.0f;
+    
 	float phase = runTime / 4.0f * TWO_PI;
 	
 	//red circle
 	ofPushStyle();
 	ofSetColor(0x9d,0x0b,0x0e);
 	float r = this->getBounds().getWidth() / 2.0f;
-	ofCircle(r, r, r);
+	ofDrawCircle(r, r, r);
 	ofPopStyle();
 	
 	if (runTime < 1.0f) {
 		//inner circle
 		ofPushStyle();
 		ofSetColor(0xf6, 0xf6, 0xec);
-		ofCircle(r, r, ofMap(runTime, 0, 1, r - 30, 0, true));
+		ofDrawCircle(r, r, ofMap(runTime, 0, 1, r - 30, 0, true));
 		ofPopStyle();
 	} else {
 		if(this->getTouchCount() > 0) {
@@ -53,7 +56,7 @@ void StartButton::draw() {
 		//black dot
 		ofPushStyle();
 		ofSetColor(0);
-		ofCircle(
+		ofDrawCircle(
 				 (-sin(phase) + 1.0f) * this->getBounds().getWidth() / 2.0f,
 				 (cos(phase) + 1.0f) * this->getBounds().getHeight() / 2.0f,
 				 10.0f);

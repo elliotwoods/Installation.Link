@@ -1,4 +1,6 @@
 #include "ofApp.h"
+#include "ofxAssets.h"
+using namespace ofxAssets;
 
 //--------------------------------------------------------------
 void ofApp::setup(){	
@@ -104,20 +106,25 @@ void ofApp::touchCancelled(ofTouchEventArgs & touch){
 void ofApp::gotoCountdown() {
 	this->state = State_CountingDown;
 	this->countdown->reset();
+    sound("idle").setLoop(true);
+    sound("idle").play();
 }
 
 //--------------------------------------------------------------
 void ofApp::gotoRecording() {
 	this->state = State_Recording;
 	this->recording->reset();
-	
+    
 	ofxOscMessage msg;
 	msg.setAddress("/record");
 	oscSender.sendMessage(msg);
+    sound("idle").stop();
+    sound("start").play();
 }
 
 //--------------------------------------------------------------
 void ofApp::gotoWaiting() {
+    sound("success").play();
 	this->state = State_Waiting;
 	this->startButton->reset();
 }
