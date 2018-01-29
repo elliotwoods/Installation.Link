@@ -1,0 +1,161 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\modules\SpoutReceiver (DX11.Texture2D).v4p" systemname="SpoutReceiver (DX11.Texture2D)" filename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\modules\SpoutReceiver (DX11.Texture2D).v4p">
+   <BOUNDS type="Window" left="11730" top="20235" width="9000" height="6000">
+   </BOUNDS>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="6" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="2970" top="624" width="1590" height="285">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2970" top="624" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="croppedCamera">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="#vvvv">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Share Name|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Changed" visible="1" pintype="Output">
+   </PIN>
+   </NODE>
+   <NODE systemname="Reader (Raw SharedMemory)" nodename="Reader (Raw SharedMemory)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="2991" top="2160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Shared Memory Name" visible="1">
+   </PIN>
+   <PIN pinname="Size in Bytes" visible="1">
+   </PIN>
+   <PIN pinname="Read" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="5" dstpinname="Shared Memory Name">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3171" top="1305" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3171" top="1305" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="12">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="B">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Size in Bytes">
+   </LINK>
+   <NODE systemname="OR (Boolean)" nodename="OR (Boolean)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="4371" top="1770" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Output" dstnodeid="5" dstpinname="Read">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Changed" dstnodeid="3" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5001" top="615" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5001" top="615" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Force Update|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Input 2">
+   </LINK>
+   <NODE systemname="AsValue (Raw)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsValue (Raw)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2985" top="2595" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2985" top="2595" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Format" slicecount="1" values="UInt32">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="7" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2970" top="3000" width="1395" height="735">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2970" top="3000" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,,">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="9" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Vector (3d Split)" nodename="Vector (3d Split)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="2970" top="3900" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="10" dstpinname="XYZ">
+   </LINK>
+   <NODE systemname="FromSharedTexture (DX11.Texture 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="FromSharedTexture (DX11.Texture 2d)" componentmode="Hidden" id="11">
+   <BOUNDS type="Node" left="2970" top="4305" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2970" top="4305" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Pointer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="X" dstnodeid="11" dstpinname="Pointer">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="13" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2970" top="4755" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2970" top="4755" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Texture">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Texture" dstnodeid="13" dstpinname="Input Node">
+   </LINK>
+   <PACK Name="addonpack" Version="35.0.0">
+   </PACK>
+   </PATCH>

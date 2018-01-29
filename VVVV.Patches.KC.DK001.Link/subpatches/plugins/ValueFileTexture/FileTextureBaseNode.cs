@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using VVVV.PluginInterfaces.V2;
 using FeralTic.DX11;

@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p" systemname="AllImageFilenames" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p">
-   <BOUNDS type="Window" left="26850" top="12600" width="11895" height="10680">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p" systemname="AllImageFilenames" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Common\AllImageFilenames.v4p">
+   <BOUNDS type="Window" left="285" top="14805" width="11895" height="10680">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE id="9" systemname="Select (String)" nodename="Select (String)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="1640" top="6710" width="100" height="100">
@@ -551,6 +551,10 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
    </NODE>
    <LINK srcnodeid="27" srcpinname="Y Output Value" dstnodeid="26" dstpinname="Input 2">
    </LINK>
@@ -559,5 +563,59 @@
    <LINK srcnodeid="26" srcpinname="Output" dstnodeid="24" dstpinname="Set">
    </LINK>
    <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Input">
+   </LINK>
+   <NODE systemname="CSVWriter (String)" filename="..\modules\CSVWriter (String).v4p" nodename="..\modules\CSVWriter (String).v4p" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="8400" top="6847" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6850" top="4960" width="3100" height="3775">
+   </BOUNDS>
+   <BOUNDS type="Window" left="9330" top="13530" width="6915" height="4515">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="Write" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="29">
+   <BOUNDS type="Box" left="9000" top="5760" width="1800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9000" top="5760" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="..\..\..\Python\filenamesPerFolder.csv">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Text Formats (*.csv, *.dtd, *.html, *.txt, *.xml)||*.csv;*.dtd;*.html;*.htm;*.txt;*.xml||Text (*.txt)||*.txt||XML (*.xml)||*.xml||CSV (*.csv)||*.csv||DTD (*.dtd)||*.dtd||HTML (*.html, *.htm)||*.html;*.htm|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Output String" dstnodeid="30" dstpinname="Filename">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="28">
+   <BOUNDS type="Box" left="9345" top="6075" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9345" top="6075" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="30" dstpinname="Write">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="30" dstpinname="Input">
    </LINK>
    </PATCH>

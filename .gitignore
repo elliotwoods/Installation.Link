@@ -39,3 +39,6 @@ Release/
 Recordings/*
 
 Credentials.h
+Recordings.zip
+*.db
+*.opendb

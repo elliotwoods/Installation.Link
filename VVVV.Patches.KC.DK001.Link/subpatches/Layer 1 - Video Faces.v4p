@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Video Faces.v4p" systemname="Layer 1 - Video Faces" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Video Faces.v4p" scrollx="0" scrolly="0">
-   <BOUNDS height="11985" left="31305" top="16545" type="Window" width="13080">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta35.8.dtd" >
+   <PATCH nodename="E:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Video Faces.v4p" systemname="Layer 1 - Video Faces" filename="C:\openFrameworks\apps\Installation.Link\VVVV.Patches.KC.DK001.Link\subpatches\Layer 1 - Video Faces.v4p" scrollx="0" scrolly="0">
+   <BOUNDS height="11985" left="19245" top="14835" type="Window" width="13080">
    </BOUNDS>
    <NODE componentmode="InABox" id="16" nodename="IOBox (Node)" systemname="IOBox (Node)">
    <BOUNDS height="100" left="770" top="9470" type="Node" width="100">
@@ -100,7 +100,7 @@
    </NODE>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="33.7.0">
+   <PACK Name="addonpack" Version="35.0.0">
    </PACK>
    <NODE systemname="SelectViewport (DX11.Effect)" filename="dx11\SelectViewport.fx" nodename="SelectViewport (DX11.Effect)" componentmode="Hidden" id="103">
    <BOUNDS type="Node" left="955" top="6920" width="5985" height="270">
@@ -161,26 +161,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="106" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Quad">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="107" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4635" top="2010" width="555" height="1185">
-   </BOUNDS>
-   <BOUNDS type="Node" left="4635" top="2010" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="6" visible="1" values="1,2,3,4,5,6">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="6">
-   </PIN>
-   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="107" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Select Type">
    </LINK>
    <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="103" dstpinname="Texture">
    </LINK>
@@ -246,8 +226,6 @@
    <LINKPOINT x="4395" y="6158">
    </LINKPOINT>
    </LINK>
-   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="109" dstpinname="Texture">
-   </LINK>
    <LINK srcnodeid="109" srcpinname="Layer" dstnodeid="108" dstpinname="Layer 2">
    </LINK>
    <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="110">
@@ -287,5 +265,31 @@
    </LINKPOINT>
    <LINKPOINT x="4695" y="2453">
    </LINKPOINT>
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="112" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="6480" top="1380" width="600" height="1500">
+   </BOUNDS>
+   <BOUNDS type="Node" left="6480" top="1380" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="8" visible="1" values="4,5,6,7,8,9,10,11">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="8">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Face Types|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="112" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Select Type">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Output Node" dstnodeid="109" dstpinname="Texture">
    </LINK>
    </PATCH>

@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FeralTic">
-      <HintPath>..\..\..\..\..\vvvv-sdk\vvvv45\packs\dx11\core\FeralTic.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\packs\dx11\core\FeralTic.dll</HintPath>
     </Reference>
     <Reference Include="SlimDX">
       <HintPath>..\packages\SlimDX.4.0.13.44\lib\NET40\SlimDX.dll</HintPath>
@@ -80,21 +80,21 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.DX11.Core">
-      <HintPath>..\..\..\..\..\vvvv-sdk\vvvv45\packs\dx11\core\VVVV.DX11.Core.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\packs\dx11\core\VVVV.DX11.Core.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.DX11.Lib">
-      <HintPath>..\..\..\..\..\vvvv-sdk\vvvv45\packs\dx11\core\VVVV.DX11.Lib.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\packs\dx11\core\VVVV.DX11.Lib.dll</HintPath>
     </Reference>
     <Reference Include="VVVV.Hosting">
-      <HintPath>..\..\..\..\..\vvvv\vvvv_45beta32.1_x64\lib\core\VVVV.Hosting.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\lib\core\VVVV.Hosting.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Nodes.Generic">
-      <HintPath>..\..\..\..\..\vvvv\vvvv_45beta32.1_x64\lib\core\VVVV.Nodes.Generic.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\lib\core\VVVV.Nodes.Generic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.PluginInterfaces">
-      <HintPath>..\..\..\..\..\vvvv\vvvv_45beta32.1_x64\lib\core\VVVV.PluginInterfaces.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\lib\core\VVVV.PluginInterfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils">
@@ -102,7 +102,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils3rdParty">
-      <HintPath>..\..\..\..\..\vvvv\vvvv_45beta32.1_x64\lib\core\VVVV.Utils3rdParty.dll</HintPath>
+      <HintPath>C:\vvvv\vvvv_50beta35.8_x64\lib\core\VVVV.Utils3rdParty.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.UtilsIL">
@@ -113,10 +113,10 @@
   <ItemGroup>
     <Compile Include="FileTextureBaseNode.cs" />
     <Compile Include="FileTextureNodes.cs" />
-    <Compile Include="PlayNode.cs" />
-    <Compile Include="RecordNode.cs" />
+    <None Include="PlayNode.cs" />
+    <None Include="RecordNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecordNodeDX11.cs" />
+    <None Include="RecordNodeDX11.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
